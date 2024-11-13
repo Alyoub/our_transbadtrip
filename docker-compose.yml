@@ -12,7 +12,7 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /Users/atoukmat/database
+      device: ~/database
       o: bind
 
 services:
@@ -29,7 +29,7 @@ services:
     container_name: front
     build: ./frontend
     depends_on:
-      - backend 
+      - backend
     restart: always
     volumes:
       - front:/files
