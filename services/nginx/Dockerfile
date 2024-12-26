@@ -26,7 +26,8 @@ RUN openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048
 # Set permissions for the SSL files
 RUN chmod 600 /etc/nginx/ssl/*
 
+#RUN mkdir -p /etc/nginx/
 # Copy the nginx configuration file
-COPY conf /etc/nginx/nginx.conf
+COPY config /etc/nginx/nginx.conf
 
 CMD ["nginx", "-g", "daemon off;"]

@@ -1,6 +1,6 @@
-FROM debian:bullseye
+FROM node:latest
 
-RUN apt-get update && apt-get install vim procps -y 
+RUN apt-get update && apt-get install vim procps  -y 
 
 COPY files files
 
