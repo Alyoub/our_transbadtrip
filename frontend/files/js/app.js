@@ -148,16 +148,16 @@ document.addEventListener('DOMContentLoaded', () => {
         let ballX = canvas.width / 2;
         let ballY = canvas.height / 2;
         const ballRadius = 10;
-        let ballSpeedX = 12;
-        let ballSpeedY = 12;
+        let ballSpeedX = Math.random() > 0.5 ? 6 : -6;
+        let ballSpeedY = Math.random() > 0.5 ? 6 : -6;
     
         const paddleWidth = 10;
         const paddleHeight = 120;
         let playerPaddleY = (canvas.height - paddleHeight) / 2;
         let aiPaddleY = (canvas.height - paddleHeight) / 2;
     
-        let playerSpeed = 18;
-        let aiSpeed = 7;
+        let playerSpeed = 12;
+        let aiSpeed = 6;
     
         let playerScore = 0;
         let aiScore = 0;
@@ -214,12 +214,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 ballY < playerPaddleY + paddleHeight
             ) {
                 ballSpeedX = -ballSpeedX;
+                ballSpeedY += (Math.random() - 0.5) * 4;
             } else if (
                 ballX > canvas.width - paddleWidth &&
                 ballY > aiPaddleY &&
                 ballY < aiPaddleY + paddleHeight
             ) {
                 ballSpeedX = -ballSpeedX;
+                ballSpeedY += (Math.random() - 0.5) * 4;
             }
     
             if (ballX < 0) {
@@ -240,8 +242,8 @@ document.addEventListener('DOMContentLoaded', () => {
         function resetBall() {
             ballX = canvas.width / 2;
             ballY = canvas.height / 2;
-            ballSpeedX = (Math.random() > 0.5 ? 1 : -1) * 12;
-            ballSpeedY = (Math.random() > 0.5 ? 1 : -1) * 12;
+            ballSpeedX = Math.random() > 0.5 ? 6 : -6;
+            ballSpeedY = Math.random() > 0.5 ? 6 : -6;
         }
     
         function checkWin() {
@@ -251,8 +253,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 context.font = '40px Arial';
                 const winner = playerScore === winningScore ? 'Player Wins!' : 'AI Wins!';
                 context.fillText(winner, canvas.width / 2 - 100, canvas.height / 2);
-                setTimeout(() => location.reload(), 2000);
+                drawRestartButton();
             }
+        }
+    
+        function drawRestartButton() {
+            const restartButton = document.createElement('button');
+            restartButton.textContent = 'Restart';
+            restartButton.style.position = 'absolute';
+            restartButton.style.top = `${canvas.offsetTop + canvas.height / 2 + 40}px`;
+            restartButton.style.left = `${canvas.offsetLeft + canvas.width / 2 - 40}px`;
+            restartButton.style.padding = '10px 20px';
+            restartButton.style.fontSize = '16px';
+            document.body.appendChild(restartButton);
+    
+            restartButton.addEventListener('click', () => {
+                document.body.removeChild(restartButton);
+                restartGame();
+            });
+        }
+    
+        function restartGame() {
+            playerScore = 0;
+            aiScore = 0;
+            resetBall();
+            gameInterval = setInterval(gameLoop, 1000 / 60);
         }
     
         function gameLoop() {
@@ -261,8 +286,9 @@ document.addEventListener('DOMContentLoaded', () => {
             checkWin();
         }
     
-        const gameInterval = setInterval(gameLoop, 1000 / 60);
-    }    
+        let gameInterval = setInterval(gameLoop, 1000 / 60);
+    }
+    
     
     function initializeSignIn() {
         const signInForm = document.getElementById('signinForm');
