@@ -6,10 +6,6 @@ WORKDIR app
 
 EXPOSE 3000
 
-COPY package.json package.json
-
-COPY package-lock.json package-lock.json
-
 COPY server.js server.js
 
 COPY files files
