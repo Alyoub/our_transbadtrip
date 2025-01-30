@@ -58,7 +58,7 @@ Learn to set up WebSocket connections in frontend applications:
 ## 4. Building a Multiplayer Game (Frontend)
 Learn how to build the frontend for a real-time multiplayer game:
 - [Building Multiplayer Games with WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
-- [Game Development with JavaScript](https://www.freecodecamp.org/news/learn-javascript-game-development/)
+- [Game Development with JavaScript](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript)
 
 ### Key Topics:
 - Handling game state on the frontend (Player positions, scores)
