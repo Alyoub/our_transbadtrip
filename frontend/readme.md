@@ -1,7 +1,7 @@
 # Frontend WebSockets & REST API Learning Guide
 
 ## Desing 
- [Brek Hna] (https://www.figma.com/proto/YOpfRbVnNERYKha1bNQ7en/Untitled?node-id=179-615&t=ONEIPJuMVX8MfBbL-1&starting-point-node-id=179%3A615) by : [iyoob](https://github.com/Alyoub) 
+ [Brek Hna](https://www.figma.com/proto/YOpfRbVnNERYKha1bNQ7en/Untitled?node-id=179-615&t=ONEIPJuMVX8MfBbL-1&starting-point-node-id=179%3A615) by : [iyoob](https://github.com/Alyoub) 
 ## Overview
 This guide provides the necessary resources to learn how to build frontend applications that communicate with backend systems using REST APIs and WebSockets for real-time interactions, such as multiplayer games or chat applications.
 
