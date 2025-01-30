@@ -22,7 +22,7 @@ Learn the core technologies for frontend development:
 - [MDN Web Docs: HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [MDN Web Docs: CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - [MDN Web Docs: JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-
+- [Modern JavaScript Tutorial github](https://github.com/javascript-tutorial/en.javascript.info)
 ### Key Topics:
 - HTML5 Structure and Tags
 - Styling with CSS (Flexbox, Grid, and Responsive Design)
