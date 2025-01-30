@@ -1,5 +1,6 @@
 # Frontend WebSockets & REST API Learning Guide
 
+## Desing by [iyoob](https://github.com/Alyoub)
 ## Overview
 This guide provides the necessary resources to learn how to build frontend applications that communicate with backend systems using REST APIs and WebSockets for real-time interactions, such as multiplayer games or chat applications.
 
