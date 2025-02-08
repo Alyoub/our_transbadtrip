@@ -1,2 +1,39 @@
+### Test GET request to the root endpoint
 GET http://localhost:3000/
+Content-Type: application/json
+
+### Test POST request to register a new user
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "email": "test@example.com",
+    "name": "Test User",
+    "display_name": "testuser",
+    "password": "password123",
+    "avatar": "avatar.png"
+}
+
+### Test POST request to login
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "test@example.com",
+    "password": "password123"
+}
+
+### Test POST request to Google Sign-In (mocked)
+POST http://localhost:3000/google-signin
+Content-Type: application/json
+
+{
+    "email": "googleuser@example.com",
+    "name": "Google User",
+    "avatar": "googleavatar.png"
+}
+
+### Test GET request to profile (protected route)
+GET http://localhost:3000/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzM5MDExMjExfQ.E69eBXc-JdXyDFXOvEIzjLqn8_DTSukkdZYvydGueXo
 Content-Type: application/json
