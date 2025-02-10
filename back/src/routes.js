@@ -1,3 +1,5 @@
+// https://fastify.dev/docs/latest/Reference/Routes/
+
 const { request } = require("http");
 const {db} = require("../src/db_connector")
 async function routes(fastify,options){
