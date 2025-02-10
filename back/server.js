@@ -16,12 +16,15 @@ const fastify = require('fastify')({ logger: true })
 // fastify.get('/', function handler (_, reply) {
 //     reply.send({ hello: 'world' })
 // })
-fastify.register(require("./src/routes"))
-fastify.register(require("./src/db"))
-// Run the server!
-fastify.listen( { port: 3000 ,host :'localhost'}, (err) => {
+// const fastify = require('fastify')();
+const routes = require('./src/routes');
+
+fastify.register(routes);
+
+fastify.listen({port : 3000}, err => {
     if (err) {
-        fastify.log.error(err)
-        process.exit(1)
+        console.error(err);
+        process.exit(1);
     }
-})
+    console.log('Server listening on http://localhost:3000');
+});

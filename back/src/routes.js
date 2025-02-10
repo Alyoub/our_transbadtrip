@@ -3,7 +3,7 @@ const prisma = new PrismaClient();
 const jwt = require('@fastify/jwt')
 const bcrypt = require('bcrypt')
 
-async function routes(fastify, options) {
+module.exports = async function routes(fastify, options) {
     fastify.get('/', async (request, reply) => {
         return {
             trip: 'bad'
@@ -89,4 +89,3 @@ async function routes(fastify, options) {
     });
 }
 
-module.exports = routes;
