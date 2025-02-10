@@ -17,7 +17,7 @@ const fastify = require('fastify')({ logger: true })
 //     reply.send({ hello: 'world' })
 // })
 fastify.register(require("./src/routes"))
-fastify.register(require("./src/db_connector"))
+fastify.register(require("./src/db"))
 // Run the server!
 fastify.listen( { port: 3000 ,host :'localhost'}, (err) => {
     if (err) {
