@@ -5,6 +5,10 @@ const fastify = require('fastify')({ logger: true })
 // https://github.com/fastify/fastify-auth/blob/main/auth.js
 
 
+
+// mohim !! ==>  https://dev.to/elijahtrillionz/build-a-crud-api-with-fastify-688 
+// mohim 2 !! ==> https://dev.to/elijahtrillionz/fastify-crud-api-with-authentication-2p
+
 // Declare a route
 // fastify.get('/', function handler (_, reply) {
 //     reply.send({ hello: 'world' })

@@ -1,3 +1,9 @@
 back/package.json
 back/package-lock.json
 back/node_modules/
+back/tsconfig.json
+back/.env
+.env
+back/promps.md
+back/test.js
+back/users.db
