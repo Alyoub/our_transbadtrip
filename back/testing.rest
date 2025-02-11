@@ -7,11 +7,9 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "email": "test@example.com",
-    "name": "Test User",
-    "display_name": "testuser",
-    "password": "password123",
-    "avatar": "avatar.png"
+    "email": "test@exampslse.com",
+    "name": "TestUsssser",
+    "password": "passwords123"
 }
 
 ### Test POST request to login
@@ -19,8 +17,8 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "test@example.com",
-    "password": "password123"
+    "email": "test@exampslse.com",
+    "password": "passwords123"
 }
 
 ### Test POST request to Google Sign-In (mocked)
@@ -35,5 +33,5 @@ Content-Type: application/json
 
 ### Test GET request to profile (protected route)
 GET http://localhost:3000/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzM5MDExMjExfQ.E69eBXc-JdXyDFXOvEIzjLqn8_DTSukkdZYvydGueXo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTMwNzMyOSwiZXhwIjoxNzM5MzEwOTI5fQ.R2MzaGuvfHijkhIuwCpEIcqpx12tNAwZvnhJOSx8f6c
 Content-Type: application/json
