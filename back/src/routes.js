@@ -43,6 +43,16 @@ module.exports = async function routes(fastify, options) {
         }
     });
 
+    fastify.get('/profile',{preHandler:[fastify.authenticate]},async (request,reply) => {
+        
+        const {id} = request
+        const user = await prisma.user.findUnique({
+            where: { id }
+        });
+
+        return reply.code(200).send(user)
+    
+    })
     fastify.post('/login', async (request, reply) => {
         const { email, password } = request.body;
         if (!email || !password) {
