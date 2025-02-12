@@ -45,12 +45,12 @@ module.exports = async function routes(fastify, options) {
 
     fastify.get('/profile',{preHandler:[fastify.authenticate]},async (request,reply) => {
         
-        const {id} = request
+        const {userId} = request.user
         const user = await prisma.user.findUnique({
-            where: { id }
+            where: { id : userId }
         });
 
-        return reply.code(200).send(user)
+        return reply.code(200).send(request.user)
     
     })
     fastify.post('/login', async (request, reply) => {
@@ -88,15 +88,23 @@ module.exports = async function routes(fastify, options) {
     });
 
     fastify.put('/user/:id', { preHandler: [fastify.authenticate] }, async (request, reply) => {
-        const { id } = request.params;
-        const { email, name, password } = request.body;
+        const { userId } = request.params;
+        const { id ,email, name, password } = request.body;
+        if(parseInt(id) != userId){
+            console.log('bad trip ');
+            console.log("userid " , userId , "id " , id);
+
+            return reply.code(500).code({
+                hacker:"wach nta m9awed !"
+            })
+        }
         if (!email || !name || !password) {
             return reply.code(400).send({ error: 'Invalid input' });
         }
         try {
             const hashedPassword = await bcrypt.hash(password, 10);
             await prisma.user.update({
-                where: { id: parseInt(id) },
+                where: { id: userId },
                 data: { email, name, password: hashedPassword }
             });
             return { success: true };
@@ -107,10 +115,10 @@ module.exports = async function routes(fastify, options) {
     });
 
     fastify.delete('/user/:id', { preHandler: [fastify.authenticate] }, async (request, reply) => {
-        const { id } = request.params;
+        const { userId } = request.user;
         try {
             await prisma.user.delete({
-                where: { id: parseInt(id) }
+                where: { id: userId }
             });
             return { success: true };
         } catch (err) {

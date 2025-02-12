@@ -1,4 +1,4 @@
-### Test GET request to the root endpoint
+
 GET http://localhost:3000/
 Content-Type: application/json
 
@@ -7,8 +7,8 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "email": "test@exampslse.com",
-    "name": "TestUsssser",
+    "email": "hola@hola.com",
+    "name": "zeb123",
     "password": "passwords123"
 }
 
@@ -17,7 +17,7 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "test@exampslse.com",
+    "email": "hola@hola.com",
     "password": "passwords123"
 }
 
@@ -31,7 +31,19 @@ Content-Type: application/json
     "avatar": "googleavatar.png"
 }
 
+### Test PUT request to update user
+PUT http://localhost:3000/user/4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTczOTM1Mzg1MSwiZXhwIjoxNzM5MzU3NDUxfQ.lA9PExFvWljpuv4L6ZtFbWdJnRFeS9BiGpGTqXEKUKU
+
+{
+    "email": "upjsksol.l@example.com",
+    "name": "Updated Name",
+    "password": "neeeewpassword123"
+}
+
 ### Test GET request to profile (protected route)
 GET http://localhost:3000/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTMwNzMyOSwiZXhwIjoxNzM5MzEwOTI5fQ.R2MzaGuvfHijkhIuwCpEIcqpx12tNAwZvnhJOSx8f6c
-Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTM1MzA4MCwiZXhwIjoxNzM5MzU2NjgwfQ.W3tonUOvyEiuvrKYFksN9v8g2wbTSHMb11s-RLpMKlc
+# Content-Type: application/json
+
