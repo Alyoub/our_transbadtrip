@@ -23,7 +23,7 @@ module.exports = async function routes(fastify, options) {
     });
 
     fastify.post('/register', async (request, reply) => {
-        const { email, name, password } = request.body;
+        const { email, name, password , login  } = request.body;
         if (!email || !name || !password) {
             return reply.code(400).send({ error: 'Missing required fields' });
         }
@@ -31,6 +31,7 @@ module.exports = async function routes(fastify, options) {
             const hashedPassword = await bcrypt.hash(password, 10);
             const user = await prisma.user.create({
                 data: {
+                    login,
                     email,
                     name,
                     password: hashedPassword
@@ -43,6 +44,7 @@ module.exports = async function routes(fastify, options) {
         }
     });
 
+
     fastify.get('/profile',{preHandler:[fastify.authenticate]},async (request,reply) => {
         
         const {userId} = request.user
@@ -50,7 +52,7 @@ module.exports = async function routes(fastify, options) {
             where: { id : userId }
         });
 
-        return reply.code(200).send(request.user)
+        return reply.code(200).send(user)
     
     })
     fastify.post('/login', async (request, reply) => {
@@ -86,6 +88,34 @@ module.exports = async function routes(fastify, options) {
             reply.code(500).send({ error: "makayn la users la zbi" });
         }
     });
+
+    fastify.put('/api/:login/change_password',{preHandler :[fastify.authenticate]}, async (request,reply) => {
+        const {login } = request.params;
+        const {userId} =  request.user; 
+        const {password} = request.body;
+        const user = prisma.user.findUnique({
+            where:{login }
+        })
+        // khas check the id of the login with the id of the jwt 
+        if(parseInt(user.id) !== userId){
+            console.log(login);
+            console.log(userId,user.id);
+            return reply.code(500).send({error:"bad trip baghi thackiii "});}
+        try{
+            // problem 
+            const hashedPassword = await bcrypt.hash(password, 10);
+            await prisma.user.update({
+                where: { id: userId },
+                data: { password: hashedPassword }
+            });
+            return reply.code(200).send({ success: true });
+
+        } catch(err){
+            console.error("bad trip:",err);
+            reply.code(200).send({error:"wachnta hacker :( "});
+        }
+
+    })
 
     fastify.put('/user/:id', { preHandler: [fastify.authenticate] }, async (request, reply) => {
         const { id } = request.params;

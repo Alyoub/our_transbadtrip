@@ -1,12 +1,14 @@
 
 {
   "id": 1,
-  "email": "hola@hola.com",
+  "login": "atoukmat",
+  "email": "hola@holda.com",
   "name": "zeb123",
-  "password": "$2b$10$V829BPBpzRp23NemUb7RF.4aZVMQI2O2xIsGtiWoQe8JKNoCxT/NC",
-   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM1NTU1MiwiZXhwIjoxNzM5MzU5MTUyfQ.Q-ElLBNzj9nG5fA1p2-7Umqs4_uPGyt123AJy9OW41o"
+  "password": "$2b$10$qJQqKt3rvdbP3ssK9WLuGezxxFkZiKYyeRiSaNIx7PX9ZfonNlYmu",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM2MzAwNiwiZXhwIjoxNzM5MzY2NjA2fQ.-ebCVNhu4K55vt9ob7p8Odl8Hbu0_HgBm6vtDuF4DZI"
 }
-### salam 
+ 
+###
 GET http://localhost:3000/
 Content-Type: application/json
 
@@ -15,7 +17,8 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "email": "hola@hola.com",
+    "login": "atoukmat",
+    "email": "hola@holda.com",
     "name": "zeb123",
     "password": "passwords123"
 }
@@ -25,7 +28,7 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "hola@hola.com",
+    "email": "hola@holda.com",
     "password": "passwords123"
 }
 
@@ -42,12 +45,21 @@ Content-Type: application/json
 ### Test PUT request to update user
 PUT http://localhost:3000/user/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM1NTU1MiwiZXhwIjoxNzM5MzU5MTUyfQ.Q-ElLBNzj9nG5fA1p2-7Umqs4_uPGyt123AJy9OW41o
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM2MDI5MSwiZXhwIjoxNzM5MzYzODkxfQ.cS6BIeeMnLlmfAGkICdkcEOprNeKwW2ee9B8tOV56dU
 
 {
     "email": "hola@example.com",
-    "name": "bad trip ",
-    "password": "neeeewpassword123"
+    "name": "howhow",
+    "password": "23"
+}
+
+###
+PUT http://localhost:3000/api/atoukmat/change_password
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM2MzE1MywiZXhwIjoxNzM5MzY2NzUzfQ.dlAjmgWvyags9vV9BnOhw59duYfO-GAB6wKx_4WVTLs
+
+{
+    "password": "23"
 }
 
 ### Test GET request to profile (protected route)
