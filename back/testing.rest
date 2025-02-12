@@ -4,8 +4,10 @@
   "login": "atoukmat",
   "email": "hola@holda.com",
   "name": "zeb123",
-  "password": "$2b$10$qJQqKt3rvdbP3ssK9WLuGezxxFkZiKYyeRiSaNIx7PX9ZfonNlYmu",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM2MzAwNiwiZXhwIjoxNzM5MzY2NjA2fQ.-ebCVNhu4K55vt9ob7p8Odl8Hbu0_HgBm6vtDuF4DZI"
+  "password": "$2b$10$Li20ckmWRZbbTl8BRqXrUOomQ4tCNYsty8wN/Fj02OOtCZWXomzKm",
+   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM3MTMyNCwiZXhwIjoxNzM5Mzc0OTI0fQ.DJFmCyDhkIMB30NDRIQDEWSc0Xm6rwfGTWoP3fG-X8Y"
+
+
 }
  
 ###
@@ -29,7 +31,7 @@ Content-Type: application/json
 
 {
     "email": "hola@holda.com",
-    "password": "passwords123"
+    "password": "2343434323"
 }
 
 ### Test POST request to Google Sign-In (mocked)
@@ -56,10 +58,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhd
 ###
 PUT http://localhost:3000/api/atoukmat/change_password
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM2MzE1MywiZXhwIjoxNzM5MzY2NzUzfQ.dlAjmgWvyags9vV9BnOhw59duYfO-GAB6wKx_4WVTLs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM3MTMyNCwiZXhwIjoxNzM5Mzc0OTI0fQ.DJFmCyDhkIMB30NDRIQDEWSc0Xm6rwfGTWoP3fG-X8Y
 
 {
-    "password": "23"
+    "password": "2343434323"
 }
 
 ### Test GET request to profile (protected route)

@@ -90,17 +90,11 @@ module.exports = async function routes(fastify, options) {
     });
 
     fastify.put('/api/:login/change_password',{preHandler :[fastify.authenticate]}, async (request,reply) => {
-        const {login } = request.params;
         const {userId} =  request.user; 
         const {password} = request.body;
         const user = prisma.user.findUnique({
-            where:{login }
+            where:{userId }
         })
-        // khas check the id of the login with the id of the jwt 
-        if(parseInt(user.id) !== userId){
-            console.log(login);
-            console.log(userId,user.id);
-            return reply.code(500).send({error:"bad trip baghi thackiii "});}
         try{
             // problem 
             const hashedPassword = await bcrypt.hash(password, 10);
@@ -117,9 +111,10 @@ module.exports = async function routes(fastify, options) {
 
     })
 
-    fastify.put('/user/:id', { preHandler: [fastify.authenticate] }, async (request, reply) => {
+    fastify.put('/user/:login', { preHandler: [fastify.authenticate] }, async (request, reply) => {
+        // khas check l login wach s7i7 maybe use login  as paramiter in jwt (maybeeeee :( )
         const { id } = request.params;
-        const { email, name, password } = request.body;
+        const { email, name,login} = request.body;
         const { userId } = request.user; 
     
         if (parseInt(id) !== userId) {
@@ -130,8 +125,8 @@ module.exports = async function routes(fastify, options) {
                 error: "wach nta hacker"
             });
         }
-    
-        if (!email || !name || !password) {
+        // if there is no name or email
+        if (!email || !name || !login) {
             return reply.code(400).send({ error: 'Invalid input' });
         }
     
