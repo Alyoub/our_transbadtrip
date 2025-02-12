@@ -89,27 +89,47 @@ module.exports = async function routes(fastify, options) {
         }
     });
 
-    fastify.put('/api/:login/change_password',{preHandler :[fastify.authenticate]}, async (request,reply) => {
-        const {userId} =  request.user; 
-        const {password} = request.body;
-        const user = prisma.user.findUnique({
-            where:{userId }
-        })
+    fastify.post('/api/:login/upload',{preHandler:[fastify.authenticate]},async(request,reply)=> {
+        const {file,type} = request.body;
+        // hna khas nkhdem b fastify plugin bach n uploadi l files  
+        if(!file || !type)
+            return reply.code(500).send({error:"daroory t3amar hadchi a3bi l file o type dyalo "});
         try{
-            // problem 
+            // hna lkhas n story dok l files o n checky l permetions dyalhom yaslam
+
+        }catch(err){
+            return reply.code(69).send({error:""})
+        }
+    })
+
+    fastify.put('/api/:login/change_password', { preHandler: [fastify.authenticate] }, async (request, reply) => {
+        const { userId } = request.user; 
+        const { password } = request.body;
+        const { login } = request.params;
+    
+        try {
+
+            const user = await prisma.user.findUnique({
+                where: { login }
+            });
+    
+            if (!user || user.id !== userId) {
+                return reply.code(403).send({ error: "Unauthorized access" });
+            }
             const hashedPassword = await bcrypt.hash(password, 10);
+
             await prisma.user.update({
                 where: { id: userId },
                 data: { password: hashedPassword }
             });
+    
             return reply.code(200).send({ success: true });
-
-        } catch(err){
-            console.error("bad trip:",err);
-            reply.code(200).send({error:"wachnta hacker :( "});
+    
+        } catch (err) {
+            console.error("bad trip:", err);
+            reply.code(500).send({ error: "Internal Server Error" });
         }
-
-    })
+    });
 
     fastify.put('/user/:login', { preHandler: [fastify.authenticate] }, async (request, reply) => {
         // khas check l login wach s7i7 maybe use login  as paramiter in jwt (maybeeeee :( )

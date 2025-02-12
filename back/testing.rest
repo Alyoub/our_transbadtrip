@@ -4,9 +4,9 @@
   "login": "atoukmat",
   "email": "hola@holda.com",
   "name": "zeb123",
-  "password": "$2b$10$Li20ckmWRZbbTl8BRqXrUOomQ4tCNYsty8wN/Fj02OOtCZWXomzKm",
-   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM3MTMyNCwiZXhwIjoxNzM5Mzc0OTI0fQ.DJFmCyDhkIMB30NDRIQDEWSc0Xm6rwfGTWoP3fG-X8Y"
-
+  "password": "$2b$10$NZ/PZm7zuBxBx9n4DGQcFePn4zHy2icjNIBvl2/UCWR4CF0qsU1uy",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM4OTIwOSwiZXhwIjoxNzM5MzkyODA5fQ.pN2OHRaK8xe3OwM2fp3_Oclq3aAPkthPiIfsJQd230E"
+  
 
 }
  
@@ -31,7 +31,7 @@ Content-Type: application/json
 
 {
     "email": "hola@holda.com",
-    "password": "2343434323"
+    "password": "passwords123"
 }
 
 ### Test POST request to Google Sign-In (mocked)
