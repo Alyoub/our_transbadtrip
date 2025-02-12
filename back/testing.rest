@@ -1,4 +1,12 @@
 
+{
+  "id": 1,
+  "email": "hola@hola.com",
+  "name": "zeb123",
+  "password": "$2b$10$V829BPBpzRp23NemUb7RF.4aZVMQI2O2xIsGtiWoQe8JKNoCxT/NC",
+   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM1NTU1MiwiZXhwIjoxNzM5MzU5MTUyfQ.Q-ElLBNzj9nG5fA1p2-7Umqs4_uPGyt123AJy9OW41o"
+}
+### salam 
 GET http://localhost:3000/
 Content-Type: application/json
 
@@ -32,13 +40,13 @@ Content-Type: application/json
 }
 
 ### Test PUT request to update user
-PUT http://localhost:3000/user/4
+PUT http://localhost:3000/user/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTczOTM1Mzg1MSwiZXhwIjoxNzM5MzU3NDUxfQ.lA9PExFvWljpuv4L6ZtFbWdJnRFeS9BiGpGTqXEKUKU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM1NTU1MiwiZXhwIjoxNzM5MzU5MTUyfQ.Q-ElLBNzj9nG5fA1p2-7Umqs4_uPGyt123AJy9OW41o
 
 {
-    "email": "upjsksol.l@example.com",
-    "name": "Updated Name",
+    "email": "hola@example.com",
+    "name": "bad trip ",
     "password": "neeeewpassword123"
 }
 

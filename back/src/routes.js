@@ -88,29 +88,33 @@ module.exports = async function routes(fastify, options) {
     });
 
     fastify.put('/user/:id', { preHandler: [fastify.authenticate] }, async (request, reply) => {
-        const { userId } = request.params;
-        const { id ,email, name, password } = request.body;
-        if(parseInt(id) != userId){
-            console.log('bad trip ');
-            console.log("userid " , userId , "id " , id);
-
-            return reply.code(500).code({
-                hacker:"wach nta m9awed !"
-            })
+        const { id } = request.params;
+        const { email, name, password } = request.body;
+        const { userId } = request.user; 
+    
+        if (parseInt(id) !== userId) {
+            console.log('ha wahed l hacker ');
+            console.log("userId:", userId, "id:", id);
+    
+            return reply.code(403).send({
+                error: "wach nta hacker"
+            });
         }
+    
         if (!email || !name || !password) {
             return reply.code(400).send({ error: 'Invalid input' });
         }
+    
         try {
             const hashedPassword = await bcrypt.hash(password, 10);
             await prisma.user.update({
                 where: { id: userId },
                 data: { email, name, password: hashedPassword }
             });
-            return { success: true };
+            return reply.code(200).send({ success: true });
         } catch (err) {
             console.error('Error updating user:', err);
-            reply.code(500).send({ error: "bad tripa l update" });
+            reply.code(500).send({ error: "Error updating user" });
         }
     });
 
