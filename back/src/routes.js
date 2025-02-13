@@ -2,8 +2,16 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const bcrypt = require('bcrypt');
 const jwt = require('@fastify/jwt');
-
+const multipart = require('fastify-multipart');
+const path = require('path');
+const fs = require('fs')
+const { error } = require('console');
 module.exports = async function routes(fastify, options) {
+    fastify.register(multipart,{
+        limits:{
+            fileSize : 10 * 1024 * 1024,
+        },
+    });
     fastify.register(jwt, {
         secret: ';o2u3ur02435702985ofhladkkhnf;sh@^%$&(&*^#987e093ueor1bnadkljcc'
     });
@@ -28,6 +36,7 @@ module.exports = async function routes(fastify, options) {
             return reply.code(400).send({ error: 'Missing required fields' });
         }
         try {
+            // khas n3awed nchof had l hashing techniques :) 
             const hashedPassword = await bcrypt.hash(password, 10);
             const user = await prisma.user.create({
                 data: {
@@ -91,14 +100,43 @@ module.exports = async function routes(fastify, options) {
 
     fastify.post('/api/:login/upload',{preHandler:[fastify.authenticate]},async(request,reply)=> {
         const {file,type} = request.body;
-        // hna khas nkhdem b fastify plugin bach n uploadi l files  
-        if(!file || !type)
-            return reply.code(500).send({error:"daroory t3amar hadchi a3bi l file o type dyalo "});
-        try{
-            // hna lkhas n story dok l files o n checky l permetions dyalhom yaslam
+        const {userId} = request.user;
+        // hna khas nkhdem b fastify plugin bach n uploadi l files  -done
+        if (!file || !type)
+            return reply.code(500).send({ error: "daroory t3amar hadchi a3mi l file o type dyalo " });
+        try {
+            const user = await prisma.user.findUnique({
+                where: { login }
+            });
+            if (!user || user.id !== userId) {
+                return reply.code(403).send({ error: "Unauthorized access" });
+            }
+            // hna lkhas n story dok l files o n checky l permetions dyalhom yasalam -done 
+            // mohim file upload with fastify !! https://snyk.io/blog/node-js-file-uploads-with-fastify/ - done
+            const data = request.file();
+            const login = request.params;
+            if (!data.filename.endsWith('.png')) {
 
-        }catch(err){
-            return reply.code(69).send({error:""})
+                return reply.status(400).send({ error: 'wach nta hacker' });
+            }
+            let uploadpath;
+            if (type == "profilepic") {
+                uploadpath = path.join(__dirname, '../uploads', `${login}.png`);
+            } else {
+                uploadpath = path.join(__dirname, '../uploads', `${login}_${data.filename}`);
+            }
+            const fileStream = fs.createWriteStream(uploadpath);
+            data.file.pipe(fileStream);
+            // to be tkmal :( 
+
+            // i think ndir 2 dirs one for profile pics and one for rigular uploads 
+
+            return reply.code(200).send({
+                yaslam:"l file dkhal ",
+                path: uploadpath
+        })
+        } catch (err) {
+            return reply.code(69).send({ error: "mochkil fel upload :(( " });
         }
     })
 
