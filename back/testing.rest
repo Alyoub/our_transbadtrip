@@ -1,12 +1,13 @@
 
+
 {
-  "id": 1,
-  "login": "atoukmat",
+  "id": 2,
+  "login": "reda",
   "email": "hola@holda.com",
   "name": "zeb123",
-  "password": "$2b$10$NZ/PZm7zuBxBx9n4DGQcFePn4zHy2icjNIBvl2/UCWR4CF0qsU1uy",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM4OTIwOSwiZXhwIjoxNzM5MzkyODA5fQ.pN2OHRaK8xe3OwM2fp3_Oclq3aAPkthPiIfsJQd230E"
-  
+  "password": "$2b$10$p072fcDkpRcqHan3Tn45ruhrUBEwYxUGio5laeMaYHITrGlWAf4MS",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczOTU0NDAyOCwiZXhwIjoxNzM5NTQ3NjI4fQ.Nnq0g8iAOX84rNA5n4BmCBICuJilCW9IWAyYvHXjbE8"
+
 
 }
 
@@ -34,10 +35,10 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "login": "atoukmat",
+    "login": "reda",
     "email": "hola@holda.com",
     "name": "zeb123",
-    "password": "passwords123"
+    "password": "passwords1234"
 }
 
 ### Test POST request to login
@@ -46,7 +47,7 @@ Content-Type: application/json
 
 {
     "email": "hola@holda.com",
-    "password": "passwords123"
+    "password": "passwords1234"
 }
 
 ### Test POST request to Google Sign-In (mocked)
@@ -71,12 +72,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhd
 }
 
 ###
-PUT http://localhost:3000/api/atoukmat/change_password
+PUT http://localhost:3000/user/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM3MTMyNCwiZXhwIjoxNzM5Mzc0OTI0fQ.DJFmCyDhkIMB30NDRIQDEWSc0Xm6rwfGTWoP3fG-X8Y
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczOTU0NDAyOCwiZXhwIjoxNzM5NTQ3NjI4fQ.Nnq0g8iAOX84rNA5n4BmCBICuJilCW9IWAyYvHXjbE8
 
 {
-    "password": "2343434323"
+    "new_email" : "ka3ka3"
 }
 
 ### Test GET request to profile (protected route)

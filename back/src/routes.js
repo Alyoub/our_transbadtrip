@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('@fastify/jwt');
 const path = require('path');
 const fs = require('fs')
-const { error } = require('console');
+
 module.exports = async function routes(fastify, options) {
     fastify.register(jwt, {
         secret: ';o2u3ur02435702985ofhladkkhnf;sh@^%$&(&*^#987e093ueor1bnadkljcc'
@@ -178,8 +178,8 @@ module.exports = async function routes(fastify, options) {
     });
     fastify.put('/user/:login', { preHandler: [fastify.authenticate] }, async (request, reply) => {
         const { login: urllogin } = request.params;
-        let { new_email, new_name, new_login} = request.body;
-        const { userId } = request.user; 
+        const { new_email, new_name, new_login } = request.body;
+        const { userId } = request.user;
     
         const user = await prisma.user.findUnique({
             where: { login: urllogin },
@@ -188,7 +188,6 @@ module.exports = async function routes(fastify, options) {
         if (!user || parseInt(user.id) !== userId || urllogin !== user.login) {
             console.log('Unauthorized access attempt');
             console.log("userId:", userId, "id:", user.id);
-    
             return reply.code(403).send({
                 error: "Unauthorized access"
             });
@@ -198,21 +197,24 @@ module.exports = async function routes(fastify, options) {
             return reply.code(400).send({ error: 'Invalid input' });
         }
     
-        if (!new_email) new_email = user.email;
-        if (!new_login) new_login = user.login;
-        if (!new_name) new_name = user.name;
-    
         try {
-            const updateData = { email: new_email, name: new_name, login: new_login };
-            // if (password) {
-            //     const hashedPassword = await bcrypt.hash(password, 10);
-            //     updateData.password = hashedPassword;
-            // }
+            let updateData = {};
+    
+            if (new_email) {
+                updateData.email = new_email;
+            }
+            if (new_login) {
+                updateData.login = new_login;
+            }
+            if (new_name) {
+                updateData.name = new_name;
+            }
     
             await prisma.user.update({
                 where: { id: userId },
                 data: updateData
             });
+    
             return reply.code(200).send({ success: true });
         } catch (err) {
             console.error('Error updating user:', err);
