@@ -115,7 +115,7 @@ module.exports = async function routes(fastify, options) {
         if (!file || !type) {
             return reply.code(400).send({ error: "File and type are required" });
         }
-    
+        
         try {
             const user = await prisma.user.findUnique({
                 where: { login }
@@ -148,19 +148,6 @@ module.exports = async function routes(fastify, options) {
         }
     });
 
-    fastify.post('/upload', async (request, reply) => {
-    const data = await request.file(); // Get the uploaded file
-    if (!data) {
-        return reply.code(400).send({ error: "No file uploaded" });
-    }
-
-    // Save the file to the uploads directory
-    const fileStream = fs.createWriteStream(`./uploads/${data.filename}`);
-    data.file.pipe(fileStream);
-
-    return reply.send({ message: "File uploaded successfully", filename: data.filename });
-    });
-
     fastify.put('/api/:login/change_password', { preHandler: [fastify.authenticate] }, async (request, reply) => {
         const { userId } = request.user; 
         const { password } = request.body;
@@ -189,31 +176,42 @@ module.exports = async function routes(fastify, options) {
             reply.code(500).send({ error: "Internal Server Error" });
         }
     });
-
     fastify.put('/user/:login', { preHandler: [fastify.authenticate] }, async (request, reply) => {
-        // khas check l login wach s7i7 maybe use login  as paramiter in jwt (maybeeeee :( )
-        const { id } = request.params;
-        const { email, name,login} = request.body;
+        const { login: urllogin } = request.params;
+        let { new_email, new_name, new_login} = request.body;
         const { userId } = request.user; 
     
-        if (parseInt(id) !== userId) {
-            console.log('ha wahed l hacker ');
-            console.log("userId:", userId, "id:", id);
+        const user = await prisma.user.findUnique({
+            where: { login: urllogin },
+        });
+    
+        if (!user || parseInt(user.id) !== userId || urllogin !== user.login) {
+            console.log('Unauthorized access attempt');
+            console.log("userId:", userId, "id:", user.id);
     
             return reply.code(403).send({
-                error: "wach nta hacker"
+                error: "Unauthorized access"
             });
         }
-        // if there is no name or email
-        if (!email || !name || !login) {
+    
+        if (!new_email && !new_name && !new_login) {
             return reply.code(400).send({ error: 'Invalid input' });
         }
     
+        if (!new_email) new_email = user.email;
+        if (!new_login) new_login = user.login;
+        if (!new_name) new_name = user.name;
+    
         try {
-            const hashedPassword = await bcrypt.hash(password, 10);
+            const updateData = { email: new_email, name: new_name, login: new_login };
+            // if (password) {
+            //     const hashedPassword = await bcrypt.hash(password, 10);
+            //     updateData.password = hashedPassword;
+            // }
+    
             await prisma.user.update({
                 where: { id: userId },
-                data: { email, name, password: hashedPassword }
+                data: updateData
             });
             return reply.code(200).send({ success: true });
         } catch (err) {
