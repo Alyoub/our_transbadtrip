@@ -9,7 +9,22 @@
   
 
 }
- 
+
+### Test POST request to upload a file### Test POST request to upload a file
+POST http://localhost:3000/api/atoukmat/upload
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTUzNjg2MiwiZXhwIjoxNzM5NTQwNDYyfQ.twEzN4C-XF0Ns8int8Yugd8exK8YedznlunLVI0--7Y
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="avatar.png"
+Content-Type: image/png
+
+< /Users/atoukmat/goinfre/transbadtrip/avatar.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="type"
+
+profilepic
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
 ###
 GET http://localhost:3000/
 Content-Type: application/json

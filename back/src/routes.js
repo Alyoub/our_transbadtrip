@@ -2,16 +2,10 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const bcrypt = require('bcrypt');
 const jwt = require('@fastify/jwt');
-const multipart = require('fastify-multipart');
 const path = require('path');
 const fs = require('fs')
 const { error } = require('console');
 module.exports = async function routes(fastify, options) {
-    fastify.register(multipart,{
-        limits:{
-            fileSize : 10 * 1024 * 1024,
-        },
-    });
     fastify.register(jwt, {
         secret: ';o2u3ur02435702985ofhladkkhnf;sh@^%$&(&*^#987e093ueor1bnadkljcc'
     });
@@ -74,7 +68,7 @@ module.exports = async function routes(fastify, options) {
                 where: { email }
             });
             if (!user) {
-                return reply.code(404).send({ error: "bade trip had khina makaynch" });
+                return reply.code(404).send({ error: "bad trip had khina makaynch" });
             }
             const isPasswordValid = await bcrypt.compare(password, user.password);
             if (!isPasswordValid) {
@@ -98,47 +92,74 @@ module.exports = async function routes(fastify, options) {
         }
     });
 
-    fastify.post('/api/:login/upload',{preHandler:[fastify.authenticate]},async(request,reply)=> {
-        const {file,type} = request.body;
-        const {userId} = request.user;
-        // hna khas nkhdem b fastify plugin bach n uploadi l files  -done
-        if (!file || !type)
-            return reply.code(500).send({ error: "daroory t3amar hadchi a3mi l file o type dyalo " });
+    fastify.post('/api/:login/upload', { preHandler: [fastify.authenticate] }, async (request, reply) => {
+        if (!request.isMultipart()) {
+            return reply.code(400).send({ error: "Request is not multipart" });
+        }
+    
+        const parts = request.parts();
+        let file;
+        let type;
+    
+        for await (const part of parts) {
+            if (part.file) {
+                file = part;
+            } else if (part.fieldname === 'type') {
+                type = part.value;
+            }
+        }
+    
+        const { userId } = request.user;
+        const { login } = request.params;
+    
+        if (!file || !type) {
+            return reply.code(400).send({ error: "File and type are required" });
+        }
+    
         try {
             const user = await prisma.user.findUnique({
                 where: { login }
             });
+    
             if (!user || user.id !== userId) {
                 return reply.code(403).send({ error: "Unauthorized access" });
             }
-            // hna lkhas n story dok l files o n checky l permetions dyalhom yasalam -done 
-            // mohim file upload with fastify !! https://snyk.io/blog/node-js-file-uploads-with-fastify/ - done
-            const data = request.file();
-            const login = request.params;
-            if (!data.filename.endsWith('.png')) {
-
-                return reply.status(400).send({ error: 'wach nta hacker' });
+    
+            if (!file.filename.endsWith('.png')) {
+                return reply.status(400).send({ error: 'Invalid file type, only .png allowed' });
             }
-            let uploadpath;
-            if (type == "profilepic") {
-                uploadpath = path.join(__dirname, '../uploads', `${login}.png`);
+    
+            let uploadPath;
+            if (type === "profilepic") {
+                uploadPath = path.join(__dirname, '../uploads/', `${login}.png`);
             } else {
-                uploadpath = path.join(__dirname, '../uploads', `${login}_${data.filename}`);
+                uploadPath = path.join(__dirname, '../uploads', `${login}_${file.filename}`);
             }
-            const fileStream = fs.createWriteStream(uploadpath);
-            data.file.pipe(fileStream);
-            // to be tkmal :( 
-
-            // i think ndir 2 dirs one for profile pics and one for rigular uploads 
-
+    
+            const fileStream = fs.createWriteStream(uploadPath);
+            file.file.pipe(fileStream);
+    
             return reply.code(200).send({
-                yaslam:"l file dkhal ",
-                path: uploadpath
-        })
+                message: "File uploaded successfully",
+                path: uploadPath
+            });
         } catch (err) {
-            return reply.code(69).send({ error: "mochkil fel upload :(( " });
+            return reply.code(500).send({ error: "File upload failed" });
         }
-    })
+    });
+
+    fastify.post('/upload', async (request, reply) => {
+    const data = await request.file(); // Get the uploaded file
+    if (!data) {
+        return reply.code(400).send({ error: "No file uploaded" });
+    }
+
+    // Save the file to the uploads directory
+    const fileStream = fs.createWriteStream(`./uploads/${data.filename}`);
+    data.file.pipe(fileStream);
+
+    return reply.send({ message: "File uploaded successfully", filename: data.filename });
+    });
 
     fastify.put('/api/:login/change_password', { preHandler: [fastify.authenticate] }, async (request, reply) => {
         const { userId } = request.user; 

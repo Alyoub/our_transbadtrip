@@ -17,7 +17,16 @@ const fastify = require('fastify')({ logger: true })
 //     reply.send({ hello: 'world' })
 // })
 // const fastify = require('fastify')();
+
+const multipart = require('@fastify/multipart');
+
 const routes = require('./src/routes');
+
+fastify.register(multipart,{
+    limits:{
+        fileSize : 10 * 1024 * 1024,
+    },
+});
 
 fastify.register(routes);
 
