@@ -67,4 +67,18 @@ async function users (request, reply) {
     }
 }
 
-module.exports = {register,login, profile, users}
+//khasni nzid  add friend remove friend maybee array of ids 
+
+async function add_friend ( request, reply){
+    try {
+        //
+        
+
+    }catch(err) {
+        reply.code(69),send("zebiiii");
+        console.error("error :" , err);
+    }
+
+}
+
+module.exports = {add_friend,register,login, profile, users}
