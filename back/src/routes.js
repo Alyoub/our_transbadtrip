@@ -1,9 +1,6 @@
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
-const bcrypt = require('bcrypt');
+const {register , login, profile ,users} = require('./user/user')
+const {upload_,change_password,update_, delete_} = require('./user/user_managment')
 const jwt = require('@fastify/jwt');
-const path = require('path');
-const fs = require('fs')
 
 module.exports = async function routes(fastify, options) {
     fastify.register(jwt, {
@@ -20,219 +17,24 @@ module.exports = async function routes(fastify, options) {
 
     fastify.get('/', async (request, reply) => {
         return {
-            trip: 'bad'
+            bad: 'trip'
         };
     });
 
-    fastify.post('/register', async (request, reply) => {
-        const { email, name, password , login  } = request.body;
-        if (!email || !name || !password) {
-            return reply.code(400).send({ error: 'Missing required fields' });
-        }
-        try {
-            // khas n3awed nchof had l hashing techniques :) 
-            const hashedPassword = await bcrypt.hash(password, 10);
-            const user = await prisma.user.create({
-                data: {
-                    login,
-                    email,
-                    name,
-                    password: hashedPassword
-                }
-            });
-            reply.code(201).send(user);
-        } catch (err) {
-            console.error('Error during user registration:', err);
-            reply.code(400).send({ error: "database" });
-        }
-    });
+    fastify.post('/register',register);
+    
+    fastify.get('/profile',{preHandler:[fastify.authenticate]},profile)
+    
+    fastify.post('/login', async (request,reply )=> { return login(request,reply,fastify) });
 
+    fastify.get('/users', { preHandler: [fastify.authenticate] },users);
 
-    fastify.get('/profile',{preHandler:[fastify.authenticate]},async (request,reply) => {
-        
-        const {userId} = request.user
-        const user = await prisma.user.findUnique({
-            where: { id : userId }
-        });
+    fastify.post('/api/:login/upload', { preHandler: [fastify.authenticate] },upload_ );
 
-        return reply.code(200).send(user)
-    
-    })
-    fastify.post('/login', async (request, reply) => {
-        const { email, password } = request.body;
-        if (!email || !password) {
-            return reply.code(400).send({ error: "bad 3amar l3ibat" });
-        }
-        try {
-            const user = await prisma.user.findUnique({
-                where: { email }
-            });
-            if (!user) {
-                return reply.code(404).send({ error: "bad trip had khina makaynch" });
-            }
-            const isPasswordValid = await bcrypt.compare(password, user.password);
-            if (!isPasswordValid) {
-                return reply.code(401).send({ error: "password ghalet " });
-            }
-            const token = fastify.jwt.sign({ userId: user.id }, { expiresIn: '1h' });
-            return reply.code(200).send({ token });
-        } catch (err) {
-            console.error('Error during login:', err);
-            reply.code(500).send({ badtrip: "login error" });
-        }
-    });
+    fastify.put('/api/:login/change_password', { preHandler: [fastify.authenticate] },change_password);
 
-    fastify.get('/users', { preHandler: [fastify.authenticate] }, async (request, reply) => {
-        try {
-            const users = await prisma.user.findMany();
-            return users;
-        } catch (err) {
-            console.error('Error fetching users:', err);
-            reply.code(500).send({ error: "makayn la users la zbi" });
-        }
-    });
+    fastify.put('/user/:login', { preHandler: [fastify.authenticate] }, update_);
 
-    fastify.post('/api/:login/upload', { preHandler: [fastify.authenticate] }, async (request, reply) => {
-        if (!request.isMultipart()) {
-            return reply.code(400).send({ error: "Request is not multipart" });
-        }
-    
-        const parts = request.parts();
-        let file;
-        let type;
-    
-        for await (const part of parts) {
-            if (part.file) {
-                file = part;
-            } else if (part.fieldname === 'type') {
-                type = part.value;
-            }
-        }
-    
-        const { userId } = request.user;
-        const { login } = request.params;
-    
-        if (!file || !type) {
-            return reply.code(400).send({ error: "File and type are required" });
-        }
-        
-        try {
-            const user = await prisma.user.findUnique({
-                where: { login }
-            });
-    
-            if (!user || user.id !== userId) {
-                return reply.code(403).send({ error: "Unauthorized access" });
-            }
-    
-            if (!file.filename.endsWith('.png')) {
-                return reply.status(400).send({ error: 'Invalid file type, only .png allowed' });
-            }
-    
-            let uploadPath;
-            if (type === "profilepic") {
-                uploadPath = path.join(__dirname, '../uploads/', `${login}.png`);
-            } else {
-                uploadPath = path.join(__dirname, '../uploads', `${login}_${file.filename}`);
-            }
-    
-            const fileStream = fs.createWriteStream(uploadPath);
-            file.file.pipe(fileStream);
-    
-            return reply.code(200).send({
-                message: "File uploaded successfully",
-                path: uploadPath
-            });
-        } catch (err) {
-            return reply.code(500).send({ error: "File upload failed" });
-        }
-    });
-
-    fastify.put('/api/:login/change_password', { preHandler: [fastify.authenticate] }, async (request, reply) => {
-        const { userId } = request.user; 
-        const { password } = request.body;
-        const { login } = request.params;
-    
-        try {
-
-            const user = await prisma.user.findUnique({
-                where: { login }
-            });
-    
-            if (!user || user.id !== userId) {
-                return reply.code(403).send({ error: "Unauthorized access" });
-            }
-            const hashedPassword = await bcrypt.hash(password, 10);
-
-            await prisma.user.update({
-                where: { id: userId },
-                data: { password: hashedPassword }
-            });
-    
-            return reply.code(200).send({ success: true });
-    
-        } catch (err) {
-            console.error("bad trip:", err);
-            reply.code(500).send({ error: "Internal Server Error" });
-        }
-    });
-    fastify.put('/user/:login', { preHandler: [fastify.authenticate] }, async (request, reply) => {
-        const { login: urllogin } = request.params;
-        const { new_email, new_name, new_login } = request.body;
-        const { userId } = request.user;
-    
-        const user = await prisma.user.findUnique({
-            where: { login: urllogin },
-        });
-    
-        if (!user || parseInt(user.id) !== userId || urllogin !== user.login) {
-            console.log('Unauthorized access attempt');
-            console.log("userId:", userId, "id:", user.id);
-            return reply.code(403).send({
-                error: "Unauthorized access"
-            });
-        }
-    
-        if (!new_email && !new_name && !new_login) {
-            return reply.code(400).send({ error: 'Invalid input' });
-        }
-    
-        try {
-            let updateData = {};
-    
-            if (new_email) {
-                updateData.email = new_email;
-            }
-            if (new_login) {
-                updateData.login = new_login;
-            }
-            if (new_name) {
-                updateData.name = new_name;
-            }
-    
-            await prisma.user.update({
-                where: { id: userId },
-                data: updateData
-            });
-    
-            return reply.code(200).send({ success: true });
-        } catch (err) {
-            console.error('Error updating user:', err);
-            reply.code(500).send({ error: "Error updating user" });
-        }
-    });
-
-    fastify.delete('/user/:id', { preHandler: [fastify.authenticate] }, async (request, reply) => {
-        const { userId } = request.user;
-        try {
-            await prisma.user.delete({
-                where: { id: userId }
-            });
-            return { success: true };
-        } catch (err) {
-            console.error('Error deleting user:', err);
-            reply.code(500).send({ error: "badtrip" });
-        }
-    });
+    fastify.delete('/user/:id', { preHandler: [fastify.authenticate] }, delete_);
 }
 

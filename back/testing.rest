@@ -2,14 +2,13 @@
 
 {
   "id": 2,
-  "login": "reda",
-  "email": "hola@holda.com",
+  "login": "alotfi",
+  "email": "alotfi@holda.com",
   "name": "zeb123",
-  "password": "$2b$10$p072fcDkpRcqHan3Tn45ruhrUBEwYxUGio5laeMaYHITrGlWAf4MS",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczOTU0NDAyOCwiZXhwIjoxNzM5NTQ3NjI4fQ.Nnq0g8iAOX84rNA5n4BmCBICuJilCW9IWAyYvHXjbE8"
-
-
+  "password": "$2b$10$VeuYKP.F4azzcxdc4x7//eliMAb7UlhHDW1KvX1dMEkWXQpqPr7VO",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczOTYzMDczOCwiZXhwIjoxNzM5NjM0MzM4fQ.R_L8ocNSd5f9VnBkgS7RQnjATYvr12MbmGmz0SntdqU"
 }
+
 
 ### Test POST request to upload a file### Test POST request to upload a file
 POST http://localhost:3000/api/atoukmat/upload
@@ -35,8 +34,8 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "login": "reda",
-    "email": "hola@holda.com",
+    "login": "aloteefiss",
+    "email": "alodtfi@hoslda.com",
     "name": "zeb123",
     "password": "passwords1234"
 }
@@ -46,7 +45,7 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "hola@holda.com",
+    "email": "alodtfi@hoslda.com",
     "password": "passwords1234"
 }
 
@@ -59,29 +58,19 @@ Content-Type: application/json
     "name": "Google User",
     "avatar": "googleavatar.png"
 }
-
-### Test PUT request to update user
-PUT http://localhost:3000/user/1
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTM2MDI5MSwiZXhwIjoxNzM5MzYzODkxfQ.cS6BIeeMnLlmfAGkICdkcEOprNeKwW2ee9B8tOV56dU
-
-{
-    "email": "hola@example.com",
-    "name": "howhow",
-    "password": "23"
-}
-
 ###
-PUT http://localhost:3000/user/
+
+PUT http://localhost:3000/user/aloteefiss
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczOTU0NDAyOCwiZXhwIjoxNzM5NTQ3NjI4fQ.Nnq0g8iAOX84rNA5n4BmCBICuJilCW9IWAyYvHXjbE8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTczOTYzNTgxMywiZXhwIjoxNzM5NjM5NDEzfQ.P0QM2OMSzlAzHrX5Re-k6CaPv-uxZ0zTUoJ_vaSskb4
 
 {
-    "new_email" : "ka3ka3"
+    "new_email" : "alotfffffi@1337.ma",
+    "new_name" : "ayoublorrrtfi"
 }
 
 ### Test GET request to profile (protected route)
 GET http://localhost:3000/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTM1MzA4MCwiZXhwIjoxNzM5MzU2NjgwfQ.W3tonUOvyEiuvrKYFksN9v8g2wbTSHMb11s-RLpMKlc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTczOTYzNTgxMywiZXhwIjoxNzM5NjM5NDEzfQ.P0QM2OMSzlAzHrX5Re-k6CaPv-uxZ0zTUoJ_vaSskb4
 # Content-Type: application/json
 
