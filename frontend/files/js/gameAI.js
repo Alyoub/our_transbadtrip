@@ -1,34 +1,35 @@
-export   function initializeGame() {
-const canvas = document.getElementById("gameCanvas");
+export   function initializeGameAI() {
+const canvas = document.getElementById("gameCanvasAI");
 const ctx = canvas.getContext("2d");
 
 canvas.width = 1500;
 canvas.height = 700;
 
 const paddleWidth = 11;
-const paddleHeight = 100;
+const paddleHeight = 125;
 const ballSize = 20;
 
-let leftPaddleY = (canvas.height - paddleHeight) / 2;
+let leftPaddleY = (canvas.height - paddleHeight) / 2 ;
 let rightPaddleY = (canvas.height - paddleHeight) / 2;
 
 let ballX = canvas.width / 2;
 let ballY = canvas.height / 2;
-let ballSpeedX = 12;
-let ballSpeedY = 12;
+let ballSpeedX = 10;
+let ballSpeedY = 10;
 
 const paddleSpeed = 8;
+const aiPaddleSpeed = 13; 
 
 let lastTime = 0;
 
-const keys = {
+const keys = 
+{
     w: false,
     s: false,
-    ArrowUp: false,
-    ArrowDown: false,
 };
 
-function drawPaddles() {
+function drawPaddles() 
+{
     ctx.fillStyle = "#fff";
     ctx.fillRect(0, leftPaddleY, paddleWidth, paddleHeight);
     ctx.fillRect(canvas.width - paddleWidth, rightPaddleY, paddleWidth, paddleHeight);
@@ -42,36 +43,33 @@ function drawBall() {
     ctx.closePath();
 }
 
-function drawCenterCircle() 
-{
+function drawCenterCircle() {
     ctx.beginPath();
-    ctx.arc(canvas.width / 2, canvas.height / 2, 50, 0, Math.PI * 2); 
-    ctx.strokeStyle = "#fff"; 
-    ctx.lineWidth = 2; 
-    ctx.stroke(); 
+    ctx.arc(canvas.width / 2, canvas.height / 2, 50, 0, Math.PI * 2);
+    ctx.strokeStyle = "#fff";
+    ctx.lineWidth = 2;
+    ctx.stroke();
     ctx.closePath();
 }
 
-function drawCenterLines() 
-{
+function drawCenterLines() {
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
 
-
     ctx.beginPath();
-    ctx.moveTo(centerX, centerY - 50); 
+    ctx.moveTo(centerX, centerY - 50);
     ctx.lineTo(centerX, 0);
-    ctx.strokeStyle = "#fff"; 
-    ctx.lineWidth = 2; 
-    ctx.stroke(); 
+    ctx.strokeStyle = "#fff";
+    ctx.lineWidth = 2;
+    ctx.stroke();
     ctx.closePath();
 
     ctx.beginPath();
-    ctx.moveTo(centerX, centerY + 50); 
+    ctx.moveTo(centerX, centerY + 50);
     ctx.lineTo(centerX, canvas.height);
-    ctx.strokeStyle = "#fff"; 
-    ctx.lineWidth = 2; 
-    ctx.stroke(); 
+    ctx.strokeStyle = "#fff";
+    ctx.lineWidth = 2;
+    ctx.stroke();
     ctx.closePath();
 }
 
@@ -84,19 +82,19 @@ function updateCanvas(timestamp)
 
     drawPaddles();
     drawBall();
-    drawCenterCircle(); 
-    drawCenterLines(); 
+    drawCenterCircle();
+    drawCenterLines();
 
-    ballX += ballSpeedX * (deltaTime / 16);
-    ballY += ballSpeedY * (deltaTime / 16);
+    ballX += ballSpeedX ;
+    ballY += ballSpeedY ;
 
-    if (ballY - ballSize / 2 <= 0 || ballY + ballSize / 2 >= canvas.height) {
+    if (ballY - ballSize / 2 <= 0 || ballY + ballSize / 2 >= canvas.height) 
+    {
         ballSpeedY = -ballSpeedY;
     }
 
     if (
-        ballX - ballSize / 2 <= paddleWidth &&
-        ballY >= leftPaddleY &&
+        ballX - ballSize / 2 <= paddleWidth && ballY >= leftPaddleY &&
         ballY <= leftPaddleY + paddleHeight
     ) {
         ballSpeedX = Math.abs(ballSpeedX);
@@ -110,8 +108,7 @@ function updateCanvas(timestamp)
         ballSpeedX = -Math.abs(ballSpeedX);
     }
 
-    if (ballX - ballSize / 2 <= 0 || ballX + ballSize / 2 >= canvas.width) 
-    {
+    if (ballX - ballSize / 2 <= 0 || ballX + ballSize / 2 >= canvas.width) {
         resetBall();
     }
 
@@ -119,17 +116,27 @@ function updateCanvas(timestamp)
     {
         leftPaddleY -= paddleSpeed;
     }
-    if (keys.s && leftPaddleY < canvas.height - paddleHeight) 
-    {
+    if (keys.s && leftPaddleY < canvas.height - paddleHeight) {
         leftPaddleY += paddleSpeed;
     }
-    if (keys.ArrowUp && rightPaddleY > 0) 
+
+
+    if (rightPaddleY + paddleHeight / 2 < ballY) 
     {
-        rightPaddleY -= paddleSpeed;
+        rightPaddleY += aiPaddleSpeed;
+    } 
+    else if (rightPaddleY + paddleHeight / 2 > ballY) 
+    {
+        rightPaddleY -= aiPaddleSpeed;
     }
-    if (keys.ArrowDown && rightPaddleY < canvas.height - paddleHeight) 
+
+    if (rightPaddleY < 0) 
     {
-        rightPaddleY += paddleSpeed;
+        rightPaddleY = 0;
+    } 
+    else if (rightPaddleY > canvas.height - paddleHeight) 
+    {
+        rightPaddleY = canvas.height - paddleHeight;
     }
 
     requestAnimationFrame(updateCanvas);
@@ -138,8 +145,8 @@ function updateCanvas(timestamp)
 function resetBall() {
     ballX = canvas.width / 2;
     ballY = canvas.height / 2;
-    ballSpeedX = 12;
-    ballSpeedY = 12;
+    ballSpeedX = 15;
+    ballSpeedY = 15;
 }
 
 document.addEventListener("keydown", (event) => 
