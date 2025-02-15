@@ -6,11 +6,21 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+// https://www.prisma.io/docs/orm/prisma-schema/overview
+
+model friends {
+  id       Int      @id @default(autoincrement())
+  accepted Boolean
+  date     Int
+  userId   Int
+}
 
 model User {
-  id       Int      @id @default(autoincrement())
-  login    String   @unique
-  email    String   @unique
-  name     String
-  password String
+  id             Int       @id @default(autoincrement())
+  login          String    @unique
+  email          String    @unique
+  name           String
+  password       String
+  friendRequests Int[]
+  friendlist     friends[]
 }

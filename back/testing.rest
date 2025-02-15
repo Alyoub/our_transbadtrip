@@ -9,6 +9,8 @@
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczOTYzMDczOCwiZXhwIjoxNzM5NjM0MzM4fQ.R_L8ocNSd5f9VnBkgS7RQnjATYvr12MbmGmz0SntdqU"
 }
 
+###
+GET http://localhost:3000/
 
 ### Test POST request to upload a file### Test POST request to upload a file
 POST http://localhost:3000/api/atoukmat/upload
@@ -45,7 +47,7 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "alodtfi@hoslda.com",
+    "email": "alotfffffi@1337.ma",
     "password": "passwords1234"
 }
 
@@ -71,6 +73,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhd
 
 ### Test GET request to profile (protected route)
 GET http://localhost:3000/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTczOTYzNTgxMywiZXhwIjoxNzM5NjM5NDEzfQ.P0QM2OMSzlAzHrX5Re-k6CaPv-uxZ0zTUoJ_vaSskb4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTczOTYzNjY1OCwiZXhwIjoxNzM5NjQwMjU4fQ.mPBMDc0OA66CIjw6gjeKkG_qo2yo2OoHO4xCklil7KU
 # Content-Type: application/json
 
