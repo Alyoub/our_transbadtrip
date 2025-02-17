@@ -26,7 +26,7 @@ module.exports = async function routes(fastify, options) {
             const {action} = request.params;
             console.log("\nparams ===>> ",request.params,"\n");
 
-            // chno must be add , remove , cancel
+            // action must be add , remove , cancel
             console.log("\nspe =====> \n",spe,"\n");
             switch(action){
                 case 'add':
@@ -42,6 +42,7 @@ module.exports = async function routes(fastify, options) {
 
 
         } catch (err){
+            console.error("error: ",err);
             return reply.code(222).send({err:"failed to add friend! :( "})
         }
     })

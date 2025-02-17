@@ -8,12 +8,16 @@ generator client {
 }
 // https://www.prisma.io/docs/orm/prisma-schema/overview
 
-model friends {
+model Friends {
   id       Int      @id @default(autoincrement())
   accepted Boolean
   date     Int
   userId   Int
 }
+
+// mohim https://www.prisma.io/docs/orm/prisma-schema/data-model/relations/many-to-many-relations#querying-an-explicit-many-to-many
+
+// https://www.luzmo.com/blog/database-relationships
 
 model User {
   id             Int       @id @default(autoincrement())
@@ -21,6 +25,7 @@ model User {
   email          String    @unique
   name           String
   password       String
-  friendRequests Int[]
-  friendlist     friends[]
+  fiends Friends[]
 }
+
+// mohim !! https://youtu.be/fpBYj55-zd8
