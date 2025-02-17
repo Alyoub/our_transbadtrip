@@ -12,7 +12,8 @@ model Friends {
   id       Int      @id @default(autoincrement())
   accepted Boolean
   date     Int
-  userId   Int
+  userId   Int 
+  user User? @relation("user",fields: [userId],references: [id])
 }
 
 // mohim https://www.prisma.io/docs/orm/prisma-schema/data-model/relations/many-to-many-relations#querying-an-explicit-many-to-many
@@ -25,7 +26,7 @@ model User {
   email          String    @unique
   name           String
   password       String
-  fiends Friends[]
+  friends Friends[] @relation("user")
 }
 
 // mohim !! https://youtu.be/fpBYj55-zd8
