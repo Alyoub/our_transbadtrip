@@ -21,6 +21,31 @@ module.exports = async function routes(fastify, options) {
         };
     });
 
+    fastify.post('/friends/:action',(request,reply)=>{
+        try{
+            const {action} = request.params;
+            console.log("\nparams ===>> ",request.params,"\n");
+
+            // chno must be add , remove , cancel
+            console.log("\nspe =====> \n",spe,"\n");
+            switch(action){
+                case 'add':
+                    return reply.code(69).send({haha:'add'});
+                case 'cancel':
+                    return reply.code(70).send({haha:'cancel'});
+                case 'remove':
+                    return reply.code(71).send({haha:"remove"});
+                default:
+                    return reply.code(69).send({haha: "ka3ka3"});
+
+            }
+
+
+        } catch (err){
+            return reply.code(222).send({err:"failed to add friend! :( "})
+        }
+    })
+
     fastify.post('/register',register);
     
     fastify.get('/profile',{preHandler:[fastify.authenticate]},profile)

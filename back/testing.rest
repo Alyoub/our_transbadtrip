@@ -51,6 +51,14 @@ Content-Type: application/json
     "password": "passwords1234"
 }
 
+###
+POST http://localhost:3000/friends/dddd
+Content-Type: application/json
+
+{
+    
+
+}
 ### Test POST request to Google Sign-In (mocked)
 POST http://localhost:3000/google-signin
 Content-Type: application/json
