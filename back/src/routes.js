@@ -21,15 +21,28 @@ module.exports = async function routes(fastify, options) {
         };
     });
 
-    fastify.post('/friends/:action',(request,reply)=>{
+    fastify.post('/friends/:action',{preHandler:[fastify.authenticate]},(request,reply)=>{
         try{
             const {action} = request.params;
+            const {userId} = request.user;
+            const {friendId } = request.body;
+
             console.log("\nparams ===>> ",request.params,"\n");
 
             // action must be add , remove , cancel
-            console.log("\nspe =====> \n",spe,"\n");
+            console.log("\naction  =====> \n",action,"\n");
+            
+            
             switch(action){
                 case 'add':
+                    await prisma.friends.create({
+                        data:{
+                            userId: userId,
+                            friendId : friendId,
+                            acc
+
+                        }
+                    })
                     return reply.code(69).send({haha:'add'});
                 case 'cancel':
                     return reply.code(70).send({haha:'cancel'});
