@@ -1,4 +1,5 @@
 import { initializeGame } from './game.js';
+import { initializeGameAI } from './gameAI.js';
 import { initializeSignIn, initializeCreateAccount } from './auth.js';
 import { initializeProfile } from './profile.js';
 
@@ -7,8 +8,12 @@ const links = document.querySelectorAll('.nav-link');
 
 const pages = {
     home: '<h2 class="text-center">Home</h2><p class="text-center">BAAAD TRIPP WALO !</p>',
+    gameAI: `
+    <h2 class="text-center">Game</h2>   
+    <canvas class="container d-flex justify-content-center" id="gameCanvasAI" width="800" height="400"></canvas>
+`,
     game: `
-        <h2 class="text-center">Game</h2>
+        <h2 class="text-center">Game</h2>   
         <canvas class="container d-flex justify-content-center" id="gameCanvas" width="800" height="400"></canvas>
     `,
     about: '<h2 class="text-center">About</h2><p class="text-center">This is a simple ping pong game built with HTML, CSS, and JavaScript.</p>',
@@ -131,9 +136,19 @@ const pages = {
 export function loadPage(page) {
     content.innerHTML = pages[page];
 
-    if (page === 'game') {
+    if (page === 'game') 
+    {
         initializeGame();
-    } else if (page === 'signin') {
+    }
+    else if (page == 'gameAI')
+    {
+        initializeGameAI()
+    }
+    else if (page == 'game')
+    {
+        initializeGame()
+    }
+    else if (page === 'signin') {
         initializeSignIn();
     } else if (page === 'createaccount') {
         initializeCreateAccount();

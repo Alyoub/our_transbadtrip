@@ -1,0 +1,32 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+// https://www.prisma.io/docs/orm/prisma-schema/overview
+
+model Friends {
+  id       Int      @id @default(autoincrement())
+  accepted Boolean
+  date     Int
+  userId   Int 
+  user User? @relation("user",fields: [userId],references: [id])
+}
+
+// mohim https://www.prisma.io/docs/orm/prisma-schema/data-model/relations/many-to-many-relations#querying-an-explicit-many-to-many
+
+// https://www.luzmo.com/blog/database-relationships
+
+model User {
+  id             Int       @id @default(autoincrement())
+  login          String    @unique
+  email          String    @unique
+  name           String
+  password       String
+  friends Friends[] @relation("user")
+}
+
+// mohim !! https://youtu.be/fpBYj55-zd8

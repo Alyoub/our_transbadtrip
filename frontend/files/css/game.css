@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #060c18, #082541);
+    position: relative;  
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    z-index: 1000;  
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    font-family: 'Rubik Glitch', sans-serif;
+}
+
+header nav a:hover {
+    color: #D3E8FC; 
+}
+
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 60px);
+    padding-top: 60px;  
+}
+
+canvas {
+    background-color: #0b152b;
+    border: 5px solid white;
+    display: block;
+    width: 70vw;  
+    height: 50vh; 
+}
+
+
+span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 20px;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+}
+
+p {
+    font-size: 50px;
+    color: #D3E8FC;
+    font-family: "Rubik Glitch", 'Courier New', Courier, monospace;
+    margin: 0;
+}

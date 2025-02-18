@@ -1,0 +1,86 @@
+
+
+{
+  "id": 2,
+  "login": "alotfi",
+  "email": "alotfi@holda.com",
+  "name": "zeb123",
+  "password": "$2b$10$VeuYKP.F4azzcxdc4x7//eliMAb7UlhHDW1KvX1dMEkWXQpqPr7VO",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczOTYzMDczOCwiZXhwIjoxNzM5NjM0MzM4fQ.R_L8ocNSd5f9VnBkgS7RQnjATYvr12MbmGmz0SntdqU"
+}
+
+###
+GET http://localhost:3000/
+
+### Test POST request to upload a file### Test POST request to upload a file
+POST http://localhost:3000/api/atoukmat/upload
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTUzNjg2MiwiZXhwIjoxNzM5NTQwNDYyfQ.twEzN4C-XF0Ns8int8Yugd8exK8YedznlunLVI0--7Y
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="avatar.png"
+Content-Type: image/png
+
+< /Users/atoukmat/goinfre/transbadtrip/avatar.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="type"
+
+profilepic
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+###
+GET http://localhost:3000/
+Content-Type: application/json
+
+### Test POST request to register a new user
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "login": "aloteefiss",
+    "email": "alodtfi@hoslda.com",
+    "name": "zeb123",
+    "password": "passwords1234"
+}
+
+### Test POST request to login
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "alotfffffi@1337.ma",
+    "password": "passwords1234"
+}
+
+###
+POST http://localhost:3000/friends/dddd
+Content-Type: application/json
+
+{
+    
+
+}
+### Test POST request to Google Sign-In (mocked)
+POST http://localhost:3000/google-signin
+Content-Type: application/json
+
+{
+    "email": "googleuser@example.com",
+    "name": "Google User",
+    "avatar": "googleavatar.png"
+}
+###
+
+PUT http://localhost:3000/user/aloteefiss
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTczOTYzNTgxMywiZXhwIjoxNzM5NjM5NDEzfQ.P0QM2OMSzlAzHrX5Re-k6CaPv-uxZ0zTUoJ_vaSskb4
+
+{
+    "new_email" : "alotfffffi@1337.ma",
+    "new_name" : "ayoublorrrtfi"
+}
+
+### Test GET request to profile (protected route)
+GET http://localhost:3000/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTczOTYzNjY1OCwiZXhwIjoxNzM5NjQwMjU4fQ.mPBMDc0OA66CIjw6gjeKkG_qo2yo2OoHO4xCklil7KU
+# Content-Type: application/json
+
