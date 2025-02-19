@@ -9,10 +9,10 @@ generator client {
 // https://www.prisma.io/docs/orm/prisma-schema/overview
 
 model Friends {
-  id       Int      @id @default(autoincrement())
+  userId       Int      @id @default(autoincrement())
   accepted Boolean
   date     Int
-  userId   Int 
+  friendId Int 
   user User? @relation("user",fields: [userId],references: [id])
 }
 
@@ -29,4 +29,4 @@ model User {
   friends Friends[] @relation("user")
 }
 
-// mohim !! https://youtu.be/fpBYj55-zd8
+// mohim !! https://youtu.be/phixQBZNZwU

@@ -1,4 +1,5 @@
 const {register , login, profile ,users} = require('./user/user')
+const {add_friend,remove_friend,list_friends,accept_friend,cancel_friend,friend_requests} = require('./user/friends')
 const {upload_,change_password,update_, delete_} = require('./user/user_managment')
 const jwt = require('@fastify/jwt');
 
@@ -21,36 +22,24 @@ module.exports = async function routes(fastify, options) {
         };
     });
 
-    fastify.post('/friends/:action',{preHandler:[fastify.authenticate]},(request,reply)=>{
+    fastify.post('/friends/:action',{preHandler:[fastify.authenticate]},async (request,reply)=>{
         try{
             const {action} = request.params;
-            const {userId} = request.user;
-            const {friendId } = request.body;
-
-            console.log("\nparams ===>> ",request.params,"\n");
-
-            // action must be add , remove , cancel
-            console.log("\naction  =====> \n",action,"\n");
-            
-            
             switch(action){
                 case 'add':
-                    await prisma.friends.create({
-                        data:{
-                            userId: userId,
-                            friendId : friendId,
-                            acc
-
-                        }
-                    })
-                    return reply.code(69).send({haha:'add'});
+                    return await add_friend(request,reply,prisma); 
                 case 'cancel':
-                    return reply.code(70).send({haha:'cancel'});
+                    return await cancel_friend(request,reply,prisma);
                 case 'remove':
-                    return reply.code(71).send({haha:"remove"});
+                    return await remove_friend(request,reply,prisma);
+                case 'list':
+                    return await list_friends(request,reply,prisma);
+                case 'requests':
+                    return await friend_requests(request,reply,prisma);
+                case 'accept':
+                    return await accept_friend(request,reply,prisma);
                 default:
                     return reply.code(69).send({haha: "ka3ka3"});
-
             }
 
 
