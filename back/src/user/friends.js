@@ -37,6 +37,9 @@ async function friend_requests(request, reply,prisma ){
             user : true,
         },
     })
+    if(!requests)
+        return reply.code(777).send({haha:"zebiii "})
+    
     
 
     
@@ -56,7 +59,21 @@ async function list_friends(request, reply,prisma ){
 }
 
 async function accept_friend(request, reply,prisma ){
-
+    const {userId} = request.user;
+    const accept = await prisma.friendId.updateMany({
+        where:{
+            userId: friendId,
+            friendId: userId,
+            accepted: false,
+        },
+        data:{
+            accepted: true,
+            date: Math.floor(Date.now() / 1000),
+        }
+    })
+    if(accept.count === 0)
+        return reply.code(69).send({haha:"haha bad trip"});
+    return reply.code(200).send({haha:"good trip yaslam"});
 }
 
 module.exports = {add_friend,remove_friend,list_friends,accept_friend,cancel_friend,friend_requests}
