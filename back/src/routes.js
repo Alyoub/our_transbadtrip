@@ -27,7 +27,7 @@ module.exports = async function routes(fastify, options) {
             const {action} = request.params;
             switch(action){
                 case 'add':
-                    return await add_friend(request,reply,prisma); 
+                    return await add_friend(request,reply,prisma);
                 case 'cancel':
                     return await cancel_friend(request,reply,prisma);
                 case 'remove':
@@ -37,7 +37,7 @@ module.exports = async function routes(fastify, options) {
                 case 'requests':
                     return await friend_requests(request,reply,prisma);
                 case 'accept':
-                    return await accept_friend(request,reply,prisma);
+                        return await accept_friend(request,reply,prisma);
                 default:
                     return reply.code(69).send({haha: "ka3ka3"});
             }
