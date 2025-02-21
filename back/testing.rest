@@ -15,7 +15,7 @@
   "email": "aloe3dtfi@hoslda.com",
   "name": "zeb123",
   "password": "$2b$10$L.1IMJdV7ElAhaRTm8MZXOtlPGJbsExVMvQOfjEZEvxkceATsb9ia",
-   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0MDE2ODY3NywiZXhwIjoxNzQwMTcyMjc3fQ.G5gyhklYHiheoZIJkekvhJcLKgyBoeF5r-SyhyclxRU",
+   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0MDE2OTEyOCwiZXhwIjoxNzQwMTcyNzI4fQ.MgYDycPe51-m-6pc3oQZ3TRBAktwQL-a-VwHQGomtxc",
 
 }
 ###
@@ -102,10 +102,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhd
 ### Test POST request to add friend
 POST http://localhost:3000/friends/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0MDE2ODY3NywiZXhwIjoxNzQwMTcyMjc3fQ.G5gyhklYHiheoZIJkekvhJcLKgyBoeF5r-SyhyclxRU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0MDE2OTEyOCwiZXhwIjoxNzQwMTcyNzI4fQ.MgYDycPe51-m-6pc3oQZ3TRBAktwQL-a-VwHQGomtxc
 
 {
-    "friend_id": 1
+    "friendId": 1
 }
 
 ### Test POST request to cancel friend request
@@ -114,7 +114,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR_JWT_TOKEN
 
 {
-    "friend_id": "12345"
+    "friendId": "12345"
 }
 
 ### Test POST request to remove friend
@@ -123,13 +123,13 @@ Content-Type: application/json
 Authorization: Bearer YOUR_JWT_TOKEN
 
 {
-    "friend_id": "12345"
+    "friendId": "12345"
 }
 
 ### Test POST request to list friends
 POST http://localhost:3000/friends/list
 Content-Type: application/json
-Authorization: Bearer YOUR_JWT_TOKEN
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0MDE2OTEyOCwiZXhwIjoxNzQwMTcyNzI4fQ.MgYDycPe51-m-6pc3oQZ3TRBAktwQL-a-VwHQGomtxc
 
 {}
 
@@ -146,7 +146,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR_JWT_TOKEN
 
 {
-    "friend_id": "12345"
+    "friendId": "12345"
 }
 
 ### Test POST request with invalid action

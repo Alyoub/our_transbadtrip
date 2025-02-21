@@ -1,10 +1,9 @@
-async function add_friend(request, reply,prisma){
+const {prisma} = require('./db')
+async function add_friend(request, reply){
 
         const {friendId} = request.body;
         const {userId} = request.user;
 
-        userId = await prisma.user.findFirst({
-        });
         if(userId == friendId)
             return reply.code(69).send({hahah:"wch nta hma9 baghi tzid rasek"});
         is_rquested = await prisma.friends.findFirst({
@@ -26,7 +25,7 @@ async function add_friend(request, reply,prisma){
         return reply.code(200).send({haha:'request tsiftat',friend_request});
 }
 
-async function friend_requests(request, reply,prisma ){
+async function friend_requests(request, reply ){
     const {userId} = request.user;
     const requests = await prisma.friends.findMany({
         where :{
@@ -42,20 +41,20 @@ async function friend_requests(request, reply,prisma ){
     return reply.code(200).send({yaslam:"tysrat",requests})
 }
 
-async function  cancel_friend(request, reply,prisma){
+async function  cancel_friend(request, reply){
 
 
 }
 
-async function remove_friend(request, reply,prisma){
+async function remove_friend(request, reply){
 
 }
 
-async function list_friends(request, reply,prisma ){
+async function list_friends(request, reply ){
 
 }
 
-async function accept_friend(request, reply,prisma ){
+async function accept_friend(request, reply ){
     const {userId} = request.user;
     const accept = await prisma.friendId.updateMany({
         where:{
