@@ -39,10 +39,7 @@ async function friend_requests(request, reply,prisma ){
     })
     if(!requests)
         return reply.code(777).send({haha:"zebiii "})
-    
-    
-
-    
+    return reply.code(200).send({yaslam:"tysrat",requests})
 }
 
 async function  cancel_friend(request, reply,prisma){
