@@ -22,6 +22,19 @@ const multipart = require('@fastify/multipart');
 
 const routes = require('./src/routes');
 
+fastify.register(jwt, {
+    secret: ';o2u3ur02435702985ofhladkkhnf;sh@^%$&(&*^#987e093ueor1bnadkljcc'
+});
+
+fastify.decorate('authenticate', async function(request, reply) {
+    try {
+        await request.jwtVerify();
+    } catch (err) {
+        reply.send(err);
+    }
+});
+
+
 fastify.register(multipart,{
     limits:{
         fileSize : 10 * 1024 * 1024,

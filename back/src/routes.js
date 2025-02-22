@@ -1,20 +1,10 @@
+const {google_auth,tow_factor_auth} = require('./user/auth')
 const {register , login, profile ,users} = require('./user/user')
-const {add_friend,remove_friend,list_friends,accept_friend,cancel_friend,friend_requests} = require('./user/friends')
+const {friends} = require('./user/friends')
 const {upload_,change_password,update_, delete_} = require('./user/user_managment')
 const jwt = require('@fastify/jwt');
 
 module.exports = async function routes(fastify, options) {
-    fastify.register(jwt, {
-        secret: ';o2u3ur02435702985ofhladkkhnf;sh@^%$&(&*^#987e093ueor1bnadkljcc'
-    });
-
-    fastify.decorate('authenticate', async function(request, reply) {
-        try {
-            await request.jwtVerify();
-        } catch (err) {
-            reply.send(err);
-        }
-    });
 
     fastify.get('/', async (request, reply) => {
         return {
@@ -22,32 +12,9 @@ module.exports = async function routes(fastify, options) {
         };
     });
 
-    fastify.post('/friends/:action',{preHandler:[fastify.authenticate]},async (request,reply)=>{
-        try{
-            const {action} = request.params;
-            switch(action){
-                case 'add':
-                    return await add_friend(request,reply);
-                case 'cancel':
-                    return await cancel_friend(request,reply);
-                case 'remove':
-                    return await remove_friend(request,reply);
-                case 'list':
-                    return await list_friends(request,reply);
-                case 'requests':
-                    return await friend_requests(request,reply);
-                case 'accept':
-                        return await accept_friend(request,reply);
-                default:
-                    return reply.code(69).send({haha: "ka3ka3"});
-            }
+    fastify.post('/login/google/',google_auth(request,reply))
 
-
-        } catch (err){
-            console.error("error: ",err);
-            return reply.code(222).send({err:"failed to add friend! :( "})
-        }
-    })
+    fastify.post('/friends/:action',{preHandler:[fastify.authenticate]},friends(request,reply))
 
     fastify.post('/register',register);
     

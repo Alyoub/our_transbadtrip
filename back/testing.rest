@@ -1,32 +1,5 @@
 
 
-{
-  "id": 2,
-  "login": "alotfi",
-  "email": "alotfi@holda.com",
-  "name": "zeb123",
-  "password": "$2b$10$VeuYKP.F4azzcxdc4x7//eliMAb7UlhHDW1KvX1dMEkWXQpqPr7VO",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczOTYzMDczOCwiZXhwIjoxNzM5NjM0MzM4fQ.R_L8ocNSd5f9VnBkgS7RQnjATYvr12MbmGmz0SntdqU"
-}
-
-{
-  "id": 2,
-  "login": "aloteefsssiss",
-  "email": "aloe3dtfi@hoslda.com",
-  "name": "zeb123",
-  "password": "$2b$10$L.1IMJdV7ElAhaRTm8MZXOtlPGJbsExVMvQOfjEZEvxkceATsb9ia",
-   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0MDE2OTEyOCwiZXhwIjoxNzQwMTcyNzI4fQ.MgYDycPe51-m-6pc3oQZ3TRBAktwQL-a-VwHQGomtxc",
-
-}
-###
-GET http://localhost:3000/
-  "id": 1,
-  "login": "aloteefiss",
-  "email": "alodtfi@hoslda.com",
-  "name": "zeb123",
-  "password": "$2b$10$ycZNDQLlEv0ZhCrTz0gcie1HckeYui7gE8WLSBnjwkgUNCaKejyCa",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0MDE2ODM5NywiZXhwIjoxNzQwMTcxOTk3fQ.tmMeTe5yKj_YlqgsWuD4lO94tqnV7cH7JWeAcieS_BM"
-
 ### Test POST request to upload a file### Test POST request to upload a file
 POST http://localhost:3000/api/atoukmat/upload
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTUzNjg2MiwiZXhwIjoxNzM5NTQwNDYyfQ.twEzN4C-XF0Ns8int8Yugd8exK8YedznlunLVI0--7Y
@@ -96,7 +69,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhd
 
 ### Test GET request to profile (protected route)
 GET http://localhost:3000/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTczOTYzNjY1OCwiZXhwIjoxNzM5NjQwMjU4fQ.mPBMDc0OA66CIjw6gjeKkG_qo2yo2OoHO4xCklil7KU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0MDIxNjczMCwiZXhwIjoxNzQwMjIwMzMwfQ.Zxi0b8EhhMVeMxIKozO39p9NV0jzxgItQQ783DXaheo
 # Content-Type: application/json
 
 ### Test POST request to add friend

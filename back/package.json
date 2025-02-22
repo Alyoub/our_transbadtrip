@@ -3,6 +3,7 @@
     "@fastify/jwt": "^9.0.4",
     "@fastify/multipart": "^9.0.3",
     "@prisma/client": "^6.3.1",
+    "axios": "^1.7.9",
     "bcrypt": "^5.1.1",
     "fastify": "^5.2.1",
     "prisma": "^6.3.1",

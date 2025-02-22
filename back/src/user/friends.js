@@ -1,4 +1,6 @@
 const {prisma} = require('./db')
+
+
 async function add_friend(request, reply){
 
         const {friendId} = request.body;
@@ -41,6 +43,25 @@ async function friend_requests(request, reply ){
     return reply.code(200).send({yaslam:"tysrat",requests})
 }
 
+async  function list_requests(request,reply){
+    const {userId} =  request.user;
+    const requests = await prisma.friends.findMany({
+        where :{
+            userId : userId,
+            accepted : false, 
+        },
+        include:{
+            user : true,
+        }
+    })
+    console.log("zeb",requests);
+    return reply.code(69).send({
+        haha: "zeb",
+        requests,
+    })
+
+}
+
 async function  cancel_friend(request, reply){
 
 
@@ -56,7 +77,8 @@ async function list_friends(request, reply ){
 
 async function accept_friend(request, reply ){
     const {userId} = request.user;
-    const accept = await prisma.friendId.updateMany({
+    const {friendId} = request.body;
+    const accept = await prisma.friends.updateMany({
         where:{
             userId: friendId,
             friendId: userId,
@@ -72,4 +94,34 @@ async function accept_friend(request, reply ){
     return reply.code(200).send({haha:"good trip yaslam"});
 }
 
-module.exports = {add_friend,remove_friend,list_friends,accept_friend,cancel_friend,friend_requests}
+async function friends (request, reply){
+    try{
+        const {action} = request.params;
+        switch(action){
+            case 'add':
+                return await add_friend(request,reply);
+            case 'cancel':
+                return await cancel_friend(request,reply);
+            case 'remove':
+                return await remove_friend(request,reply);
+            case 'list':
+                return await list_friends(request,reply);
+            case 'requests':
+                return await friend_requests(request,reply);
+            case 'accept':
+                    return await accept_friend(request,reply);
+            case 'my_requests':
+                    return await list_requests(request,reply);
+            default:
+                return reply.code(69).send({haha: "ka3ka3"});
+        }
+
+
+    } catch (err){
+        console.error("error: ",err);
+        return reply.code(222).send({err:"failed to add friend! :( "})
+    }
+}
+
+
+module.exports = {friends}

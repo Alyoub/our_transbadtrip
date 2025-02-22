@@ -17,7 +17,10 @@ async function register(request, reply){
                 password: hashedPassword
             }
         });
-        reply.code(201).send(user);
+        if(user)
+            reply.code(201).send({
+                haha:"yasalam",
+            });
     } catch (err) {
         console.error('Error during user registration:', err);
         reply.code(400).send({ error: "database" });
@@ -46,6 +49,7 @@ async function login (request, reply,fastify){
         reply.code(500).send({ badtrip: "login error" });
     }
 }
+
 async function  profile (request,reply) {
         
     const {userId} = request.user
@@ -53,7 +57,12 @@ async function  profile (request,reply) {
         where: { id : userId }
     });
 
-    return reply.code(200).send(user);
+    return reply.code(200).send({
+        id: user.id,
+        login: user.login,
+        email: user.email,
+        name: user.name,
+    });
 
 }
 
@@ -67,7 +76,6 @@ async function users (request, reply) {
     }
 }
 
-//khasni nzid  add friend remove friend maybee array of ids 
 
 
 
