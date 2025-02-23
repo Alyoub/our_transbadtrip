@@ -1,8 +1,10 @@
 const {google_auth,tow_factor_auth} = require('./user/auth')
 const {register , login, profile ,users} = require('./user/user')
-const {friends} = require('./user/friends')
+const {handle_friends} = require('./user/friends')
 const {upload_,change_password,update_, delete_} = require('./user/user_managment')
 const jwt = require('@fastify/jwt');
+const multipart = require('@fastify/multipart');
+
 
 module.exports = async function routes(fastify, options) {
 
@@ -11,10 +13,31 @@ module.exports = async function routes(fastify, options) {
             bad: 'trip'
         };
     });
+    fastify.register(jwt, {
+        secret: ';o2u3ur02435702985ofhladkkhnf;sh@^%$&(&*^#987e093ueor1bnadkljcc'
+    });
+    
+    fastify.decorate('authenticate', async function(request, reply) {
+        try {
+            await request.jwtVerify();
+        } catch (err) {
+            reply.send(err);
+        }
+    });
+    
+    
+    fastify.register(multipart,{
+        limits:{
+            fileSize : 10 * 1024 * 1024,
+        },
+    });
+    fastify.post('/login/google/',google_auth)
 
-    fastify.post('/login/google/',google_auth(request,reply))
+    fastify.post('/friends/:action',{preHandler:[fastify.authenticate]} , async (request,reply)=>{
+        const handler = new handle_friends(request,reply,prisma);
+        return  await handler.handle_request();
 
-    fastify.post('/friends/:action',{preHandler:[fastify.authenticate]},friends(request,reply))
+    })
 
     fastify.post('/register',register);
     
