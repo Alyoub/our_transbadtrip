@@ -2,7 +2,7 @@
 
 npm i
 
-npx prisma megrate dev 
+npx prisma migrate dev --name init
 
 
 node server.js

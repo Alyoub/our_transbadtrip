@@ -31,9 +31,9 @@ module.exports = async function routes(fastify, options) {
         },
     });
 
-    fastify.post('/login/google/', google_auth);
+    // fastify.post('/login/google/', google_auth);
 
-    fastify.post('/auth/:action',tow_factor_auth);
+    // fastify.post('/auth/:action',tow_factor_auth);
 
     fastify.post('/friends/:action', { preHandler: [fastify.authenticate] }, async (request, reply) => {
         const { action } = request.params;
