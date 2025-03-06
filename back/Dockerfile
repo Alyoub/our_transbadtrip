@@ -8,6 +8,4 @@ WORKDIR srcs
 
 RUN chmod +x setup.sh 
 
-# CMD ["node","/srcs/server.js"]
-
-CMD ["tail","-f","/dev/null"]
+CMD ["./setup.sh"]
