@@ -2,8 +2,17 @@ const { google_auth, tow_factor_auth } = require('./user/auth');
 const { register, login, profile, users } = require('./user/user');
 const { HandleFriends } = require('./user/friends');
 const { upload_, change_password, update_, delete_ } = require('./user/user_managment');
-const jwt = require('@fastify/jwt');
+const JWT = require('./tools/jwt');
 const multipart = require('@fastify/multipart');
+
+// const JWT_KEY = process.env.SECRET_KEY;
+// const JWT_HASHING_ALGO = process.env.HASHING_ALGO;
+// const JWT_EXP_TIME = process.env.JWT_EXP_TIME;
+
+
+
+const jwt = new JWT('ccdjkhjklhlashscjklhioefhpiuhidbcsvHBPIU32493748HEH!@@##JKDNJK','1h','HS256');
+
 
 module.exports = async function routes(fastify, options) {
 
@@ -12,16 +21,20 @@ module.exports = async function routes(fastify, options) {
             bad: 'trip'
         };
     });
-    // khasna nhaydo had jwt hit wajda khas n9ado dyalna 
-    fastify.register(jwt, {
-        secret: ';o2u3ur02435702985ofhladkkhnf;sh@^%$&(&*^#987e093ueor1bnadkljcc'
-    });
+    // khasna nhaydo had jwt hit wajda khas n9ado dyalna // DONE 
 
-    fastify.decorate('authenticate', async function(request, reply) {
+    fastify.decorate('authenticate', async function (request, reply) {
         try {
-            await request.jwtVerify();
-        } catch (err) {
-            reply.send(err);
+            const token = request.headers.authorization?.split(' ')[1];
+            if (!token) {
+                throw new Error('No token provided');
+            }
+    
+
+            const userId = await jwt.verify(token);
+            request.userId = userId;
+        } catch (error) {
+            reply.status(401).send({ error: 'Unauthorized', message: error.message });
         }
     });
 

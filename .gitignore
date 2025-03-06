@@ -2,6 +2,7 @@ back/srcs/package-lock.json
 back/srcs/node_modules/
 back/srcs/tsconfig.json
 back/.env
+back/srcs/uploads/
 back/srcs/prisma/migrations/
 back/srcs/prisma/dev.db
 back/srcs/prisma/migrations/20250211205427_init/migration.sql

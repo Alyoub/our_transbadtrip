@@ -1,19 +1,28 @@
-const jwt = require('jsonwebtoken');
+const jsonwebtoken = require('jsonwebtoken');
 
-module.exports = class jwt {
-    constructor(key,time,op){
+class JWT {
+    constructor(key, time, algorithm = 'HS256') {
         this.key = key;
         this.time = time;
-        this.op = op;
-    }
-    async generate(user){
-        return {yasalam:'zeb' , user};
+        this.algorithm = algorithm;
     }
 
-    async verify(token){
-        // verify token algo 
-        return token
-
+    generate(userId) {
+        const data = {
+            time: Date.now(),
+            userId: userId,
+        };
+        return jsonwebtoken.sign(data, this.key, { expiresIn: this.time, algorithm: this.algorithm });
     }
 
+    async verify(token) {
+        try {
+            const decoded = jsonwebtoken.verify(token, this.key, { algorithms: [this.algorithm] });
+            return decoded.userId;
+        } catch (error) {
+            throw new Error('Invalid or expired token');
+        }
+    }
 }
+
+module.exports = JWT;

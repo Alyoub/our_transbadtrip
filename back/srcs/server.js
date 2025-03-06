@@ -21,6 +21,9 @@ const fastify = require('fastify')({ logger: true })
 
 const routes = require('./src/routes');
 
+// const HOST = process.env.HOST;
+// const PORT =  process.env.PORT;
+
 
 fastify.register(routes);
 

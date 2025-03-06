@@ -1,5 +1,11 @@
 # Nodejs backend Fastify Framework
 
+## TESTING
+
+```bash
+bash ./only_backend_test.sh
+```
+
 ## TODO
 
 1. [User auth api](#1-user-managment)
