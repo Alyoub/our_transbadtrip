@@ -1,21 +1,13 @@
-const { google_auth, tow_factor_auth } = require('./user/auth');
+const {} = require('./tools/google-auth');
+const {} = require('./tools/tow_factor_auth');
 const { register, login, profile, users } = require('./user/user');
 const { HandleFriends } = require('./user/friends');
 const { upload_, change_password, update_, delete_ } = require('./user/user_managment');
-const JWT = require('./tools/jwt');
+const jwt = require('./tools/jwt');
 const multipart = require('@fastify/multipart');
 
-// const JWT_KEY = process.env.SECRET_KEY;
-// const JWT_HASHING_ALGO = process.env.HASHING_ALGO;
-// const JWT_EXP_TIME = process.env.JWT_EXP_TIME;
-
-
-
-const jwt = new JWT('ccdjkhjklhlashscjklhioefhpiuhidbcsvHBPIU32493748HEH!@@##JKDNJK','1h','HS256');
-
-
 module.exports = async function routes(fastify, options) {
-
+    
     fastify.get('/', async (request, reply) => {
         return {
             bad: 'trip'
@@ -29,8 +21,6 @@ module.exports = async function routes(fastify, options) {
             if (!token) {
                 throw new Error('No token provided');
             }
-    
-
             const userId = await jwt.verify(token);
             request.userId = userId;
         } catch (error) {

@@ -1,6 +1,6 @@
 const { prisma } = require("./db");
 const bcrypt = require('bcrypt');
-
+const jwt = require('../tools/jwt');
 async function register(request, reply){
     const { email, name, password , login  } = request.body;
     if (!email || !name || !password) {
@@ -26,6 +26,7 @@ async function register(request, reply){
         reply.code(400).send({ error: "database" });
     }
 }
+
 async function login (request, reply,fastify){
     const { email, password } = request.body;
     if (!email || !password) {
@@ -42,7 +43,7 @@ async function login (request, reply,fastify){
         if (!isPasswordValid) {
             return reply.code(401).send({ error: "password ghalet " });
         }
-        const token = fastify.jwt.sign({ userId: user.id }, { expiresIn: '1h' });
+        const token = jwt.generate(user.id);
         return reply.code(200).send({ token });
     } catch (err) {
         console.error('Error during login:', err);

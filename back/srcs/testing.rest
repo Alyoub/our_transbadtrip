@@ -20,7 +20,7 @@ GET http://localhost:3000/
 Content-Type: application/json
 
 ### Test POST request to register a new user
-POST http://localhost:3000/register
+POST http://localhost/register
 Content-Type: application/json
 
 {
@@ -31,7 +31,7 @@ Content-Type: application/json
 }
 
 ### Test POST request to login
-POST http://localhost:3000/login
+POST http://localhost/login
 Content-Type: application/json
 
 {

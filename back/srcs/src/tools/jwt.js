@@ -35,5 +35,12 @@ class JWT {
         }
     }
 }
+// const JWT_KEY = process.env.SECRET_KEY;
+// const JWT_HASHING_ALGO = process.env.HASHING_ALGO;
+// const JWT_EXP_TIME = process.env.JWT_EXP_TIME;
 
-module.exports = JWT;
+
+
+const jwt = new JWT('ccdjkhjklhlashscjklhioefhpiuhidbcsvHBPIU32493748HEH!@@##JKDNJK','1h','HS256');
+
+module.exports = jwt;
