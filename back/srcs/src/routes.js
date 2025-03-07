@@ -1,5 +1,5 @@
 const {} = require('./tools/google-auth');
-const {} = require('./tools/tow_factor_auth');
+const {Tow_Facor_Auth} = require('./tools/tow_factor_auth');
 const { register, login, profile, users } = require('./user/user');
 const { HandleFriends } = require('./user/friends');
 const { upload_, change_password, update_, delete_ } = require('./user/user_managment');
@@ -36,7 +36,26 @@ module.exports = async function routes(fastify, options) {
 
     // fastify.post('/login/google/', google_auth);
 
-    // fastify.post('/auth/:action',tow_factor_auth);
+    fastify.post('/2fa/:action',async (request,reply)=>{
+        switch(action){
+            case 'activate':
+                return await Tow_Facor_Auth.activate({
+                    request:request,
+                    reply:reply
+                })
+            case 'generate':
+                return await Tow_Facor_Auth.generate({
+                    request: request,
+                    reply: reply
+                })
+            case 'verify':
+                return await Tow_Facor_Auth.Verify({
+                    request: request,
+                    reply: reply
+                })
+        }
+
+    });
 
     fastify.post('/friends/:action', { preHandler: [fastify.authenticate] }, async (request, reply) => {
         const { action } = request.params;

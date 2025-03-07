@@ -6,12 +6,12 @@ const speakeasy = require('speakeasy'); // https://www.npmjs.com/package/speakea
 const QRcode = require('qrcode'); // https://www.npmjs.com/package/qrcode
 const {prisma} = require('../user/db');
 
-class Tow_Facor_auth{
+class Tow_Facor_Auth{
     
     static async activate(params){
         try{
             const {userId } = params.request.user;
-            if(params.data.activate = true){
+            if(params.body.activate = true){
                 await prisma.user.update({
                     where: {id:userId},
                     data: {tfa:true},
@@ -32,12 +32,22 @@ class Tow_Facor_auth{
 
     static  async generate(params) {
         // generate secret 
+
+        const token = speakeasy.generateSecret();
+        await prisma.update({
+            where:{
+                userId : params.user.userId
+            },
+            data:{
+                tfa_key : token
+            }
+        })
         // save to databse 
     }
 
-    static Verify(params){
+    static async Verify(params){
 
     }
 }
 
-module.exports = {Tow_Facor_auth};
+module.exports = {Tow_Facor_Auth};
