@@ -22,7 +22,7 @@ module.exports = async function routes(fastify, options) {
                 throw new Error('No token provided');
             }
             const userId = await jwt.verify(token);
-            request.userId = userId;
+            request.user.userId = userId;
         } catch (error) {
             reply.status(401).send({ error: 'Unauthorized', message: error.message });
         }

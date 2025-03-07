@@ -14,7 +14,8 @@ async function register(request, reply){
                 login,
                 email,
                 name,
-                password: hashedPassword
+                password: hashedPassword,
+                tfa : false,
             }
         });
         if(user)

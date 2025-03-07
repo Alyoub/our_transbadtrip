@@ -26,6 +26,8 @@ model User {
   email          String    @unique
   name           String
   password       String
+  tfa            Boolean
+  tfa_key        String
   friends Friends[] @relation("user")
 }
 
