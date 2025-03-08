@@ -5,7 +5,7 @@ const { HandleFriends } = require('./user/friends');
 const { upload_, change_password, update_, delete_ } = require('./user/user_managment');
 const jwt = require('./tools/jwt');
 const multipart = require('@fastify/multipart');
-
+const {zeb} = require('./chat/chat');
 // fastify.register(async function (fastify) {
     
 // })
@@ -101,10 +101,7 @@ module.exports = async function routes(fastify, options) {
 
     fastify.delete('/user/:id', { preHandler: [fastify.authenticate] }, delete_);
 
-    fastify.get('/chat', { websocket: true }, (socket /* WebSocket */, req /* FastifyRequest */) => {
-        socket.on('message', message => {
-          // message.toString() === 'hi from client'
-          socket.send('hi from server lolzzzz')
-        })
+    fastify.get('/chat', { websocket: true },  (socket, req) => {
+     return  zeb(socket , req);   
     })
 };
