@@ -1,4 +1,15 @@
-const fastify = require('fastify')({ logger: true })
+const fastify = require('fastify')({
+    logger: {
+        transport: {
+            target: 'pino-pretty',
+            options: {
+                colorize: true,
+            },
+        },
+    },
+});
+fastify.register(require('@fastify/websocket'))
+
 
 //https://www.npmjs.com/package/@fastify/auth
 // https://github.com/fastify/fastify/blob/main/docs/Guides/Getting-Started.md
@@ -18,6 +29,16 @@ const fastify = require('fastify')({ logger: true })
 // })
 // const fastify = require('fastify')();
 
+// fastify.register(async function (fastify) {
+//     fastify.get('/chat', { websocket: true }, (socket /* WebSocket */, req /* FastifyRequest */) => {
+//       socket.on('message', message => {
+//         // message.toString() === 'hi from client'
+//         socket.send('hi from server')
+//       })
+//     })
+// })
+  
+
 
 const routes = require('./src/routes');
 
@@ -27,7 +48,7 @@ const routes = require('./src/routes');
 
 fastify.register(routes);
 
-fastify.listen({port : 80,host:'0.0.0.0'}, err => {
+fastify.listen({port : 3000}, err => {
     if (err) {
         console.error(err);
         process.exit(1);

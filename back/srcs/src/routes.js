@@ -6,6 +6,10 @@ const { upload_, change_password, update_, delete_ } = require('./user/user_mana
 const jwt = require('./tools/jwt');
 const multipart = require('@fastify/multipart');
 
+// fastify.register(async function (fastify) {
+    
+// })
+
 module.exports = async function routes(fastify, options) {
     
     fastify.get('/', async (request, reply) => {
@@ -96,4 +100,11 @@ module.exports = async function routes(fastify, options) {
     fastify.put('/user/:login', { preHandler: [fastify.authenticate] }, update_);
 
     fastify.delete('/user/:id', { preHandler: [fastify.authenticate] }, delete_);
+
+    fastify.get('/chat', { websocket: true }, (socket /* WebSocket */, req /* FastifyRequest */) => {
+        socket.on('message', message => {
+          // message.toString() === 'hi from client'
+          socket.send('hi from server lolzzzz')
+        })
+    })
 };
