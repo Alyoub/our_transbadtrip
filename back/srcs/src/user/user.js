@@ -16,6 +16,7 @@ async function register(request, reply){
                 name,
                 password: hashedPassword,
                 tfa : false,
+                tfa_key : "null"
             }
         });
         if(user)
@@ -55,6 +56,7 @@ async function login (request, reply,fastify){
 async function  profile (request,reply) {
         
     const {userId} = request.user
+    console.log('userId',userId);
     const user = await prisma.user.findUnique({
         where: { id : userId }
     });

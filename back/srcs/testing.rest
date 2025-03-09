@@ -69,7 +69,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhd
 
 ### Test GET request to profile (protected route)
 GET http://localhost:3000/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0MDIxNjczMCwiZXhwIjoxNzQwMjIwMzMwfQ.Zxi0b8EhhMVeMxIKozO39p9NV0jzxgItQQ783DXaheo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxNDg4MzUyMTY2LCJ1c2VySWQiOjIsImlhdCI6MTc0MTQ4ODM1MiwiZXhwIjoxNzQxNDkxOTUyfQ.RfsX38wa2XIbEm8hntxBKKIFcH49yijcisTjTbqvZPE
 # Content-Type: application/json
 
 ### Test POST request to add friend
@@ -102,7 +102,7 @@ Authorization: Bearer YOUR_JWT_TOKEN
 ### Test POST request to list friends
 POST http://localhost:3000/friends/list
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0MDE2OTEyOCwiZXhwIjoxNzQwMTcyNzI4fQ.MgYDycPe51-m-6pc3oQZ3TRBAktwQL-a-VwHQGomtxc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxNDg3OTMzNjI3LCJ1c2VySWQiOjIsImlhdCI6MTc0MTQ4NzkzMywiZXhwIjoxNzQxNDkxNTMzfQ.ItoD249Smb9Eh6Om_zm4Yhg-0UcsOU8JeelvZQXZPz8
 
 {}
 

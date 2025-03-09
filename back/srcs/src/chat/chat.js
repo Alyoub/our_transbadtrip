@@ -1,8 +1,15 @@
+const { prisma } = require("../user/db");
 
-function zeb (connection, req) {
+function chat (connection, req) {
+
+  
   connection.on('message', message => {
-      connection.send('Hello Fastify WebSockets');
+      connection.send('Hello from server dear: ' + message);
+  });
+  
+  connection.on('close', () => {
+      console.log('Connection closed');
   });
 }
 
-module.exports = {zeb}
+module.exports = {chat}

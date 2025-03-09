@@ -28,17 +28,7 @@ fastify.register(require('@fastify/websocket'))
 //     reply.send({ hello: 'world' })
 // })
 // const fastify = require('fastify')();
-
-// fastify.register(async function (fastify) {
-//     fastify.get('/chat', { websocket: true }, (socket /* WebSocket */, req /* FastifyRequest */) => {
-//       socket.on('message', message => {
-//         // message.toString() === 'hi from client'
-//         socket.send('hi from server')
-//       })
-//     })
-// })
   
-
 
 const routes = require('./src/routes');
 

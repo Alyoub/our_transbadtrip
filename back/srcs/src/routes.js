@@ -5,10 +5,8 @@ const { HandleFriends } = require('./user/friends');
 const { upload_, change_password, update_, delete_ } = require('./user/user_managment');
 const jwt = require('./tools/jwt');
 const multipart = require('@fastify/multipart');
-const {zeb} = require('./chat/chat');
-// fastify.register(async function (fastify) {
-    
-// })
+const {chat} = require('./chat/chat');
+
 
 module.exports = async function routes(fastify, options) {
     
@@ -26,6 +24,7 @@ module.exports = async function routes(fastify, options) {
                 throw new Error('No token provided');
             }
             const userId = await jwt.verify(token);
+            request.user = {};
             request.user.userId = userId;
         } catch (error) {
             reply.status(401).send({ error: 'Unauthorized', message: error.message });
@@ -101,7 +100,7 @@ module.exports = async function routes(fastify, options) {
 
     fastify.delete('/user/:id', { preHandler: [fastify.authenticate] }, delete_);
 
-    fastify.get('/chat', { websocket: true },  (socket, req) => {
-     return  zeb(socket , req);   
+    fastify.get('/chat', { websocket: true , preHandler: [fastify.authenticate] },  (socket, req) => {
+     return  chat(socket , req);   
     })
 };
