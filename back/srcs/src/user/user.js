@@ -21,7 +21,7 @@ async function register(request, reply){
         });
         if(user)
             reply.code(201).send({
-                haha:"yasalam",
+                "message": "User created successfully",
             });
     } catch (err) {
         console.error('Error during user registration:', err);

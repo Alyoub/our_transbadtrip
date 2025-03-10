@@ -12,7 +12,7 @@ module.exports = async function routes(fastify, options) {
     
     fastify.get('/', async (request, reply) => {
         return {
-            bad: 'trip'
+            goood: 'trip'
         };
     });
     // khasna nhaydo had jwt hit wajda khas n9ado dyalna // DONE 

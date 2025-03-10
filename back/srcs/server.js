@@ -8,8 +8,8 @@ const fastify = require('fastify')({
         },
     },
 });
-fastify.register(require('@fastify/websocket'))
 
+fastify.register(require("@fastify/websocket"));
 
 //https://www.npmjs.com/package/@fastify/auth
 // https://github.com/fastify/fastify/blob/main/docs/Guides/Getting-Started.md
