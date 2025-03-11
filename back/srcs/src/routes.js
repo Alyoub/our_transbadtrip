@@ -6,7 +6,7 @@ const { upload_, change_password, update_, delete_ } = require('./user/user_mana
 const jwt = require('./tools/jwt');
 const multipart = require('@fastify/multipart');
 const {chat} = require('./chat/chat');
-
+const {google_login_flow,google_login_response} = require('./tools/google-auth')
 
 module.exports = async function routes(fastify, options) {
     
@@ -15,7 +15,7 @@ module.exports = async function routes(fastify, options) {
             goood: 'trip'
         };
     });
-    // khasna nhaydo had jwt hit wajda khas n9ado dyalna // DONE 
+
 
     fastify.decorate('authenticate', async function (request, reply) {
         try {
@@ -37,8 +37,11 @@ module.exports = async function routes(fastify, options) {
         },
     });
 
-    // fastify.post('/login/google/', google_auth);
 
+    // not working 
+    fastify.post('/google_auth/flow',google_login_flow);
+    fastify.post('/google_auth/response',google_login_response);
+    // fastify.post('/login/google/', google_auth);
     fastify.post('/2fa/:action',async (request,reply)=>{
         switch(action){
             case 'activate':

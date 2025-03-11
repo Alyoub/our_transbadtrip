@@ -38,10 +38,10 @@ const routes = require('./src/routes');
 
 fastify.register(routes);
 
-fastify.listen({port : 3000}, err => {
+fastify.listen({port : 80, host : '0.0.0.0'}, err => {
     if (err) {
         console.error(err);
         process.exit(1);
     }
-    console.log('Server listening on http://localhost:3000');
+    // console.log('Server listening on http://' + host +':' + port);
 });
