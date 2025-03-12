@@ -1,6 +1,7 @@
 // https://docs.npmjs.com/configuring-two-factor-authentication
 //https://rahulomnitrics.medium.com/integrate-google-authenticator-app-with-nodejs-two-factor-authentication-77426e2353dc
 
+// for security https://hub.docker.com/r/owasp/modsecurity firewall
 
 const speakeasy = require('speakeasy'); // https://www.npmjs.com/package/speakeasy
 const QRcode = require('qrcode'); // https://www.npmjs.com/package/qrcode
