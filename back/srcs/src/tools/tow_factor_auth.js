@@ -1,90 +1,99 @@
-// https://docs.npmjs.com/configuring-two-factor-authentication
 //https://rahulomnitrics.medium.com/integrate-google-authenticator-app-with-nodejs-two-factor-authentication-77426e2353dc
 
+// for security https://hub.docker.com/r/owasp/modsecurity firewall
 
 const speakeasy = require('speakeasy'); // https://www.npmjs.com/package/speakeasy
 const QRcode = require('qrcode'); // https://www.npmjs.com/package/qrcode
 const {prisma} = require('../user/db');
 
-class Tow_Facor_Auth{
-    
-    static async activate(params){
-        try{
-            const {userId } = params.request.user;
-            if(params.body.activate = true){
-                await prisma.user.update({
-                    where: {id:userId},
-                    data: {tfa:true},
-                });}
-            else{
-                await prisma.user.update({
-                    where: {id:userId},
-                    data: {tfa:false},
-                });
-            }
-            return reply.code(200).send({suc:'goodtrip'});
-            
-        }catch(err){
-            console.log("bad trip err ",err);
-            return params.reply.code(89).send({error:'bad trip',err});
+
+class Two_Factor_Auth {
+
+    static async activate(params) {
+        try {
+            const { userId } = params.request.user; 
+
+            await prisma.user.update({
+                where: { id: userId },
+                data: { tfa: params.request.body.activate }, 
+            });
+
+            return params.reply.code(200).send({ success: '2FA status updated successfully' });
+        } catch (err) {
+            console.error("Error updating 2FA status: ", err);
+            return params.reply.code(500).send({ error: 'Failed to update 2FA status', err });
         }
     }
 
-    static  async generate(params) {
-        // generate secret 
+    static async generate(params) {
+        try {
+            const secret = speakeasy.generateSecret(); 
+            const token = speakeasy.totp({
+                secret: secret.base32,
+                encoding: 'base32',
+                length : 20
+            });
 
-        // const token = speakeasy.generateSecret();
-        try{
-                const token = speakeasy.totp({
-                    secret : secret.base32,
-                    encoding: 'base32'
-                });
-                await prisma.update({
-                    where:{
-                        userId : params.user.userId
-                    },
-                    data:{
-                        tfa_key : token
-                    }
-                })
+            await prisma.user.update({
+                where: { id: params.request.user.userId },
+                data: { tfa_key: secret.base32 }
+            });
 
-                return params.reply.code(200).send({
-                    goodtrip: 'hadchi khdam',
-                    token : token 
-                });
-            }catch(err){
-                console.log("error bad trip",err);
-                return params.reply.code(500).send({
-                    error: "w9a3 chi error fe hadchi "
-                })
-            }
-        // save to databse 
+            const qr_url = await QRcode.toDataURL(secret.otpauth_url);
+
+            return params.reply.code(200).send({
+                success: '2FA secret generated successfully',
+                token: token,
+                qr_url: qr_url 
+            });
+        } catch (err) {
+            console.error("Error generating 2FA secret: ", err);
+            return params.reply.code(500).send({
+                error: "Failed to generate 2FA secret"
+            });
+        }
     }
 
-    static async Verify(params){
-        try{
-            var verify = speakeasy.verify({
-                secret : secret.base32,
-                token: params.request.body.otp,
-                window: 6
+    static async verify(params) {
+        try {
+            const { userId } = params.request.user;
+            const { otp } = params.request.body;
+
+            const user = await prisma.user.findUnique({
+                where: { id: userId },
+                select: { tfa_key: true }
             });
-            if(verify){
-                return params.reply.code(200).send({
-                    yaslam: 'good trip',
-                });
-            } else{
-                return params.reply.code(300).send({
-                    badtrip: "wach nta hacker"
+
+            if (!user || !user.tfa_key) {
+                return params.reply.code(400).send({
+                    error: "2FA not set up for this user"
                 });
             }
-        } catch(err){
-            console.log("bad trip: ",err);
-            return  params.reply.code(500).send({
-                error: "baaad trip",
+
+            const isVerified = speakeasy.totp.verify({
+                secret: user.tfa_key,
+                token: otp,
+                encoding: 'base32',
+                window: 6 
+            });
+
+            if (isVerified) {
+                return params.reply.code(200).send({
+                    success: '2FA token verified successfully',
+                });
+            } else {
+                return params.reply.code(400).send({
+                    error: "Invalid 2FA token"
+                });
+            }
+        } catch (err) {
+            console.error("Error verifying 2FA token: ", err);
+            return params.reply.code(500).send({
+                error: "Failed to verify 2FA token",
                 err
-            })
+            });
         }
     }
 }
 
-module.exports = {Tow_Facor_Auth};
+module.exports = { Two_Factor_Auth };

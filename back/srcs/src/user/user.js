@@ -29,7 +29,22 @@ async function register(request, reply){
     }
 }
 
-async function login (request, reply,fastify){
+async function logout (request, reply ){
+    try{
+        // unset the jwt token 
+
+    }catch (err){
+        console.log("zeb");
+        return reply.code(500).send({
+            badtrip : "hadchi makhdamch",
+            error : err,
+
+        })
+    }
+
+}
+
+async function login (request, reply){
     const { email, password } = request.body;
     if (!email || !password) {
         return reply.code(400).send({ error: "bad 3amar l3ibat" });
@@ -95,6 +110,5 @@ async function users (request, reply) {
 }
 
 
-
-
 module.exports = {register,login,logout, profile, users}
+

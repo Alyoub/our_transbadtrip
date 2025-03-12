@@ -19,6 +19,9 @@ profilepic
 GET http://localhost:3000/
 Content-Type: application/json
 
+###
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEyMDUyOTYwLCJ1c2VySWQiOjEsImlhdCI6MTc0MTgxMjA1MiwiZXhwIjoxNzQxODE1NjUyfQ.s0mLVaNrGI1IKndX-fQcpymXss6n8WxGdszjOWCG65M"
+
 ### Test POST request to register a new user
 POST http://localhost/register
 Content-Type: application/json
@@ -60,7 +63,7 @@ Content-Type: application/json
 
 PUT http://localhost:3000/user/aloteefiss
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTczOTYzNTgxMywiZXhwIjoxNzM5NjM5NDEzfQ.P0QM2OMSzlAzHrX5Re-k6CaPv-uxZ0zTUoJ_vaSskb4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEyNzgwNjE2LCJ1c2VySWQiOjEsImlhdCI6MTc0MTgxMjc4MCwiZXhwIjoxNzQxODE2MzgwfQ.qHITZoLON2xXCrRpEyhEvshhJlxh5SbvBYWHFxrvl_g
 
 {
     "new_email" : "alotfffffi@1337.ma",
@@ -68,17 +71,26 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhd
 }
 
 ### Test GET request to profile (protected route)
-GET http://localhost:3000/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxNDg4MzUyMTY2LCJ1c2VySWQiOjIsImlhdCI6MTc0MTQ4ODM1MiwiZXhwIjoxNzQxNDkxOTUyfQ.RfsX38wa2XIbEm8hntxBKKIFcH49yijcisTjTbqvZPE
+GET http://localhost/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEyMDUyOTYwLCJ1c2VySWQiOjEsImlhdCI6MTc0MTgxMjA1MiwiZXhwIjoxNzQxODE1NjUyfQ.s0mLVaNrGI1IKndX-fQcpymXss6n8WxGdszjOWCG65M
 # Content-Type: application/json
 
-### Test POST request to add friend
-POST http://localhost:3000/friends/add
+### Test 
+POST http://localhost/2fa/activate
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0MDE2OTEyOCwiZXhwIjoxNzQwMTcyNzI4fQ.MgYDycPe51-m-6pc3oQZ3TRBAktwQL-a-VwHQGomtxc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEzMzYwOTc4LCJ1c2VySWQiOjEsImlhdCI6MTc0MTgxMzM2MCwiZXhwIjoxNzQxODE2OTYwfQ.eGbmyo9gZ6Fr6kTDt6EUwN1DOikbket-D0AX91aE8zg
 
 {
-    "friendId": 1
+    "activate": true
+}
+
+### Test 
+POST http://localhost/2fa/generate
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEzMzYwOTc4LCJ1c2VySWQiOjEsImlhdCI6MTc0MTgxMzM2MCwiZXhwIjoxNzQxODE2OTYwfQ.eGbmyo9gZ6Fr6kTDt6EUwN1DOikbket-D0AX91aE8zg
+
+{
+    "activate": true
 }
 
 ### Test POST request to cancel friend request
