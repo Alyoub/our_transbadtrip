@@ -92,14 +92,21 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEzM
 {
     "activate": true
 }
+###
+POST http://localhost/2fa/verify
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEzMzYwOTc4LCJ1c2VySWQiOjEsImlhdCI6MTc0MTgxMzM2MCwiZXhwIjoxNzQxODE2OTYwfQ.eGbmyo9gZ6Fr6kTDt6EUwN1DOikbket-D0AX91aE8zg
 
+{
+    "otp": "980710"
+}
 ### Test POST request to cancel friend request
 POST http://localhost:3000/friends/cancel
 Content-Type: application/json
 Authorization: Bearer YOUR_JWT_TOKEN
 
 {
-    "friendId": "12345"
+    "friendId": "980710"
 }
 
 ### Test POST request to remove friend
