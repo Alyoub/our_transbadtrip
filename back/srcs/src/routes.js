@@ -6,6 +6,7 @@ const { upload_, change_password, update_, delete_ } = require('./user/user_mana
 const jwt = require('./tools/jwt');
 const multipart = require('@fastify/multipart');
 const {chat} = require('./chat/chat');
+const {blockUser,unblockUser} = require('./chat/block');
 const {google_login_flow,google_login_response} = require('./tools/google-auth')
 
 module.exports = async function routes(fastify, options) {
@@ -105,6 +106,8 @@ module.exports = async function routes(fastify, options) {
     fastify.delete('/user/:id', { preHandler: [fastify.authenticate] }, delete_);
 
     fastify.get('/chat', { websocket: true , preHandler: [fastify.authenticate] },  (socket, req) => {
-     return  chat(socket , req);   
+     return  chat(socket , req);
     })
+    fastify.post('/block', { preHandler: [fastify.authenticate] }, blockUser);
+    fastify.post('/unblock', { preHandler: [fastify.authenticate] }, unblockUser);
 };

@@ -31,7 +31,8 @@ model User {
 	friends 			Friends[] @relation("user")
 	sentMessages   		Message[] @relation("sentMessages")
 	receivedMessages    Message[] @relation("receivedMessages")
-
+	blockedBy			BlockedUser[] @relation("blocked")
+	blocked				BlockedUser[] @relation("blocker")
 }
 
 model Message {
@@ -41,6 +42,14 @@ model Message {
 	receiver				User			@relation("receivedMessages", fields: [receiverId], references: [id])
 	senderId				Int
 	receiverId				Int
+}
+
+model BlockedUser {
+  id        Int    @id @default(autoincrement())
+  blockerId Int
+  blockedId Int
+  blocker   User   @relation("blocker", fields: [blockerId], references: [id])
+  blocked   User   @relation("blocked", fields: [blockedId], references: [id])
 }
 
 // mohim !! https://youtu.be/phixQBZNZwU
