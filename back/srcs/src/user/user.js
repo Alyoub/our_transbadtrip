@@ -53,6 +53,20 @@ async function login (request, reply,fastify){
     }
 }
 
+async function logout(request,reply){
+    try{
+        
+
+    }catch(err){
+        console.log('logout :( error',err);
+        return reply.code(444).send({
+            badtrip : 'hadchi makdamch ',
+            error: err,
+        })
+    }
+
+}
+
 async function  profile (request,reply) {
         
     const {userId} = request.user
@@ -83,4 +97,4 @@ async function users (request, reply) {
 
 
 
-module.exports = {register,login, profile, users}
+module.exports = {register,login,logout, profile, users}

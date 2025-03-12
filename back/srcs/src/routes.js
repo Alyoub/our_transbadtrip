@@ -1,6 +1,6 @@
 const {} = require('./tools/google-auth');
 const {Tow_Facor_Auth} = require('./tools/tow_factor_auth');
-const { register, login, profile, users } = require('./user/user');
+const { register, login,logout, profile, users } = require('./user/user');
 const { HandleFriends } = require('./user/friends');
 const { upload_, change_password, update_, delete_ } = require('./user/user_managment');
 const jwt = require('./tools/jwt');
@@ -12,10 +12,9 @@ module.exports = async function routes(fastify, options) {
     
     fastify.get('/', async (request, reply) => {
         return {
-            goood: 'trip'
+            capitan: 'zaml'
         };
     });
-
 
     fastify.decorate('authenticate', async function (request, reply) {
         try {
@@ -92,8 +91,8 @@ module.exports = async function routes(fastify, options) {
     fastify.get('/profile', { preHandler: [fastify.authenticate] }, profile);
 
     fastify.post('/login', async (request, reply) => { return login(request, reply, fastify); });
-
-    fastify.get('/users', { preHandler: [fastify.authenticate] }, users);
+    fastify.post('/logout',{preHandler: [fastify.authenticate]},logout);
+    fastify.get('/users', { preHandler: [fastify.authenticate]}, users);
 
     fastify.post('/api/:login/upload', { preHandler: [fastify.authenticate] }, upload_);
 
