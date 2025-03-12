@@ -2,21 +2,38 @@ const { prisma } = require("../user/db");
 
 
 async function blockUser(req , reply){
-    const { user_id } = req.user;
+    const user_id = req.user.userId;
     const { blockedId } = req.body;
-
+    
     try {
+        if (user_id === blockedId)
+        {
+            return reply.code(400).send({error: "you can't block yourself"});
+        }
+        const user = await prisma.user.findUnique({where: {id: blockedId}});
+        if (user === null)
+        {
+            return reply.code(404).send({error: "user not found"});
+        }
         await prisma.blockedUser.create({
             data: {
-                blockerId: user_id,
-                blocked_id: blockedId
+                blocker: {
+                    connect: {
+                        id: user_id
+                    }
+                },
+                blocked: {
+                    connect: {
+                        id: blockedId
+                    }
+                }
             }
         });
         return reply.code(201).send({message: "user blocked successfully"});
     } catch (err)
     {
         console.error("error blocking user : " , err);
-        return reply.code(500).send({error: "error blocking user ouff"});
+        return reply.code(500).send({error: "error blocking user", err});
     }
 }
 
