@@ -10,7 +10,7 @@ const fastify = require('fastify')({
 });
 
 fastify.register(require("@fastify/websocket"));
-fastify.addHook('onRequest',);
+// fastify.addHook('onRequest',);
 //https://www.npmjs.com/package/@fastify/auth
 // https://github.com/fastify/fastify/blob/main/docs/Guides/Getting-Started.md
 // https://github.com/fastify/fastify-auth/blob/main/auth.js
@@ -38,7 +38,7 @@ const routes = require('./src/routes');
 
 fastify.register(routes);
 
-fastify.listen({port : 3000}, err => {
+fastify.listen({port : 80,host: '0.0.0.0'}, err => {
     if (err) {
         console.error(err);
         process.exit(1);

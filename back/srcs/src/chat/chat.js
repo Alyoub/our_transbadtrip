@@ -22,6 +22,7 @@ function chat(connection, req) {
       if (receiverConnection && receiverConnection.readyState === WebSocket.OPEN) {
         receiverConnection.send(JSON.stringify({ senderId, text }));
       }
+  
     }
     catch (error) {
       console.error('Error sending message:', error);
