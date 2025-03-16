@@ -38,7 +38,7 @@ let gameLoopRunning = false;
             // Start the game loop if not already running
             if (!gameLoopRunning) 
             {
-                startGameLoop();
+                startGameLoop(fastify);
             }
 
             console.log(`Match started: ${player1} (left) vs ${player2} (right)`);
@@ -88,7 +88,7 @@ let gameLoopRunning = false;
     };
 
 
-function startGameLoop() {
+function startGameLoop(fastify) {
     if (gameLoopRunning) return;
     gameLoopRunning = true;
 
