@@ -7,9 +7,30 @@ const jwt = require('./tools/jwt');
 const multipart = require('@fastify/multipart');
 const {chat} = require('./chat/chat');
 const {blockUser,unblockUser} = require('./chat/block');
-const {google_login_flow,google_login_response} = require('./tools/google-auth')
+const {google_login_flow,google_login_response} = require('./tools/google-auth');
+const {game_logic} = require('./game/game');
+
+const cookie = require('cookie-parser');
+
+const fastifyIO = require("fastify-socket.io");
 
 module.exports = async function routes(fastify, options) {
+
+
+    // fastify.addHook('preHandler', async (request , reply)=>{
+    //     try{
+
+    //         console.log(request.cookie);
+
+    //     }catch(err){
+    //         console.log(err);
+    //         return reply.code(500).send({
+    //             error: err,
+    //             badtrip : 'hadchi makhdamch'
+    //         })
+    //     }
+
+    // })
     
     fastify.get('/', async (request, reply) => {
         return {
@@ -36,6 +57,22 @@ module.exports = async function routes(fastify, options) {
             fileSize: 10 * 1024 * 1024,
         },
     });
+
+
+    fastify.register(fastifyIO, {
+        cors: {
+            origin: "*",
+            methods: ["*"],
+        },
+    });
+    
+    fastify.after( ()=>{
+        console.log("hna ");
+        fastify.io.on("connection",(socket)=>{
+            console.log('rakman');
+            game_logic(socket,fastify)
+        });
+    })
 
 
     // not working 

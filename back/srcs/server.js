@@ -1,12 +1,14 @@
 const fastify = require('fastify')({
-    logger: {
-        transport: {
-            target: 'pino-pretty',
-            options: {
-                colorize: true,
-            },
-        },
-    },
+    logger: false, 
+    // {
+    //     transport: {
+    //         target: 'pino-pretty',
+    //         options: {
+    //             colorize: true,
+    //         },
+    //     },
+    // },
+
 });
 
 fastify.register(require("@fastify/websocket"));
