@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@fastify/cors": "^11.0.0",
     "@fastify/jwt": "^9.0.4",
     "@fastify/multipart": "^9.0.3",
     "@fastify/websocket": "^11.0.2",

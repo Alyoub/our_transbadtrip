@@ -1,15 +1,24 @@
 const fastify = require('fastify')({
-    logger: false, 
-    // {
-    //     transport: {
-    //         target: 'pino-pretty',
-    //         options: {
-    //             colorize: true,
-    //         },
-    //     },
-    // },
+    logger:
+    {
+        transport: {
+            target: 'pino-pretty',
+            options: {
+                colorize: true,
+            },
+        },
+    },
 
 });
+
+const cors = require('@fastify/cors');
+
+fastify.register(cors, {
+    origin: ['*'], // Replace with your trusted origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  });
 
 fastify.register(require("@fastify/websocket"));
 // fastify.addHook('onRequest',);
