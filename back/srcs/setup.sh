@@ -1,8 +1,8 @@
 #! /bin/bash 
 
-npm i
+npm i  --legacy-peer-deps
 
-npx prisma migrate dev --name init --legacy-peer-deps
+npx prisma migrate dev --name init
 
 
 node server.js
