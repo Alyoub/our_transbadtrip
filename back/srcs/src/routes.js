@@ -67,7 +67,7 @@ module.exports = async function routes(fastify, options) {
     });
     
     fastify.after( ()=>{
-        console.log("hna ");
+        // console.log("hna ");
         fastify.io.on("connection",(socket)=>{
             console.log('rakman');
             game_logic(socket,fastify)
