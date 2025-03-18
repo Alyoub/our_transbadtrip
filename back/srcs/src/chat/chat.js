@@ -59,4 +59,34 @@ function chat(connection, req) {
   });
 }
 
-module.exports = { chat };
+async function load_conversation(req, reply) {
+  const userId = req.user.userId;
+  const { login } = req.params;
+  try {
+    const user = await prisma.user.findFirst({ where: { login } });
+    if (!user) {
+      return reply.status(404).send({ error: "User not found" });
+    }
+    const messages = await prisma.message.findMany({
+      where: {
+        OR: [
+          {
+            senderId: userId,
+            receiverId: user.id,
+          },
+          {
+            senderId: user.id,
+            receiverId: userId,
+          },
+        ],
+      },
+      orderBy: { createdAt: 'asc' }, // Order by timestamp
+    });
+    reply.send(messages);
+  } catch (err) {
+    console.error('Error loading conversation:', err);
+    reply.status(500).send({ error: "An error occurred while loading conversation" });
+  }
+}
+
+module.exports = { chat, load_conversation};

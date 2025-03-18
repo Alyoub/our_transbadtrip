@@ -42,6 +42,8 @@ model Message {
 	receiver				User			@relation("receivedMessages", fields: [receiverId], references: [id])
 	senderId				Int
 	receiverId				Int
+	createdAt				DateTime		@default(now())
+
 }
 
 model BlockedUser {

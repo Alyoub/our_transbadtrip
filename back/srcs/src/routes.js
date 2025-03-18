@@ -5,7 +5,7 @@ const { HandleFriends } = require('./user/friends');
 const { upload_, change_password, update_, delete_ } = require('./user/user_managment');
 const jwt = require('./tools/jwt');
 const multipart = require('@fastify/multipart');
-const {chat} = require('./chat/chat');
+const {chat, load_conversation} = require('./chat/chat');
 const {blockUser,unblockUser} = require('./chat/block');
 const {google_login_flow,google_login_response} = require('./tools/google-auth');
 const {game_logic} = require('./game/game');
@@ -147,4 +147,5 @@ module.exports = async function routes(fastify, options) {
     })
     fastify.post('/block', { preHandler: [fastify.authenticate] }, blockUser);
     fastify.post('/unblock', { preHandler: [fastify.authenticate] }, unblockUser);
+    fastify.post('/chat/:login', { preHandler: [fastify.authenticate] }, load_conversation);
 };
