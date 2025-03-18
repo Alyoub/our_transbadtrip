@@ -1,5 +1,21 @@
 
 
+{
+    "login": "aloteefsssiss",
+    "email": "aloe3dtfi@hoslda.com",
+    "name": "zeb123",
+    "password": "passwords1234",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyMzI5NTExMTE5LCJ1c2VySWQiOjEsImlhdCI6MTc0MjMyOTUxMSwiZXhwIjoxNzQyMzMzMTExfQ.djtfWrI8C7WTTdJQDxzgJQzGRG2qtRbeTnmCnBu299Q"
+}
+
+{
+    "login": "afsis",
+    "email": "al3dtfi@hoslda.com",
+    "name": "zeb1fd23",
+    "password": "passwords1234",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyMzI5NjE5NTQxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjMyOTYxOSwiZXhwIjoxNzQyMzMzMjE5fQ.ZsJ5ltn03SX9pySs2U74FTVIUeTuOrQW1Gup8LCJ42g"
+}
+
 ### Test POST request to upload a file### Test POST request to upload a file
 POST http://localhost:3000/api/atoukmat/upload
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTUzNjg2MiwiZXhwIjoxNzM5NTQwNDYyfQ.twEzN4C-XF0Ns8int8Yugd8exK8YedznlunLVI0--7Y
@@ -27,10 +43,11 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "login": "aloteefsssiss",
-    "email": "aloe3dtfi@hoslda.com",
-    "name": "zeb123",
-    "password": "passwords1234"
+    "login": "afsis",
+    "email": "al3dtfi@hoslda.com",
+    "name": "zeb1fd23",
+    "password": "passwords1234",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyMzI5NjE5NTQxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjMyOTYxOSwiZXhwIjoxNzQyMzMzMjE5fQ.ZsJ5ltn03SX9pySs2U74FTVIUeTuOrQW1Gup8LCJ42g"
 }
 
 ### Test POST request to login
@@ -38,7 +55,7 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "aloe3dtfi@hoslda.com",
+    "email": "al3dtfi@hoslda.com",
     "password": "passwords1234"
 }
 
@@ -109,13 +126,23 @@ Authorization: Bearer YOUR_JWT_TOKEN
     "friendId": "980710"
 }
 
+###
+
+POST http://localhost:3000/friends/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyMzI5NjE5NTQxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjMyOTYxOSwiZXhwIjoxNzQyMzMzMjE5fQ.ZsJ5ltn03SX9pySs2U74FTVIUeTuOrQW1Gup8LCJ42g
+
+{
+    "friendId": 1
+}
+
 ### Test POST request to remove friend
 POST http://localhost:3000/friends/remove
 Content-Type: application/json
-Authorization: Bearer YOUR_JWT_TOKEN
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyMzI5NjE5NTQxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjMyOTYxOSwiZXhwIjoxNzQyMzMzMjE5fQ.ZsJ5ltn03SX9pySs2U74FTVIUeTuOrQW1Gup8LCJ42g
 
 {
-    "friendId": "12345"
+    "friendId": 1
 }
 
 ### Test POST request to list friends
@@ -140,17 +167,3 @@ Authorization: Bearer YOUR_JWT_TOKEN
 {
     "friendId": "12345"
 }
-
-### Test POST request with invalid action
-POST http://localhost:3000/friends/invalid_action
-Content-Type: application/json
-Authorization: Bearer YOUR_JWT_TOKEN
-
-{}
-
-### Test POST request to trigger error
-POST http://localhost:3000/friends/error
-Content-Type: application/json
-Authorization: Bearer YOUR_JWT_TOKEN
-
-{}

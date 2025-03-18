@@ -104,7 +104,7 @@ module.exports = async function routes(fastify, options) {
 
     fastify.post('/friends/:action', { preHandler: [fastify.authenticate] }, async (request, reply) => {
         const { action } = request.params;
-        const handler = new HandleFriends(request, reply, prisma);
+        const handler = new HandleFriends(request, reply);
 
         switch (action) {
             case 'add':

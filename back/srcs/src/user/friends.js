@@ -1,5 +1,7 @@
+const {prisma} = require('./db');
+
 class HandleFriends {
-    constructor(request, reply, prisma) {
+    constructor(request, reply) {
         this.request = request;
         this.reply = reply;
         this.prisma = prisma;

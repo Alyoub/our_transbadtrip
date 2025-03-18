@@ -1,24 +1,118 @@
-let gameState = {
-    lpY: 300,
-    rpY: 300,
-    bx: 750,
-    by: 350,
-    bsX: 12,
-    bsY: 12,
-};
+class Game {
+    constructor(player1, player2) {
+        this.players = {
+            left: player1,
+            right: player2,
+        };
+        this.gameState = {
+            leftPaddleY: 300,
+            rightPaddleY: 300,
+            ballX: 750,
+            ballY: 350,
+            ballSpeedX: 8,
+            ballSpeedY: 8,
+        };
+        this.gameLoopRunning = false;
+        this.intervalId = null;
+    }
 
-let players = {
-    left: null,
-    right: null,
-};
+    start(fastify) {
+        fastify.io.to(this.players.left).emit("assignPaddle", "left");
+        fastify.io.to(this.players.right).emit("assignPaddle", "right");
 
-let waitingQueue = []; // Queue for matchmaking
-let gameLoopRunning = false;
+        if (!this.gameLoopRunning) {
+            this.startGameLoop(fastify);
+        }
+
+        console.log(`Match started: ${this.players.left} (left) vs ${this.players.right} (right)`);
+    }
+
+    startGameLoop(fastify) {
+        if (this.gameLoopRunning) return;
+        this.gameLoopRunning = true;
+
+        const tickRate = 60;
+        const radius = 5;
+        const paddleWidth = 11;
+
+        this.intervalId = setInterval(() => {
+            if (!this.players.left || !this.players.right) 
+            {
+                this.stopGameLoop();
+                return;
+            }
+
+            this.gameState.ballX += this.gameState.ballSpeedX;
+            this.gameState.ballY += this.gameState.ballSpeedY;
+
+            if (this.gameState.ballY <= 0 || this.gameState.ballY >= 700) {
+                this.gameState.ballSpeedY *= -1;
+            }
+
+            // Ball collision with paddles
+            if (
+                this.gameState.ballX <= paddleWidth &&
+                this.gameState.ballY >= this.gameState.leftPaddleY &&
+                this.gameState.ballY <= this.gameState.leftPaddleY + 100
+            ) {
+                this.gameState.ballX = paddleWidth + radius;
+                const paddleCenterY = this.gameState.leftPaddleY + 50;
+                const relativeIntersectY = paddleCenterY - this.gameState.ballY;
+                const normalizedIntersectY = relativeIntersectY / 50;
+                const bounceAngle = normalizedIntersectY * 0.75;
+                const speed = Math.sqrt(this.gameState.ballSpeedX ** 2 + this.gameState.ballSpeedY ** 2);
+                this.gameState.ballSpeedX = speed * Math.cos(bounceAngle);
+                this.gameState.ballSpeedY = -speed * Math.sin(bounceAngle);
+            }
+
+            if (
+                this.gameState.ballX >= 1500 - paddleWidth &&
+                this.gameState.ballY >= this.gameState.rightPaddleY &&
+                this.gameState.ballY <= this.gameState.rightPaddleY + 100
+            ) {
+                this.gameState.ballX = 1500 - paddleWidth - radius;
+                const paddleCenterY = this.gameState.rightPaddleY + 50;
+                const relativeIntersectY = paddleCenterY - this.gameState.ballY;
+                const normalizedIntersectY = relativeIntersectY / 50;
+                const bounceAngle = normalizedIntersectY * 0.75;
+                const speed = Math.sqrt(this.gameState.ballSpeedX ** 2 + this.gameState.ballSpeedY ** 2);
+                this.gameState.ballSpeedX = -speed * Math.cos(bounceAngle);
+                this.gameState.ballSpeedY = -speed * Math.sin(bounceAngle);
+            }
+
+            if (this.gameState.ballX <= 0 || this.gameState.ballX >= 1500) {
+                this.gameState.ballX = 750;
+                this.gameState.ballY = 350;
+                this.gameState.ballSpeedX = 12;
+                this.gameState.ballSpeedY = 12;
+            }
+
+         
+            if (this.players.left && this.players.right) 
+            {
+                fastify.io.to(this.players.left).emit("gameState", this.gameState);
+                fastify.io.to(this.players.right).emit("gameState", this.gameState);
+            }
+        }, 1000 / tickRate);
+    }
+
+    stopGameLoop() {
+        if (this.intervalId) {
+            clearInterval(this.intervalId);
+            this.gameLoopRunning = false;
+            this.intervalId = null;
+            console.log("game loop stop:", this.players.left, this.players.right);
+        }
+    }
+}
+
+let waitingQueue = [];
+let activeGames = []; 
 
 function game_logic(socket, fastify) {
     console.log("client connected", socket.id);
 
-    // Add player to queue
+
     socket.on("requestMatch", () => {
         waitingQueue.push(socket.id);
         console.log("Player added to queue:", socket.id);
@@ -27,117 +121,56 @@ function game_logic(socket, fastify) {
             const player1 = waitingQueue.shift();
             const player2 = waitingQueue.shift();
 
-            // Assign paddles
-            players.left = player1;
-            players.right = player2;
+            // Create a new game instance
+            const game = new Game(player1, player2);
+            activeGames.push(game);
 
-            // Notify players of their paddles
-            fastify.io.to(player1).emit("assignPaddle", "left");
-            fastify.io.to(player2).emit("assignPaddle", "right");
+            // Start the game
+            game.start(fastify);
+        }
+    });
 
-            // Start the game loop if not already running
-            if (!gameLoopRunning) {
-                startGameLoop(fastify);
+
+    socket.on("paddleMoving", (data) => 
+    {
+        const game = activeGames.find((g) => g.players.left === socket.id || g.players.right === socket.id);
+        if (game) 
+        {
+            if (data.player === "left" && game.players.left === socket.id) {
+                game.gameState.leftPaddleY = data.y;
+            } else if (data.player === "right" && game.players.right === socket.id) {
+                game.gameState.rightPaddleY = data.y;
             }
-
-            console.log(`Match started: ${player1} (left) vs ${player2} (right)`);
         }
     });
 
-    // Handle paddle movement
-    socket.on("paddleMoving", (data) => {
-        if (data.player === "left" && players.left === socket.id) {
-            gameState.lpY = data.y;
-        } else if (data.player === "right" && players.right === socket.id) {
-            gameState.rpY = data.y;
-        }
-
-        // Broadcast updated game state to both players
-        fastify.io.emit("updateGameState", gameState);
-    });
-
-    // Handle player disconnect
     socket.on("disconnect", () => {
         console.log("client disconnected:", socket.id);
 
-        // Remove player from queue if they were waiting
-        const index = waitingQueue.indexOf(socket.id);
-        if (index !== -1) {
-            waitingQueue.splice(index, 1);
+        const indexInQueue = waitingQueue.indexOf(socket.id);
+        if (indexInQueue !== -1) 
+        {
+            waitingQueue.splice(indexInQueue, 1);
             console.log("Player removed from queue:", socket.id);
         }
 
-        // Reset game if a player disconnects
-        if (players.left === socket.id || players.right === socket.id) {
-            players.left = null;
-            players.right = null;
-            gameState = {
-                lpY: 300,
-                rpY: 300,
-                bx: 750,
-                by: 350,
-                bsX: 12,
-                bsY: 12,
-            };
-            fastify.io.emit("resetGame");
-            console.log("Game reset due to player disconnect");
+        const gameIndex = activeGames.findIndex((g) => g.players.left === socket.id || g.players.right === socket.id);
+        if (gameIndex !== -1) {
+            const [removedGame] = activeGames.splice(gameIndex, 1);
+
+            removedGame.stopGameLoop();
+
+            const otherPlayer =
+                removedGame.players.left === socket.id
+                    ? removedGame.players.right
+                    : removedGame.players.left;
+            if (otherPlayer) 
+            {
+                fastify.io.to(otherPlayer).emit("gameEnded", "Opponent disconnected");
+                console.log("Game ended due to player disconnect");
+            }
         }
     });
-}
-
-function startGameLoop(fastify) {
-    if (gameLoopRunning) return;
-    gameLoopRunning = true;
-
-    const tickRate = 60;
-    const updateRate = 30; // Send updates 30 times per second
-    const paddleWidth = 11; // Define paddleWidth
-    const radius = 5; // Define radius for ball collision
-    let lastUpdate = Date.now();
-
-    setInterval(() => {
-        // Update ball position
-        gameState.bx += gameState.bsX;
-        gameState.by += gameState.bsY;
-
-        // Ball collision with top and bottom walls
-        if (gameState.by <= 0 || gameState.by >= 700) {
-            gameState.bsY *= -1;
-        }
-
-        // Ball collision with paddles
-        if (
-            gameState.bx <= paddleWidth &&
-            gameState.by >= gameState.lpY &&
-            gameState.by <= gameState.lpY + 100
-        ) {
-            gameState.bx = paddleWidth + radius;
-            gameState.bsX *= -1;
-        }
-
-        if (
-            gameState.bx >= 1500 - paddleWidth &&
-            gameState.by >= gameState.rpY &&
-            gameState.by <= gameState.rpY + 100
-        ) {
-            gameState.bx = 1500 - paddleWidth - radius;
-            gameState.bsX *= -1;
-        }
-
-        // Ball out of bounds (reset)
-        if (gameState.bx <= 0 || gameState.bx >= 1500) {
-            gameState.bx = 750;
-            gameState.by = 350;
-            gameState.bsX = 12;
-            gameState.bsY = 12;
-        }
-
-        // Broadcast updates at a reduced rate
-        if (Date.now() - lastUpdate >= 1000 / updateRate) {
-            fastify.io.emit("updateGameState", gameState);
-            lastUpdate = Date.now();
-        }
-    }, 1000 / tickRate);
 }
 
 module.exports = { game_logic };
