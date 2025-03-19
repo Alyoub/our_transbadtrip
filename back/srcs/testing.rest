@@ -93,29 +93,29 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEyM
 # Content-Type: application/json
 
 ### Test 
-POST http://localhost/2fa/activate
+POST http://localhost:3000/2fa/activate
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODMzNTQzNDM0LCJ1c2VySWQiOjEsImlhdCI6MTc0MTgzMzU0MywiZXhwIjoxNzQxODM3MTQzfQ.uQ-vkh2Zgi35Lvw2qCqd28uHV8nlHR6aPLXb6qpfX04
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNDE2MDQ4NDUxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjQxNjA0OCwiZXhwIjoxNzQyNDE5NjQ4fQ.mORtF8aiV8EDa0MNTxHb1zgzgQYjJBqW83FHO80oplw
 
 {
     "activate": true
 }
 
 ### Test 
-POST http://localhost/2fa/generate
+POST http://localhost:3000/2fa/generate
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODMzNTQzNDM0LCJ1c2VySWQiOjEsImlhdCI6MTc0MTgzMzU0MywiZXhwIjoxNzQxODM3MTQzfQ.uQ-vkh2Zgi35Lvw2qCqd28uHV8nlHR6aPLXb6qpfX04
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNDE2MDQ4NDUxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjQxNjA0OCwiZXhwIjoxNzQyNDE5NjQ4fQ.mORtF8aiV8EDa0MNTxHb1zgzgQYjJBqW83FHO80oplw
 
 {
     
 }
 ###
-POST http://localhost/2fa/verify
+POST http://localhost:3000/2fa/verify
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODMzNTQzNDM0LCJ1c2VySWQiOjEsImlhdCI6MTc0MTgzMzU0MywiZXhwIjoxNzQxODM3MTQzfQ.uQ-vkh2Zgi35Lvw2qCqd28uHV8nlHR6aPLXb6qpfX04
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNDE2MDQ4NDUxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjQxNjA0OCwiZXhwIjoxNzQyNDE5NjQ4fQ.mORtF8aiV8EDa0MNTxHb1zgzgQYjJBqW83FHO80oplw
 
 {
-    "otp": "257263"
+    "otp": "212783"
 }
 ### Test POST request to cancel friend request
 POST http://localhost:3000/friends/cancel

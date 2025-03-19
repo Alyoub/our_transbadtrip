@@ -61,6 +61,10 @@ async function login (request, reply){
             return reply.code(401).send({ error: "password ghalet " });
         }
         const token = jwt.generate(user.id);
+        reply.header('Set-Cookie', [
+            `jwt=${token}; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict`,
+            'Max-Age=3600000; Path=/; HttpOnly'
+        ]);
         return reply.code(200).send({ token });
     } catch (err) {
         console.error('Error during login:', err);
