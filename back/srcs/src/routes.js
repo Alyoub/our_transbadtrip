@@ -21,6 +21,11 @@ module.exports = async function routes(fastify, options) {
 
     
     fastify.get('/', async (request, reply) => {
+        const token =  "sedbaraka ealiya mn trip ;";
+        reply.header('Set-Cookie', [
+            `jwt=${token}; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict`,
+            'Max-Age=3600000; Path=/; HttpOnly'
+        ]);
         return reply.code(200).send({
             goodtrip :"transbadtrip khdama ",
         })
