@@ -25,7 +25,7 @@ class HandleFriends {
             if (error.code === 'P2002') {
                 return this.reply.code(400).send({ error: "Friend request already exists." });
             }
-            console.error('Error adding friend:', error);
+            //console.error('Error adding friend:', error);
             return this.reply.code(500).send({ error: "Internal server error" });
         }
     }

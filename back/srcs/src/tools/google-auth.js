@@ -16,15 +16,15 @@ const REDIRECT_URI = '';
 
 // https://fastify.dev/docs/latest/Reference/Hooks/
 
-async function google_login_flow(request , reply){
+ function google_login_flow(request , reply){
     const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=profile email` ;
     reply.redirect(url);
     
 }
 
 async function google_login_response(request,reply){
-    const { code } = req.query;
-    console.log(code);
+    const { code } = request.query;
+    // //console.log(code);
     try {
         const {data} = await axios.post('https://oauth2.googleapis.com/token',{
             client_id: CLIENT_ID,
@@ -33,16 +33,19 @@ async function google_login_response(request,reply){
             redirect_uri: REDIRECT_URI,
             grant_type: 'authorization_code',
         });
-        console.log(data);
+        // //console.log('haaa ha wahed hna ');
+        // //console.log(data);
         const {access_token} = data;
-        const {data:profile} = await axios.get('https://oauth2.googleapis.com/token',{
+        const {data:profile} = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo',{
             headers: { Authorization: `Bearer ${access_token}` },
         });
+        // //console.log('haaa hal profile ');
         console.log(profile);
         reply.redirect('/');
+        return reply;
     
     } catch (err) {
-    console.log(err);
+    //console.log(err);
     reply.redirect('/');
     return reply.code(500).send({
         error: err,

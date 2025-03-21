@@ -39,7 +39,7 @@ async function blockUser(req, reply) {
         });
         return reply.code(201).send({ message: "user blocked successfully" });
     } catch (err) {
-        console.error("error blocking user : ", err);
+        //console.error("error blocking user : ", err);
         return reply.code(500).send({ error: "error blocking user", err });
     }
 }
@@ -76,7 +76,7 @@ async function unblockUser(req, reply) {
         });
         return reply.code(200).send({ message: "user unblocked successfully" });
     } catch (err) {
-        console.error("error unblocking user : ", err);
+        //console.error("error unblocking user : ", err);
         return reply.code(500).send({ error: "error unblocking user ouff" });
     }
 }

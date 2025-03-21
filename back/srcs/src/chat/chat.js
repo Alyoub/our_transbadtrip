@@ -12,7 +12,7 @@ function chat(connection, req) {
       const parsedMessage = JSON.parse(message);
     }
     catch (error) {
-      console.error('Error parsing message:', error);
+      //console.error('Error parsing message:', error);
       return connection.send(JSON.stringify({ error: "Invalid message" }));
     }
     const { text, receiverId } = parsedMessage;
@@ -50,12 +50,12 @@ function chat(connection, req) {
   
     }
     catch (error) {
-      console.error('Error sending message:', error);
+      //console.error('Error sending message:', error);
     }
   });
   connection.on("close", () => {
     connections.delete(userId);
-    console.log("Connection closed");
+    //console.log("Connection closed");
   });
 }
 
@@ -84,7 +84,7 @@ async function load_conversation(req, reply) {
     });
     reply.send(messages);
   } catch (err) {
-    console.error('Error loading conversation:', err);
+    //console.error('Error loading conversation:', err);
     reply.status(500).send({ error: "An error occurred while loading conversation" });
   }
 }

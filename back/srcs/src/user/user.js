@@ -24,7 +24,7 @@ async function register(request, reply){
                 "message": "User created successfully",
             });
     } catch (err) {
-        console.error('Error during user registration:', err);
+        //console.error('Error during user registration:', err);
         reply.code(400).send({ error: "database" });
     }
 }
@@ -34,7 +34,7 @@ async function logout (request, reply ){
         // unset the jwt token 
 
     }catch (err){
-        console.log("zeb");
+        //console.log("zeb");
         return reply.code(500).send({
             badtrip : "hadchi makhdamch",
             error : err,
@@ -67,7 +67,7 @@ async function login (request, reply){
         ]);
         return reply.code(200).send({ token });
     } catch (err) {
-        console.error('Error during login:', err);
+        //console.error('Error during login:', err);
         reply.code(500).send({ badtrip: "login error" });
     }
 }
@@ -77,7 +77,7 @@ async function logout(request,reply){
         
 
     }catch(err){
-        console.log('logout :( error',err);
+        //console.log('logout :( error',err);
         return reply.code(444).send({
             badtrip : 'hadchi makdamch ',
             error: err,
@@ -89,7 +89,7 @@ async function logout(request,reply){
 async function  profile (request,reply) {
         
     const {userId} = request.user
-    console.log('userId',userId);
+    //console.log('userId',userId);
     const user = await prisma.user.findUnique({
         where: { id : userId }
     });
@@ -108,7 +108,7 @@ async function users (request, reply) {
         const users = await prisma.user.findMany();
         return users;
     } catch (err) {
-        console.error('Error fetching users:', err);
+        //console.error('Error fetching users:', err);
         reply.code(500).send({ error: "makayn la users la zbi" });
     }
 }

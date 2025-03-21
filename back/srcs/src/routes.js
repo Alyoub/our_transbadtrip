@@ -21,11 +21,11 @@ module.exports = async function routes(fastify, options) {
 
     
     fastify.get('/', async (request, reply) => {
-        const token =  "sedbaraka ealiya mn trip ;";
-        reply.header('Set-Cookie', [
-            `jwt=${token}; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict`,
-            'Max-Age=3600000; Path=/; HttpOnly'
-        ]);
+        // const token =  "sedbaraka ealiya mn trip ;";
+        // reply.header('Set-Cookie', [
+        //     `jwt=${token}; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict`,
+        //     'Max-Age=3600000; Path=/; HttpOnly'
+        // ]);
         return reply.code(200).send({
             goodtrip :"transbadtrip khdama ",
         })
@@ -61,21 +61,22 @@ module.exports = async function routes(fastify, options) {
     });
     
     fastify.after( ()=>{
-        // console.log("hna ");
+        // //console.log("hna ");
         fastify.io.on("connection",(socket)=>{
-            console.log('rakman');
+            //console.log('rakman');
             game_logic(socket,fastify)
         });
     })
 
 
-    // not working 
-    fastify.post('/google_auth/flow',google_login_flow);
-    fastify.post('/google_auth/response',google_login_response);
+    // not working  yet 
+    fastify.get('/google_auth/flow',google_login_flow);
+    fastify.get('/auth/google/callback',google_login_response);
+
     // fastify.post('/login/google/', google_auth);
     fastify.post('/2fa/:action',{preHandler:[fastify.authenticate]},async (request,reply)=>{
         const { action } = request.params;
-        console.log(request.body);
+        // //console.log(request.body);
         switch(action){
             case 'activate':
                 return await Two_Factor_Auth.activate({
