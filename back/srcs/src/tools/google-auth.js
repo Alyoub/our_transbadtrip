@@ -2,10 +2,11 @@
 // https://github.com/atultyagi612/Google-Authentication-nodejs?tab=readme-ov-file
 const axios = require('axios');
 
+// https://medium.com/@dhananjay_yadav/implementing-google-authentication-with-react-js-and-node-js-f72e306f26c9
 
 const CLIENT_ID = '';
 const CLIENT_SECRET = '';
-const REDIRECT_URL = '';
+const REDIRECT_URI = '';
 
 // mohim kasni n9rah hadchi :
 // https://github.com/fastify/fastify-cookie?tab=readme-ov-file#importing-serialize-and-parse
@@ -16,14 +17,39 @@ const REDIRECT_URL = '';
 // https://fastify.dev/docs/latest/Reference/Hooks/
 
 async function google_login_flow(request , reply){
-
-
-
+    const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=profile email` ;
+    reply.redirect(url);
+    
 }
 
 async function google_login_response(request,reply){
-
-
+    const { code } = req.query;
+    console.log(code);
+    try {
+        const {data} = await axios.post('https://oauth2.googleapis.com/token',{
+            client_id: CLIENT_ID,
+            client_secret: CLIENT_SECRET,
+            code,
+            redirect_uri: REDIRECT_URI,
+            grant_type: 'authorization_code',
+        });
+        console.log(data);
+        const {access_token} = data;
+        const {data:profile} = await axios.get('https://oauth2.googleapis.com/token',{
+            headers: { Authorization: `Bearer ${access_token}` },
+        });
+        console.log(profile);
+        reply.redirect('/');
+    
+    } catch (err) {
+    console.log(err);
+    reply.redirect('/');
+    return reply.code(500).send({
+        error: err,
+        badtrip :"hadchi makhdamch"
+    })
+    }
+    
 }
 
 
