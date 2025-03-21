@@ -9,38 +9,32 @@ const {chat, load_conversation} = require('./chat/chat');
 const {blockUser,unblockUser} = require('./chat/block');
 const {google_login_flow,google_login_response} = require('./tools/google-auth');
 const {game_logic} = require('./game/game');
+const {handel_cookies} = require('./tools/middlewares');
 
-const cookie = require('cookie-parser');
 
 const fastifyIO = require("fastify-socket.io");
 
 module.exports = async function routes(fastify, options) {
 
+    // fastify.register(cookie);
+    fastify.addHook('preHandler', handel_cookies);
 
-    // fastify.addHook('preHandler', async (request , reply)=>{
-    //     try{
-
-    //         console.log(request.cookie);
-
-    //     }catch(err){
-    //         console.log(err);
-    //         return reply.code(500).send({
-    //             error: err,
-    //             badtrip : 'hadchi makhdamch'
-    //         })
-    //     }
-
-    // })
     
     fastify.get('/', async (request, reply) => {
-        return {
-            capitan: 'zaml'
-        };
+        const token =  "sedbaraka ealiya mn trip ;";
+        reply.header('Set-Cookie', [
+            `jwt=${token}; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict`,
+            'Max-Age=3600000; Path=/; HttpOnly'
+        ]);
+        return reply.code(200).send({
+            goodtrip :"transbadtrip khdama ",
+        })
+    
     });
 
     fastify.decorate('authenticate', async function (request, reply) {
         try {
-            const token = request.headers.authorization?.split(' ')[1];
+             token = request.cookies.jwt || request.headers.authorization?.split(' ')[1];
             if (!token) {
                 throw new Error('No token provided');
             }
