@@ -21,19 +21,45 @@ model Friends {
 // https://www.luzmo.com/blog/database-relationships
 
 model User {
-	id             		Int       @id @default(autoincrement())
-	login          		String    @unique
-	email          		String    @unique
-	name           		String
-	password       		String
-	tfa            		Boolean
-	tfa_key        		String
-	friends 			Friends[] @relation("user")
-	sentMessages   		Message[] @relation("sentMessages")
-	receivedMessages    Message[] @relation("receivedMessages")
-	blockedBy			BlockedUser[] @relation("blocked")
-	blocked				BlockedUser[] @relation("blocker")
+  id              Int       @id @default(autoincrement())
+  login           String    @unique
+  email           String    @unique
+  name            String
+  password        String
+  tfa             Boolean
+  tfa_key         String
+  friends         Friends[] @relation("user")
+  sentMessages    Message[] @relation("sentMessages")
+  receivedMessages Message[] @relation("receivedMessages")
+  blockedBy       BlockedUser[] @relation("blocked")
+  blocked         BlockedUser[] @relation("blocker")
+  matches         Match[]   // Matches the user has participated in
 }
+
+model Tournament {
+  id        Int      @id @default(autoincrement())
+  name      String
+  players   User[]   @relation(references: [id])
+  matches   Match[]
+  winnerId  Int?     // ID of the winning user
+  winner    User?    @relation(fields: [winnerId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Match {
+  id           Int        @id @default(autoincrement())
+  tournamentId Int
+  player1Id    Int
+  player2Id    Int
+  winnerId     Int?
+  round        Int
+  createdAt    DateTime   @default(now())
+  tournament   Tournament @relation(fields: [tournamentId], references: [id])
+  player1      User       @relation(fields: [player1Id], references: [id])
+  player2      User       @relation(fields: [player2Id], references: [id])
+  winner       User?      @relation(fields: [winnerId], references: [id])
+}
+
 
 model Message {
 	id						Int				@id @default(autoincrement())

@@ -10,7 +10,7 @@ const {blockUser,unblockUser} = require('./chat/block');
 const {google_login_flow,google_login_response} = require('./tools/google-auth');
 const {game_logic} = require('./game/game');
 const {handel_cookies} = require('./tools/middlewares');
-
+const {createTournament} = require('./game/tournament')
 
 const fastifyIO = require("fastify-socket.io");
 
@@ -68,7 +68,19 @@ module.exports = async function routes(fastify, options) {
         });
     })
 
-
+    fastify.get("/api/tournaments/:id", async (request, reply) => {
+        const tournament = await prisma.tournament.findUnique({
+            where: { id: parseInt(request.params.id) },
+            include: { players: true, matches: true, winner: true },
+        });
+        return tournament;
+    });
+    
+    fastify.post("/api/tournaments/join", async (request, reply) => {
+        const { userId } = request.body;
+        const tournament = await createTournament([userId]);
+        return tournament;
+    });
     // not working  yet 
     fastify.get('/google_auth/flow',google_login_flow);
     fastify.get('/auth/google/callback',google_login_response);

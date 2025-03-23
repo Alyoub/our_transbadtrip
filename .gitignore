@@ -11,3 +11,7 @@ back/srcs/prisma/migrations/migration_lock.toml
 back/srcs/promps.md
 back/srcs/test.js
 back/srcs/users.db
+frontend/files/dist/
+frontend/files/node_modules/
+frontend/files/package-lock.json
+frontend/files/tsconfig.json
