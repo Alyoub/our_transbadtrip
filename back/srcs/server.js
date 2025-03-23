@@ -14,7 +14,7 @@ const fastify = require('fastify')({
 const cors = require('@fastify/cors');
 
 fastify.register(cors, {
-    origin: ['*'], // Replace with your trusted origins
+    origin: ['http://localhost:8000/'], // Replace with your trusted origins
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)

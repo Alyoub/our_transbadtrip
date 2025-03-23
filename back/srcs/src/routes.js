@@ -34,6 +34,7 @@ module.exports = async function routes(fastify, options) {
 
     fastify.decorate('authenticate', async function (request, reply) {
         try {
+            console.log('request cookes jwt ? ',request.cookies.jwt,' request headres auth ? ',request.headers.authorization)
              token = request.cookies.jwt || request.headers.authorization?.split(' ')[1];
             if (!token) {
                 throw new Error('No token provided');
