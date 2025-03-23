@@ -1,0 +1,68 @@
+.main5
+{
+    margin-top: 10%;
+    display: flex;
+    
+}
+.info5
+{
+    display: flex;
+    flex: 1;
+}
+.pt1
+{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+.pt2
+{
+    width: 20svw;
+    /* background-color: lightpink; */
+    display: flex;
+    justify-content: center;
+}
+.logo-main5
+{
+    width: 20svw;
+    display: flex;
+    /* background-color: lightpink; */
+}
+.wq1
+{
+    flex: 1;
+}
+
+.xp1
+{
+    text-align: center;
+    font-family: arial;
+    font-weight: bold;
+    color: white;
+    font-size: clamp(8px, 1vw, 25px);
+    font-size: clamp(5px, 1vw, 30px);
+    padding-bottom: 5%;
+}
+.xr1
+{
+    text-align: center;
+    color: gray;
+    font-family: arial;
+    font-size: 12px;
+    padding-top: 5px;
+    font-size: clamp(5px, 1vw, 30px);
+}
+.sign-bt_2
+{
+
+    color: white;
+    max-height: 75%;
+    background-color: rgba(58, 79, 124, 0.9);
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: clamp(1px, 1vw, 10px) clamp(0px, 1vw, 26px);
+    font-size: clamp(10px, 2vw, 43px);
+    font-weight: bold;
+    /* USE CLAMPS FOR PADDING TO FIX YOUR SHIT TOMOROW*/
+
+}

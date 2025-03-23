@@ -1,0 +1,19 @@
+.main6
+{
+    /* background-color: lightpink; */
+    display: flex;
+    margin-top: 10%;
+}
+.sp
+{
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+.linkdin
+{
+    padding-right: 2%;
+    width: 3svw;
+}

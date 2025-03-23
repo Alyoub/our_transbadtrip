@@ -1,0 +1,105 @@
+.main3
+{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 2%;
+
+}
+.pong-pic
+{
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+.main3::before
+{
+    position: absolute;
+    content: '';
+    height: 10%;
+    width: 100%;
+    color: white;
+    top: -6%;
+    filter: blur(4px);
+    background-color: rgba(20,20,41,255);
+}
+.main3::after
+{
+    position: absolute;
+    content: '';
+    height: 10%;
+    width: 100%;
+    color: white;
+    bottom: -6%;
+    background-color: rgba(20,20,41,255);
+    filter: blur(4px);
+}
+.info1
+{
+    height: 80%;
+    width: 70%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15%;
+
+}
+.tag1
+{
+    background-color: rgba(41,38,38,0.6);
+    width: 16svw;
+    border-radius: clamp(10px, 2vw, 20px);
+    position: relative;
+}
+.pic-tag
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+.add-acc
+{
+    width: 3svw;
+}
+.tag-text
+{
+    text-align: center;
+    font-family: arial;
+    font-weight: bold;
+    font-size: clamp(8px, 1vw, 30px);
+    color: white;
+    margin-top: 6%;
+}
+.tag-text1
+{
+    margin-top: 3%;
+    text-align: center;
+    font-family: arial;
+    font-size: clamp(5px, 1vw, 40px);
+    color: white;
+    /* background-color: red; */
+    position: absolute;
+    padding: clamp(1px, 1vw, 10px) clamp(0px, 1vw, 26px);
+}
+
+.tag1:hover
+{
+    /* background-color: rgba(78, 78, 128, 0.9); */
+    background-color: rgba(58, 79, 124, 0.9);
+    transition: 1s;
+    cursor: pointer;
+}
+.tag-text1:hover
+{
+    color: white;
+    transition: 1s;
+}
+
+/* .empty3,
+.empty4
+{
+    width: 15svw;
+    background-color: lightblue;
+
+} */

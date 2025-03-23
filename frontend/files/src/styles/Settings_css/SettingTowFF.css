@@ -1,0 +1,165 @@
+.all_settingsTOWFF_info
+{
+    width: 100%;
+    display: flex;
+    z-index: 10;
+    margin-top: 15%;
+    position: fixed;
+}
+.all_FFTOW_Data
+{
+    flex: 1;
+    background-color: rgba(30,31,34,0.8);
+    margin-top: 15%;
+    height: auto;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+
+}
+.all_TOWFF_Data
+{
+    width: 90%;
+    /* background-color: red; */
+    /* height: 80px; */
+}
+.TowFf_title
+{
+    /* background-color: lightpink; */
+    display: flex;
+    margin-top: 5%;
+}
+.phone_logo
+{
+    width: 5%;
+}
+.text_towFF
+{
+    color: white;
+    margin-left: 2%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: clamp(10px, 2vw, 30px);
+    /* background-color: red; */
+}
+.AuthyText
+{
+    color: rgba(245, 245, 245, 0.593);
+    display: block;
+    font-size: clamp(10px, 1.2vw, 40px);
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: red; */
+    margin-left: 2%;
+    margin-top: 2%;
+}
+.QR_2FA_text
+{
+    color: rgba(245, 245, 245, 0.593);
+    display: block;
+    font-size: clamp(10px, 1.2vw, 40px);
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: red; */
+    margin-left: 2%;
+}
+.AuthyShet
+{
+    margin-left: 7%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.QR_text
+{
+    /* background-color: red; */
+    color: white;
+    /* margin-left: 2%; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: clamp(10px, 2vw, 30px);
+    /* padding-top: 1%; */
+}
+.QrGen
+{
+    margin-top: 3%;
+    width: 30%;
+    height: 20%;
+    margin-left: 2%;
+}
+.FA_text1
+{
+    color: rgba(245, 245, 245, 0.593);
+    font-size: clamp(10px, 1.2vw, 40px);
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: red; */
+    margin-left: 2%;
+    margin-top: 2%;
+}
+.Verify_title
+{
+    /* background-color: red; */
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: clamp(10px, 2vw, 30px);
+    margin-top: 2%;
+}
+.Verify_Input_FA
+{
+    margin-top: 2%;
+    width: 25%;
+    height: clamp(10px, 3vw, 43px);
+    min-width: 100px; 
+    max-width: 300px;
+    min-height: 20px; 
+    max-height: 50px;
+    border-radius: 10px;
+    text-indent: 10%;
+    font-weight: bold;
+    font-size: clamp(10px, 1.2vw, 30px);
+    letter-spacing: 10px;
+}
+.Getkey
+{
+    color: lightblue;
+    font-weight: bold;
+}
+.choseBT
+{
+    /* background-color: red; */
+    width: 23%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+    padding-bottom: 10%;
+}
+.saveTwoFAcode
+{
+    background-color: rgba(15,89,35,255);
+    padding: 2% 9%;
+    border-radius: 10px;
+    font-size: clamp(10px, 1.2vw, 40px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+}
+.cancelTwoFAcode
+{
+    background-color: rgba(79,80,89,255);
+    padding: 2% 5%;
+    border-radius: 10px;
+    font-size: clamp(10px, 1.2vw, 40px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+}
+.blur
+{
+    filter: blur(px);
+    pointer-events: none;
+}
+.hide
+{
+    display: none;
+}

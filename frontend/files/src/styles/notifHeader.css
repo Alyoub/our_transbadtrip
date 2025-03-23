@@ -1,0 +1,119 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    background-color: rgb(26, 26, 46);
+    height: auto;
+}
+.header_notif
+{
+    display: flex;
+    background-color: rgb(26, 26, 46);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid  rgba(58, 79, 124, 0.6);
+    /* background-color: tomato; */
+}
+
+.logo_notif
+{
+    width: 20svw;
+    display: flex;
+    align-items: center;
+}
+.center_notif
+{
+    flex: 1;
+    min-width: 50px;
+}
+.empty2_notif,
+.empty1_notif
+{
+    flex: auto;
+    width: 5px;
+    /* background-color: lightskyblue; */
+}
+.logo-pic_notif
+{
+    width: 3svw;
+    /* background-color: red; */
+}
+.logo-name_notif
+{
+    margin-left: 1px;
+    padding-bottom: 2%;
+}
+
+/* .loginForm // to hide shit
+{
+    display: none;
+} */
+
+.logo-name1_notif
+{
+    font-family: "ADLaM Display", serif;
+    color: white;
+    font-size: clamp(20px,2vw, 40px); 
+    margin-top: 0;
+    min-width: 280px;
+    margin-bottom: 0;
+    text-align: start;
+    padding-left: 2%;
+}
+.hero_notif
+{
+    font-family: arial;
+    font-size: min(10px, 1vw, 15px);
+    color: white;
+    font-weight:500;
+    margin-top: 2px;
+    font-weight: bold;
+    text-align: start;
+    padding-left: 2%;
+}
+.sign-bt_notif
+{
+    display: flex;
+    align-items: center;
+    min-width: 10svw;
+    width: 20svw;
+    justify-content: end;
+}
+.log-in-bt1_notif
+{
+    background-color: rgba(94,94,111,0.7);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    align-items: center;
+}
+.user_name_header
+{
+    font-size: clamp(10px, 1vw, 30px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.user_header_pic
+{
+    width: 25%;
+    border-radius: 50px;
+    display: flex;
+    justify-content: start;
+    position: relative;
+}
+.user_notification_header
+{
+    width: 20%;
+}   

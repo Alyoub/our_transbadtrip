@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    background-color: rgba(20, 20, 41, 255); /* new colore dark one */
+    height: auto;
+    /* filter: blur(20px); */
+    /* height: 0px; */
+
+}
+.header
+{
+    display: flex;
+    background-color: rgb(26, 26, 46);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid  rgba(58, 79, 124, 0.6);
+    /* background-color: tomato; */
+}
+
+.logo
+{
+    width: 20svw;
+    display: flex;
+    align-items: center;
+}
+.center
+{
+    flex: 1;
+    min-width: 50px;
+}
+.empty2,
+.empty1
+{
+    width: 7svw;
+    /* background-color: lightskyblue; */
+}
+.logo-pic
+{
+    width: 3svw;
+    /* background-color: red; */
+}
+.logo-name
+{
+    margin-left: 1px;
+}
+.logo-name1
+{
+    font-family: "ADLaM Display", serif;
+    color: white;
+    font-size: clamp(20px,2vw, 40px); 
+    margin-top: 0px;
+    min-width: 280px;
+}
+.hero
+{
+    font-family: arial;
+    font-size: min(10px, 1vw, 15px);
+    color: white;
+    font-weight:500;
+    margin-top: 2px;
+    font-weight: bold;
+}
+.sign-bt
+{
+    display: flex;
+    align-items: center;
+    /* background-color: lightpink; */
+    min-width: 10svwa;
+    width: 20svw;
+    justify-content: end;
+}
+.log-in-bt1
+{
+    background-color:rgb(26, 26, 46);
+    color: white;
+    padding: clamp(1px, 1vw, 10px) clamp(0px, 2vw, 26px);
+    border: none;
+    border-radius: 30px;
+    font-size: clamp(10px, 1vw, 30px);
+    margin-left: 2%;
+}
+.log-in-bt2
+{
+    background-color:rgba(102,104,117,255);
+    color: white;
+    padding: clamp(1px, 1vw, 10px) clamp(0px, 2vw, 26px);
+    border: none;
+    border-radius: 30px;
+    font-size: clamp(10px, 1vw, 30px);
+    margin-left: 4%;
+}
+.log-in-bt2:hover
+{
+    background-color: rgb(26, 26, 46);
+    border: 2px solid whitesmoke;
+    transition: 1s;
+    cursor: pointer;
+} 
+.log-in-bt1:hover
+{
+    background-color: rgb(26, 26, 46);
+    border: 2px solid whitesmoke;
+    transition: 1s;
+    cursor: pointer;
+}

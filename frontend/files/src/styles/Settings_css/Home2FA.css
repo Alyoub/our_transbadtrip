@@ -1,0 +1,136 @@
+.Verify_home
+{
+    width: 100%;
+    /* background-color: black; */
+    position: fixed;
+    margin-top: 25%;
+    z-index: 20;
+    display: flex;
+    display: none;
+}
+.mainHomeFA
+{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.allHomeFaData
+{
+    width: 40%;
+    /* background-color: tomato; */
+}
+.logoFApart
+{
+    width: 100%;
+    /* background-color: black; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items:  center;
+}
+.FAlogo
+{
+    width: 20%;
+}
+.homrFAtext1
+{
+    /* background-color: red; */
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: clamp(10px, 2vw, 30px);
+    margin-top: 2%;
+    width: 100%;
+    text-align: center;
+    padding-top: 2%;
+}
+.FAhomeDAta
+{
+    width: 100%;
+    margin-top: 5%;
+    /* background-color: rgba(26, 26, 46, 0.8); */
+    background-color: rgb(255, 255, 255, 0.2);
+    border-radius: 10%;
+    padding-top: 5%;
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.5);
+
+}
+.phoneFAlogo
+{
+    width: 100%;
+    /* background-color: lightcoral; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+.homeFaLogoHome
+{
+    width: 10%;
+}
+.homrFAtext2
+{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: clamp(10px, 1.5vw, 30px);
+    margin-top: 2%;
+    width: 100%;
+    text-align: center;
+    padding-top: 2%;
+    /* background-color: red; */
+}
+.FAcodeHoem
+{
+    width: 80%;
+    /* background-color: red; */
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.HomeFaInput1,
+.HomeFaInput2,
+.HomeFaInput3,
+.HomeFaInput4,
+.HomeFaInput5,
+.HomeFaInput6
+{
+    height: 5svw;
+    width: 15%;
+    text-indent: 40%;
+    background-color: white;
+    border-radius: 10px;
+    font-size: clamp(10px, 2vw, 30px);
+    font-weight: bolder;
+}
+.HomeFaVerify
+{
+    background-color: rgba(84, 134, 168, 255);
+    width: 80%;
+    margin-top: 5%;
+    font-size: clamp(10px, 1.5vw, 30px);
+    font-weight: bold;
+    color: white;
+    padding: 2%;
+    border-radius: 20px;
+}
+/* .alotfi
+{
+    filter: blur(10px);
+} */
+
+.TOTP_Text
+{
+    /* background-color: red; */
+    width: 80%;
+    margin-top: 10%;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: clamp(10px, 1.5vw, 30px);
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 10%;
+}
