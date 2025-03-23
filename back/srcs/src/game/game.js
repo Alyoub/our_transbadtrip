@@ -1,3 +1,5 @@
+
+const {prisma} = require('../user/db')
 class Game {
     constructor(player1, player2) {
         this.players = {
@@ -143,28 +145,28 @@ function game_logic(socket, fastify) {
             }
         }
     });
-    socket.on("joinTournament", async () => {
-        const tournament = await createTournament([socket.id]);
-        socket.emit("tournamentJoined", tournament);
-    });
+    // socket.on("joinTournament", async () => {
+    //     const tournament = await createTournament([socket.id]);
+    //     socket.emit("tournamentJoined", tournament);
+    // });
     
-    socket.on("matchResult", async (data) => {
-        const { matchId, winnerId } = data;
-        await updateMatchWinner(matchId, winnerId);
+    // socket.on("matchResult", async (data) => {
+    //     const { matchId, winnerId } = data;
+    //     await updateMatchWinner(matchId, winnerId);
     
-        const match = await prisma.match.findUnique({ where: { id: matchId } });
-        const tournament = await prisma.tournament.findUnique({
-            where: { id: match.tournamentId },
-        });
+    //     const match = await prisma.match.findUnique({ where: { id: matchId } });
+    //     const tournament = await prisma.tournament.findUnique({
+    //         where: { id: match.tournamentId },
+    //     });
     
-        if (tournament) {
-            const updatedTournament = await prisma.tournament.update({
-                where: { id: tournament.id },
-                data: { winnerId },
-            });
-            socket.emit("tournamentUpdated", updatedTournament);
-        }
-    });
+    //     if (tournament) {
+    //         const updatedTournament = await prisma.tournament.update({
+    //             where: { id: tournament.id },
+    //             data: { winnerId },
+    //         });
+    //         socket.emit("tournamentUpdated", updatedTournament);
+    //     }
+    // });
     socket.on("disconnect", () => {
         //console.log("client disconnected:", socket.id);
 
