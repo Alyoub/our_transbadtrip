@@ -111,20 +111,41 @@ class Game {
 let waitingQueue = [];
 let activeGames = []; 
 
+
 function game_logic(socket, fastify) {
     //console.log("client connected", socket.id);
 
+    socket.on("jwt", async (token) => {
+        try {
+            const decoded = jwt.verify(token, 'your_secret_key'); // Replace 'your_secret_key' with your actual secret key
+            const userId = decoded.userId;
+
+            // Save the user ID and socket ID to the database
+            await prisma.user.update({
+                where: { id: userId },
+                data: { socketId: socket.id }
+            });
+
+            // Store the userId in the socket object
+            socket.userId = userId;
+
+            // Emit a success message back to the client
+            socket.emit("jwtVerified", { success: true, userId });
+        } catch (error) {
+            // Emit an error message back to the client
+            socket.emit("jwtVerified", { success: false, message: "Invalid token" });
+        }
+    });
 
     socket.on("requestMatch", () => {
-        waitingQueue.push(socket.id);
-        //console.log("Player added to queue:", socket.id);
+        waitingQueue.push(socket);
 
         if (waitingQueue.length >= 2) {
             const player1 = waitingQueue.shift();
             const player2 = waitingQueue.shift();
 
             // Create a new game instance
-            const game = new Game(player1, player2);
+            const game = new Game(player1.userId, player2.userId);
             activeGames.push(game);
 
             // Start the game
@@ -132,65 +153,35 @@ function game_logic(socket, fastify) {
         }
     });
 
-
-    socket.on("paddleMoving", (data) => 
-    {
-        const game = activeGames.find((g) => g.players.left === socket.id || g.players.right === socket.id);
-        if (game) 
-        {
-            if (data.player === "left" && game.players.left === socket.id) {
+    socket.on("paddleMoving", (data) => {
+        const game = activeGames.find((g) => g.players.left === socket.userId || g.players.right === socket.userId);
+        if (game) {
+            if (data.player === "left" && game.players.left === socket.userId) {
                 game.gameState.leftPaddleY = data.y;
-            } else if (data.player === "right" && game.players.right === socket.id) {
+            } else if (data.player === "right" && game.players.right === socket.userId) {
                 game.gameState.rightPaddleY = data.y;
             }
         }
     });
-    // socket.on("joinTournament", async () => {
-    //     const tournament = await createTournament([socket.id]);
-    //     socket.emit("tournamentJoined", tournament);
-    // });
-    
-    // socket.on("matchResult", async (data) => {
-    //     const { matchId, winnerId } = data;
-    //     await updateMatchWinner(matchId, winnerId);
-    
-    //     const match = await prisma.match.findUnique({ where: { id: matchId } });
-    //     const tournament = await prisma.tournament.findUnique({
-    //         where: { id: match.tournamentId },
-    //     });
-    
-    //     if (tournament) {
-    //         const updatedTournament = await prisma.tournament.update({
-    //             where: { id: tournament.id },
-    //             data: { winnerId },
-    //         });
-    //         socket.emit("tournamentUpdated", updatedTournament);
-    //     }
-    // });
-    socket.on("disconnect", () => {
-        //console.log("client disconnected:", socket.id);
 
-        const indexInQueue = waitingQueue.indexOf(socket.id);
-        if (indexInQueue !== -1) 
-        {
+    socket.on("disconnect", () => {
+        const indexInQueue = waitingQueue.indexOf(socket);
+        if (indexInQueue !== -1) {
             waitingQueue.splice(indexInQueue, 1);
-            //console.log("Player removed from queue:", socket.id);
         }
 
-        const gameIndex = activeGames.findIndex((g) => g.players.left === socket.id || g.players.right === socket.id);
+        const gameIndex = activeGames.findIndex((g) => g.players.left === socket.userId || g.players.right === socket.userId);
         if (gameIndex !== -1) {
             const [removedGame] = activeGames.splice(gameIndex, 1);
 
             removedGame.stopGameLoop();
 
             const otherPlayer =
-                removedGame.players.left === socket.id
+                removedGame.players.left === socket.userId
                     ? removedGame.players.right
                     : removedGame.players.left;
-            if (otherPlayer) 
-            {
+            if (otherPlayer) {
                 fastify.io.to(otherPlayer).emit("gameEnded", "Opponent disconnected");
-                //console.log("Game ended due to player disconnect");
             }
         }
     });
