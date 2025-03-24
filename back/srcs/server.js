@@ -13,6 +13,11 @@ const fastify = require('fastify')({
 
 const cors = require('@fastify/cors');
 
+
+// mohim fel cors =>
+// https://stackoverflow.com/questions/10730362/get-cookie-by-name
+// https://stackoverflow.com/questions/34558264/fetch-api-with-cookie
+// https://stackoverflow.com/questions/55897099/cross-origin-request-blocked-the-same-origin-policy-disallows-reading-the-remot
 fastify.register(cors, {
     origin: ['http://localhost:8000','http://localhost:3000','http://localhost:8000/','http://localhost','http://localhost:8000/'], // Replace with your trusted origins
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
