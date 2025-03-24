@@ -303,12 +303,14 @@ body
     padding-bottom: 20%;
     padding-top: 5%;
 }
+
 .PadSingbt
 {
     /* background-color: red; */
-    padding-bottom: 30%;
-    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-top: 3%;
 }
+
 .blur
 {
     filter: blur(8px);
@@ -317,7 +319,7 @@ body
 .hide
 {
     display: none;
-}show_bt1
+}
 .Password_input_info
 {
     position: relative;
@@ -330,4 +332,26 @@ body
 .valid
 {
     outline: 2px solid rgb(0, 255, 55);
+}
+.responsIN
+{
+    width: 100%;
+    /* background-color: black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7%;
+}
+.responsTextB
+{
+    color: red;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: clamp(10px, 1vw, 43px);
+    margin-left: 3%;
+}
+.responsLogo
+{
+    width: 30%;
 }

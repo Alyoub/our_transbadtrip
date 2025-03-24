@@ -83,7 +83,34 @@
 .validBT
 {
     height: 3.4svw;
-    border-top: 2px solid rgb(0, 255, 55);;
-    border-bottom: 2px solid rgb(0, 255, 55);;
+    border-top: 2px solid rgb(0, 255, 55);
+    border-bottom: 2px solid rgb(0, 255, 55);
     border-right: 2px solid rgb(0, 255, 55);
+}
+.responsUP
+{
+    width: 100%;
+    /* background-color: black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7%;
+    padding-bottom: 17%;
+}
+.responsTextG
+{
+    color: rgb(0, 255, 55);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: clamp(10px, 1vw, 43px);
+    margin-left: 3%;
+}
+.responsLogo
+{
+    width: 30%;
+}
+.badRes
+{
+    color: red;
 }
