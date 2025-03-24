@@ -6,56 +6,46 @@ const connections = new Map();
 function chat(connection, req) {
   const userId = req.user.userId;
   connections.set(userId, connection);
-  
   connection.on("message", async (message) => {
     try {
       const parsedMessage = JSON.parse(message);
-    }
-    catch (error) {
-      //console.error('Error parsing message:', error);
-      return connection.send(JSON.stringify({ error: "Invalid message" }));
-    }
-    const { text, receiverId } = parsedMessage;
-    const senderId = req.user.userId;
-    const isBlocked = await prisma.blockedUser.findFirst({
-      where: {
-        OR : [
-          {
-            blockerId: receiverId,
-            blockedId: senderId,
-          },
-          {
-            blockerId: senderId,
-            blockedId: receiverId,
-          },
-        ],
-      },
-    });
-    if (isBlocked) {
-      return connection.send(JSON.stringify({ error: "You are blocked, or you blocked this user" }));
-    }
+      const { text, receiverId } = parsedMessage;
 
-    try {
-      const chat = await prisma.message.create({
-        data: {
-          text,
-          senderId,
-          receiverId,
+      if (!text || !receiverId) {
+        return connection.send(JSON.stringify({ error: "Invalid message format" }));
+      }
+
+      const senderId = req.user.userId;
+      const isBlocked = await prisma.blockedUser.findFirst({
+        where: {
+          OR: [
+            { blockerId: receiverId, blockedId: senderId },
+            { blockerId: senderId, blockedId: receiverId },
+          ],
         },
       });
+
+      if (isBlocked) {
+        return connection.send(JSON.stringify({ error: "You are blocked, or you blocked this user" }));
+      }
+
+      const chat = await prisma.message.create({
+        data: { text, senderId, receiverId },
+      });
+
       const receiverConnection = connections.get(receiverId);
       if (receiverConnection && receiverConnection.readyState === WebSocket.OPEN) {
         receiverConnection.send(JSON.stringify({ senderId, text }));
       }
-  
-    }
-    catch (error) {
-      //console.error('Error sending message:', error);
+    } catch (error) {
+      console.error('Error handling message:', error);
+      connection.send(JSON.stringify({ error: "An error occurred while processing your message" }));
     }
   });
+
   connection.on("close", () => {
     connections.delete(userId);
-    //console.log("Connection closed");
+    console.log("Connection closed");
   });
 }
 
@@ -84,7 +74,7 @@ async function load_conversation(req, reply) {
     });
     reply.send(messages);
   } catch (err) {
-    //console.error('Error loading conversation:', err);
+    console.error('Error loading conversation:', err);
     reply.status(500).send({ error: "An error occurred while loading conversation" });
   }
 }

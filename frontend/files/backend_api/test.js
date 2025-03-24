@@ -23,7 +23,7 @@ async function main() {
         response = await api.POST({
             url:'http://localhost:3000/login',
             body:{
-                "email": "xxyaslam@xxyaslam.com",
+                "email": "rrakman@xxyaslam.com",
                 "password": "passwords1234",
             },
         });

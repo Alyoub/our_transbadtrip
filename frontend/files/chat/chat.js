@@ -1,59 +1,140 @@
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyMTc4ODA0ODQxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjE3ODgwNCwiZXhwIjoxNzQyMjY1MjA0fQ.HTCdQKZnwx7oNCQyM4GuSBInZ_uhCgefUbSxbBf5dTA";
-const socket = new WebSocket(`ws://localhost:3000/chat?token=${token}`);
+const socket = new WebSocket(`ws://localhost:3000/chat?token=${get_token_from_cookies()}`);
+// console.log("hamiid")
 
-socket.addEventListener("open", () => {
-  console.log("Connected to WebSocket server");
+socket.addEventListener('open', function () {
+    console.log('Connected to WebSocket server');
 });
 
-socket.addEventListener("message", (event) => {
-  const message = JSON.parse(event.data);
-  displayMessage(message);
+socket.addEventListener('message', function (event) {
+    console.log("Received message:", event.data);
+    try {
+        const message = JSON.parse(event.data);
+        if (message.error) {
+            console.error(message.error);
+            return;
+        }
+        appendMessage(message.senderId, message.text);
+    } catch (error) {
+        console.error("Error parsing message:", error);
+    }
 });
 
-function fetchOldMessages() {
-  const receiverId = document.getElementById("receiverIdInput").value;
-  if (receiverId.trim() !== "") {
-    fetch(`http://localhost:3000/chat/${receiverId}`, {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
+socket.addEventListener('close', function (event) {
+    console.log('WebSocket connection closed:', event);
+});
+
+socket.addEventListener('error', function (error) {
+    console.error('WebSocket error:', error);
+});
+
+document.getElementById('sendButton').addEventListener('click', function(event) {
+    event.preventDefault()
+    const messageInput = document.getElementById('messageInput');
+    const receiverIdInput = document.getElementById('receiverIdInput');
+    
+    const message = {
+        text: messageInput.value.trim(),
+        receiverId: parseInt(receiverIdInput.value)
+    };
+    
+    if (!message.text || isNaN(message.receiverId)) return;
+    
+    socket.send(JSON.stringify(message));
+    appendMessage('Me', message.text);
+    messageInput.value = '';
+
+});
+// Add enter key support for the input field
+document.getElementById('messageInput').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        document.getElementById('sendButton').click();
+    }
+});
+
+function appendMessage(sender, text) {
+    const chatBox = document.getElementById('chatBox');
+    const messageElement = document.createElement('div');
+    messageElement.textContent = `${sender}: ${text}`;
+    chatBox.appendChild(messageElement);
+    chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to the latest message
+}
+
+function get_token_from_cookies() {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; jwt=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+}
+
+let letoken = get_token_from_cookies();
+console.log(letoken);
+
+fetch('http://localhost:3000/users', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+        // 'Authorization': `Bearer ${letoken}`
+    },
+    credentials: 'include'
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+})
+.then(friends => {
+    if (!Array.isArray(friends)) {
+        throw new Error('Expected an array of friends');
+    }
+    const friendos = document.getElementById('friendoss');
+    friendos.innerHTML = ''; // Clear existing content
+    friends.forEach(friend => {
+        const friendElement = document.createElement('div');
+        friendElement.className = 'user_continer';
+        friendElement.innerHTML = `
+        <div class="picholder">
+        <img class="userpic" src="feline.webp">
+        </div>
+        <div class="textHolder">
+        <label class="userName">
+                ${friend.login}
+            </label>
+            <p class="messg">
+                last message to be added
+            </p>
+          </div>
+        `;
+        friendElement.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent default link behavior
+            loadConversation(friend);
+        });
+        friendos.appendChild(friendElement);
+    });
+})
+.catch(error => {
+    console.error('Error fetching users:', error);
+});
+
+function loadConversation(friend) {
+    document.getElementById('receiverIdInput').value = friend.id;
+    fetch(`http://localhost:3000/chat/${friend.login}`, {
+        method: 'POST',
+        headers: {
+            // 'Authorization': `Bearer ${letoken}`
+        },
+        credentials: 'include'
     })
     .then(response => response.json())
     .then(messages => {
-      messages.forEach(message => displayMessage(message));
+        const chatBox = document.getElementById('chatBox');
+        chatBox.innerHTML = '';
+        if (Array.isArray(messages)) {
+            messages.forEach(message => {
+                appendMessage(message.senderId === friend.id ? friend.login : 'Me', message.text);
+            });
+        }
     })
-    .catch(error => console.error('Error fetching old messages:', error));
-  }
+    .catch(error => console.error('Error loading conversation:', error));
 }
-
-function sendMessage(text, receiverId) {
-  const message = { text, receiverId: parseInt(receiverId, 10) };
-  socket.send(JSON.stringify(message));
-  displayMessage({ senderId: 'You', text }); // Display the sent message
-}
-
-function displayMessage(message) {
-  const chatBox = document.getElementById("chatBox");
-  const messageElement = document.createElement("div");
-  const timestamp = new Date(message.creteadAt).toLocaleTimeString();
-  messageElement.textContent = `${message.senderId} [${timestamp}]: ${message.text}`;
-  chatBox.appendChild(messageElement);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const sendButton = document.getElementById("sendButton");
-  const messageInput = document.getElementById("messageInput");
-  const receiverIdInput = document.getElementById("receiverIdInput");
-
-  sendButton.addEventListener("click", () => {
-    const text = messageInput.value;
-    const receiverId = receiverIdInput.value;
-    if (text.trim() !== "" && receiverId.trim() !== "") {
-      sendMessage(text, receiverId);
-      messageInput.value = "";
-      receiverIdInput.value = "";
-    }
-  });
-  receiverIdInput.addEventListener("change", fetchOldMessages);
-});
-
