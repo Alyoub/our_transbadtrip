@@ -2,6 +2,7 @@
 import { updateHomeHeadermain3 } from "./home1.js";
 import { updateHomeHeadermain5, setupLoginPage } from "./home2.js";
 import { updateSettingsPage } from "./settings.js";
+import { rakmanchat } from "./chat.js";
 
 // home page:
 let app: HTMLElement;
@@ -76,7 +77,8 @@ export const loadPage = async (page: string) => {
 		}
 		if (page === 'messages')
 		{
-			setupMessagesButtons();
+			// setupMessagesButtons();
+			rakmanchat();
 		}
 		if (page === 'hosttourn')
 		{

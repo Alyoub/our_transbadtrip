@@ -35,19 +35,16 @@ profilepic
 GET http://localhost:3000/
 Content-Type: application/json
 
-###
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEyMDUyOTYwLCJ1c2VySWQiOjEsImlhdCI6MTc0MTgxMjA1MiwiZXhwIjoxNzQxODE1NjUyfQ.s0mLVaNrGI1IKndX-fQcpymXss6n8WxGdszjOWCG65M"
 
 ### Test POST request to register a new user
 POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "login": "afsis",
-    "email": "al3dtfi@hoslda.com",
-    "name": "zeb1fd23",
-    "password": "passwords1234",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyMzI5NjE5NTQxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjMyOTYxOSwiZXhwIjoxNzQyMzMzMjE5fQ.ZsJ5ltn03SX9pySs2U74FTVIUeTuOrQW1Gup8LCJ42g"
+    "login": "tokman",
+    "email": "tokman@alotfi.com",
+    "name": "tookman lotfi",
+    "password": "passwords1234"
 }
 
 ### Test POST request to login
@@ -55,7 +52,7 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "al3dtfi@hoslda.com",
+    "email": "tokman@alotfi.com",
     "password": "passwords1234"
 }
 

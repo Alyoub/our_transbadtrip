@@ -1,0 +1,103 @@
+.allChat
+{
+  width: 100%;
+  height: 550px;
+  display: flex;
+  flex-direction: row;
+  background-color: gray;
+}
+.friend-list
+{
+  background-color: tomato;
+  flex: 1;
+
+}
+.chat-box
+{
+
+  flex: 2;
+  position: relative;
+}
+.extra-features
+{
+  background-color: lightblue;
+  flex: 1;
+}
+.message-input
+{
+  background-color: aqua;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+#messageInput
+{
+  
+  width: 90%;
+  height: 50px;
+}
+
+.picholder {
+  width: 30%;
+  height: 90%;
+  margin-left: 3%;
+}
+.userpic {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-size: cover;
+}
+
+.textHolder {
+  width: 60%;
+  height: 50%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.userName {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-top: 20%;
+}
+
+.messg {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.user_continer
+{
+  width: 80%;
+  height: 70px;
+  background-color: black;
+  margin-top: 10%;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+.ME
+{
+  background-color: white;
+  display: flex;
+  justify-content: start;
+  border: 3px black solid;
+  border-radius: 20px;
+  width: 30%;
+}
+.User
+{
+  background-color: white;
+  display: flex;
+  justify-content: start;
+  border: 3px black solid;
+  border-radius: 20px;
+  width: 30%;
+  margin-left: 70%;
+  text-indent: 5%;
+}

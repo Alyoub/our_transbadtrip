@@ -1,4 +1,5 @@
 import Api from './api';
+
 async function main() {
     try {
         let response = await Api.GET({
@@ -6,6 +7,7 @@ async function main() {
             body: {},
         });
         console.log(response);
+        
         // Test register
         console.log('Testing register');
         response = await Api.POST({
@@ -18,6 +20,7 @@ async function main() {
             },
         });
         console.log(response);
+
         // Test login
         console.log('Testing login');
         response = await Api.POST({
@@ -28,6 +31,7 @@ async function main() {
             },
         });
         console.log(response);
+
         // Test profile
         console.log('Testing /profile');
         response = await Api.GET({
@@ -35,9 +39,9 @@ async function main() {
             body: {},
         });
         console.log(response);
-    }
-    catch (error) {
+    } catch (error) {
         console.error('Error:', error);
     }
 }
+
 main();

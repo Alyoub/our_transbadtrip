@@ -1,18 +1,32 @@
+interface FetchParams {
+    url: string;
+    method?: string;
+    headers?: Record<string, string>;
+    body?: any;
+    credentials?: RequestCredentials;
+}
+
+interface HeadersParams {
+    authorization?: string;
+}
+
 class Api {
-    constructor() { }
-    headers(params = {}) {
+    constructor() {}
+
+    headers(params: HeadersParams = {}): Record<string, string> {
         return {
             'Content-Type': 'application/json',
             'Authorization': params.authorization || '',
         };
     }
-    getCookie(name) {
+
+    getCookie(name: string): string | undefined {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
-        if (parts.length === 2)
-            return parts.pop()?.split(';').shift();
+        if (parts.length === 2) return parts.pop()?.split(';').shift();
     }
-    static async POST(params) {
+
+    static async POST(params: FetchParams): Promise<any> {
         const instance = new Api();
         const response = await fetching({
             url: params.url,
@@ -23,7 +37,8 @@ class Api {
         });
         return response;
     }
-    static async DELETE(params) {
+
+    static async DELETE(params: FetchParams): Promise<any> {
         const instance = new Api();
         const response = await fetching({
             url: params.url,
@@ -34,7 +49,8 @@ class Api {
         });
         return response;
     }
-    static async GET(params) {
+
+    static async GET(params: FetchParams): Promise<any> {
         const instance = new Api();
         const response = await fetching({
             url: params.url,
@@ -44,7 +60,8 @@ class Api {
         });
         return response;
     }
-    static async PUT(params) {
+
+    static async PUT(params: FetchParams): Promise<any> {
         const instance = new Api();
         const response = await fetching({
             url: params.url,
@@ -55,7 +72,8 @@ class Api {
         });
         return response;
     }
-    static async custom(params) {
+
+    static async custom(params: FetchParams): Promise<any> {
         const instance = new Api();
         const response = await fetching({
             url: params.url,
@@ -66,11 +84,13 @@ class Api {
         });
         return response;
     }
-    static async upload() {
+
+    static async upload(): Promise<void> {
         // Implement upload functionality if needed
     }
 }
-async function fetching(params) {
+
+async function fetching(params: FetchParams): Promise<any> {
     try {
         const response = await fetch(params.url, {
             method: params.method,
@@ -79,10 +99,10 @@ async function fetching(params) {
             credentials: params.credentials
         });
         return response.json();
-    }
-    catch (err) {
+    } catch (err) {
         console.log("error during fetch op !");
         console.log(err);
     }
 }
+
 export default Api;
