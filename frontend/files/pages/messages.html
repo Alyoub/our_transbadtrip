@@ -177,12 +177,38 @@
        
     </div>
     <div class="container chat-box">
+			<img class="chatCover" src="../public/images/chat_background.jpeg">
         <div id="chatBox" class="chat-box-content">
-					
 				</div>
         <div class="message-input">
-            <input type="text" id="messageInput" placeholder="Type a message..." />
-            <button type="button" id="sendButton">Send</button>
+
+					<!-- From Uiverse.io by vinodjangid07 --> 
+<div class="messageBox">
+  <div class="fileUploadWrapper">
+    
+    <input type="file" id="file" name="file" />
+  </div>
+  <input required="" placeholder="Message..." type="text" id="messageInput" />
+  <button id="sendButton">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 664 663">
+      <path
+        fill="none"
+        d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
+      ></path>
+      <path
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        stroke-width="33.67"
+        stroke="#6c6c6c"
+        d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
+      ></path>
+    </svg>
+  </button>
+</div>
+
+
+            <!-- <input type="text" id="messageInput" placeholder="Type a message..." />
+            <button type="button" id="sendButton">Send</button> -->
         </div>
         <input type="hidden" id="receiverIdInput" />
     </div>
@@ -192,7 +218,9 @@
         <button id="blockButton">Block User</button>
         <button id="unblockButton">Unblock User</button>
     </div>
-	</div>
+
+
+		
     <script type="module" src="chat.ts"></script>
 </body>
 

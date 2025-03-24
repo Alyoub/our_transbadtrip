@@ -81,7 +81,7 @@ function appendMessage(sender: string, text: string): void {
         messageElement.classList.add("User");
     }
 
-    messageElement.textContent = ` ${text}`;
+    messageElement.textContent = `${text}`;
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to the latest message
 }
@@ -120,18 +120,33 @@ fetch('http://localhost:3000/users', {
         friends.forEach((friend: Friend) => {
             const friendElement = document.createElement('div');
             friendElement.className = 'user_continer';
+            // friendElement.innerHTML = `
+            //     <div class="picholder">
+            //         <img class="userpic" src="../public/profile_pictures/htouil.jpeg">
+            //     </div>
+            //     <div class="textHolder">
+            //         <label class="userName">
+            //             ${friend.login}
+            //         </label>
+            //         <p class="messg">
+            //             last message to be added
+            //         </p>
+            //     </div>        
+            // `;
             friendElement.innerHTML = `
-                <div class="picholder">
-                    <img class="userpic" src="../public/profile_pictures/htouil.jpeg">
+                <div class="user__container">
+			<div class="user">
+				<div>
+                    <img class="image" src="../public/profile_pictures/atoukmat.jpeg">
                 </div>
-                <div class="textHolder">
-                    <label class="userName">
-                        ${friend.login}
-                    </label>
-                    <p class="messg">
-                        last message to be added
-                    </p>
-                </div>
+				<div class="user__content">
+					<div class="text">
+						<span class="name">${friend.login}</span>
+						<p class="username">${friend.id}</p>
+					</div>
+				</div>
+			</div> 
+		</div> 
             `;
             friendElement.addEventListener('click', (event: MouseEvent) => {
                 event.preventDefault(); // Prevent default link behavior
