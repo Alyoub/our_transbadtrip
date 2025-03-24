@@ -3,7 +3,7 @@ async function fetching(params = {}) {
         const response = await fetch(params.url, {
             method: params.method,
             headers: params.headers,
-            body: params.body,
+            body: JSON.stringify(params.body), // Stringify the body
             credentials: params.credentials
         });
         return response.json();

@@ -2,7 +2,7 @@ import api from './api.js';
 
 async function main() {
     try {
-        const response = await api.GET({
+        let response = await api.GET({
             url: 'http://localhost:3000/',
             body: {},
         });
