@@ -119,6 +119,24 @@ fetch('http://localhost:3000/users', {
 
         friends.forEach((friend: Friend) => {
             const friendElement = document.createElement('div');
+            const header = document.querySelector('.toukman') as HTMLElement;
+
+            header.innerHTML = `
+                  <div class="user__container1">
+			<div class="user">
+				<div>
+                    <img class="image" src="../public/profile_pictures/atoukmat.jpeg">
+                </div>
+				<div class="user__content">
+					<div class="text">
+						<span class="name1">${friend.login}</span>
+						<p class="username1">${friend.id}</p>
+					</div>
+				</div>
+			</div> 
+		</div>  
+            `;
+
             friendElement.className = 'user_continer';
             // friendElement.innerHTML = `
             //     <div class="picholder">

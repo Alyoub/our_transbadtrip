@@ -75,6 +75,17 @@
   margin-top: 3%;
   align-items: center;
 }
+.user_continer1
+{
+  width: 90%;
+  height: 70px;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  margin-top: 3%;
+  align-items: center;
+  z-index: 5;
+}
 .ME
 {
   background-color: white;
@@ -108,8 +119,16 @@
   position: absolute;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 89%;
   overflow: hidden;
+}
+.toukman
+{
+  width: 50%;
+  position: fixed;
+  background-color: white;
+  border-radius: 20px;
+  z-index: 50;
 }
 
 
@@ -258,12 +277,25 @@
   padding: 10px 15px;
   color: black;
 }
+.user1
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  color: white;
+}
 .name {
   font-weight: 800;
 }
 
 .username {
   font-size: .9em;
-  color: #64696e;
   color: black;
+}
+.username1
+{
+  font-size: .9em;
+  color: white;
 }
