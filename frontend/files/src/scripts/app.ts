@@ -3,6 +3,9 @@ import { updateHomeHeadermain3 } from "./home1.js";
 import { updateHomeHeadermain5, setupLoginPage } from "./home2.js";
 import { updateSettingsPage } from "./settings.js";
 import { rakmanchat } from "./chat.js";
+import { GameAi } from "./GameAI.js";
+import { GameLocal } from "./GameLocal.js";
+import { GameMulti } from "./GameMulti.js";
 
 // home page:
 let app: HTMLElement;
@@ -82,6 +85,18 @@ export const loadPage = async (page: string) => {
 		if (page === 'settings')
 		{
 			updateSettingsPage();
+		}
+		if( page === 'game_ai')
+		{
+			GameAi();
+		}
+		if(page === 'game_local')
+		{
+			GameLocal();
+		}
+		if(page === 'game_multi')
+		{
+			GameMulti();
 		}
 		
 	}
