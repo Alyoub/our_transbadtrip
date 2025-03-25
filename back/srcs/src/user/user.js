@@ -65,7 +65,11 @@ async function login (request, reply){
             `jwt=${token}; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict`,
             'Max-Age=3600000; Path=/; HttpOnly'
         ]);
-        return reply.code(200).send({ token });
+        // towfa case 
+        // return reply.code(200).send({message : "2FA"})
+            // other logic for 2fa
+
+        return reply.code(200).send({ message : "OK" });
     } catch (err) {
         //console.error('Error during login:', err);
         reply.code(500).send({ badtrip: "login error" });

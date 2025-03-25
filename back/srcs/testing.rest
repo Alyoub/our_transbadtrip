@@ -41,10 +41,10 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "login": "tokman",
-    "email": "tokman@alotfi.com",
+    "login": "ahmed",
+    "email": "ahmed@alotfi.com",
     "name": "tookman lotfi",
-    "password": "passwords1234"
+    "password": "Ayoublotfi!1"
 }
 
 ### Test POST request to login
@@ -52,8 +52,8 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "alotfi@alotfi.com",
-    "password": "passwords1234"
+    "email": "ahmed@alotfi.com",
+    "password": "Ayoublotfi!1"
 }
 
 ###
