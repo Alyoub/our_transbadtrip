@@ -1,4 +1,4 @@
-import { log } from "console";
+import { loadnhistory } from "./app.js";
 
 export const updateHomeHeadermain5 = () => {
     const main5 = [{
@@ -368,184 +368,6 @@ export const setupLoginPage = () => {
         });
     }
 
-
-    // function getSingUpData()
-    // {
-    //     const SingUpBt = document.getElementById('sing_IN') as HTMLButtonElement;
-
-    //     const name = document.querySelector('.input_login_name') as HTMLInputElement;
-    //     const lastname = document.querySelector('.input_login_Lastname') as HTMLInputElement;
-    //     const username = document.querySelector('.input_login_Username') as HTMLInputElement;
-    //     const email = document.querySelector('.input_login_Email') as HTMLInputElement;
-    //     const password = document.querySelector('.login_input_password1') as HTMLInputElement;
-    //     const confirmPassword = document.querySelector('.login_input_password2') as HTMLInputElement;
-
-
-    //     const nameMsg = document.querySelector('.checkRegesterName') as HTMLInputElement;
-    //     const lastnameMsg = document.querySelector('.checkRegesterLastname') as HTMLInputElement;
-    //     const usernameMsg = document.querySelector('.checkRegesterUserName') as HTMLInputElement;
-    //     const emailMsg = document.querySelector('.checkRegesterEmail') as HTMLInputElement;
-    //     const passwordMsg = document.querySelector('.checkRegesterPassword') as HTMLInputElement;
-    //     const confirmPasswordMsg = document.querySelector('.checkRegesterConfirmPassword') as HTMLInputElement;
-
-    //     const showbt1 = document.querySelector('.show_bt1') as HTMLButtonElement; 
-    //     const showbt2 = document.querySelector('.show_bt2') as HTMLButtonElement;
-
-    //     const nameRegex = /^[A-Za-z\s]{2,50}$/;
-    //     const lastNameRegex = /^[A-Za-z\s]{2,50}$/;
-    //     const usernameRegex = /^(?=.*[A-Za-z])[A-Za-z0-9_.]{3,20}$/;
-    //     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    //     const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
-    //     SingUpBt.addEventListener('click', (event) => {
-    //         event.preventDefault();
-
-    //         if(name.value.trim() === "" || lastname.value.trim() === "" || username.value.trim() === ""
-    //          || email.value.trim() === "" || password.value.trim() === "" || confirmPassword.value.trim() === "")
-    //         {
-    //             if(name.value.trim() === "" )
-    //             {
-    //                 name.classList.add('invalid');
-    //                 nameMsg.innerHTML = "Required Fild";
-                    
-    //             }
-    //             if(lastname.value.trim() === "" )
-    //             {
-    //                 lastname.classList.add('invalid');
-    //                 lastnameMsg.innerHTML = "Required Fild";
-    //             }
-    //             if(username.value.trim() === "")
-    //             {
-    //                 username.classList.add('invalid');
-    //                 usernameMsg.innerHTML = "Required Fild";
-    //             }
-    //             if(email.value.trim() === "")
-    //             {
-    //                 email.classList.add('invalid');
-    //                 emailMsg.innerHTML = "Required Fild";
-    //             }
-    //             if(password.value.trim() === "")
-    //             {
-    //                 password.classList.add('invalid');
-    //                 showbt1.classList.add('invalidBT');
-    //                 passwordMsg.innerHTML = "Required Fild";
-    //             }
-    //             if(confirmPassword.value.trim() === "")
-    //             {
-    //                 confirmPassword.classList.add('invalid');
-    //                 showbt2.classList.add('invalidBT');
-    //                 confirmPasswordMsg.innerHTML = "Required Fild";
-    //             }
-    //         }
-    //         else if(name.value.trim() !== "" && lastname.value.trim() !== "" && username.value.trim() !== ""
-    //          && email.value.trim() !== "" && password.value.trim() !== "" && confirmPassword.value.trim() !== "")
-    //         {
-    //                 if(nameRegex.test(name.value.trim()) && lastNameRegex.test(lastname.value.trim()) 
-    //                 && usernameRegex.test(username.value.trim()) && emailRegex.test(email.value.trim())
-    //                 && passwordRegex.test(password.value.trim()) && passwordRegex.test(confirmPassword.value.trim()))
-    //                 {
-    //                     if(password.value === confirmPassword.value)
-    //                     {
-    //                         const formSignUPData = {
-    //                             name: name.value,
-    //                             lastname: lastname.value,
-    //                             username: username.value,
-    //                             email: email.value,
-    //                             password: password.value,
-    //                             confirmPassword: confirmPassword.value
-    //                         };
-    //                         console.log(formSignUPData);
-    //                     }
-    //                     else
-    //                     {
-    //                         confirmPassword.classList.add('invalid');
-    //                         showbt2.classList.add('invalidBT');
-    //                         confirmPasswordMsg.innerHTML = "Password mismatch.";
-    //                     }
-    //                 }
-    //                 else
-    //                 {
-    //                     if(!nameRegex.test(name.value.trim()))
-    //                     {
-    //                         name.classList.add('invalid');
-    //                         nameMsg.innerHTML = "Fake Name";
-    //                     }
-    //                     if(!lastNameRegex.test(lastname.value.trim()))
-    //                     {
-    //                         lastname.classList.add('invalid');
-    //                         lastnameMsg.innerHTML = "Fake Last Name";
-    //                     }
-    //                     if(!usernameRegex.test(username.value.trim()))
-    //                     {
-    //                         username.classList.add('invalid');
-    //                         usernameMsg.innerHTML = "Fake UserNme";
-    //                     }
-    //                     if(!emailRegex.test(email.value.trim()))
-    //                     {
-    //                         email.classList.add('invalid');
-    //                         emailMsg.innerHTML = "Fake Email";
-    //                     }
-    //                     if(!passwordRegex.test(password.value.trim()))
-    //                     {
-    //                         password.classList.add('invalid');
-    //                         showbt1.classList.add("invalidBT");
-    //                         passwordMsg.innerHTML = "Fake Password";
-    //                     }
-    //                     if(!passwordRegex.test(confirmPassword.value.trim()))
-    //                     {
-    //                         confirmPassword.classList.add('invalid');
-    //                         showbt2.classList.add("invalidBT");
-    //                         confirmPasswordMsg.innerHTML = "Fake Password";
-    //                     }
-    //                 }
-                    
-    //             }
-    //         }
-
-    //         const inputs: HTMLInputElement[] = [
-    //             document.querySelector('.input_login_name') as HTMLInputElement,
-    //             document.querySelector('.input_login_Lastname') as HTMLInputElement,
-    //             document.querySelector('.input_login_Username') as HTMLInputElement,
-    //             document.querySelector('.input_login_Email') as HTMLInputElement,
-    //             document.querySelector('.login_input_password1') as HTMLInputElement,
-    //             document.querySelector('.login_input_password2') as HTMLInputElement
-    //         ];
-            
-    //         inputs.forEach(input => {
-    //             input.addEventListener('input', () => {
-    //                 input.classList.remove('invalid');
-            
-    //                 if (input.classList.contains('login_input_password1'))
-    //                 {
-    //                     showbt1.classList.remove('invalidBT');
-    //                     passwordMsg.innerHTML = "";
-    //                 }
-    //                 if(input.classList.contains('login_input_password2'))
-    //                 {
-    //                     showbt2.classList.remove('invalidBT');
-    //                     confirmPasswordMsg.innerHTML = "";
-    //                 }
-    //             });
-    //         });
-            
-    //         // fetch ('http://10.11.2.4:3000/register', {
-    //         //     method: 'POST',
-    //         //     headers: {
-    //         //         'Content-Type': 'application/json'
-    //         //     },
-    //         //     body: JSON.stringify(
-    //         //         UserSignUpData
-    //         //     )
-    //         // })
-    //         // .then(response => response.json()) // Parse JSON response
-    //         // .then(data => console.log('Success:', data)) // Handle success
-    //         // .catch(error => console.error('Error:', error)); // Handle errors
-
-
-
-    //     });
-    // };
-
     function getSingUpData() {
         const SingUpBt = document.getElementById('sing_IN') as HTMLButtonElement;
     
@@ -571,6 +393,8 @@ export const setupLoginPage = () => {
         const usernameRegex = /^(?=.*[A-Za-z])[A-Za-z0-9_.]{3,20}$/;
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+        const login  = document.getElementById('loginPageBtn') as HTMLButtonElement;
     
         SingUpBt.addEventListener('click', (event) => {
             event.preventDefault();
@@ -649,26 +473,32 @@ export const setupLoginPage = () => {
             if(hasError === false)
             {
                 const formSignUPData = {
-                    name: name.value.trim(),
-                    lastname: lastname.value.trim(),
-                    username: username.value.trim(),
+                    login: username.value.trim(),
                     email: email.value.trim(),
+                    name: name.value.trim()+lastname.value.trim(),
                     password: password.value.trim(),
-                    confirmPassword: confirmPassword.value.trim(),
                 };
-                done("GOOD");
+                fetch('http://localhost:3000/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formSignUPData),
+                    credentials : "include"
+                })
+                .then(response => response.json())
+                .then(data => {
+                console.log("Success:", data.message);
                 console.log(formSignUPData);
-                
-                // fetch('http://10.11.2.4:3000/register', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify(formSignUPData)
-            // })
-            // .then(response => response.json())
-            // .then(data => console.log('Success:', data))
-            // .catch(error => console.error('Error:', error));
+                const str = data.message;
+                    if(str === "User created successfully")
+                    {
+                        done("GOOD", str);
+                        setTimeout(() => {
+                            login.click();
+                        }, 2000);
+                    }
+                })
             }
     
         });
@@ -693,100 +523,6 @@ export const setupLoginPage = () => {
         });
     };
     
-    // const getSignInData = () => {
-        
-    //     const SingInBt = document.querySelector('.SIGN_BT_UP') as HTMLButtonElement;
-
-    //     SingInBt?.addEventListener('click', (event) => {
-    //         event.preventDefault();
-
-
-    //         const email = document.querySelector('.login_input_email') as HTMLInputElement;
-    //         const password = document.querySelector('.login_input_password') as HTMLInputElement;
-
-
-    //         const emailMSG = document.querySelector('.checkLoginEmail') as HTMLElement;
-    //         const passwordMSG = document.querySelector('.checkLoginPassword') as HTMLElement;
-
-    //         const showbt = document.querySelector('.show_bt') as HTMLButtonElement; 
-
-    //         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    //         const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
-
-            
-    //         if(email.value.trim() === "" || password.value.trim() === "")
-    //         {
-    //             if(email.value.trim() === "" )
-    //             {
-    //                 email.classList.add('invalid');
-    //                 emailMSG.innerHTML = "Required Fild";
-    //             }
-    //             if(password.value.trim() === "" )
-    //             {
-    //                 password.classList.add('invalid');
-    //                 showbt.classList.add("invalidBT");
-    //                 passwordMSG.innerHTML = "Required Fild";
-    //             }
-    //         }
-    //         else if(email.value.trim() !== "" && password.value.trim() !== "")
-    //         {
-    //             if(emailRegex.test(email.value.trim()) && passwordRegex.test(password.value.trim()))
-    //             {
-    //                 const formSignINData = {
-    //                     email : email.value,
-    //                     password : password.value
-    //                 }
-    //                 console.log(formSignINData);
-
-    //             }
-    //             else
-    //             {
-    //                 if(!emailRegex.test(email.value.trim()))
-    //                 {
-    //                     console.log('not a valid email');
-    //                     email.classList.add('invalid');
-    //                     emailMSG.innerHTML = "Not a valid Email";
-    //                 }
-    //                 if(!passwordRegex.test(password.value.trim()))
-    //                 {
-    //                     console.log('not a valid email');
-    //                     password.classList.add('invalid');
-    //                     showbt.classList.add("invalidBT");
-    //                     passwordMSG.innerHTML = "Not a valid Password";
-    //                 }
-    //             }
-    //         }
-    //         const inputs: HTMLInputElement[] = [
-    //             document.querySelector('.login_input_email') as HTMLInputElement,
-    //             document.querySelector('.login_input_password') as HTMLInputElement,
-    //         ];
-            
-    //         inputs.forEach(input => {
-    //             input.addEventListener('input', () => {
-    //                 input.classList.remove('invalid');
-            
-    //                 if (input.classList.contains('login_input_password'))
-    //                 {
-    //                     showbt.classList.remove('invalidBT');
-    //                 }
-    //             });
-    //         });
-    //         // fetch ('http://10.11.2.4:3000/login', {
-    //         //     method: 'POST',
-    //         //     headers: {
-    //         //         'Content-Type': 'application/json'
-    //         //     },
-    //         //     body: JSON.stringify(
-    //         //         formInData
-    //         //     )
-    //         // })
-    //         // .then(response => response.json()) // Parse JSON response
-    //         // .then(data => console.log('Success:', data)) // Handle success
-    //         // .catch(error => console.error('Error:', error)); // Handle errors
-    //     });
-    // };
-
     // function googleCNCT()
     // {
     //     const googlBt = document.getElementById('googleBT') as HTMLButtonElement;
@@ -859,23 +595,28 @@ export const setupLoginPage = () => {
                     email: email.value.trim(),
                     password: password.value.trim(),
                 };
-                done("GOOD");
-                console.log(formSignINData);
-    
-                
-                // fetch('http://10.11.2.4:3000/login', {
-                //     method: 'POST',
-                //     headers: {
-                //         'Content-Type': 'application/json'
-                //     },
-                //     body: JSON.stringify(formSignINData)
-                // })
-                // .then(response => response.json())
-                // .then(data => console.log('Success:', data))
-                // .catch(error => console.error('Error:', error));
+                // console.log(formSignINData);
+                fetch('http://localhost:3000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formSignINData),
+                    credentials : "include"
+                })
+                .then(response => response.json())
+                .then(data => {
+                console.log("Success:", data.message);
+                const str = data.message;
+                    if(str === "OK")
+                    {
+                        done("GOOD", str);
+                        setTimeout(() => {
+                            loadnhistory('profil');
+                        }, 1000);   
+                    }
+                })
             }
-            // else
-            // done("BAD");
         });
     
         // Remove error styling on input change
@@ -896,7 +637,7 @@ export const setupLoginPage = () => {
         });
     };
     
-    function done(State : string )
+    function done(State : string , Res : string)
     {
         const logoHolder = document.getElementById('logoHolder') as HTMLElement;
         
@@ -908,7 +649,7 @@ export const setupLoginPage = () => {
             <img class"responsLogo" src="../public/logos/GOOD.svg">
             </span>
             <p class="responsTextG">
-                GOOD TRIP
+                ${Res}
             <p>
         `;
         const badHTML = `

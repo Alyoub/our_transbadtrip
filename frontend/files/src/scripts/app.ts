@@ -66,10 +66,6 @@ export const loadPage = async (page: string) => {
 		{
 			setupHomePage();
 		}
-		// if (page === 'login')
-		// {
-		// 	setupLoginPage();
-		// }
 		if (page === 'profil')
 		{
 			setupProfilButtons();
@@ -77,7 +73,6 @@ export const loadPage = async (page: string) => {
 		}
 		if (page === 'messages')
 		{
-			// setupMessagesButtons();
 			rakmanchat();
 		}
 		if (page === 'hosttourn')
