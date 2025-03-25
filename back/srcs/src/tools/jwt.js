@@ -41,6 +41,6 @@ class JWT {
 
 
 
-const jwt = new JWT('ccdjkhjklhlashscjklhioefhpiuhidbcsvHBPIU32493748HEH!@@##JKDNJK','1h','HS256');
+const jwt = new JWT('ccdjkhjklhlashscjklhioefhpiuhidbcsvHBPIU32493748HEH!@@##JKDNJK','24h','HS256');
 
-module.exports = jwt;
+module.exports = {jwt};

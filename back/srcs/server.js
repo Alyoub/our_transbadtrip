@@ -1,15 +1,16 @@
 const fastify = require('fastify')({
-    logger: false,
-    // {
-    //     transport: {
-    //         target: 'pino-pretty',
-    //         options: {
-    //             colorize: true,
-    //         },
-    //     },
-    // },
+    logger: 
+    {
+        transport: {
+            target: 'pino-pretty',
+            options: {
+                colorize: true,
+            },
+        },
+    },
 
 });
+
 
 const cors = require('@fastify/cors');
 

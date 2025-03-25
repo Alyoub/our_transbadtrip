@@ -3,13 +3,15 @@ const {Two_Factor_Auth} = require('./tools/tow_factor_auth');
 const { register, login,logout, profile, users } = require('./user/user');
 const { HandleFriends } = require('./user/friends');
 const { upload_, change_password, update_, delete_ } = require('./user/user_managment');
-const jwt = require('./tools/jwt');
+const {jwt} = require('./tools/jwt');
 const multipart = require('@fastify/multipart');
 const {chat, load_conversation} = require('./chat/chat');
 const {blockUser,unblockUser} = require('./chat/block');
 const {google_login_flow,google_login_response} = require('./tools/google-auth');
 const {game_logic} = require('./game/game');
 const {handel_cookies} = require('./tools/middlewares');
+const {SMTP} = require('./tools/smtp');
+const {prisma} = require('./user/db')
 // const {createTournament} = require('./game/tournament')
 
 const fastifyIO = require("fastify-socket.io");
@@ -109,6 +111,47 @@ module.exports = async function routes(fastify, options) {
         }
 
     });
+
+
+    fastify.post('/forget_password', async (request, reply) => {
+        const { email } = request.body;
+        if (!email) {
+            return reply.code(400).send({ error: 'Email is required' });
+        }
+        await SMTP.forget_pass(email);
+        return reply.code(200).send({ message: 'Password reset email sent' });
+    });
+    fastify.get('/reset_password/:email/:token', async (request, reply) => {
+        const { email, token } = request.params;
+        if (!token) {
+            return reply.code(400).send({ error: 'Token and new password are required' });
+        }
+    
+        const user = await prisma.user.findUnique({
+            where: {
+                resetToken: token,
+                email: email
+            }
+        });
+    
+        if (!user) {
+            return reply.code(400).send({ error: 'Invalid or expired token' });
+        }
+    
+        // const hashedPassword = await bcrypt.hash(newPassword, 10);
+    
+        await prisma.user.update({
+            where: { id: user.id },
+            data: { resetToken: null, resetTokenExpiry: null }
+        });
+        const jwt_token = jwt.generate(user.id);
+        reply.header('Set-Cookie', [
+            `jwt=${jwt_token}; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict`,
+            'Max-Age=3600000; Path=/; HttpOnly'
+        ]);
+        return reply.code(200).send({ message: 'logged in' });
+    });
+    
 
     fastify.post('/friends/:action', { preHandler: [fastify.authenticate] }, async (request, reply) => {
         const { action } = request.params;

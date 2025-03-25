@@ -1,6 +1,6 @@
 const { prisma } = require("./db");
 const bcrypt = require('bcrypt');
-const jwt = require('../tools/jwt');
+const {jwt} = require('../tools/jwt');
 async function register(request, reply){
     const { email, name, password , login  } = request.body;
     if (!email || !name || !password) {

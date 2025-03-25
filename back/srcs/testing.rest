@@ -41,8 +41,8 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "login": "ahmed",
-    "email": "ahmed@alotfi.com",
+    "login": "toto",
+    "email": "trip69721@gmail.com",
     "name": "tookman lotfi",
     "password": "Ayoublotfi!1"
 }
@@ -163,4 +163,15 @@ Authorization: Bearer YOUR_JWT_TOKEN
 
 {
     "friendId": "12345"
+}
+
+
+###
+
+POST http://localhost:3000/forget_password
+Content-Type: application/json
+
+{
+    "email": "trip69721@gmail.com"
+    
 }

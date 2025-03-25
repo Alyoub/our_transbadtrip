@@ -28,12 +28,15 @@ model User {
 	password       		String
 	tfa            		Boolean
 	tfa_key        		String
+	resetToken      String?   
+    resetTokenExpiry DateTime? 
 	friends 			Friends[] @relation("user")
 	sentMessages   		Message[] @relation("sentMessages")
 	receivedMessages    Message[] @relation("receivedMessages")
 	blockedBy			BlockedUser[] @relation("blocked")
 	blocked				BlockedUser[] @relation("blocker")
 }
+
 
 model Message {
 	id						Int				@id @default(autoincrement())

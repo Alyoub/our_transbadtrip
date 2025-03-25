@@ -4,10 +4,6 @@ const axios = require('axios');
 
 // https://medium.com/@dhananjay_yadav/implementing-google-authentication-with-react-js-and-node-js-f72e306f26c9
 
-const CLIENT_ID = '';
-const CLIENT_SECRET = '';
-const REDIRECT_URI = '';
-
 // mohim kasni n9rah hadchi :
 // https://github.com/fastify/fastify-cookie?tab=readme-ov-file#importing-serialize-and-parse
 // https://www.npmjs.com/package/@fastify/passport
