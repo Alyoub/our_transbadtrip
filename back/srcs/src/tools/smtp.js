@@ -60,12 +60,12 @@ class smtp {
 }
 
 const SMTP = new smtp({
-    host: '',
-    port: 587, 
-    user: '',
-    pass: '',
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT, 
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
     secure: false, 
-    from : ''
+    from : process.env.SMTP_SENDER
 });
 
 module.exports = { SMTP };

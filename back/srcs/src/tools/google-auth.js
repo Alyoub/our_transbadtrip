@@ -1,7 +1,9 @@
 // https://codeculturepro.medium.com/implementing-google-login-in-a-node-js-application-b6fbd98ce5e
 // https://github.com/atultyagi612/Google-Authentication-nodejs?tab=readme-ov-file
 const axios = require('axios');
-
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
+const REDIRECT_URI = process.env.REDIRECT_URI;
 // https://medium.com/@dhananjay_yadav/implementing-google-authentication-with-react-js-and-node-js-f72e306f26c9
 
 // mohim kasni n9rah hadchi :

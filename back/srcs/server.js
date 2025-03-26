@@ -49,16 +49,14 @@ fastify.register(require("@fastify/websocket"));
 
 const routes = require('./src/routes');
 
-// const HOST = process.env.HOST;
-// const PORT =  process.env.PORT;
-
+const HOST = process.env.BASE_URL;
+const PORT =  process.env.BASE_PORT;
 
 fastify.register(routes);
-
-fastify.listen({port : 3000,host:'0.0.0.0'}, err => {
+fastify.listen({port : PORT,host: HOST}, err => {
     if (err) {
-        //console.error(err);
-        process.exit(1);
+        console.error(err);
+        // process.exit(1);
     }
     // //console.log('Server listening on http://' + host +':' + port);
 });
