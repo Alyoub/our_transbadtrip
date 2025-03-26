@@ -1,16 +1,15 @@
-FROM node:latest
+FROM node:23.9.0
 
-RUN apt-get update && apt-get install vim procps  -y
-
-WORKDIR app
-
-EXPOSE 80
-
-COPY server.js server.js
+RUN apt-get update && apt-get install -y vim procps python3
 
 COPY files files
 
-RUN npm install express 
+WORKDIR /files 
 
-CMD ["node","server.js"]
+EXPOSE 8000
 
+RUN chmod +x setUp.sh
+
+CMD ["./setUp.sh"]
+
+# CMD ["tail","-f","/dev/null"]
