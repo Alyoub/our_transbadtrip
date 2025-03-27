@@ -155,11 +155,29 @@ export const updateSettingsPage = () => {
         const SaveBt = document.getElementById('SaveFA') as HTMLElement;
         const switchONBtn = document.getElementById('SWitchbtn') as HTMLElement;
 
-        const FAval = document.querySelector('.Verify_Input_FA') as HTMLInputElement;
+        const FAinput = document.querySelector('.Verify_Input_FA') as HTMLInputElement;
+        const FAval = FAinput.value;
 
         const FAerrormsg = document.querySelector('.FAerror') as HTMLElement;
+        const Qrgen = document.querySelector('.QrGen') as HTMLElement;
 
         const regex = /^[0-9]+$/;
+
+        fetch('http://localhost:3000/2fa/generate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({}),
+            credentials : "include"
+        })
+        .then(response => response.json())
+        .then(data => {
+        console.log("Success:", data.qr_url);
+        const QR =  data.qr_url;
+        Qrgen.innerHTML = `<img class="QR_test" src="${QR}">`;
+        })
+        console.log("ok");
 
         allSittingsFaData.classList.add('hide');
 
@@ -171,18 +189,34 @@ export const updateSettingsPage = () => {
         SaveBt.addEventListener('click', () => {
             // allSittingsFaData.classList.add('hide');
             // allSittingsData.classList.remove('blur');
-            if(!regex.test(FAval.value.trim()) || FAval.value.trim() === "")
-            {
-                console.log('nik ro7ek');
-                FAerrormsg.innerHTML = "Bad Input"
-                FAval.classList.add('invalid');
-            }
-            else
-            console.log(FAval.value);
 
-            FAval.addEventListener('input', () => {
+            // if(!regex.test(FAval.trim()))
+            // {
+            //     console.log('nik ro7ek');
+            //     FAerrormsg.innerHTML = "Bad Input"
+            //     FAinput.classList.add('invalid');
+            // }
+
+            // if(regex.test(FAval.trim()))
+            // {
+                fetch('http://localhost:3000/2fa/verify', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(FAval),
+                    credentials : "include"
+                })
+                .then(response => response.json())
+                .then(data => {
+                console.log("Success:", data);
+                })
+                    console.log("ok");
+
+            // }
+            FAinput.addEventListener('input', () => {
                 FAerrormsg.innerHTML = ""
-                FAval.classList.remove('invalid');
+                FAinput.classList.remove('invalid');
             });
            
         })

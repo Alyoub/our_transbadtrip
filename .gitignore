@@ -14,4 +14,3 @@ back/srcs/users.db
 frontend/files/dist/
 frontend/files/node_modules/
 frontend/files/package-lock.json
-frontend/files/tsconfig.json
