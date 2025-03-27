@@ -13,14 +13,14 @@ services:
     container_name: frontend
     build: frontend
     depends_on:
-      - backend
+      - back
     restart: always
     networks:
       - trans
   back:
     container_name: back
     build: back
-    env_file: .env
+    env_file: back/.env
     restart: always
     volumes:
       - database:/srcs/prisma/dev.db
