@@ -475,13 +475,13 @@ export const setupLoginPage = () => {
                 confirmPasswordMsg.innerHTML = "Password mismatch.";
                 hasError = true;
             }
-            
+            // name: name.value.trim()+lastname.value.trim(),
             if(hasError === false)
             {
                 const formSignUPData = {
                     login: username.value.trim(),
                     email: email.value.trim(),
-                    name: name.value.trim()+lastname.value.trim(),
+                    name: name.value.trim(),
                     password: password.value.trim(),
                 };
                 fetch('http://localhost:3000/register', {

@@ -94,7 +94,7 @@ Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMDM2NTU2NjEzLCJ
 POST http://localhost:3000/2fa/activate
 Content-Type: application/json
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNDE2MDQ4NDUxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjQxNjA0OCwiZXhwIjoxNzQyNDE5NjQ4fQ.mORtF8aiV8EDa0MNTxHb1zgzgQYjJBqW83FHO80oplw
-Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMDM2NTU2NjEzLCJ1c2VySWQiOjEsImlhdCI6MTc0MzAzNjU1NiwiZXhwIjoxNzQzMTIyOTU2fQ.yCJusUkJGVYcT8p0mq3jFt6N3X62YqRDsnwpIf95ouo; Max-Age=900000
+Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMDU0MDU3NjM2LCJ1c2VySWQiOjEsImlhdCI6MTc0MzA1NDA1NywiZXhwIjoxNzQzMTQwNDU3fQ.f3pJ9R6mNcA74kByxpgQSuue2_fBDPV5RKP14O4SVQ8; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict,Max-Age=3600000; Path=/; HttpOnly
 
 {
     "activate": true
