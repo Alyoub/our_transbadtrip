@@ -1,0 +1,315 @@
+*{
+    /* border: 1px solid red; */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.empty2,
+.empty1
+{
+    width: 20svw;
+    /* background-color: lightskyblue; */
+}
+.all_settings_info
+{
+    display: flex;
+    margin-top: 5%;
+    position: relative;
+}
+.all_settings_info::after
+{
+    content: '';
+    width: 100%;
+    height: 80%;
+    top: 20%;
+    background-color: rgba(75,114,148,255);
+    position: absolute;
+    filter: blur(70px);
+    z-index: -1;
+}
+.settings_info
+{
+    flex: 1;
+    position: relative;
+    background-color: rgba(30,31,34,255); /* HH */
+    border-radius: 40px;
+    padding-bottom: 8%;
+}
+.settings_cover_data
+{
+    width: 100%;
+    height: auto;
+    border-radius: 40px;
+    position: relative;
+}
+.settings_cover
+{
+    border-radius: 40px;
+    /* border: 3px red solid; */
+}
+.settings_pic
+{
+    border: 8px rgba(30,31,34,255) solid;
+    border-radius: 100%;
+    width: 20%;
+}
+
+.settings_pic_data
+{
+    position: absolute;
+    top: 100%;
+    left: 6%;
+    transform: translateY(-50%);
+    /* background-color: black; */
+    display: flex;
+    flex-direction: row;
+}
+.TwoFF
+{
+    background-color: white;
+    /* display: flex; */
+    position: absolute;
+    width: 10%;
+    right: 20%;
+    bottom: 20%;
+    border-radius: 50px;
+}
+.FA_TEXT
+{
+    /* background-color: white; */
+    position: absolute;
+    width: 7%;
+    right: 31%;
+    bottom: 20%;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: clamp(10px, 1.5vw, 50px);
+}
+.SwitchOFF
+{
+    width: 40%;
+    margin-left: 2%;
+}
+.SwitchON
+{
+    width: 40%;
+    margin-left: 58%;
+}
+
+.online
+{
+    position: absolute;
+    content: 'red';
+    width: clamp(10px, 2vw, 43px);
+    height: clamp(10px, 2vw, 43px);
+    background-color: rgba(11,254,55,255);
+    top: 72%;
+    left: 15%;
+    border-radius: 100%;
+    border: 6px solid rgba(30,31,34,255);
+}
+.settings_user_name
+{
+    color: white;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 2%;
+    font-size: clamp(10px, 1.5vw, 50px);
+    width: 100%;
+    margin-top: 12%;  /* HHHHHHHHHHHHHH */
+    /* background-color: red; */
+}
+.all_settings_input
+{
+    width: 80%;
+    /* height: 70%; */
+    background-color: rgba(43,45,49,255);
+    margin-top: 15%;
+    margin-left: 10%;
+    display: flex;
+    justify-content: center;
+    border-radius: 40px;
+}
+.settings_name
+{
+    width: 100%;
+    /* background-color: tomato; */
+    margin-top: 10%;
+}
+.settings_name_text
+{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(10px, 1vw, 50px);
+    font-weight: bold;
+}
+.help
+{
+    width: 80%;
+    
+}
+.settings_input_ptr
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2%;
+    /* background-color: black; */
+}
+.bt_edit_name,
+.bt_edit_User_name,
+.bt_edit_email,
+.bt_edit_password
+{
+    color: white;
+    font-size: clamp(10px, 1.4vw, 50px);
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 15px;
+    background-color: rgba(79,80,89,255);
+    font-weight: bold;
+
+}
+.input_settings_name,
+.input_settings_User_name,
+.input_settings_email
+{
+    width: 80%;
+    height: clamp(10px, 3vw, 43px);
+    background-color: rgba(43,45,49,255);
+    color: white;
+    text-indent: 5%;
+    border: 2px solid rgba(255, 250, 250, 0.1);
+    border-radius: 15px;
+}
+
+.settings_User_name,
+.settings_email
+{
+    width: 100%;
+    /* background-color: tomato; */
+    margin-top: 5%;
+}
+.settings_password
+{
+    width: 100%;
+    /* background-color: tomato; */
+    margin-top: 5%;
+    padding-bottom: 15%;
+}
+.save
+{
+    background-color: rgb(128, 199, 53);
+    color: black;
+    font-weight: bold;
+}
+.Sitting_show
+{
+    /* background-color: red; */
+    width: 90%;
+    display: flex;
+}
+.input_settings_password
+{
+    width: 85%;
+    height: clamp(10px, 3vw, 43px);
+    background-color: rgba(43,45,49,255);
+    color: white;
+    text-indent: 5%;
+    /* border: 2px solid rgba(255, 250, 250, 0.1); */
+    border-top: 2px solid rgba(255, 250, 250, 0.1);
+    border-left: 2px solid rgba(255, 250, 250, 0.1);
+    border-bottom: 2px solid rgba(255, 250, 250, 0.1);
+
+    /* border-radius: 15px; */
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.Sitting_show_btn
+{
+    background-color: red;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding-left: 1%;
+    text-align: center;
+    padding-right: 2%;
+    border-top: 2px solid rgba(255, 250, 250, 0.1);
+    border-right: 2px solid rgba(255, 250, 250, 0.1);
+    border-bottom: 2px solid rgba(255, 250, 250, 0.1);
+    background-color: rgba(43,45,49,255);
+}
+.hideEye
+{
+    display: none;
+}
+.add_sitting_cover
+{
+    position: absolute;
+    background-color: red;
+    padding : 1%;
+    border-radius: 100%;
+    bottom: 37%;
+    right: 5%;
+    background-color: rgba(79,80,89,255);
+    border: 8px rgba(30,31,34,255) solid;
+    width: 7%;
+    cursor: pointer;
+}
+.add_sitting_pic
+{
+    position: absolute;
+    padding : 1%;
+    border-radius: 100%;
+    top: 0%;
+    left: 0%;
+    background-color: rgba(79,80,89,255);
+    border: 8px rgba(30,31,34,255) solid;
+    width: 6%;
+    cursor: pointer;
+}
+
+.Sitting_Uplouad_pic
+{
+    position: absolute;
+    top: -30%;
+    left: 0%;
+    border: 1px white solid;
+    color: white;
+    font-size: clamp(10px, 1.4vw, 20px);
+    width: 30%;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: -10;
+    border-radius: 20px;
+    background-color: black;
+}
+.Sitting_Uplouad_cover
+{
+    position: absolute;
+    top: 0%;
+    right: 1%;
+    border: 1px white solid;
+    color: white;
+    font-size: clamp(10px, 1.4vw, 20px);
+    width: 30%;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: -10;
+    border-radius: 20px;
+    background-color: black;
+}
+.make_uplouad_visibel
+{
+    display: none;
+}
+
+.SwitchedON
+{
+    background-color: rgb(15, 234, 41);
+}
+.SwitchedOFF
+{
+    background-color: rgb(229, 36, 59);
+}

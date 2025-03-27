@@ -1,0 +1,6 @@
+-Tailwind 3.4 installation: npm install -D tailwindcss@3
+-Tailwind 3.4 Initializattion: npx tailwindcss init
+-Tailwind 3.4 lunch: npx tailwindcss -i ./src/styles/main.css -o ./src/styles/output.css --watch
+-Typescript installation: npm install -g typescript
+-Typescript Initializattion: npx tsc --init
+-Typescript lunch: npx tsc --watch
