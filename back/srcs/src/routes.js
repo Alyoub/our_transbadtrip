@@ -15,6 +15,7 @@ const {prisma} = require('./user/db')
 // const {createTournament} = require('./game/tournament')~
 
 const fastifyIO = require("fastify-socket.io");
+const { compare } = require('bcrypt');
 
 module.exports = async function routes(fastify, options) {
 
@@ -42,9 +43,11 @@ module.exports = async function routes(fastify, options) {
                 throw new Error('No token provided');
             }
             const  data = await jwt.verify(token);
+            console.log("data in teh jwt is ",data);
             request.user = {};
             request.user = data;
-            if(!request.is2FAVerified)
+
+            if(request.user.is2FAVerified == false)
                 throw new Error('2fa is not verified');
         } catch (error) {
             reply.status(401).send({ error: 'Unauthorized', message: error.message });

@@ -88,13 +88,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEyN
 GET http://localhost:3000/profile
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEyMDUyOTYwLCJ1c2VySWQiOjEsImlhdCI6MTc0MTgxMjA1MiwiZXhwIjoxNzQxODE1NjUyfQ.s0mLVaNrGI1IKndX-fQcpymXss6n8WxGdszjOWCG65M
 Content-Type: application/json
-Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMDM2NTU2NjEzLCJ1c2VySWQiOjEsImlhdCI6MTc0MzAzNjU1NiwiZXhwIjoxNzQzMTIyOTU2fQ.yCJusUkJGVYcT8p0mq3jFt6N3X62YqRDsnwpIf95ouo; Max-Age=900000
+Cookie:    jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMTEwNDc0MTc3LCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOmZhbHNlLCJpYXQiOjE3NDMxMTA0NzQsImV4cCI6MTc0MzE5Njg3NH0.oB-ObM8EEDcJugautxTCycJi4Oy2hh8ML-xVC-5hyYA; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict,Max-Age=3600000; Path=/; HttpOnly
 
 ### Test 
 POST http://localhost:3000/2fa/activate
 Content-Type: application/json
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNDE2MDQ4NDUxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjQxNjA0OCwiZXhwIjoxNzQyNDE5NjQ4fQ.mORtF8aiV8EDa0MNTxHb1zgzgQYjJBqW83FHO80oplw
-Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMDYzMTIzMjU5LCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0MzA2MzEyMywiZXhwIjoxNzQzMTQ5NTIzfQ.DM-xsEFdhVXBTn9_QiHErosnH1PnD45BEFlWJTh-aZU; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict,Max-Age=3600000; Path=/; HttpOnly
+Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMTEwNDQ4NzEwLCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0MzExMDQ0OCwiZXhwIjoxNzQzMTk2ODQ4fQ.zMNWvu24589mUEkUaB0i5Ok4m0d8PqjYAe5NqVccDeE; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict,Max-Age=3600000; Path=/; HttpOnly
+
 
 {
     "activate": true
