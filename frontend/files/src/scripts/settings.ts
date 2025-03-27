@@ -190,14 +190,15 @@ export const updateSettingsPage = () => {
             // allSittingsFaData.classList.add('hide');
             // allSittingsData.classList.remove('blur');
 
-            if(!regex.test(FAval.trim()) || FAval.trim() === "")
-            {
-                console.log('nik ro7ek');
-                FAerrormsg.innerHTML = "Bad Input"
-                FAinput.classList.add('invalid');
-            }
-            else
-            {
+            // if(!regex.test(FAval.trim()))
+            // {
+            //     console.log('nik ro7ek');
+            //     FAerrormsg.innerHTML = "Bad Input"
+            //     FAinput.classList.add('invalid');
+            // }
+
+            // if(regex.test(FAval.trim()))
+            // {
                 fetch('http://localhost:3000/2fa/verify', {
                     method: 'POST',
                     headers: {
@@ -208,13 +209,11 @@ export const updateSettingsPage = () => {
                 })
                 .then(response => response.json())
                 .then(data => {
-                console.log("Success:", data.qr_url);
-                const QR =  data.qr_url;
-                Qrgen.innerHTML = `<img class="QR_test" src="${QR}">`;
+                console.log("Success:", data);
                 })
                     console.log("ok");
 
-            }
+            // }
             FAinput.addEventListener('input', () => {
                 FAerrormsg.innerHTML = ""
                 FAinput.classList.remove('invalid');

@@ -117,7 +117,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNDE2M
 Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMDM2NTU2NjEzLCJ1c2VySWQiOjEsImlhdCI6MTc0MzAzNjU1NiwiZXhwIjoxNzQzMTIyOTU2fQ.yCJusUkJGVYcT8p0mq3jFt6N3X62YqRDsnwpIf95ouo; Max-Age=900000
 
 {
-    "otp": "623981"
+    "otp": "367772"
 }
 ### Test POST request to cancel friend request
 POST http://localhost:3000/friends/cancel
