@@ -355,3 +355,8 @@ body
 {
     width: 30%;
 }
+
+.Forgot_password:hover
+{
+    color: black;
+}

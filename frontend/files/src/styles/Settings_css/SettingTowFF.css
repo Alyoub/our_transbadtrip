@@ -123,19 +123,26 @@
     letter-spacing: 10px;
     outline: none;
 }
-last_prt
+.last_prt
 {
     position: relative;
-    background-color: red;
+    /* background-color: red; */
 }
 .FAerror
 {
     color: white;
     position: absolute;
-    left: 41%;
-    bottom: 12%;
+    left: 30%;
+    bottom: 46%;
     font-size: clamp(10px, 1.2vw, 30px);
+}
+.FAerrorRed
+{
     color: red;
+}
+.FAerrorGren
+{
+    color:  green;
 }
 .Getkey
 {

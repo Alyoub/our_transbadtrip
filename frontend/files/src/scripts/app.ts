@@ -23,6 +23,7 @@ import { rakmanchat } from "./chat.js";
 import { GameAi } from "./GameAI.js";
 import { GameLocal } from "./GameLocal.js";
 import { GameMulti } from "./GameMulti.js";
+import { tournament } from "./Tournament.js";
 
 // home page:
 let app: HTMLElement;
@@ -113,9 +114,10 @@ async function loadPage(page: string) {
 			rakmanchat();
 			header.innerHTML = "<notification-header></notification-header>";
 		}
-		if (page === 'hosttourn')
+		if (page === 'Tournamment')
 		{
-			setupHostTournamentPage();
+			// setupHostTournamentPage();
+			tournament();
 			header.innerHTML = "<notification-header></notification-header>";
 		}
 		if (page === 'settings')

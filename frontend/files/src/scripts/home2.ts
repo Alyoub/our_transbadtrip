@@ -183,7 +183,7 @@ export const setupLoginPage = () => {
         const AllHomePage = document.getElementById('all_Home_page') as HTMLElement;
         const loginPgae = document.getElementById('loginPage') as HTMLElement;
         const Exitbt = document.getElementById('exitLogin') as HTMLButtonElement;
-        const SingInLoginbt = document.querySelector('.SING_IN') as HTMLButtonElement;
+
         // const SingInHomebt = document.getElementById('Sing_upHomeBt') as HTMLButtonElement;
 
 
@@ -207,7 +207,7 @@ export const setupLoginPage = () => {
                 
                 // checkLastInput('.login_input_password', '.checkLoginPassword', /^[a-zA-Z0-9._%+-@]*$/); //for sign in password input
                  
-                
+                Emailverify();
                 getSignInData();
            }
            else if(SignUpBt === "Sing_upHomeBt") //Sing UP home btn
@@ -241,7 +241,7 @@ export const setupLoginPage = () => {
             checkLastInput('.login_input_email','.checkLoginEmail', /^[a-zA-Z0-9._%+-@]*$/); //for sign in input
             
             // checkLastInput('.login_input_password', '.checkLoginPassword', /^[a-zA-Z0-9._%+-@]*$/); //for sign in password 
-            
+            Emailverify();
             getSignInData();
                     
         });
@@ -277,7 +277,6 @@ export const setupLoginPage = () => {
     bluringHome('Sing_upHomeBt');
 
     const toggleVisibility = (inputSelector: string, buttonSelector: string) => {
-        // console.log(document.querySelector("span.show_bt1"));
 
         const on = '<img class="Show" src="../public/logos/eye_on.svg">';
         const off = '<img class="Show" src="../public/logos/eye_off.svg">';
@@ -303,54 +302,6 @@ export const setupLoginPage = () => {
         });
     };
 
-    // function checkInput(selector: string, pattern: RegExp)
-    // {
-    //     const input = document.querySelector(selector) as HTMLInputElement;
-
-    //     const showbt1 = document.querySelector('.show_bt1') as HTMLButtonElement; 
-    //     const showbt2 = document.querySelector('.show_bt2') as HTMLButtonElement; 
-
-
-    //     if (!input) return;
-    
-    //     input.addEventListener("input", () => {
-    //         const val = input.value;
-
-    //         if (!pattern.test(val))
-    //         {
-    //             input.classList.remove('valid');
-    //             input.classList.add('invalid');
-
-    //             if(selector === ".login_input_password1")
-    //             {
-    //                 showbt1.classList.remove('validBT');
-    //                 showbt1.classList.add('invalidBT');
-    //             }
-    //             if(selector === ".login_input_password2")
-    //             {
-    //                 showbt2.classList.remove('validBT');
-    //                 showbt2.classList.add('invalidBT');
-    //             }
-    //         }
-    //         else 
-    //         {
-    //             input.classList.remove('invalid');
-    //             input.classList.add('valid');
-
-    //             if(selector === ".login_input_password1")
-    //             {
-    //                 showbt1.classList.remove('invalidBT');
-    //                 showbt1.classList.add('validBT');
-    //             }
-    //             if(selector === ".login_input_password2")
-    //             {
-    //                 showbt2.classList.remove('invalidBT');
-    //                 showbt2.classList.add('validBT');
-    //             }
-    //         }
-    //     });
-    // }
-    
     function checkLastInput(selector: string, checekr :string, pattern: RegExp)
     {
         const input = document.querySelector(selector) as HTMLInputElement;
@@ -550,7 +501,11 @@ export const setupLoginPage = () => {
         const emailMSG = document.querySelector('.checkLoginEmail') as HTMLElement;
         const passwordMSG = document.querySelector('.checkLoginPassword') as HTMLElement;
 
+        
+        const loginPgae = document.getElementById('loginPage') as HTMLElement;
 
+        const card = document.querySelector('.loader') as HTMLElement;
+        // card.classList.add('hide');
 
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -613,13 +568,21 @@ export const setupLoginPage = () => {
                 .then(response => response.json())
                 .then(data => {
                 console.log("Success:", data.message);
-                const str = data.message;
-                    if(str === "OK")
+                const OK = data.message;
+                const KO = data.error;
+
+                    if(OK)
                     {
-                        done("GOOD", str);
+                        done("GOOD", OK);
+                        card.style.display = "";
+                        loginPgae.classList.add('hide');
                         setTimeout(() => {
                             loadnhistory('profil');
-                        }, 1000);   
+                        }, 3000);
+                    }
+                    if(KO)
+                    {
+                        done("BAD", KO);
                     }
                 })
             }
@@ -663,7 +626,7 @@ export const setupLoginPage = () => {
             <img class"responsLogo" src="../public/logos/BAD.svg">
             </span>
             <p class="responsTextB">
-                BAD TRIP
+                ${Res}
             <p>
         `;
 
@@ -677,11 +640,75 @@ export const setupLoginPage = () => {
         }
         if(State === "BAD" && resDivUp)
         {
-            resDivUp.innerHTML = goodHTML;
+            resDivUp.innerHTML = badHTML;
         }
         if(State === "BAD" && resDivIn)
         {
-            resDivIn.innerHTML = goodHTML;
+            resDivIn.innerHTML = badHTML;
         }
     }
+
+
+    function Emailverify()
+    {
+        const forgetbnt = document.querySelector('.Forgot_password') as HTMLElement;
+
+        const loginPgae = document.getElementById('loginPage') as HTMLElement;
+        const emailver = document.querySelector('.centerPart') as HTMLElement;
+
+        const verfyBtn = document.querySelector('.sign-up') as HTMLButtonElement;
+        const AllHomePage = document.getElementById('all_Home_page') as HTMLElement;
+
+        const valinput = document.getElementById('.verifyEmail') as HTMLInputElement;
+
+        const card = document.querySelector('.card-container') as HTMLElement;
+
+
+        if(forgetbnt)
+        {
+            forgetbnt.addEventListener('click', () => {
+                // console.log('nice');
+                loginPgae.classList.add('hide');
+                emailver.style.display = "";
+            });
+        }
+        if(verfyBtn)
+        {
+            verfyBtn.addEventListener('click', () => {
+                loginPgae.classList.add('hide');
+                emailver.style.display = "none";
+                AllHomePage.classList.remove('blur');
+            });
+
+            // console.log(valinput.value);
+        }
+        
+    }
+
+
+
+    // function FaHome()
+    // {
+    //     const FaBtn = document.querySelector('.SwitchON') as HTMLButtonElement;
+
+
+    //     fetch('http://localhost:3000/2fa/activate', {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'Content-Type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify({}),
+    //                 credentials : "include"
+    //             })
+    //             .then(response => response.json())
+    //             .then(data => {
+    //             console.log("Success:", data);
+    //             console.log('ook');
+    //             })
+
+    //     // FaBtn.addEventListener('click', () => {
+    //     //     console.log('ok');
+    //     // });
+    // }
+    // FaHome();
 }

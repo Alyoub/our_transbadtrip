@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="../src/styles/Log_in_css/login1.css">
     <link rel="stylesheet" href="../src/styles/Log_in_css/login2.css">
 
+    <link rel="stylesheet" href="../src/styles/Settings_css/verifyEmail.css">
+
     <link rel="stylesheet" href="../src/styles/Settings_css/Home2FA.css">
 
   </head>
@@ -213,5 +215,35 @@
           </div>
         <div class="empty1"></div>
     </div>
+
+    <div class="All_verify_Email_Data">
+        <div class="leftPart"></div>
+        <div class="centerPart" style="display: none;">
+          <div class="card1">
+            <span class="card__title">Verify Your Email!</span>
+            <p class="card__content">please verify your email by clicking the button below.
+            </p>
+          <div class="card__form">
+            <input id="verifyEmail" placeholder="Your Email" type="text">
+            <button class="sign-up">Verify</button>
+          </div>
+          </div>
+        </div>
+        <div class="rightPart"></div>
+    </div>
+
+  <div class="loader" style="display: none;">
+    <figure class="iconLoaderProgress">
+      <svg class="iconLoaderProgressFirst" width="240" height="240">
+        <circle cx="120" cy="120" r="100"></circle>
+      </svg>
+
+      <svg class="iconLoaderProgressSecond" width="240" height="240">
+        <circle cx="120" cy="120" r="100"></circle>
+      </svg>
+    </figure>
+  </div>
+
+    
   </body>
 </html>

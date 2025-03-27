@@ -161,7 +161,9 @@ export const updateSettingsPage = () => {
         const FAerrormsg = document.querySelector('.FAerror') as HTMLElement;
         const Qrgen = document.querySelector('.QrGen') as HTMLElement;
 
-        const regex = /^[0-9]+$/;
+        const cansel = document.getElementById('CancelFA') as HTMLButtonElement;
+        const OFF = '<img class="SwitchOFF" src="/public/logos/SwitchOFF.svg">';
+        const ON = '<img class="SwitchON" src="/public/logos/SwitchON.svg">';
 
         fetch('http://localhost:3000/2fa/generate', {
             method: 'POST',
@@ -177,7 +179,7 @@ export const updateSettingsPage = () => {
         const QR =  data.qr_url;
         Qrgen.innerHTML = `<img class="QR_test" src="${QR}">`;
         })
-        console.log("ok");
+        // console.log("ok");
 
         allSittingsFaData.classList.add('hide');
 
@@ -187,68 +189,91 @@ export const updateSettingsPage = () => {
         });
 
         SaveBt.addEventListener('click', () => {
-            // allSittingsFaData.classList.add('hide');
-            // allSittingsData.classList.remove('blur');
-
-            // if(!regex.test(FAval.trim()))
-            // {
-            //     console.log('nik ro7ek');
-            //     FAerrormsg.innerHTML = "Bad Input"
-            //     FAinput.classList.add('invalid');
-            // }
-
-            // if(regex.test(FAval.trim()))
-            // {
+                const FA = {
+                    otp : FAinput.value.trim(),
+                }
                 fetch('http://localhost:3000/2fa/verify', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(FAval),
+                    body: JSON.stringify(FA),
                     credentials : "include"
                 })
                 .then(response => response.json())
                 .then(data => {
-                console.log("Success:", data);
-                })
-                    console.log("ok");
+                // console.log("Success:", data.success);
+                
+                const FaOK = data.success;
+                const FaKo = data.error;
+                    if(FaOK === "2FA token verified successfully")
+                    {
+                        FAerrormsg.classList.remove('FAerrorRed');
+                        FAerrormsg.classList.add('FAerrorGren');
+                        FAerrormsg.innerHTML = "2FA token verified successfully";
+                        
+                        switchONBtn.innerHTML = ON;
+                        switchONBtn.classList.add('SwitchedON');
+                        switchONBtn.classList.remove('SwitchedOFF');
 
-            // }
-            FAinput.addEventListener('input', () => {
-                FAerrormsg.innerHTML = ""
-                FAinput.classList.remove('invalid');
-            });
+
+                        allSittingsFaData.classList.add('hide');
+                        allSittingsData.classList.remove('blur');
+                    }
+                    else if(FaKo == "Invalid 2FA token")
+                    {
+                        FAerrormsg.classList.remove('FAerrorGren');
+                        FAerrormsg.classList.add('FAerrorRed');
+                        FAerrormsg.innerHTML = "Invalid 2FA token"
+                    }
+                })
+
+                FAinput.addEventListener('input', () => {
+                    FAerrormsg.innerHTML = ""
+                    FAinput.classList.remove('invalid');
+                });
            
         })
+        cansel.addEventListener('click', () => {
+
+            allSittingsFaData.classList.add('hide');
+            allSittingsData.classList.remove('blur');
+
+            switchONBtn.innerHTML = OFF;
+            switchONBtn.classList.remove('SwitchedON');
+            switchONBtn.classList.add('SwitchedOFF');
+        });
     }
     
     FaSittings();
 
-    function TowFF() {
-        const switchONBtn = document.getElementById('SWitchbtn') as HTMLElement;
-        if (!switchONBtn) return;
-    
-        const OFF = '<img class="SwitchOFF" src="/public/logos/SwitchOFF.svg">';
-        const ON = '<img class="SwitchON" src="/public/logos/SwitchON.svg">';
-    
-    
-        switchONBtn.addEventListener('click', () => {
-            if (switchONBtn.innerHTML === OFF)
-            {
-                switchONBtn.innerHTML = ON;
-                switchONBtn.classList.add('SwitchedON');
-                switchONBtn.classList.remove('SwitchedOFF');
-            }
-            else
-            {
-                switchONBtn.innerHTML = OFF;
-                switchONBtn.classList.remove('SwitchedON');
-                switchONBtn.classList.add('SwitchedOFF');
-                
-            }
-        });
+    function getUserData()
+    {
+
+        const name = document.querySelector('.input_settings_name') as HTMLInputElement;
+        const username = document.querySelector('.input_settings_User_name') as HTMLInputElement;
+        const email = document.querySelector('.input_settings_email') as HTMLInputElement;
+
+        fetch('http://localhost:3000/profile', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials : "include"
+        })
+        .then(response => response.json())
+        .then(data => {
+        
+        const nameVal = data.name;
+        const userVal = data.login;
+        const emailVal = data.email;
+
+        name.value = nameVal;
+        username.value = userVal;
+        email.value = emailVal;
+            
+        })
+        // console.log('we');
     }
-    
-    TowFF();
-    
+    getUserData();
 };
