@@ -41,10 +41,10 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "login": "toto",
-    "email": "trip69721@gmail.com",
+    "login": "test",
+    "email": "trdwdei@gmail.com",
     "name": "tookman lotfi",
-    "password": "Ayoublotfi!1"
+    "password": "Aotfi!1"
 }
 
 ### Test POST request to login
@@ -52,8 +52,8 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "ahmed@alotfi.com",
-    "password": "Ayoublotfi!1"
+    "email": "trdwdei@gmail.com",
+    "password": "Aotfi!1"
 }
 
 ###

@@ -71,8 +71,10 @@ async function login (request, reply){
 
         return reply.code(200).send({ message : "OK" });
     } catch (err) {
+
+        console.log(err);
         //console.error('Error during login:', err);
-        reply.code(500).send({ badtrip: "login error" });
+        reply.code(500).send({ badtrip: "login error" ,err:err});
     }
 }
 
