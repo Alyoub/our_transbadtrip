@@ -85,14 +85,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEyN
 }
 
 ### Test GET request to profile (protected route)
-GET http://localhost/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEyMDUyOTYwLCJ1c2VySWQiOjEsImlhdCI6MTc0MTgxMjA1MiwiZXhwIjoxNzQxODE1NjUyfQ.s0mLVaNrGI1IKndX-fQcpymXss6n8WxGdszjOWCG65M
-# Content-Type: application/json
+GET http://localhost:3000/profile
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEyMDUyOTYwLCJ1c2VySWQiOjEsImlhdCI6MTc0MTgxMjA1MiwiZXhwIjoxNzQxODE1NjUyfQ.s0mLVaNrGI1IKndX-fQcpymXss6n8WxGdszjOWCG65M
+Content-Type: application/json
+Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMDM2NTU2NjEzLCJ1c2VySWQiOjEsImlhdCI6MTc0MzAzNjU1NiwiZXhwIjoxNzQzMTIyOTU2fQ.yCJusUkJGVYcT8p0mq3jFt6N3X62YqRDsnwpIf95ouo; Max-Age=900000
 
 ### Test 
 POST http://localhost:3000/2fa/activate
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNDE2MDQ4NDUxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjQxNjA0OCwiZXhwIjoxNzQyNDE5NjQ4fQ.mORtF8aiV8EDa0MNTxHb1zgzgQYjJBqW83FHO80oplw
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNDE2MDQ4NDUxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjQxNjA0OCwiZXhwIjoxNzQyNDE5NjQ4fQ.mORtF8aiV8EDa0MNTxHb1zgzgQYjJBqW83FHO80oplw
+Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMDM2NTU2NjEzLCJ1c2VySWQiOjEsImlhdCI6MTc0MzAzNjU1NiwiZXhwIjoxNzQzMTIyOTU2fQ.yCJusUkJGVYcT8p0mq3jFt6N3X62YqRDsnwpIf95ouo; Max-Age=900000
 
 {
     "activate": true
@@ -102,22 +104,26 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNDE2M
 POST http://localhost:3000/2fa/generate
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNDE2MDQ4NDUxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjQxNjA0OCwiZXhwIjoxNzQyNDE5NjQ4fQ.mORtF8aiV8EDa0MNTxHb1zgzgQYjJBqW83FHO80oplw
+Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMDM2NTU2NjEzLCJ1c2VySWQiOjEsImlhdCI6MTc0MzAzNjU1NiwiZXhwIjoxNzQzMTIyOTU2fQ.yCJusUkJGVYcT8p0mq3jFt6N3X62YqRDsnwpIf95ouo; Max-Age=900000
 
 {
     
 }
 ###
+
 POST http://localhost:3000/2fa/verify
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNDE2MDQ4NDUxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjQxNjA0OCwiZXhwIjoxNzQyNDE5NjQ4fQ.mORtF8aiV8EDa0MNTxHb1zgzgQYjJBqW83FHO80oplw
+Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMDM2NTU2NjEzLCJ1c2VySWQiOjEsImlhdCI6MTc0MzAzNjU1NiwiZXhwIjoxNzQzMTIyOTU2fQ.yCJusUkJGVYcT8p0mq3jFt6N3X62YqRDsnwpIf95ouo; Max-Age=900000
 
 {
-    "otp": "212783"
+    "otp": "623981"
 }
 ### Test POST request to cancel friend request
 POST http://localhost:3000/friends/cancel
 Content-Type: application/json
 Authorization: Bearer YOUR_JWT_TOKEN
+
 
 {
     "friendId": "980710"
