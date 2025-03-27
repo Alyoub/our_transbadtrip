@@ -12,7 +12,7 @@ const {game_logic} = require('./game/game');
 const {handel_cookies} = require('./tools/middlewares');
 const {SMTP} = require('./tools/smtp');
 const {prisma} = require('./user/db')
-// const {createTournament} = require('./game/tournament')
+// const {createTournament} = require('./game/tournament')~
 
 const fastifyIO = require("fastify-socket.io");
 
@@ -36,14 +36,16 @@ module.exports = async function routes(fastify, options) {
 
     fastify.decorate('authenticate', async function (request, reply) {
         try {
-            console.log('request cookes jwt ? ',request.cookies.jwt,' request headres auth ? ',request.headers.authorization)
-             token = request.cookies.jwt || request.headers.authorization?.split(' ')[1];
+            console.log('request cookes jwt ? ',request.cookies.jwt)
+             token = request.cookies.jwt ;
             if (!token) {
                 throw new Error('No token provided');
             }
-            const userId = await jwt.verify(token);
+            const  data = await jwt.verify(token);
             request.user = {};
-            request.user.userId = userId;
+            request.user = data;
+            if(!request.is2FAVerified)
+                throw new Error('2fa is not verified');
         } catch (error) {
             reply.status(401).send({ error: 'Unauthorized', message: error.message });
         }

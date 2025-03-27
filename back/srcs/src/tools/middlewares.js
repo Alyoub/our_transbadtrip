@@ -33,6 +33,7 @@ async function handel_cookies(request, reply) {
         const tokens = await get_tokens(rawcookie);
         request.cookies = {};
         request.cookies.jwt = tokens['jwt'] || '';
+        console.log("the is2FAVerified is ",request.cookies.is2FAVerified );
         // //console.log('jwt token : ','\'',request.cookies.jwt,'\'');
         
 

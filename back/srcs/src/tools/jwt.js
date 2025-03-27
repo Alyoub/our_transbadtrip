@@ -18,10 +18,11 @@ class JWT {
         this.algorithm = algorithm;
     }
 
-    generate(userId) {
+    generate(userId,is2FAVerified) {
         const data = {
             time: Date.now(),
             userId: userId,
+            is2FAVerified:is2FAVerified
         };
         return jsonwebtoken.sign(data, this.key, { expiresIn: this.time, algorithm: this.algorithm });
     }
@@ -29,7 +30,10 @@ class JWT {
     async verify(token) {
         try {
             const decoded = jsonwebtoken.verify(token, this.key, { algorithms: [this.algorithm] });
-            return decoded.userId;
+            return({
+                userId:decoded.userId,
+                is2FAVerified:decoded.is2FAVerified,
+            });
         } catch (error) {
             throw new Error('Invalid or expired token');
         }

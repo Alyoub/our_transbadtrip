@@ -4,8 +4,6 @@ const axios = require('axios');
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
-// https://medium.com/@dhananjay_yadav/implementing-google-authentication-with-react-js-and-node-js-f72e306f26c9
-
 // mohim kasni n9rah hadchi :
 // https://github.com/fastify/fastify-cookie?tab=readme-ov-file#importing-serialize-and-parse
 // https://www.npmjs.com/package/@fastify/passport
@@ -14,44 +12,60 @@ const REDIRECT_URI = process.env.REDIRECT_URI;
 
 // https://fastify.dev/docs/latest/Reference/Hooks/
 
- function google_login_flow(request , reply){
+function google_login_flow(request , reply){
     const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=profile email` ;
     reply.redirect(url);
     
 }
 
-async function google_login_response(request,reply){
+async function google_login_response(request, reply) {
     const { code } = request.query;
-    // //console.log(code);
     try {
-        const {data} = await axios.post('https://oauth2.googleapis.com/token',{
+        const { data } = await axios.post('https://oauth2.googleapis.com/token', {
             client_id: CLIENT_ID,
             client_secret: CLIENT_SECRET,
             code,
             redirect_uri: REDIRECT_URI,
             grant_type: 'authorization_code',
         });
-        // //console.log('haaa ha wahed hna ');
-        // //console.log(data);
-        const {access_token} = data;
-        const {data:profile} = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo',{
+
+        const { access_token } = data;
+        const { data: profile } = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
             headers: { Authorization: `Bearer ${access_token}` },
         });
-        // //console.log('haaa hal profile ');
-        console.log(profile);
-        reply.redirect('/');
-        return reply;
-    
-    } catch (err) {
-    //console.log(err);
-    reply.redirect('/');
-    return reply.code(500).send({
-        error: err,
-        badtrip :"hadchi makhdamch"
-    })
-    }
-    
-}
 
+        const { email, name, sub: googleId } = profile;
+        let user = await prisma.user.findUnique({
+            where: { email },
+        });
+
+        if (!user) {
+            user = await prisma.user.create({
+                data: {
+                    email,
+                    name,
+                    googleId,
+                },
+            });
+        }
+
+        const token = jwt.generate(user.id);
+
+        reply.setCookie('jwt', token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'Strict',
+        });
+        reply.redirect('/profile');
+        return reply;
+
+    } catch (err) {
+        reply.redirect('/');
+        return reply.code(500).send({
+            error: err,
+            badtrip: "hadchi makhdamch"
+        });
+    }
+}
 
 module.exports =  {google_login_flow,google_login_response}
