@@ -14,7 +14,21 @@
 </head>
 <body>
     <div id="tournamentSetup">
-        <h1>Pong Tournament</h1>
+        <div class="titleESC pl-24 pr-44">
+			<div class="flex flex-col items-center ml-10">
+				<button id="rtnProfilBtn" type="button" data-page="profil" class="exitBt">
+					<img class="size-6 md:size-7 lg:size-8 xl:size-9" src="../public/logos/close.png">
+				</button>
+				<h1 class="ESC2 text-2xs md:text-xs lg:text-sm xl:text-base pt-2">
+					ESC
+				</h1>
+			</div>
+			<div class="text">
+				<h1 class="texxt text-sm sm:text-base lg:text-lg xl:text-xl 2xl:text-2xl">
+					Pong Tournament
+				</h1>
+			</div>
+		</div>
         <p>Enter player names to begin:</p>
         
         <div class="player-inputs">
@@ -23,9 +37,8 @@
             <input type="text" id="player3" placeholder="Player 3 Name">
             <input type="text" id="player4" placeholder="Player 4 Name">
         </div>
-        
+
         <button id="startTournamentBtn" type="button" data-page="tournament">Start Tournament</button>
-        <button id="exitButton">Exit</button>
     </div>
 </body>
 </html>

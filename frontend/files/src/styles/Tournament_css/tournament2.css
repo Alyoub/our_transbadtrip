@@ -25,8 +25,6 @@ p {
 
 .Game
 {
-    width: 100%;
-
     display: flex;
     /* background-color: aquamarine; */
 }
@@ -136,6 +134,32 @@ canvas
     background-color: #0b152b;  
     border: 5px solid white; 
     display: block;
+}
+
+#startBtn {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+#startBtn:hover {
+    background: #45a049;
+}
+
+#exitBtn {
+    padding: 10px 20px;
+    background: #af4c4c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+#exitBtn:hover {
+    background: #a04545;
 }
 
 /* to remove */
