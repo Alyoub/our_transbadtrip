@@ -143,7 +143,7 @@ fetch('http://localhost:3000/users', {
             friendElement.className = 'user_continer';
             // friendElement.innerHTML = `
             //     <div class="picholder">
-            //         <img class="userpic" src="../public/profile_pictures/htouil.jpeg">
+            //         <img class="userpic" src="../public/profile_pictures/ProfilePic.jpeg">
             //     </div>
             //     <div class="textHolder">
             //         <label class="userName">

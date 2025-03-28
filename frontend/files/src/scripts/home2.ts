@@ -184,6 +184,8 @@ export const setupLoginPage = () => {
         const loginPgae = document.getElementById('loginPage') as HTMLElement;
         const Exitbt = document.getElementById('exitLogin') as HTMLButtonElement;
 
+        const emailver = document.querySelector('.centerPart') as HTMLElement;
+
         // const SingInHomebt = document.getElementById('Sing_upHomeBt') as HTMLButtonElement;
 
 
@@ -201,6 +203,9 @@ export const setupLoginPage = () => {
                 loginPgae.classList.remove('hide');
                 SING_UP?.classList.remove('line');
                 SING_IN?.classList.add('line');
+
+                emailver.style.display = "none";
+
                 user_login_info!.innerHTML = hengSingIN;
                 toggleVisibility('.login_input_password', '.show_bt');
                 checkLastInput('.login_input_email','.checkLoginEmail', /^[a-zA-Z0-9._%+-@]*$/); //for sign in email input
@@ -216,6 +221,9 @@ export const setupLoginPage = () => {
                 loginPgae.classList.remove('hide');
                 SING_IN?.classList.remove('line');
                 SING_UP?.classList.add('line');
+
+                emailver.style.display = "none";
+
                 user_login_info!.innerHTML = hengSingUP;
                 toggleVisibility('.login_input_password1', '.show_bt1');
                 toggleVisibility('.login_input_password2', '.show_bt2');
@@ -662,7 +670,7 @@ export const setupLoginPage = () => {
 
         const valinput = document.getElementById('.verifyEmail') as HTMLInputElement;
 
-        const card = document.querySelector('.card-container') as HTMLElement;
+        // const card = document.querySelector('.card-container') as HTMLElement;
 
 
         if(forgetbnt)
@@ -673,12 +681,32 @@ export const setupLoginPage = () => {
                 emailver.style.display = "";
             });
         }
-        if(verfyBtn)
+        if(verfyBtn) 
         {
             verfyBtn.addEventListener('click', () => {
-                loginPgae.classList.add('hide');
-                emailver.style.display = "none";
-                AllHomePage.classList.remove('blur');
+
+                const verfyEamil = {
+                    email : valinput.value.trim(),
+                }
+
+                fetch('http://localhost:3000/api/:login/change_password', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(verfyEamil),
+                    credentials : "include"
+                })
+                .then(response => response.json())
+                .then(data => {
+                console.log("Success:", data);
+                })
+
+                console.log(verfyEamil);
+
+                // loginPgae.classList.add('hide');
+                // emailver.style.display = "none";
+                // AllHomePage.classList.remove('blur');
             });
 
             // console.log(valinput.value);
@@ -712,4 +740,19 @@ export const setupLoginPage = () => {
     //     // });
     // }
     // FaHome();
+
 }
+
+
+
+
+
+
+export function RedrectPage(btnID : string, NextPage : string)
+    {
+        const btniD = document.getElementById(btnID) as HTMLButtonElement;
+
+        btniD.addEventListener('click', () => {
+            loadnhistory(NextPage);
+        });
+    }

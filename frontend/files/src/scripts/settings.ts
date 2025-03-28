@@ -1,3 +1,4 @@
+import { url } from "inspector";
 import { loadnhistory } from "./app.js";
 
 export const updateSettingsPage = () => {
@@ -14,10 +15,10 @@ export const updateSettingsPage = () => {
     `
     <img class="settings_cover" src="/public/images/profile_cover2.png">
     <div class="settings_pic_data">
-        <img class="settings_pic" src="/public/profile_pictures/abelechg.jpeg">
+        <img class="settings_pic" src="/public/profile_pictures/ProfilePic.jpeg">
         <span class="online"></span>
         <label class="settings_user_name">
-            Atoukmat
+            
         </label>
         <span id="SWitchbtn" class="TwoFF">
             <img class="SwitchOFF" src="/public/logos/SwitchOFF.svg">
@@ -25,60 +26,126 @@ export const updateSettingsPage = () => {
         <label class="FA_TEXT">
             2FA :
         </label>
-        <img class="add_sitting_cover" src="/public/logos/addPhoto.svg">
-        <img class="add_sitting_pic" src="/public/logos/addPhoto.svg">
-        <input class="Sitting_Uplouad_cover" type="radio">
-        <input class="Sitting_Uplouad_pic" type="radio">
+        <img id="cover" class="add_sitting_cover" src="/public/logos/addPhoto.svg">
+        <img id="profile" class="add_sitting_pic" src="/public/logos/addPhoto.svg">
+        <input id="cover" class="Sitting_Uplouad_cover" type="file">
+        <input id="profile" class="Sitting_Uplouad_pic" type="file">
         <p id="fileName">
         
         </p>
     </div>
     `;
 
-    function getFileName(InputTarget : string)
-    {
-        const fileInput = document.querySelector(InputTarget) as HTMLInputElement;
-
-        fileInput.addEventListener("change", () => {
-        if (fileInput.files && fileInput.files.length > 0)
-        {
-             const file = fileInput.files[0];
-            // console.log("File Name:", file.name);
-            console.log("File Path:", fileInput.value);
-        }
-
-        });
-    }
-
     settingsCoverData!.innerHTML = settingsCoverDataHTMLGen;
 
-    function uplouadPics(Uplouadbt: string, Inputswich: string)
-    {
-        const coverBtEdit = document.querySelector(Uplouadbt) as HTMLPictureElement;
-        const inputUplouad = document.querySelector(Inputswich) as HTMLInputElement;
+    // function uploadPics(uploadBtn: string, inputSwitch: string) {
+    //     const coverBtEdit = document.querySelector(uploadBtn) as HTMLElement | null;
+    //     const inputUpload = document.querySelector(inputSwitch) as HTMLInputElement | null;
+    //     const profilePic = document.getElementById('profile-pic') as HTMLImageElement | null;
 
-        inputUplouad.classList.add('make_uplouad_visibel');
+    
+    //         coverBtEdit!.addEventListener('click', () => {
+    //             inputUpload!.click();
+    //         });
+            
+    //         inputUpload!.addEventListener('change', () => {
+    //             if (inputUpload!.files && inputUpload!.files.length > 0) {
+    //                 const file = inputUpload!.files[0]; 
+    //                 console.log("Selected file:", file);
+        
+    //                 const imageUrl = URL.createObjectURL(file);
+    //                 console.log("Generated Image URL:", imageUrl);
+        
+    //                 profilePic!.src = imageUrl;
+    //             } else {
+    //                 console.log("No file selected.");
+    //             }
+    //         });
+        
 
-        coverBtEdit.addEventListener('click', () => {
-            // console.log('rak raya');
-            if(inputUplouad.type === "radio")
-            {
-                inputUplouad.type = "file";
-                // inputUplouad.classList.remove('make_uplouad_visibel');
-                inputUplouad.click();
-                getFileName(Inputswich);
-            }
-            else
-            {
-                inputUplouad.type = "radio";
-                // inputUplouad.classList.add('make_uplouad_visibel');
-            }
-        });
-    }
+    //     // document.getElementById("fileInput").addEventListener("change", function(event) {
+    //     //     const file = event.target.files[0]; // Get selected file
+    //     //     if (file) {
+    //     //         const imageUrl = URL.createObjectURL(file); // Create temporary URL
+    //     //         const imgElement = document.getElementById("previewImage");
+    //     //         imgElement.src = imageUrl;
+    //     //         // imgElement.style.display = "block"; // Show the image
+    //     //     }
+    //     // });
+    // }
+
     
 
-    uplouadPics('.add_sitting_cover', '.Sitting_Uplouad_cover');
-    uplouadPics('.add_sitting_pic', '.Sitting_Uplouad_pic');
+
+    // function upload() {
+    //     console.log("upload() function called");
+    
+    //     const inputUpload = document.getElementById('file-upload') as HTMLInputElement | null;
+    //     const profilePic = document.getElementById('profile-pic') as HTMLImageElement | null;
+    
+    //     if (!inputUpload) {
+    //         console.log("inputUpload element not found");
+    //         return;
+    //     }
+    //     if (!profilePic) {
+    //         console.log("profilePic element not found");
+    //         return;
+    //     }
+    
+    //     console.log("Elements found successfully!");
+    
+    //     inputUpload.addEventListener('change', () => {
+    //         console.log("File input changed");
+    
+    //         if (inputUpload.files && inputUpload.files.length > 0) {
+    //             const file = inputUpload.files[0];
+    //             console.log("Selected file:", file);
+    
+    //             const imageUrl = URL.createObjectURL(file);
+    //             console.log("Generated Image URL:", imageUrl);
+    
+    //             profilePic.src = imageUrl;
+    //         } else {
+    //             console.log("No file selected.");
+    //         }
+    //     });
+    // }
+    
+    function uploadPics(uploadBtn: string, inputSwitch: string, type : string) {
+        const coverBtEdit = document.querySelector(uploadBtn) as HTMLElement | null;
+        const inputUpload = document.querySelector(inputSwitch) as HTMLInputElement | null;
+        const profilePic = document.querySelector(type) as HTMLImageElement | null;
+
+
+        // <img class="settings_pic" src="/public/profile_pictures/ProfilePic.jpeg">
+    
+
+        if(coverBtEdit && inputUpload && profilePic)
+        {
+            coverBtEdit.addEventListener('click', () => {
+                inputUpload.click();
+            });
+
+                inputUpload.addEventListener('change', () => {
+                if (inputUpload.files && inputUpload.files.length > 0) {
+                    const file = inputUpload.files[0];
+                    const imageUrl = URL.createObjectURL(file);
+                    profilePic.src = imageUrl;
+                    
+                } else {
+                    console.log("No file selected.");
+                }
+            });
+        }
+       
+    
+        
+    }
+    
+    
+
+    uploadPics('.add_sitting_cover', '.Sitting_Uplouad_cover', '.settings_cover');
+    uploadPics('.add_sitting_pic', '.Sitting_Uplouad_pic', '.settings_pic');
 
     const toggleVisibility = (inputSelector: string, buttonSelector: string) => {
 
@@ -254,6 +321,8 @@ export const updateSettingsPage = () => {
         const username = document.querySelector('.input_settings_User_name') as HTMLInputElement;
         const email = document.querySelector('.input_settings_email') as HTMLInputElement;
 
+        const fullname = document.querySelector('.settings_user_name') as HTMLLabelElement;
+
         fetch('http://localhost:3000/profile', {
             method: 'GET',
             headers: {
@@ -271,9 +340,42 @@ export const updateSettingsPage = () => {
         name.value = nameVal;
         username.value = userVal;
         email.value = emailVal;
+        
+        fullname.innerHTML = nameVal;
             
         })
-        // console.log('we');
     }
     getUserData();
-};
+
+    function deletACC()
+    {
+        const deeletBtn  = document.querySelector('.delete-button') as HTMLButtonElement;
+        const loderDelete = document.querySelector('.deletting') as HTMLElement;
+        const allSetting = document.getElementById('All_setings_FA_data') as HTMLElement;
+
+        deeletBtn.addEventListener('click', () => {
+            console.log('BAD TRIP');
+
+                fetch('http://localhost:3000/user/:id', {
+                method: 'delete',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({}),
+                credentials : "include"
+            })
+            .then(response => response.json())
+            .then(data => {
+                allSetting.classList.add('blur');
+                loderDelete.style.display = "";
+                setTimeout(() => {
+                    loadnhistory('home');
+                }, 3000);
+            })
+
+        });
+    }
+
+    deletACC();
+
+}

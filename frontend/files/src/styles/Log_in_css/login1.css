@@ -45,13 +45,56 @@ body
     /* background-color: red; */
     /* background-color: rgba(26, 26, 46, 0.8); */
     background-color: rgb(255, 255, 255, 0.2);
-    border: 1px black solid;
-    border-radius: 50px;
+    /* border: 2px black solid; */
+    border-radius: 60px;
     min-width: 250px;
     min-height: 0px;
     position: relative;
     box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 10px 10px 10px rgba(223, 218, 218, 0.3); */
+
 }
+
+/* .all_user_info {
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    min-width: 250px;
+    position: relative;
+    padding: 30px;
+    box-sizing: border-box;
+    
+
+    box-shadow: 
+
+        15px 15px 30px rgba(0, 0, 0, 0.6),
+
+        -8px -8px 20px rgba(255, 255, 255, 0.1),
+
+        inset 5px 5px 10px rgba(0, 0, 0, 0.2),
+ 
+        inset -5px -5px 10px rgba(255, 255, 255, 0.1);
+    
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    
+
+    transform: perspective(800px) rotateX(3deg) rotateY(2deg);
+    transition: all 0.4s ease;
+}
+
+.all_user_info:hover {
+    transform: perspective(800px) rotateX(1deg) rotateY(1deg);
+    box-shadow: 
+        20px 20px 35px rgba(0, 0, 0, 0.7),
+        -10px -10px 25px rgba(255, 255, 255, 0.15),
+        inset 5px 5px 10px rgba(0, 0, 0, 0.2),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.1);
+} */
+
+
+
 
 .loginUpForm
 {
@@ -109,7 +152,6 @@ body
     margin-top: 8%;
     font-weight: bolder;
 }
-
 .user_login_info
 {
     width: 80%;
@@ -125,19 +167,6 @@ body
     position: relative;
 }
 
-.login_input_email
-{
-    width: 100%;
-    height: clamp(10px, 2vw, 43px);
-    text-indent: 5%;
-    border-radius: 30px;
-    background-color: rgba(94,94,111,255);
-    border: none;
-    color: white;
-    outline: none;
-    height: 3svw;
-    width: 100%;
-}
 
 .login_input_password,
 .login_input_password1,
@@ -145,29 +174,38 @@ body
 {
     width: 90%;
     text-indent: 5%;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-top: 1px solid rgba(207, 200, 200, 0.3);
+    border-bottom: 1px solid rgba(207, 200, 200, 0.3);
+    border-left: 1px solid rgba(207, 200, 200, 0.3);
     background-color: rgba(94, 94, 111, 255);
-    border: none;
+    /* background-color: white; */
     color: white;
-    /* font-size: clamp(10px, 1vw, 43px); */
+    font-size: clamp(10px, 1vw, 43px);
     outline: none;
     height: 3svw;
     width: 100%;
+    font-weight: bold;
+    /* background-color: red; */
 }
 .show_bt,
 .show_bt1,
 .show_bt2
 {
     background-color: rgba(94,94,111,255);
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
     height: 3svw;
     width: 15%;
     display: flex;
     justify-content: center;
     padding-left: 2%;
     padding-right: 3%;
+
+    border-top: 1px solid rgba(207, 200, 200, 0.3);
+    border-bottom: 1px solid rgba(207, 200, 200, 0.3);
+    border-right: 1px solid rgba(207, 200, 200, 0.3);
     /* background-color: red; */
     
 }
@@ -232,17 +270,27 @@ body
 .SIGN_BT_IN,
 .SIGN_BT_UP
 {
-    background-color: rgba(84,134,168,255);
-    border: none;
-    width: 100%;
-    margin-top: 8%;
-    height: clamp(10px, 2vw, 43px);
-    font-size: clamp(10px, 1vw, 43px);
+    border: 0;
+    background: rgba(84, 134, 168, 255);
+    color: #fff;
+    padding: 0.68em;
+    font-size: clamp(10px, 1vw, 40px);
+    border-radius: 14px;
     font-weight: bold;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 30px;
+    width: 100%;
+    margin-top: 7%;
 }
+.SIGN_BT_IN:hover
+{
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+.SIGN_BT_UP:hover
+{
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+  
 .or_use
 {
     font-size: clamp(10px, 1vw, 43px);
@@ -256,15 +304,15 @@ body
 .GOOGLE_BT
 {
     background-color:white;
-    border: none;
     width: 100%;
-    height: clamp(10px, 2vw, 43px);
-    font-size: clamp(15px, 1vw, 43px);
+    height: clamp(10px, 3vw, 40px);
     font-weight: bold;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    border-radius: 30px;
+    border-radius: 14px;
+    border: 1px solid black;
 }
+
 .username_login2_info,
 .email_login2_info,
 .login_user_name,

@@ -1,10 +1,12 @@
 import { constrainedMemory } from 'process';
 import { loadnhistory } from './app.js';
+import { RedrectPage } from './home2.js';
 
 let friendsBtn: NodeListOf<HTMLButtonElement> | null;
 let historyBtn: NodeListOf<HTMLButtonElement> | null;
 let friendsList: NodeListOf<HTMLElement> | null;
 let historyList: NodeListOf<HTMLElement> | null;
+
 
 export async function	setupProfilPage() {
 	try
@@ -22,6 +24,7 @@ export async function	setupProfilPage() {
 	{
 		console.error("Failed to update the Player's name: ", error);
 	}
+	
 };
 
 async function	fetchPlayerData() {
@@ -76,6 +79,11 @@ export function	setupProfilButtons() {
 	const tournTitle = document.getElementById('tournTitle') as HTMLElement;
 	const createTournPageBtn = document.getElementById('createTournPageBtn') as HTMLButtonElement;
 	// const hostTournPageBtn = document.getElementById('hostTournPageBtn') as HTMLButtonElement;
+
+
+	// RedrectPage('palySolo', 'game_ai'); // added by alotfi
+	// RedrectPage('closeAI', 'profil');
+	// RedrectPage('Localgame', 'game_local');
 	
 	homeBtn.addEventListener('click', () => loadnhistory('home'));
 	// notifsBtn.addEventListener('click', (event) => showNotifications(event, notifsPanel));

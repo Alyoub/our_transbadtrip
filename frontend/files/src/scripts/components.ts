@@ -18,7 +18,7 @@ export class notificationHeader extends HTMLElement {
 			</div>
 			<div class="sign-bt_notif">
 				<button id="logOutBtn" class="log-in-bt1_notif">
-					<img class="user_header_pic" src="../public/profile_pictures/htouil.jpeg">
+					<img class="user_header_pic" src="../public/profile_pictures/ProfilePic.jpeg">
 					<span id="iPlayerUsername" class="user_name_header"></span>
 					<!-- <img class="user_notification_header" src="../public/logos/bell.svg"> -->
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-red-500">
@@ -60,7 +60,7 @@ export class newFriendRequestTag extends HTMLElement {
 		this.innerHTML =
 		`<div class="grid grid-cols-3 grid-rows-1 border rounded-xl md:h-12 xl:h-14 2xl:h-16 max-814:pl-1.5 pl-2 max-814:pr-1.5 pr-4" style="background: #3f4251;">
 			<div class="col-span-2 flex items-center max-814:gap-1 gap-2">
-				<img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="rounded-full size-8 xl:size-9 2xl:size-10">
+				<img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="rounded-full size-8 xl:size-9 2xl:size-10">
 				<div class="flex flex-col justify-items-center py-1">
 					<strong id="" class="md:text-xs lg:text-sm xl:text-base"></strong>
 					<span class="md:text-3xs lg:text-2xs">Requested 3 days ago</span>
@@ -92,7 +92,7 @@ export class oldFriendTag extends HTMLElement {
 		`<div class="grid grid-cols-3 grid-rows-1 border rounded-xl md:h-12 xl:h-14 2xl:h-16 px-2"
 			style="background: #3f4251;">
 			<div class="col-span-2 flex items-center max-814:gap-1 gap-2">
-				<img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
+				<img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil"
 					class="rounded-full size-8 xl:size-9 2xl:size-10">
 				<div class="flex flex-col justify-items-center py-1">
 					<strong class="md:text-xs lg:text-sm xl:text-base">htouil</strong>
@@ -116,13 +116,13 @@ export class matchScoreTag extends HTMLElement {
 		this.innerHTML =
 		`<div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1" style="background-color: ${stateColor};">
 			<div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
-				<img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="justify-self-start rounded-full size-8 lg:size-9 xl:size-10">
+				<img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="justify-self-start rounded-full size-8 lg:size-9 xl:size-10">
 				<p class="justify-self-start self-center text-lg">1</p>
 			</div>
 			<p class="place-self-center">VS</p>
 			<div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
 				<p class="justify-self-end self-center text-lg">3</p>
-				<img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="justify-self-end rounded-full size-8 lg:size-9 xl:size-10">
+				<img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="justify-self-end rounded-full size-8 lg:size-9 xl:size-10">
 			</div>
 		</div>`;
 	};
@@ -136,7 +136,7 @@ export class sideNewFriendRequestTag extends HTMLElement {
 		this.innerHTML =
 		`<div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-11 pl-2 max-527:pr-2 pr-4" style="background: #3f4251;">
 			<div class="col-span-2 flex items-center gap-2">
-				<img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="rounded-full size-8">
+				<img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="rounded-full size-8">
 				<div class="flex flex-col justify-items-center py-1">
 					<strong class="max-503:text-2xs text-xs">htouil</strong>
 					<span class="max-503:text-4xs text-3xs">Requested 3 days ago</span>
@@ -166,7 +166,7 @@ export class sideOldFriendTag extends HTMLElement {
 		this.innerHTML =
 		`<div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-11 px-2" style="background: #3f4251;">
 			<div class="col-span-2 flex items-center gap-2">
-				<img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="rounded-full size-8">
+				<img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="rounded-full size-8">
 				<div class="flex flex-col justify-items-center py-1">
 					<strong class="max-503:text-2xs text-xs">htouil</strong>
 					<span class="max-503:text-4xs text-3xs">Requested 3 days ago</span>
@@ -189,13 +189,13 @@ export class sideMatchScoreTag extends HTMLElement {
 		this.innerHTML =
 		`<div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-12 px-2 py-1" style="background-color: ${stateColor};">
 			<div class="grid grid-cols-2 grid-rows-1">
-				<img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="justify-self-start rounded-full size-8">
+				<img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="justify-self-start rounded-full size-8">
 				<p class="justify-self-center sm:justify-self-start self-center text-lg">1</p>
 			</div>
 			<p class="place-self-center">VS</p>
 			<div class="grid grid-cols-2 grid-rows-1">
 				<p class="justify-self-center sm:justify-self-end self-center text-lg">3</p>
-				<img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="justify-self-end rounded-full size-8">
+				<img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="justify-self-end rounded-full size-8">
 			</div>
 		</div>`;
 	};
@@ -209,7 +209,7 @@ export class friendToTournamentTag extends HTMLElement {
 		this.innerHTML =
 		`<label class="grid grid-cols-3 grid-rows-1 border rounded-xl max-550:h-10 xs:h-11 sm:h-12 md:h-14 lg:h-14 2xl:h-16 pl-2 pr-4" style="background: #3f4251;">
 			<div class="col-span-2 flex items-center gap-2">
-				<img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="rounded-full xs:size-8 sm:size-9 md:size-10 2xl:size-12">
+				<img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="rounded-full xs:size-8 sm:size-9 md:size-10 2xl:size-12">
 				<div class="flex flex-col justify-items-center py-1">
 					<strong class="max-550 max-595:text-2xs xs:text-xs sm:text-xs md:text-sm lg:text-sm 2xl:text-base">Hatim Touil</strong>
 					<span class="max-595:text-3xs xs:text-2xs sm:text-2xs md:text-xs lg:text-xs 2xl:text-sm">Level 7</span>
