@@ -426,16 +426,17 @@ export const setupLoginPage = () => {
                 confirmPasswordMsg.innerHTML = "Password mismatch.";
                 hasError = true;
             }
-            // name: name.value.trim()+lastname.value.trim(),
+            // name: name.value.trim(),
             if(hasError === false)
             {
+                const fullname = name.value.trim() + " " + lastname.value.trim();
                 const formSignUPData = {
                     login: username.value.trim(),
                     email: email.value.trim(),
-                    name: name.value.trim(),
+                    name: fullname,
                     password: password.value.trim(),
                 };
-                fetch('https://localhost/api/register', {
+                fetch('http://localhost:3000/register', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -557,7 +558,7 @@ export const setupLoginPage = () => {
                     password: password.value.trim(),
                 };
                 // console.log(formSignINData);
-                fetch('https://localhost/api/login', {
+                fetch('http://localhost:3000/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

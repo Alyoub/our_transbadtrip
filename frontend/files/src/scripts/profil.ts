@@ -27,7 +27,7 @@ export async function	setupProfilPage() {
 async function	fetchPlayerData() {
 	try
 	{
-		const response = await fetch('https://localhost/api/profile', {
+		const response = await fetch('http://localhost:3000/profile', {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -50,10 +50,12 @@ async function	fetchPlayerData() {
 
 export function	setupProfilButtons() {
 	const homeBtn = document.querySelector('.home-btn') as HTMLButtonElement;
-	const notifsBtn = document.getElementById('notifsBtn') as HTMLButtonElement;
-	const notifsPanel = document.getElementById('notifsPanel') as HTMLElement
-	const notifs = document.getElementById('notifs') as HTMLElement;
-	const notifsAccRejBtn = document.getElementById('notifsAccRejBtn') as HTMLButtonElement;
+	// const notifsBtn = document.getElementById('notifsBtn') as HTMLButtonElement;
+	// const notifsPanel = document.getElementById('notifsPanel') as HTMLElement
+	// const notifs = document.getElementById('notifs') as HTMLElement;
+	// const notifsAccRejBtn = document.getElementById('notifsAccRejBtn') as HTMLButtonElement;
+	const logOutBtn = document.getElementById('logOutBtn') as HTMLButtonElement;
+	const logOutPanel = document.getElementById('logOutPanel') as HTMLElement;
 	const settingsBtn = document.querySelector('.settings-btn') as HTMLButtonElement;
 	const addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn') as HTMLButtonElement;
 	const addNewFriendCloseBtn = document.getElementById('addNewFriendCloseBtn') as HTMLButtonElement;
@@ -76,8 +78,9 @@ export function	setupProfilButtons() {
 	// const hostTournPageBtn = document.getElementById('hostTournPageBtn') as HTMLButtonElement;
 	
 	homeBtn.addEventListener('click', () => loadnhistory('home'));
-	notifsBtn.addEventListener('click', (event) => showNotifications(event, notifsPanel));
-	notifsAccRejBtn.addEventListener('click', (event) => showNotifsAccRej(event, notifs, notifsAccRejBtn));
+	// notifsBtn.addEventListener('click', (event) => showNotifications(event, notifsPanel));
+	// notifsAccRejBtn.addEventListener('click', (event) => showNotifsAccRej(event, notifs, notifsAccRejBtn));
+	logOutBtn.addEventListener('click', () => showLogOutPopup(logOutPanel));
 	settingsBtn.addEventListener('click', () => loadnhistory('settings'));
 	addNewFriendShowBtn?.addEventListener('click', () => showAddNewFriendPopup(sidePanel));
 	addNewFriendCloseBtn?.addEventListener('click', () => closeAddNewFriendPopup(sidePanel));
@@ -96,6 +99,19 @@ export function	setupProfilButtons() {
 	createTournPageBtn?.addEventListener('click', () => loadnhistory('createtourn'));
 	// hostTournPageBtn?.addEventListener('click', () => loadnhistory('hosttourn'));
 	// playWFriendsBtn?.addEventListener('click', () => loadnhistory('localgame'));
+};
+
+function	showLogOutPopup(logOutPanel: HTMLElement) {
+	if (logOutPanel.classList.contains('hidden'))
+	{
+	logOutPanel?.classList.remove('hidden');
+	logOutPanel?.classList.add('flex');
+	}
+	else
+	{
+		logOutPanel?.classList.add('hidden');
+		logOutPanel?.classList.remove('flex');
+	}
 };
 
 function	showNotifications(event: Event, notifsPanel: HTMLElement) {
