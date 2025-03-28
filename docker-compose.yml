@@ -23,7 +23,7 @@ services:
     env_file: back/.env
     restart: always
     volumes:
-      - database:/srcs/prisma/dev.db
+      - database:/srcs/prisma
     networks:
       - trans
   nginx:

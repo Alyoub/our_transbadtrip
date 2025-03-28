@@ -1,6 +1,6 @@
 export function rakmanchat()
 {
-    console.log('we');
+    // console.log('we');
 
 interface Message {
     senderId: number | string;

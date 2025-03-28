@@ -20,10 +20,12 @@ const cors = require('@fastify/cors');
 // https://stackoverflow.com/questions/34558264/fetch-api-with-cookie
 // https://stackoverflow.com/questions/55897099/cross-origin-request-blocked-the-same-origin-policy-disallows-reading-the-remot
 fastify.register(cors, {
-    origin: ['http://localhost:8000','http://localhost:3000','http://localhost:8000/','http://localhost','http://localhost:8000/'], // Replace with your trusted origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization','Origin','X-Requested-With'], // Allowed headers
-    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+    origin: (origin, callback) => {
+        callback(null, true);
+      },
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'X-Requested-With'],
+      credentials: true
   });
 
 fastify.register(require("@fastify/websocket"));

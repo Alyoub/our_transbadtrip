@@ -37,7 +37,7 @@ Content-Type: application/json
 
 
 ### Test POST request to register a new user
-POST http://localhost:3000/register
+POST https://localhost/api/register
 Content-Type: application/json
 
 {

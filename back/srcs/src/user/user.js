@@ -24,8 +24,9 @@ async function register(request, reply){
                 "message": "User created successfully",
             });
     } catch (err) {
+        console.log(err);
         //console.error('Error during user registration:', err);
-        reply.code(400).send({ error: "database" });
+        reply.code(400).send({ error: "database LLL ",err });
     }
 }
 
