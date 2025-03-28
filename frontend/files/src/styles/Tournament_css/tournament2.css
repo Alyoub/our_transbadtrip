@@ -1,3 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+span {
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    display: flex;
+    align-items: center; 
+    gap: 25px; 
+    padding: 20px; 
+}
+
+p {
+    font-size: 50px;
+    color: #D3E8FC;
+    margin: 0; 
+}
+
 .Game
 {
     width: 100%;
@@ -85,9 +110,11 @@
     fill: white;
     width: 50%;
 }
+
+/* to remove */
 .Name 
 {
-  /* background-color: red; */
+  background-color: red;
 }
 .user1TEXT
 {
@@ -103,6 +130,15 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
 }
+
+canvas
+{
+    background-color: #0b152b;  
+    border: 5px solid white; 
+    display: block;
+}
+
+/* to remove */
 .hide
 {
     display: none;

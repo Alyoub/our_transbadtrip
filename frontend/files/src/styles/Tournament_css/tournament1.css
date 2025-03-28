@@ -1,4 +1,5 @@
-.rubik-glitch-regular {
+/* ??????? */
+.rubik-glitch-regular { 
     font-family: "Rubik Glitch", serif;
     font-weight: 400;
     font-style: normal;
@@ -66,6 +67,9 @@ p {
     cursor: pointer;
     font-size: 16px;
 }
+#startTournament:hover {
+    background: #45a049;
+}
 #exitButton
 {
     padding: 10px 20px;
@@ -75,13 +79,4 @@ p {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-}
-#startTournament:hover {
-    background: #45a049;
-}
-canvas
-{
-    background-color: #0b152b;  
-    border: 5px solid white; 
-    display: block;
 }

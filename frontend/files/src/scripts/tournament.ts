@@ -52,7 +52,7 @@ export function tournament() {
         }
 
         function setupEventListeners() {
-            startTournamentBtn?.addEventListener('click', startTournament);
+            startTournamentBtn?.addEventListener('click', start);
             exitButton?.addEventListener('click', () => {
                 window.location.reload();
             });
@@ -66,7 +66,7 @@ export function tournament() {
             });
         }
 
-        function startTournament() {
+        function start() {
             tournamentPlayers = [
                 (document.getElementById('player1') as HTMLInputElement)?.value || 'Player 1',
                 (document.getElementById('player2') as HTMLInputElement)?.value || 'Player 2',
