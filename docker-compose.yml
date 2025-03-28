@@ -6,7 +6,7 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /Users/atoukmat/database
+      device: ~/database
       o: bind
 services:
   frontend:
