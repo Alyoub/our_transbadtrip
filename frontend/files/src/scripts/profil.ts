@@ -27,7 +27,7 @@ export async function	setupProfilPage() {
 async function	fetchPlayerData() {
 	try
 	{
-		const response = await fetch('http://localhost:3000/profile', {
+		const response = await fetch('https://localhost/api/profile', {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -188,13 +188,14 @@ function	selectLocal(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, 
 	onlineBtn?.classList.add('hover:bg-gray-500');
 	onlineBtn?.classList.remove('bg-gray-600');
 	playSolo?.classList.remove('opacity-30');
+	playSolo.inert = false;
 	play2v2Btn?.classList.remove('opacity-30');
+	play2v2Btn.inert = false;
 	tournTitle?.classList.remove('opacity-30');
-	if (createTournPageBtn)
-	createTournPageBtn.inert = true;
+	createTournPageBtn.inert = false;
+	createTournPageBtn?.classList.remove('opacity-30');
 	// if (hostTournPageBtn)
 	// 	hostTournPageBtn.inert = true;
-	createTournPageBtn?.classList.remove('opacity-30');
 	// hostTournPageBtn?.classList.add('opacity-30');
 };
 
@@ -204,13 +205,14 @@ function	selectOnline(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement,
 	localBtn?.classList.add('hover:bg-gray-500');
 	localBtn?.classList.remove('bg-gray-600');
 	playSolo?.classList.add('opacity-30');
+	playSolo.inert = true;
 	play2v2Btn?.classList.add('opacity-30');
+	play2v2Btn.inert = true;
 	tournTitle?.classList.add('opacity-30');
-	if (createTournPageBtn)
-		createTournPageBtn.inert = false;
+	createTournPageBtn.inert = true;
+	createTournPageBtn?.classList.add('opacity-30');
 	// if (hostTournPageBtn)
 	// 	hostTournPageBtn.inert = false;
-	createTournPageBtn?.classList.add('opacity-30');
 	// hostTournPageBtn?.classList.remove('opacity-30');
 };
 

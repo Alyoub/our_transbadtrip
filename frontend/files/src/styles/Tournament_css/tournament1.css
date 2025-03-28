@@ -1,4 +1,5 @@
-.rubik-glitch-regular {
+/* ??????? */
+.rubik-glitch-regular { 
     font-family: "Rubik Glitch", serif;
     font-weight: 400;
     font-style: normal;
@@ -57,7 +58,7 @@ p {
     border: 1px solid #ccc;
 }
 
-#startTournament {
+#startTournamentBtn {
     padding: 10px 20px;
     background: #4CAF50;
     color: white;
@@ -65,6 +66,9 @@ p {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+}
+#startTournamentBtn:hover {
+    background: #45a049;
 }
 #exitButton
 {
@@ -76,12 +80,48 @@ p {
     cursor: pointer;
     font-size: 16px;
 }
-#startTournament:hover {
-    background: #45a049;
-}
-canvas
+
+.titleESC
 {
-    background-color: #0b152b;  
-    border: 5px solid white; 
-    display: block;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exitBt
+{
+  background-color: rgba(72,72,90,255);
+  border: none;
+  border-radius: 70px;
+  padding: 2px 2px;
+  /* margin-left: 20px; */
+}
+
+.exitBt:hover
+{
+  background-color: white;
+  transition: 1s;
+}
+
+.ESC2
+{
+	font-family: arial;
+	font-size: 10px;
+	text-align: end;
+	color: white;
+}
+
+.text
+{
+  flex: 1;
+  text-align: center;
+}
+
+.texxt
+{
+  font-family: arial;
+  font-weight: bold;
+  color: white;
 }

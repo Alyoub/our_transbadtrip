@@ -22,10 +22,12 @@ import { rakmanchat } from "./chat.js";
 import { GameAi } from "./GameAI.js";
 import { GameLocal } from "./GameLocal.js";
 import { GameMulti } from "./GameMulti.js";
+import { setupTournamentPage , extractPlayersNames } from './createtourn.js';
 import { tournament } from './tournament.js';
 
 // home page:
 let app: HTMLElement;
+let tournamentPlayers:string[] = [];
 let navBar: HTMLElement | null;
 let navBtns: NodeListOf<HTMLButtonElement> | null;
 //profil page:
@@ -86,10 +88,10 @@ function initiateCustomTags() {
 	customElements.define('friendtotournament-tag', friendToTournamentTag);
 };
 
-const header = document.getElementById('header') as HTMLHeadElement;
 
 async function loadPage(page: string) {
 	try {
+		const header = document.getElementById('header') as HTMLHeadElement;
 		const response = await fetch(`pages/${page}.html`);
 		const content = await response.text();
 		app.innerHTML = content;
@@ -113,9 +115,16 @@ async function loadPage(page: string) {
 			rakmanchat();
 			header.innerHTML = "<notification-header></notification-header>";
 		}
-		if (page === 'Tournamment')
+		if (page === 'createtourn')
 		{
-			tournament();
+			setupTournamentPage();
+			tournamentPlayers = extractPlayersNames();
+			console.log(`here: ${tournamentPlayers}`);
+			header.innerHTML = "<notification-header></notification-header";
+		}
+		if (page === 'tournament')
+		{
+			tournament(tournamentPlayers);
 			header.innerHTML = "<notification-header></notification-header>";
 		}
 		if (page === 'settings')

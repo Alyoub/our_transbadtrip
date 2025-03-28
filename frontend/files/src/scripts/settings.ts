@@ -165,7 +165,7 @@ export const updateSettingsPage = () => {
         const OFF = '<img class="SwitchOFF" src="/public/logos/SwitchOFF.svg">';
         const ON = '<img class="SwitchON" src="/public/logos/SwitchON.svg">';
 
-        fetch('http://localhost:3000/2fa/generate', {
+        fetch('https://localhost/api/2fa/generate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -192,7 +192,7 @@ export const updateSettingsPage = () => {
                 const FA = {
                     otp : FAinput.value.trim(),
                 }
-                fetch('http://localhost:3000/2fa/verify', {
+                fetch('https://localhost/api/2fa/verify', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -254,7 +254,7 @@ export const updateSettingsPage = () => {
         const username = document.querySelector('.input_settings_User_name') as HTMLInputElement;
         const email = document.querySelector('.input_settings_email') as HTMLInputElement;
 
-        fetch('http://localhost:3000/profile', {
+        fetch('https://localhost/api/profile', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'

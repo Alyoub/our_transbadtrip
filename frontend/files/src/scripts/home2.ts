@@ -435,7 +435,7 @@ export const setupLoginPage = () => {
                     name: name.value.trim(),
                     password: password.value.trim(),
                 };
-                fetch('http://localhost:3000/register', {
+                fetch('https://localhost/api/register', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -557,7 +557,7 @@ export const setupLoginPage = () => {
                     password: password.value.trim(),
                 };
                 // console.log(formSignINData);
-                fetch('http://localhost:3000/login', {
+                fetch('https://localhost/api/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
