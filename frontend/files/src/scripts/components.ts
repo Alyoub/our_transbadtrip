@@ -19,9 +19,7 @@ export class notificationHeader extends HTMLElement {
 			<div class="sign-bt_notif">
 				<button id="notifsBtn" class="log-in-bt1_notif">
 					<img class="user_header_pic" src="../public/profile_pictures/htouil.jpeg">
-					<p class="user_name_header">
-						htouil
-					</p>
+					<span id="iPlayerUsername" class="user_name_header"></span>
 					<img class="user_notification_header" src="../public/logos/bell.svg">
 				</button>
 			</div>
@@ -61,7 +59,7 @@ export class newFriendRequestTag extends HTMLElement {
 			<div class="col-span-2 flex items-center max-814:gap-1 gap-2">
 				<img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="rounded-full size-8 xl:size-9 2xl:size-10">
 				<div class="flex flex-col justify-items-center py-1">
-					<strong class="md:text-xs lg:text-sm xl:text-base">htouil</strong>
+					<strong id="" class="md:text-xs lg:text-sm xl:text-base"></strong>
 					<span class="md:text-3xs lg:text-2xs">Requested 3 days ago</span>
 				</div>
 			</div>

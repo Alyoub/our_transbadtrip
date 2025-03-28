@@ -10,8 +10,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Lexend+Mega:wght@100..900&display=swap"rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Lexend+Mega:wght@100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="relative">
@@ -39,9 +39,9 @@
             </button>
         </div>
     </header> -->
-    <!-- <notification-header></notification-header> -->
+    <notification-header></notification-header>
 
-    <div id="notifsPanel" class="z-30 absolute flex flex-col top-11 sm:top-12 right-3 sm:right-16">
+    <div id="notifsPanel" class="z-30 absolute hidden flex-col top-11 sm:top-12 right-3 sm:right-16">
         <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" class="self-end size-3 mr-[53px]">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -175,7 +175,7 @@
         <div class="grid grid-cols-1 grid-rows-7 row-span-2 col-span-5 gap-2 p-4 lg:p-6 items-center bg-cover bg-center bg-no-repeat border border-hidden rounded-2xl xs:row-span-2 xs:col-span-1 faded-border" style="background-image: url('../public/images/rackets_cover_picture.jpeg'); width: 100%;">
             <div class="relative grid grid-cols-2 grid-rows-1 row-span-3 justify-between items-center">
 				<p style="font-family: 'Diphylleia', serif; font-style: normal; text-shadow: 1px 1px 3px;" class="justify-self-start text-white pl-5 xl:pl-14 text-2xl md:text-2xl lg:text-3xl">Good morning,<br>
-                    <span id="iPlayerName">Hatim Touil</span>
+                    <span id="iPlayerName" class="capitalize"></span>
                 </p>
 				<img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="border-2 border-black rounded-full justify-self-end size-24 sm:size-28 md:size-24 lg:size-28 xl:size-32">
 				<button type="button" data-page="settings" title="settings" class="settings-btn flex justify-center items-center absolute border-2 border-black bg-gray-500 rounded-full top-0 right-0 xl:right-1 size-7 sm:size-8 md:size-7 lg:size-8 hover:scale-125">
@@ -235,31 +235,28 @@
 				</div>
 				<div class="grid grid-rows-2 gap-2 md:h-fit">
 					<h2 class="self-end xs:text-sm sm:text-sm md:text-base text-white">Normal game options</h2>
-					<button id="" type="button" class="self-start border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn1">
-						<p id="playSolo" class="xs:text-sm sm:text-sm md:text-base text-white">Play solo</p>
+					<button id="playSolo" type="button" class="self-start border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn1">
+						<p class="xs:text-sm sm:text-sm md:text-base text-white">Play solo</p>
 					</button>
 				</div>	
 				<div class="grid grid-rows-2 gap-2 md:h-fit">
-					<!-- <button id="playWFriendsBtn" type="button" data-page="localgame" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn2">
-						<p id="paly_With_freinds" class="xs:text-sm sm:text-sm md:text-base text-white">Play with friends</p>
-					</button> -->
-                    <div class="grid grid-cols-2 gap-4 w-full">
-                        <button id="paly_1vs1" type="button" data-page="localgame" class="border-2 border-white border-solid rounded-xl h-9 hover:scale-105 play-btn2">
-                            <p class="xs:text-sm sm:text-sm md:text-base text-white">1 VS 1</p>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button id="play1v1Btn" type="button" data-page="localgame" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn2">
+                            <p class="xs:text-sm sm:text-sm md:text-base text-white">Play 1 VS 1</p>
                         </button>
-                        <button id="paly_2vs2" type="button" data-page="onlinegame" class="border-2 border-white border-solid rounded-xl h-9 hover:scale-105 play-btn2">
-                            <p class="xs:text-sm sm:text-sm md:text-base text-white">2 VS 2</p>
+                        <button id="play2v2Btn" type="button" data-page="localgame" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn2">
+                            <p class="xs:text-sm sm:text-sm md:text-base text-white">Play 2 VS 2</p>
                         </button>
                     </div>
-					<h2 id="tournTitle" class="self-end xs:text-sm sm:text-sm md:text-base text-white opacity-30">Tournament options</h2>
 				</div>
 				<div class="grid grid-rows-2 gap-2 lg:gap-3 md:h-fit">
-					<button id="createTournPageBtn" type="button" data-page="createtourn" class="border-2 border-white border-solid rounded-xl w-full h-9 opacity-30 hover:scale-105 play-btn1" inert>
-						<p class="xs:text-sm sm:text-sm md:text-base text-white">Play a Tournament</p>
+                    <h2 id="tournTitle" class="self-end xs:text-sm sm:text-sm md:text-base text-white">Tournament options</h2>
+					<button id="createTournPageBtn" type="button" data-page="createtourn" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn1" inert>
+						<p class="xs:text-sm sm:text-sm md:text-base text-white">Create a tournament</p>
 					</button>
-					<button id="hostTournPageBtn" type="button" data-page="hosttourn" class="border-2 border-white border-solid rounded-xl w-full h-9 opacity-30 hover:scale-105 play-btn2" inert>
-						<p class="xs:text-sm sm:text-sm md:text-base text-white">Play Online</p>
-					</button>
+					<!-- <button id="hostTournPageBtn" type="button" data-page="hosttourn" class="border-2 border-white border-solid rounded-xl w-full h-9 opacity-30 hover:scale-105 play-btn2" inert>
+						<p class="xs:text-sm sm:text-sm md:text-base text-white">Host a tournament</p>
+					</button> -->
 				</div>
 			</div>
 			<div class="grid grid-rows-2 gap-6">
@@ -267,9 +264,9 @@
 					<h1 class="row-span-1 font-bold xs:text-sm sm:text-sm md:text-base text-white">Performances</h1>
 					<div class="row-span-2 grid grid-cols-2 gap-2">
 						<div class="flex flex-col border-2 border-white border-solid rounded-xl pt-1" style="background: #404251;">
-							<h2 class="justify-self-center self-center lg:self-center text-center text-white xs:text-4xs text-2xs md:text-[8px] lg:text-xs">
+							<p class="justify-self-center self-center lg:self-center text-center text-white xs:text-4xs text-2xs md:text-[8px] lg:text-xs font-semibold">
 								Matches played
-							</h2>
+							</p>
 							<div class="flex flex-1 self-center items-center">
 								<p class="text-2xl font-bold" style="color: #716ea7;">15</p>
 							</div>

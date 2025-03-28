@@ -15,14 +15,14 @@ import { updateHomeHeadermain5 , setupLoginPage } from "./home2.js";
 import {
 	setupProfilPage,
 	setupProfilButtons,
-	// handleScroll,
+	handleScroll,
 } from "./profil.js";
+import { setupHostTournamentPage } from './hosttourn.js';
 import { updateSettingsPage } from "./settings.js";
 import { rakmanchat } from "./chat.js";
 import { GameAi } from "./GameAI.js";
 import { GameLocal } from "./GameLocal.js";
 import { GameMulti } from "./GameMulti.js";
-import { tournament } from './tournament.js';
 
 // home page:
 let app: HTMLElement;
@@ -113,9 +113,9 @@ async function loadPage(page: string) {
 			rakmanchat();
 			header.innerHTML = "<notification-header></notification-header>";
 		}
-		if (page === 'Tournamment')
+		if (page === 'hosttourn')
 		{
-			tournament();
+			setupHostTournamentPage();
 			header.innerHTML = "<notification-header></notification-header>";
 		}
 		if (page === 'settings')
@@ -168,4 +168,38 @@ export function loadnhistory(toLoad: string) {
 function setupHomePage() {
 	updateHomeHeadermain3();
 	updateHomeHeadermain5();
-}
+};
+
+//Profil page:
+
+
+//Messages page:
+function setupMessagesButtons() {
+	const rtnProfilBtn = document.querySelector('.rtnProfilBtn') as HTMLButtonElement;
+	
+	rtnProfilBtn?.addEventListener('click', () => loadnhistory('profil'));
+};
+
+//Host Tournament page:
+
+
+//////////////////////////////////////////////////////////////
+// figure out how to link .js files together in app.ts
+// import * as home1 from "./home1";
+// import * as home2 from "./home2";
+// import * as login from "./login";
+// import * as profile from "./TS/Profile_ts/profile";
+// import { updateHomeHeadermain3 } from "./home1";
+// import { updateHomeHeadermain5 } from "./home2";
+
+//Settings page:
+function setupSettingsButtons() {
+	const rtnProfilBtn = document.querySelector('.rtnProfilBtn') as HTMLButtonElement;
+	
+	rtnProfilBtn?.addEventListener('click', () => loadnhistory('profil'));
+};
+
+// //Signup page:
+// const setupLoginPage = () => {
+	
+// };
