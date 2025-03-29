@@ -4,26 +4,22 @@ export function GameMulti()
 {
     const canvas = document.getElementById("PingpongMulti") as HTMLCanvasElement;
     const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-    
-    const close = document.getElementById('closemulti') as HTMLElement;
-    
-    close.addEventListener('click', () => {
-        loadnhistory('profil');
-    });
-    const startButton = document.getElementById("start") as HTMLButtonElement;
-    startButton.addEventListener("click", startButton1);
-    function startButton1() 
-    {
+    const close = document.getElementById('closemulti') as HTMLButtonElement;
+    const startButton = document.getElementById('start') as HTMLButtonElement;
+    const resetButton = document.getElementById('ResetButton') as HTMLButtonElement;
+
+    startButton?.addEventListener('click', (event) => {
+        event?.stopPropagation();
         startButton.style.display = "none";
         requestAnimationFrame(updateCanvas);
-    
-    }
-    const resetButton = document.getElementById("ResetButton") as HTMLButtonElement;
-    resetButton.addEventListener("click", resetgame);
-    
+        console.log('salam');
+    });
+    resetButton?.addEventListener('click', resetgame);
     function resetgame(): void {
         location.reload();
     }
+
+    close?.addEventListener('click', () => loadnhistory('profil'));
 
     canvas.width = 1000;
     canvas.height = 500;

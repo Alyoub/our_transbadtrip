@@ -24,12 +24,13 @@ import { GameLocal } from "./GameLocal.js";
 import { GameMulti } from "./GameMulti.js";
 import { setupTournamentPage , extractPlayersNames } from './createtourn.js';
 import { tournament } from './tournament.js';
+// import { chekuserR } from './home2.js';
 
 // home page:
 let app: HTMLElement;
 let tournamentPlayers:string[] = [];
-let navBar: HTMLElement | null;
-let navBtns: NodeListOf<HTMLButtonElement> | null;
+// let navBar: HTMLElement | null;
+// let navBtns: NodeListOf<HTMLButtonElement> | null;
 //profil page:
 // let homeBtn: HTMLButtonElement | null;
 // let settingsBtn: HTMLButtonElement | null;
@@ -49,32 +50,63 @@ let navBtns: NodeListOf<HTMLButtonElement> | null;
 //host tournament page:
 
 document.addEventListener('DOMContentLoaded', () => {
+	
 	const urlParams = new URLSearchParams(window.location.search);
-    const initialPage = urlParams.get('page') || 'home';
+	const initialPage = urlParams.get('page') || 'home';
 
-	app = document.getElementById('app')!;
-	navBar = document.querySelector('nav');
-	navBtns = document.querySelectorAll('.nav-btn');
+	const Error = '404';
+	const Home = 'home';
 
-	// console.log(`here:`);
-	initiateCustomTags();
-	history.replaceState({ page: initialPage }, '', `?page=${initialPage}`);
-	loadPage(initialPage);
-	navBtns.forEach((button: HTMLElement) => {
-		button.addEventListener('click', () => {
-			const page = button.dataset.page!;
-			loadPage(page);
-			history.pushState({ page }, '', `?page=${page}`);
-		});
-	});
-	window.onpopstate = (event: PopStateEvent) => {
-		// console.log(`load: ${event.state?.page}`);
-		if (event.state?.page)
+	fetch('http://localhost:3000/2fa/generate', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({}),
+		credentials : "include"
+	})
+	.then(response => response.json())
+	.then(data => {
+		console.log("Success:", data.success);
+
+		if(data.success === "2FA secret generated successfully")
 		{
-			loadPage(event.state.page);
+			app = document.getElementById('app')!;
+			initiateCustomTags();
+			history.replaceState({ page: initialPage }, '', `?page=${initialPage}`);
+			loadPage(initialPage);
+			window.onpopstate = (event: PopStateEvent) => {
+			if (event.state?.page)
+				loadPage(event.state.page);
+			};
 		}
-	};
+		if(initialPage === 'home')
+		{
+			app = document.getElementById('app')!;
+			initiateCustomTags();
+			history.replaceState({ page: Home }, '', `?page=${Home}`);
+			loadPage(Home);
+			window.onpopstate = (event: PopStateEvent) => {
+			if (event.state?.page)
+				loadPage(event.state.page);
+			};
+		}
+		if(data.error === "Unauthorized" && initialPage !== 'home')
+		{
+			app = document.getElementById('app')!;
+			initiateCustomTags();
+			history.replaceState({ page: Error }, '', `?page=${Error}`);
+			loadPage(Error);
+			window.onpopstate = (event: PopStateEvent) => {
+			if (event.state?.page)
+				loadPage(event.state.page);
+			};
+		}
+
+	})
 });
+
+
 
 function initiateCustomTags() {
 	customElements.define('notification-header', notificationHeader);
@@ -89,6 +121,30 @@ function initiateCustomTags() {
 };
 
 
+// function chekuserR()
+// {
+// 	const walo = document.getElementById('soukman') as HTMLHRElement;
+
+//     fetch('http://localhost:3000/2fa/generate', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({}),
+//             credentials : "include"
+//         })
+//         .then(response => response.json())
+//         .then(data => {
+//         console.log("Success:", data.success);
+
+// 			// if(data.success === "2FA secret generated successfully")
+// 			// {
+
+// 			// }
+//         })
+// }
+
+
 async function loadPage(page: string) {
 	try {
 		const header = document.getElementById('header') as HTMLHeadElement;
@@ -101,6 +157,7 @@ async function loadPage(page: string) {
 		{
 			setupHomePage();
 			setupLoginPage();
+			// chekuserR();
 		}
 		if (page === 'profil')
 		{
@@ -119,7 +176,7 @@ async function loadPage(page: string) {
 		{
 			setupTournamentPage();
 			tournamentPlayers = extractPlayersNames();
-			console.log(`here: ${tournamentPlayers}`);
+			// console.log(`here: ${tournamentPlayers}`);
 			header.innerHTML = "<notification-header></notification-header";
 		}
 		if (page === 'tournament')
@@ -132,25 +189,25 @@ async function loadPage(page: string) {
 			updateSettingsPage();
 			header.innerHTML = "<notification-header></notification-header>";
 		}
-		if( page === 'game_ai')
+		if (page === 'game_ai')
 		{
 			GameAi();
 			header.innerHTML = "<notification-header></notification-header>";
 		}
-		if(page === 'game_local')
+		if (page === 'game_local')
 		{
 			GameLocal();
 			header.innerHTML = "<notification-header></notification-header>";
 		}
-		if(page === 'game_multi')
+		if (page === 'game_multi')
 		{
 			GameMulti();
 			header.innerHTML = "<notification-header></notification-header>";
 		}
-		if(page === 'home1')
-		{
-			header.innerHTML = "";
-		}
+		// if(page === 'home1')
+		// {
+		// 	header.innerHTML = "";
+		// }
 	}
 	catch (error)
 	{
@@ -158,15 +215,15 @@ async function loadPage(page: string) {
 	}
 };
 
-function hideNav(page: string) {
-	if (navBar)
-	{
-		if (page === 'home1')
-			navBar.classList.remove('hidden');
-		else
-			navBar.classList.add('hidden');
-	}
-};
+// function hideNav(page: string) {
+// 	if (navBar)
+// 	{
+// 		if (page === 'home1')
+// 			navBar.classList.remove('hidden');
+// 		else
+// 			navBar.classList.add('hidden');
+// 	}
+// };
 
 export function loadnhistory(toLoad: string) {
 	loadPage(toLoad);

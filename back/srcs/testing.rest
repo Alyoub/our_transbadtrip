@@ -52,8 +52,8 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "toukmati2000@gmail.com",
-    "password": "4f3e5647e60039b0"
+    "email": "trdwdedi@gmail.com",
+    "password": "Aotfi!1"
 }
 
 ###
@@ -105,7 +105,7 @@ Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMTEwNDQ4NzEwLC
 POST http://localhost:3000/2fa/generate
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNDE2MDQ4NDUxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjQxNjA0OCwiZXhwIjoxNzQyNDE5NjQ4fQ.mORtF8aiV8EDa0MNTxHb1zgzgQYjJBqW83FHO80oplw
-Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMDM2NTU2NjEzLCJ1c2VySWQiOjEsImlhdCI6MTc0MzAzNjU1NiwiZXhwIjoxNzQzMTIyOTU2fQ.yCJusUkJGVYcT8p0mq3jFt6N3X62YqRDsnwpIf95ouo; Max-Age=900000
+Cookie: jwt=eyJhbGciOiJIUzI1NiIsInRcCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMjIzNjQ1NDYyLCJ1c2VySWQiOjIsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0MzIyMzY0NSwiZXhwIjoxNzQzMzEwMDQ1fQ.BBWQn_Jt6RD1NRIz591pUT1N_1XjobAQ7ow1Yc6HYKg; Max-Age=900000
 
 {
     

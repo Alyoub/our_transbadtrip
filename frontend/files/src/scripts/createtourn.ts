@@ -21,7 +21,7 @@ export function extractPlayersNames():string[] {
     const ps = document.getElementById('player1') as HTMLInputElement;
 
 
-    console.log(ps.value);
+    // console.log(ps.value);
 
     return (tournamentPlayers);
 };
