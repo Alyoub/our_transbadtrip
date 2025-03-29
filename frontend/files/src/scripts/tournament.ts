@@ -1,21 +1,14 @@
 import { loadnhistory } from './app.js';
-// import { tournamentPlayers } from './createtourn.js';
 
-export function tournament(tournamentPlayers: string[]){
-    // console.log('here');
+export function tournament(tournamentPlayers: string[])
+{
     const canvas = document.getElementById('pingPongT') as HTMLCanvasElement;
     const ctx = canvas?.getContext('2d') as CanvasRenderingContext2D;
-    const tournamentSetup = document.getElementById('tournamentSetup');
-    const gameContainer = document.querySelector('.Game') as HTMLElement;
+    //const tournamentSetup = document.getElementById('tournamentSetup');
+    //const gameContainer = document.querySelector('.Game') as HTMLElement;
     const startBtn = document.getElementById('startBtn') as HTMLButtonElement;
     const exitBtn = document.getElementById('exitBtn') as HTMLButtonElement;
     
-    // if (!canvas || !ctx || !tournamentSetup || !gameContainer || !startBtn || !exitBtn) {
-    //     console.error('One or more required DOM elements are missing!');
-    //     return;
-    // }
-
-    // Game settings
     canvas.width = 1000;
     canvas.height = 500;
     const paddleWidth = 11;
@@ -24,18 +17,19 @@ export function tournament(tournamentPlayers: string[]){
     const winningScore = 5;
 
     // Game state
-    let leftPaddleY = (canvas.height - paddleHeight) / 2;
-    let rightPaddleY = (canvas.height - paddleHeight) / 2;
-    let ballX = canvas.width / 2;
-    let ballY = canvas.height / 2;
-    let ballSpeedX = 9;
-    let ballSpeedY = 9;
-    let leftScore = 0;
-    let rightScore = 0;
-    let gameRunning = false;
-    const paddleSpeed = 12;
+    let leftPaddleY: number = (canvas.height - paddleHeight) / 2;
+    let rightPaddleY: number = (canvas.height - paddleHeight) / 2;
+    let ballX: number = canvas.width / 2;
+    let ballY: number = canvas.height / 2;
+    let ballSpeedX: number = 4;
+    let ballSpeedY: number = 4;
+    let leftScore: number = 0;
+    let rightScore: number = 0;
+    let gameRunning: boolean = false;
+    const paddleSpeed: number = 12;
 
     // Tournament state
+    //let tournamentPlayers: string[] = [];
     let currentMatch = 0;
     
     interface Match {
@@ -49,7 +43,8 @@ export function tournament(tournamentPlayers: string[]){
     let rightPlayerName = '';
 
     // Key states
-    const keys: { [key: string]: boolean } = {
+    const keys: { [key: string]: boolean } = 
+    {
         w: false,
         s: false,
         ArrowUp: false,
@@ -78,7 +73,8 @@ export function tournament(tournamentPlayers: string[]){
         });
     }
 
-    function start() {
+    function start() 
+    {
         
 
         matches = [
@@ -120,14 +116,12 @@ export function tournament(tournamentPlayers: string[]){
     function gameLoop() {
         if (!gameRunning) return;
 
-        // Clear canvas
         ctx.fillStyle = '#09203b';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Update game state
         updateGame();
 
-        // Draw game elements
+       
         drawPaddles();
         drawBall();
         drawScores();
@@ -142,16 +136,39 @@ export function tournament(tournamentPlayers: string[]){
         // Move ball
         ballX += ballSpeedX;
         ballY += ballSpeedY;
-
-        // Ball collision with top and bottom
+        
         if (ballY - ballSize < 0 || ballY + ballSize > canvas.height) {
             ballSpeedY = -ballSpeedY;
         }
+        
+        if (ballX - ballSize / 2 <= paddleWidth && 
+            ballY >= leftPaddleY && 
+            ballY <= leftPaddleY + paddleHeight) {
+            ballSpeedX = -ballSpeedX * 1.1;
+            ballX = paddleWidth + ballSize / 2;
+            const paddleCenterY = leftPaddleY + paddleHeight / 2;
+            const relativeIntersectY = paddleCenterY - ballY;
+            const normalizedIntersectY = relativeIntersectY / (paddleHeight / 2);
+            const bounceAngle = normalizedIntersectY * 0.75;
+            const speed = Math.sqrt(ballSpeedX ** 2 + ballSpeedY ** 2);
+            ballSpeedX = speed * Math.cos(bounceAngle);
+            ballSpeedY = -speed * Math.sin(bounceAngle);
+        }
+   
+        if (ballX + ballSize / 2 >= canvas.width - paddleWidth && 
+            ballY >= rightPaddleY && 
+            ballY <= rightPaddleY + paddleHeight) {
+            ballSpeedX = -ballSpeedX * 1.1;
+            ballX = canvas.width - paddleWidth - ballSize / 2;
+            const paddleCenterY = rightPaddleY + paddleHeight / 2;
+            const relativeIntersectY = paddleCenterY - ballY;
+            const normalizedIntersectY = relativeIntersectY / (paddleHeight / 2);
+            const bounceAngle = normalizedIntersectY * 0.75;
+            const speed = Math.sqrt(ballSpeedX ** 2 + ballSpeedY ** 2);
+            ballSpeedX = -speed * Math.cos(bounceAngle);
+            ballSpeedY = -speed * Math.sin(bounceAngle);
+        }
 
-        // Ball collision with paddles
-        handlePaddleCollision();
-
-        // Scoring
         if (ballX < 0) {
             rightScore++;
             resetBall();
@@ -160,41 +177,31 @@ export function tournament(tournamentPlayers: string[]){
             leftScore++;
             resetBall();
         }
-
-        // Check for winner
+        
         if (leftScore >= winningScore || rightScore >= winningScore) {
             endMatch();
         }
-
-        // Paddle movement
-        handlePaddleMovement();
-    }
-
-    function handlePaddleCollision() {
-        // Left paddle
-        if (ballX - ballSize / 2 <= paddleWidth &&
-            ballY >= leftPaddleY &&
-            ballY <= leftPaddleY + paddleHeight) {
-            ballSpeedX = -ballSpeedX * 1.1;
-            ballX = paddleWidth + ballSize / 2;
+        
+        if ((keys.w || keys.W) && leftPaddleY > 0) {
+            leftPaddleY -= paddleSpeed;
+        }
+        if ((keys.s || keys.S) && leftPaddleY < canvas.height - paddleHeight) {
+            leftPaddleY += paddleSpeed;
+        }
+        if (keys.ArrowUp && rightPaddleY > 0) {
+            rightPaddleY -= paddleSpeed;
+        }
+        if (keys.ArrowDown && rightPaddleY < canvas.height - paddleHeight) {
+            rightPaddleY += paddleSpeed;
         }
 
-        // Right paddle
-        if (ballX + ballSize / 2 >= canvas.width - paddleWidth &&
-            ballY >= rightPaddleY &&
-            ballY <= rightPaddleY + paddleHeight) {
-            ballSpeedX = -ballSpeedX * 1.1;
-            ballX = canvas.width - paddleWidth - ballSize / 2;
+        if (rightPaddleY < 0) {
+            rightPaddleY = 0;
+        } else if (rightPaddleY > canvas.height - paddleHeight) {
+            rightPaddleY = canvas.height - paddleHeight;
         }
     }
-
-    function handlePaddleMovement() {
-        if (keys.w && leftPaddleY > 0) leftPaddleY -= paddleSpeed;
-        if (keys.s && leftPaddleY < canvas.height - paddleHeight) leftPaddleY += paddleSpeed;
-        if (keys.ArrowUp && rightPaddleY > 0) rightPaddleY -= paddleSpeed;
-        if (keys.ArrowDown && rightPaddleY < canvas.height - paddleHeight) rightPaddleY += paddleSpeed;
-    }
-
+    
     function drawPaddles() {
         ctx.fillStyle = 'white';
         ctx.fillRect(0, leftPaddleY, paddleWidth, paddleHeight);
@@ -216,14 +223,32 @@ export function tournament(tournamentPlayers: string[]){
         ctx.fillText(leftScore.toString(), canvas.width / 4, 50);
         ctx.fillText(rightScore.toString(), (canvas.width * 3) / 4, 50);
     }
-
     function drawCenterLine() {
-        ctx.strokeStyle = 'white';
-        ctx.setLineDash([5, 15]);
         ctx.beginPath();
-        ctx.moveTo(canvas.width / 2, 0);
-        ctx.lineTo(canvas.width / 2, canvas.height);
+        ctx.arc(canvas.width / 2, canvas.height / 2, 50, 0, Math.PI * 2);
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth = 2;
         ctx.stroke();
+        ctx.closePath();
+
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+    
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY - 50);
+        ctx.lineTo(centerX, 0);
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.closePath();
+    
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY + 50);
+        ctx.lineTo(centerX, canvas.height);
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.closePath();
     }
 
     function drawPlayerNames() {
@@ -263,15 +288,26 @@ export function tournament(tournamentPlayers: string[]){
 
         setTimeout(() => {
             currentMatch++;
-            if (currentMatch < matches.length - 1) {
+            
+            if (currentMatch < matches.length - 1) 
+            {
                 startMatch(matches[currentMatch]);
-            } else {
-                if (matches[matches.length - 1].winner !== null) {
-                    const champion = tournamentPlayers[matches[matches.length - 1].winner as number];
-                    ctx.fillText(`${champion} wins the tournament!`, canvas.width / 2, canvas.height / 2 - 50);
-                }
+            } 
+            else if (currentMatch === matches.length - 1) 
+            {
+
+                matches[currentMatch].player1 = matches[0].winner;
+                matches[currentMatch].player2 = matches[1].winner;
+                startMatch(matches[currentMatch]);
+            } 
+            else {
+                
+                const champion = tournamentPlayers[matches[matches.length-1].winner as number];
+                ctx.fillText(`${champion} wins the tournament!`, canvas.width/2, canvas.height/2 - 50);
+                ctx.fillText('Refresh to play again', canvas.width/2, canvas.height/2 + 50);
             }
         }, 2000);
     }
-    // init();
+
+    //init();
 };
