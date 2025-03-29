@@ -42,8 +42,8 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "login": "test",
-    "email": "trdwdei@gmail.com",
+    "login": "tedst",
+    "email": "trdwdedi@gmail.com",
     "name": "tookman lotfi",
     "password": "Aotfi!1"
 }
