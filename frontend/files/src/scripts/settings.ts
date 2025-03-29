@@ -131,6 +131,7 @@ export const updateSettingsPage = () => {
                     const file = inputUpload.files[0];
                     const imageUrl = URL.createObjectURL(file);
                     profilePic.src = imageUrl;
+                    console.log(imageUrl);
                     
                 } else {
                     console.log("No file selected.");

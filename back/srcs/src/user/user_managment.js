@@ -1,7 +1,7 @@
 const path = require('path');
 const bcrypt = require('bcrypt');
 const { prisma } = require('./db');
-
+const fs = require('fs');
 async function delete_(request,reply){
     const { userId } = request.user;
     try {
@@ -123,9 +123,9 @@ async function upload_(request,reply) {
             return reply.code(403).send({ error: "Unauthorized access" });
         }
 
-        if (!file.filename.endsWith('.png')) {
-            return reply.status(400).send({ error: 'Invalid file type, only .png allowed' });
-        }
+        // if (!file.filename.endsWith('.png')) {
+        //     return reply.status(400).send({ error: 'Invalid file type, only .png allowed' });
+        // }
 
         let uploadPath;
         if (type === "profilepic") {
@@ -146,7 +146,8 @@ async function upload_(request,reply) {
             path: uploadPath
         });
     } catch (err) {
-        return reply.code(500).send({ error: "File upload failed" });
+        console.log(err);
+        return reply.code(500).send({ error: "File upload failed" },err);
     }
 };
 

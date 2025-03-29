@@ -17,15 +17,16 @@
 }
 
 ### Test POST request to upload a file### Test POST request to upload a file
-POST http://localhost:3000/api/atoukmat/upload
+POST http://localhost:3000/api/5ITANOS/upload/ProfilePic.jpeg
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTUzNjg2MiwiZXhwIjoxNzM5NTQwNDYyfQ.twEzN4C-XF0Ns8int8Yugd8exK8YedznlunLVI0--7Y
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMjE2NzUwNzEyLCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0MzIxNjc1MCwiZXhwIjoxNzQzMzAzMTUwfQ.X75bPsnuM0_YUNNO67NA_N5pL1FVjfi5v4CGIDsujig; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict,Max-Age=3600000; Path=/; HttpOnly
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="file"; filename="avatar.png"
+Content-Disposition: form-data; name="file"; filename="ProfilePic.jpeg"
 Content-Type: image/png
 
-< /Users/atoukmat/goinfre/transbadtrip/avatar.png
+< /Users/alotfi/Desktop/transbadtrip/frontend/files/public/profile_pictures/
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="type"
 
@@ -37,7 +38,7 @@ Content-Type: application/json
 
 
 ### Test POST request to register a new user
-POST https://localhost/api/register
+POST http://localhost:3000/register
 Content-Type: application/json
 
 {
