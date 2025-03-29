@@ -3302,3 +3302,1952 @@ Node.js v22.14.0
 
 
 2:48:27 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:40:08 AM - Starting compilation in watch mode...
+
+
+4:40:17 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:49:03 AM - File change detected. Starting incremental compilation...
+
+
+4:49:03 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:49:26 AM - File change detected. Starting incremental compilation...
+
+
+4:49:26 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:49:28 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(760,1): error TS2304: Cannot find name 'fu'.
+
+4:49:28 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:49:53 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(760,9): error TS1003: Identifier expected.
+src/scripts/home2.ts(761,1): error TS1005: '(' expected.
+
+4:49:53 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H4:49:56 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(761,1): error TS1005: '(' expected.
+
+4:49:56 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:49:57 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(761,1): error TS1005: '(' expected.
+
+4:49:57 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:49:59 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(761,1): error TS1005: '(' expected.
+
+4:49:59 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:50:02 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(761,1): error TS1005: '(' expected.
+
+4:50:02 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:50:03 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(760,10): error TS2391: Function implementation is missing or not immediately following the declaration.
+src/scripts/home2.ts(760,10): error TS7010: 'chekuserR', which lacks return-type annotation, implicitly has an 'any' return type.
+
+4:50:03 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H4:50:05 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(774,9): error TS2304: Cannot find name 'Qrgen'.
+
+4:50:06 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:50:14 AM - File change detected. Starting incremental compilation...
+
+
+4:50:14 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:50:15 AM - File change detected. Starting incremental compilation...
+
+
+4:50:15 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:50:16 AM - File change detected. Starting incremental compilation...
+
+
+4:50:16 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:50:51 AM - File change detected. Starting incremental compilation...
+
+
+4:50:51 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:50:55 AM - File change detected. Starting incremental compilation...
+
+
+4:50:55 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:51:03 AM - File change detected. Starting incremental compilation...
+
+
+4:51:03 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:51:05 AM - File change detected. Starting incremental compilation...
+
+
+4:51:06 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:51:30 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(30,1): error TS1005: 'from' expected.
+src/scripts/app.ts(30,5): error TS1005: ';' expected.
+
+4:51:30 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H4:51:32 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(30,1): error TS1005: 'from' expected.
+src/scripts/app.ts(30,5): error TS1005: ';' expected.
+
+4:51:32 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H4:51:34 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(30,1): error TS1005: 'from' expected.
+src/scripts/app.ts(30,5): error TS1005: ';' expected.
+
+4:51:34 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H4:51:38 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(30,5): error TS1005: ';' expected.
+
+4:51:38 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:51:40 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,27): error TS2307: Cannot find module '' or its corresponding type declarations.
+
+4:51:40 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:51:47 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,27): error TS2307: Cannot find module 'h' or its corresponding type declarations.
+
+4:51:47 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:51:51 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,27): error TS2307: Cannot find module './' or its corresponding type declarations.
+
+4:51:51 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:51:52 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,27): error TS2834: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Consider adding an extension to the import path.
+
+4:51:52 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:51:54 AM - File change detected. Starting incremental compilation...
+
+
+4:51:54 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:51:56 AM - File change detected. Starting incremental compilation...
+
+
+4:51:56 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:52:05 AM - File change detected. Starting incremental compilation...
+
+
+4:52:05 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:52:07 AM - File change detected. Starting incremental compilation...
+
+
+4:52:07 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:52:08 AM - File change detected. Starting incremental compilation...
+
+
+4:52:09 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:53:59 AM - File change detected. Starting incremental compilation...
+
+
+4:53:59 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:54:00 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(776,12): error TS1109: Expression expected.
+src/scripts/home2.ts(777,9): error TS1109: Expression expected.
+
+4:54:00 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H4:54:10 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(777,9): error TS1109: Expression expected.
+
+4:54:10 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:54:12 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(776,28): error TS1109: Expression expected.
+src/scripts/home2.ts(777,9): error TS1109: Expression expected.
+
+4:54:12 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H4:54:14 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(777,9): error TS1109: Expression expected.
+
+4:54:14 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:54:25 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(777,9): error TS1109: Expression expected.
+
+4:54:25 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:54:29 AM - File change detected. Starting incremental compilation...
+
+
+4:54:29 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H4:56:31 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2459: Module '"./home2.js"' declares 'chekuserR' locally, but it is not exported.
+
+4:56:32 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:56:37 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2459: Module '"./home2.js"' declares 'chekuserR' locally, but it is not exported.
+
+4:56:37 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:56:38 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2459: Module '"./home2.js"' declares 'chekuserR' locally, but it is not exported.
+
+4:56:38 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:56:40 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:56:41 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:56:41 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:56:42 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:56:47 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:56:47 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:56:49 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:56:49 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:56:51 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:56:51 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:56:54 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:56:54 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:57:22 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:57:22 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:57:24 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:57:24 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:57:33 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:57:33 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:57:36 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:57:37 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:59:31 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:59:32 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:59:40 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:59:40 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:59:44 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:59:44 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:59:47 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:59:48 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:59:49 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:59:49 AM - Found 1 error. Watching for file changes.
+[2J[3J[H4:59:52 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+4:59:52 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:00:03 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:00:03 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:00:09 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:00:09 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:00:11 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:00:11 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:00:12 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:00:12 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:00:13 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:00:14 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:02:45 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:02:45 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:02:54 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:02:54 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:03:15 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:03:16 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:04:30 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:04:30 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:04:34 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:04:34 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:04:48 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:04:48 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:05:59 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:05:59 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:06:02 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:06:02 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:06:12 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:06:12 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:06:15 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:06:15 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:06:20 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:06:20 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:06:25 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:06:25 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:06:28 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:06:28 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:06:31 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:06:32 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:06:35 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:06:36 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:08:39 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:08:39 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:08:42 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:08:42 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:09:46 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:09:46 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:09:51 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:09:51 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:09:52 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:09:52 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:09:55 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:09:55 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:10:08 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:10:08 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:10:15 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:10:15 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:10:23 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:10:23 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:11:49 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:11:49 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:11:54 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:11:54 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:12:27 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:12:27 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:12:48 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:12:48 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:12:52 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:12:52 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:12:57 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:12:57 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:13:01 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:13:01 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:13:13 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:13:13 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:13:18 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:13:18 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:13:24 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:13:24 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:14:36 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:14:36 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:14:40 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(175,9): error TS1109: Expression expected.
+
+5:14:41 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:14:44 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:14:44 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:14:47 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:14:47 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:16:03 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:16:03 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:16:06 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:16:06 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:16:43 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:16:43 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:16:46 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+src/scripts/app.ts(92,6): error TS1123: Variable declaration list cannot be empty.
+
+5:16:46 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H5:16:49 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+src/scripts/app.ts(92,7): error TS1155: 'const' declarations must be initialized.
+src/scripts/app.ts(92,7): error TS7005: Variable 'htmlgen' implicitly has an 'any' type.
+
+5:16:49 AM - Found 3 errors. Watching for file changes.
+[2J[3J[H5:16:51 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:16:51 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:16:54 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:16:54 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:16:55 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:16:56 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:17:06 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:17:06 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:17:11 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:17:11 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:17:13 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:17:14 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:17:25 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:17:25 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:17:30 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:17:30 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:17:32 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(109,15): error TS1109: Expression expected.
+src/scripts/app.ts(127,1): error TS1005: 'while' expected.
+
+5:17:32 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H5:17:33 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:17:33 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:17:34 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+src/scripts/app.ts(110,5): error TS2339: Property 'fetch' does not exist on type 'Document'.
+src/scripts/app.ts(118,15): error TS7006: Parameter 'response' implicitly has an 'any' type.
+src/scripts/app.ts(119,15): error TS7006: Parameter 'data' implicitly has an 'any' type.
+
+5:17:34 AM - Found 4 errors. Watching for file changes.
+[2J[3J[H5:17:35 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+src/scripts/app.ts(109,24): error TS2339: Property 'q' does not exist on type 'Document'.
+
+5:17:35 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H5:17:37 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+src/scripts/app.ts(109,24): error TS2339: Property 'g' does not exist on type 'Document'.
+
+5:17:37 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H5:17:39 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+src/scripts/app.ts(109,24): error TS2554: Expected 1 arguments, but got 0.
+
+5:17:39 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H5:17:41 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:17:41 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:17:48 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:17:48 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:17:52 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(110,10): error TS1005: ',' expected.
+
+5:17:52 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:17:55 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+src/scripts/app.ts(109,53): error TS2304: Cannot find name 'HTML'.
+
+5:17:55 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H5:17:57 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+src/scripts/app.ts(109,53): error TS2304: Cannot find name 'HTMLH'.
+
+5:17:57 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H5:17:59 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:17:59 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:18:00 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:18:00 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:18:04 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:18:04 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:18:08 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:18:08 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:18:17 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+src/scripts/app.ts(125,10): error TS2339: Property 'in' does not exist on type 'HTMLHRElement'.
+
+5:18:17 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H5:18:20 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(126,4): error TS1109: Expression expected.
+
+5:18:20 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:18:33 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:18:33 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:18:34 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:18:34 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:19:25 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+src/scripts/app.ts(111,22): error TS2304: Cannot find name 'htmlgen'.
+
+5:19:25 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H5:19:30 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:19:30 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:19:34 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:19:34 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:19:36 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:19:36 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:21:03 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:21:03 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:21:10 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:21:10 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:21:11 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(55,2): error TS1005: '(' expected.
+
+5:21:11 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:21:13 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:21:13 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:21:14 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:21:14 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:21:19 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:21:19 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:21:21 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:21:21 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:21:27 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+src/scripts/app.ts(80,31): error TS2304: Cannot find name 'initialPage'.
+src/scripts/app.ts(80,59): error TS2304: Cannot find name 'initialPage'.
+src/scripts/app.ts(81,11): error TS2304: Cannot find name 'initialPage'.
+
+5:21:27 AM - Found 4 errors. Watching for file changes.
+[2J[3J[H5:21:32 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:21:32 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:21:42 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+src/scripts/app.ts(116,3): error TS2454: Variable 'app' is used before being assigned.
+src/scripts/app.ts(178,3): error TS2454: Variable 'app' is used before being assigned.
+src/scripts/app.ts(183,6): error TS2454: Variable 'navBar' is used before being assigned.
+
+5:21:42 AM - Found 4 errors. Watching for file changes.
+[2J[3J[H5:21:45 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:21:45 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:21:53 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:21:53 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:28:24 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+src/scripts/app.ts(140,3): error TS2454: Variable 'app' is used before being assigned.
+src/scripts/app.ts(202,3): error TS2454: Variable 'app' is used before being assigned.
+src/scripts/app.ts(207,6): error TS2454: Variable 'navBar' is used before being assigned.
+
+5:28:25 AM - Found 4 errors. Watching for file changes.
+[2J[3J[H5:28:27 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+src/scripts/app.ts(123,29): error TS2345: Argument of type '(button: HTMLElement) => void' is not assignable to parameter of type '(value: Element, key: number, parent: NodeListOf<Element>) => void'.
+  Types of parameters 'button' and 'value' are incompatible.
+    Type 'Element' is missing the following properties from type 'HTMLElement': accessKey, accessKeyLabel, autocapitalize, dir, and 126 more.
+src/scripts/app.ts(149,10): error TS2393: Duplicate function implementation.
+src/scripts/app.ts(193,16): error TS2393: Duplicate function implementation.
+src/scripts/app.ts(198,3): error TS2454: Variable 'app' is used before being assigned.
+src/scripts/app.ts(260,3): error TS2454: Variable 'app' is used before being assigned.
+src/scripts/app.ts(265,6): error TS2454: Variable 'navBar' is used before being assigned.
+
+5:28:27 AM - Found 7 errors. Watching for file changes.
+[2J[3J[H5:29:20 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+src/scripts/app.ts(142,3): error TS2454: Variable 'app' is used before being assigned.
+src/scripts/app.ts(204,3): error TS2454: Variable 'app' is used before being assigned.
+src/scripts/app.ts(209,6): error TS2454: Variable 'navBar' is used before being assigned.
+
+5:29:20 AM - Found 4 errors. Watching for file changes.
+[2J[3J[H5:29:33 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(27,10): error TS2305: Module '"./home2.js"' has no exported member 'chekuserR'.
+
+5:29:34 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:31:20 AM - File change detected. Starting incremental compilation...
+
+
+5:31:20 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:32:40 AM - File change detected. Starting incremental compilation...
+
+
+5:32:40 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:32:44 AM - File change detected. Starting incremental compilation...
+
+
+5:32:45 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:32:48 AM - File change detected. Starting incremental compilation...
+
+
+5:32:48 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:32:51 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(86,3): error TS1434: Unexpected keyword or identifier.
+
+5:32:52 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:32:53 AM - File change detected. Starting incremental compilation...
+
+
+5:32:53 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:33:04 AM - File change detected. Starting incremental compilation...
+
+
+5:33:04 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:35:57 AM - File change detected. Starting incremental compilation...
+
+
+5:35:58 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:35:59 AM - File change detected. Starting incremental compilation...
+
+
+5:35:59 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:36:19 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(93,3): error TS1128: Declaration or statement expected.
+
+5:36:19 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:36:21 AM - File change detected. Starting incremental compilation...
+
+
+5:36:21 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:36:28 AM - File change detected. Starting incremental compilation...
+
+
+5:36:28 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:36:32 AM - File change detected. Starting incremental compilation...
+
+
+5:36:32 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:36:34 AM - File change detected. Starting incremental compilation...
+
+
+5:36:34 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:36:36 AM - File change detected. Starting incremental compilation...
+
+
+5:36:36 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:36:37 AM - File change detected. Starting incremental compilation...
+
+
+5:36:37 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:36:51 AM - File change detected. Starting incremental compilation...
+
+
+5:36:51 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:36:59 AM - File change detected. Starting incremental compilation...
+
+
+5:37:00 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:44:00 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(71,4): error TS2304: Cannot find name 'navBar'.
+src/scripts/app.ts(205,6): error TS2304: Cannot find name 'navBar'.
+src/scripts/app.ts(208,4): error TS2304: Cannot find name 'navBar'.
+src/scripts/app.ts(210,4): error TS2304: Cannot find name 'navBar'.
+
+5:44:00 AM - Found 4 errors. Watching for file changes.
+[2J[3J[H5:44:31 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(71,4): error TS2304: Cannot find name 'navBar'.
+src/scripts/app.ts(72,4): error TS2304: Cannot find name 'navBtns'.
+src/scripts/app.ts(78,4): error TS2304: Cannot find name 'navBtns'.
+src/scripts/app.ts(205,6): error TS2304: Cannot find name 'navBar'.
+src/scripts/app.ts(208,4): error TS2304: Cannot find name 'navBar'.
+src/scripts/app.ts(210,4): error TS2304: Cannot find name 'navBar'.
+
+5:44:31 AM - Found 6 errors. Watching for file changes.
+[2J[3J[H5:44:36 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(78,4): error TS2304: Cannot find name 'navBtns'.
+src/scripts/app.ts(205,6): error TS2304: Cannot find name 'navBar'.
+src/scripts/app.ts(208,4): error TS2304: Cannot find name 'navBar'.
+src/scripts/app.ts(210,4): error TS2304: Cannot find name 'navBar'.
+
+5:44:36 AM - Found 4 errors. Watching for file changes.
+[2J[3J[H5:44:47 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(205,6): error TS2304: Cannot find name 'navBar'.
+src/scripts/app.ts(208,4): error TS2304: Cannot find name 'navBar'.
+src/scripts/app.ts(210,4): error TS2304: Cannot find name 'navBar'.
+
+5:44:47 AM - Found 3 errors. Watching for file changes.
+[2J[3J[H5:45:07 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(140,3): error TS2304: Cannot find name 'hideNav'.
+
+5:45:07 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:45:11 AM - File change detected. Starting incremental compilation...
+
+
+5:45:11 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:48:42 AM - File change detected. Starting incremental compilation...
+
+
+5:48:42 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:49:44 AM - File change detected. Starting incremental compilation...
+
+
+5:49:44 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:53:40 AM - File change detected. Starting incremental compilation...
+
+
+5:53:40 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:53:42 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(71,4): error TS1005: '(' expected.
+src/scripts/app.ts(71,41): error TS1005: ')' expected.
+
+5:53:42 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H5:53:44 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(70,7): error TS1109: Expression expected.
+
+5:53:44 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:53:49 AM - File change detected. Starting incremental compilation...
+
+
+5:53:49 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:53:52 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(70,22): error TS1109: Expression expected.
+
+5:53:52 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:53:53 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(70,21): error TS1109: Expression expected.
+
+5:53:53 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:53:57 AM - File change detected. Starting incremental compilation...
+
+
+5:53:57 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:53:59 AM - File change detected. Starting incremental compilation...
+
+
+5:53:59 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:54:13 AM - File change detected. Starting incremental compilation...
+
+
+5:54:13 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:54:19 AM - File change detected. Starting incremental compilation...
+
+
+5:54:19 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:54:23 AM - File change detected. Starting incremental compilation...
+
+
+5:54:23 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:54:33 AM - File change detected. Starting incremental compilation...
+
+
+5:54:33 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:55:20 AM - File change detected. Starting incremental compilation...
+
+
+5:55:20 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:55:34 AM - File change detected. Starting incremental compilation...
+
+
+5:55:34 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:55:37 AM - File change detected. Starting incremental compilation...
+
+
+5:55:37 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:55:38 AM - File change detected. Starting incremental compilation...
+
+
+5:55:38 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:55:45 AM - File change detected. Starting incremental compilation...
+
+
+5:55:45 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:56:36 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(81,2): error TS1005: ',' expected.
+src/scripts/app.ts(82,1): error TS1128: Declaration or statement expected.
+src/scripts/app.ts(82,2): error TS1128: Declaration or statement expected.
+
+5:56:36 AM - Found 3 errors. Watching for file changes.
+[2J[3J[H5:56:38 AM - File change detected. Starting incremental compilation...
+
+
+5:56:38 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:56:41 AM - File change detected. Starting incremental compilation...
+
+
+5:56:41 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:56:42 AM - File change detected. Starting incremental compilation...
+
+
+5:56:42 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:56:48 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(80,6): error TS1109: Expression expected.
+src/scripts/app.ts(81,2): error TS1109: Expression expected.
+
+5:56:48 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H5:57:05 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(81,2): error TS1109: Expression expected.
+
+5:57:05 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:57:09 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(81,2): error TS1109: Expression expected.
+
+5:57:09 AM - Found 1 error. Watching for file changes.
+[2J[3J[H5:57:13 AM - File change detected. Starting incremental compilation...
+
+
+5:57:13 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:57:17 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(71,5): error TS2304: Cannot find name 'a'.
+src/scripts/app.ts(124,3): error TS2454: Variable 'app' is used before being assigned.
+src/scripts/app.ts(186,3): error TS2454: Variable 'app' is used before being assigned.
+
+5:57:17 AM - Found 3 errors. Watching for file changes.
+[2J[3J[H5:57:18 AM - File change detected. Starting incremental compilation...
+
+
+5:57:18 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:57:23 AM - File change detected. Starting incremental compilation...
+
+
+5:57:23 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H5:57:26 AM - File change detected. Starting incremental compilation...
+
+
+5:57:26 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:01:20 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(93,2): error TS1109: Expression expected.
+
+6:01:20 AM - Found 1 error. Watching for file changes.
+[2J[3J[H6:01:51 AM - File change detected. Starting incremental compilation...
+
+
+6:01:51 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:01:59 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(94,3): error TS1109: Expression expected.
+
+6:01:59 AM - Found 1 error. Watching for file changes.
+[2J[3J[H6:02:02 AM - File change detected. Starting incremental compilation...
+
+
+6:02:02 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:02:04 AM - File change detected. Starting incremental compilation...
+
+
+6:02:04 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:02:09 AM - File change detected. Starting incremental compilation...
+
+
+6:02:09 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:02:20 AM - File change detected. Starting incremental compilation...
+
+
+6:02:20 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:03:57 AM - File change detected. Starting incremental compilation...
+
+
+6:03:57 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:03:58 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(59,7): error TS1005: ',' expected.
+
+6:03:59 AM - Found 1 error. Watching for file changes.
+[2J[3J[H6:04:01 AM - File change detected. Starting incremental compilation...
+
+
+6:04:01 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:04:07 AM - File change detected. Starting incremental compilation...
+
+
+6:04:07 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:04:11 AM - File change detected. Starting incremental compilation...
+
+
+6:04:11 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:04:12 AM - File change detected. Starting incremental compilation...
+
+
+6:04:12 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:04:14 AM - File change detected. Starting incremental compilation...
+
+
+6:04:14 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:04:16 AM - File change detected. Starting incremental compilation...
+
+
+6:04:16 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:04:26 AM - File change detected. Starting incremental compilation...
+
+
+6:04:26 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:04:39 AM - File change detected. Starting incremental compilation...
+
+
+6:04:39 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:04:49 AM - File change detected. Starting incremental compilation...
+
+
+6:04:49 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:05:27 AM - File change detected. Starting incremental compilation...
+
+
+6:05:27 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:07:25 AM - File change detected. Starting incremental compilation...
+
+
+6:07:25 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:07:35 AM - File change detected. Starting incremental compilation...
+
+
+6:07:35 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:07:40 AM - File change detected. Starting incremental compilation...
+
+
+6:07:40 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:07:43 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(82,21): error TS1109: Expression expected.
+
+6:07:43 AM - Found 1 error. Watching for file changes.
+[2J[3J[H6:07:47 AM - File change detected. Starting incremental compilation...
+
+
+6:07:47 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:07:48 AM - File change detected. Starting incremental compilation...
+
+
+6:07:48 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:08:00 AM - File change detected. Starting incremental compilation...
+
+
+6:08:00 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:08:02 AM - File change detected. Starting incremental compilation...
+
+
+6:08:02 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:08:04 AM - File change detected. Starting incremental compilation...
+
+
+6:08:04 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:08:06 AM - File change detected. Starting incremental compilation...
+
+
+6:08:06 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:08:16 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(87,34): error TS1109: Expression expected.
+src/scripts/app.ts(87,50): error TS1109: Expression expected.
+
+6:08:16 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H6:08:17 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(87,33): error TS2552: Cannot find name 'home'. Did you mean 'Home'?
+src/scripts/app.ts(87,54): error TS2552: Cannot find name 'home'. Did you mean 'Home'?
+src/scripts/app.ts(88,13): error TS2552: Cannot find name 'home'. Did you mean 'Home'?
+
+6:08:17 AM - Found 3 errors. Watching for file changes.
+[2J[3J[H6:08:21 AM - File change detected. Starting incremental compilation...
+
+
+6:08:21 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:09:27 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(83,39): error TS1109: Expression expected.
+
+6:09:27 AM - Found 1 error. Watching for file changes.
+[2J[3J[H6:09:32 AM - File change detected. Starting incremental compilation...
+
+
+6:09:32 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:09:37 AM - File change detected. Starting incremental compilation...
+
+
+6:09:37 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H7:06:04 AM - File change detected. Starting incremental compilation...
+
+
+7:06:04 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H7:06:07 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(95,3): error TS1005: '(' expected.
+src/scripts/app.ts(96,41): error TS1005: ',' expected.
+src/scripts/app.ts(98,4): error TS1005: ',' expected.
+src/scripts/app.ts(98,11): error TS1005: ',' expected.
+src/scripts/app.ts(98,63): error TS1005: ',' expected.
+src/scripts/app.ts(100,4): error TS1005: ',' expected.
+src/scripts/app.ts(100,10): error TS1005: ',' expected.
+src/scripts/app.ts(103,5): error TS1005: ',' expected.
+src/scripts/app.ts(106,2): error TS1005: ')' expected.
+
+7:06:07 AM - Found 9 errors. Watching for file changes.
+[2J[3J[H7:06:08 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(94,6): error TS1109: Expression expected.
+
+7:06:08 AM - Found 1 error. Watching for file changes.
+[2J[3J[H7:06:09 AM - File change detected. Starting incremental compilation...
+
+
+7:06:09 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H7:06:59 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(83,7): error TS1109: Expression expected.
+
+7:06:59 AM - Found 1 error. Watching for file changes.
+[2J[3J[H7:07:03 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(83,7): error TS1109: Expression expected.
+
+7:07:03 AM - Found 1 error. Watching for file changes.
+[2J[3J[H7:07:11 AM - File change detected. Starting incremental compilation...
+
+
+7:07:11 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H7:07:22 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(94,39): error TS1109: Expression expected.
+
+7:07:22 AM - Found 1 error. Watching for file changes.
+[2J[3J[H7:07:28 AM - File change detected. Starting incremental compilation...
+
+
+7:07:28 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H7:07:31 AM - File change detected. Starting incremental compilation...
+
+
+7:07:31 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H7:31:30 AM - File change detected. Starting incremental compilation...
+
+
+7:31:30 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H7:34:31 AM - File change detected. Starting incremental compilation...
+
+
+7:34:31 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H7:38:08 AM - File change detected. Starting incremental compilation...
+
+
+7:38:08 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H7:38:50 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(149,5): error TS2552: Cannot find name 'uploadPics'. Did you mean 'uploadPicsP'?
+src/scripts/settings.ts(150,5): error TS2552: Cannot find name 'uploadPics'. Did you mean 'uploadPicsP'?
+
+7:38:50 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H7:38:52 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(149,5): error TS2304: Cannot find name 'uploadPics'.
+src/scripts/settings.ts(150,5): error TS2304: Cannot find name 'uploadPics'.
+
+7:38:52 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H7:39:02 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(149,5): error TS2304: Cannot find name 'uploadPics'.
+
+7:39:02 AM - Found 1 error. Watching for file changes.
+[2J[3J[H7:39:13 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(150,5): error TS2304: Cannot find name 'uploadPics'.
+
+7:39:13 AM - Found 1 error. Watching for file changes.
+[2J[3J[H7:39:14 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(114,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(146,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(181,5): error TS2304: Cannot find name 'uploadPics'.
+
+7:39:14 AM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:39:28 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(163,36): error TS1109: Expression expected.
+
+7:39:28 AM - Found 1 error. Watching for file changes.
+[2J[3J[H7:39:32 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(114,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(146,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(181,5): error TS2304: Cannot find name 'uploadPics'.
+
+7:39:32 AM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:39:34 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(114,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(146,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(181,5): error TS2304: Cannot find name 'uploadPics'.
+
+7:39:34 AM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:39:39 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(163,36): error TS1109: Expression expected.
+
+7:39:39 AM - Found 1 error. Watching for file changes.
+[2J[3J[H7:39:44 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(114,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(146,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(181,5): error TS2304: Cannot find name 'uploadPics'.
+
+7:39:44 AM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:39:52 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(164,37): error TS1109: Expression expected.
+
+7:39:52 AM - Found 1 error. Watching for file changes.
+[2J[3J[H7:39:53 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(114,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(146,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(181,5): error TS2304: Cannot find name 'uploadPics'.
+
+7:39:53 AM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:39:55 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(114,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(146,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(181,5): error TS2304: Cannot find name 'uploadPics'.
+
+7:39:55 AM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:40:09 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(114,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(146,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(181,5): error TS2304: Cannot find name 'uploadPics'.
+
+7:40:09 AM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:40:14 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(114,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(146,14): error TS2393: Duplicate function implementation.
+src/scripts/settings.ts(181,5): error TS2304: Cannot find name 'uploadPics'.
+
+7:40:14 AM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:40:19 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(181,5): error TS2552: Cannot find name 'uploadPics'. Did you mean 'uploadPicsC'?
+
+7:40:19 AM - Found 1 error. Watching for file changes.
+[2J[3J[H7:40:20 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(181,5): error TS2304: Cannot find name 'uploadPics'.
+
+7:40:21 AM - Found 1 error. Watching for file changes.
+[2J[3J[H7:40:28 AM - File change detected. Starting incremental compilation...
+
+
+7:40:28 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H7:41:44 AM - File change detected. Starting incremental compilation...
+
+
+7:41:44 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H7:41:46 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(176,17): error TS2304: Cannot find name 'con'.
+
+7:41:46 AM - Found 1 error. Watching for file changes.
+[2J[3J[H7:41:49 AM - File change detected. Starting incremental compilation...
+
+
+7:41:49 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H7:41:54 AM - File change detected. Starting incremental compilation...
+
+
+7:41:55 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H7:41:56 AM - File change detected. Starting incremental compilation...
+
+
+7:41:56 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:02:40 AM - File change detected. Starting incremental compilation...
+
+
+8:02:40 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:02:42 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(251,5): error TS2304: Cannot find name 'fu'.
+
+8:02:42 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:02:56 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(251,14): error TS2391: Function implementation is missing or not immediately following the declaration.
+src/scripts/settings.ts(251,14): error TS7010: 'changeData', which lacks return-type annotation, implicitly has an 'any' return type.
+
+8:02:56 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H8:02:57 AM - File change detected. Starting incremental compilation...
+
+
+8:02:57 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:03:10 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(253,14): error TS1123: Variable declaration list cannot be empty.
+
+8:03:10 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:03:12 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(253,15): error TS1155: 'const' declarations must be initialized.
+src/scripts/settings.ts(253,15): error TS7005: Variable 'edit' implicitly has an 'any' type.
+
+8:03:12 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H8:03:15 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(253,15): error TS1155: 'const' declarations must be initialized.
+src/scripts/settings.ts(253,15): error TS7005: Variable 'editNme' implicitly has an 'any' type.
+
+8:03:15 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H8:03:18 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(254,5): error TS1109: Expression expected.
+
+8:03:18 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:03:20 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(253,26): error TS1109: Expression expected.
+src/scripts/settings.ts(254,5): error TS1109: Expression expected.
+
+8:03:20 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H8:03:23 AM - File change detected. Starting incremental compilation...
+
+
+8:03:23 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:03:27 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(253,35): error TS2554: Expected 1 arguments, but got 0.
+
+8:03:27 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:03:29 AM - File change detected. Starting incremental compilation...
+
+
+8:03:29 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:03:44 AM - File change detected. Starting incremental compilation...
+
+
+8:03:44 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:03:46 AM - File change detected. Starting incremental compilation...
+
+
+8:03:46 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:03:51 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(253,76): error TS2304: Cannot find name 'HTML'.
+
+8:03:51 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:03:52 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(253,76): error TS2304: Cannot find name 'HTMLI'.
+
+8:03:53 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:03:55 AM - File change detected. Starting incremental compilation...
+
+
+8:03:55 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:03:56 AM - File change detected. Starting incremental compilation...
+
+
+8:03:56 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:04:00 AM - File change detected. Starting incremental compilation...
+
+
+8:04:00 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:04:06 AM - File change detected. Starting incremental compilation...
+
+
+8:04:06 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:04:14 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(255,18): error TS2554: Expected 2-3 arguments, but got 1.
+
+8:04:14 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:04:20 AM - File change detected. Starting incremental compilation...
+
+
+8:04:21 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:04:22 AM - File change detected. Starting incremental compilation...
+
+
+8:04:22 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:04:23 AM - File change detected. Starting incremental compilation...
+
+
+8:04:23 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:04:29 AM - File change detected. Starting incremental compilation...
+
+
+8:04:29 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:04:31 AM - File change detected. Starting incremental compilation...
+
+
+8:04:31 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:04:32 AM - File change detected. Starting incremental compilation...
+
+
+8:04:32 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:04:41 AM - File change detected. Starting incremental compilation...
+
+
+8:04:41 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:04:42 AM - File change detected. Starting incremental compilation...
+
+
+8:04:42 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:06:14 AM - File change detected. Starting incremental compilation...
+
+
+8:06:14 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:06:15 AM - File change detected. Starting incremental compilation...
+
+
+8:06:15 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:06:17 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(255,12): error TS1109: Expression expected.
+src/scripts/settings.ts(256,5): error TS1109: Expression expected.
+
+8:06:17 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H8:06:23 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(255,21): error TS1003: Identifier expected.
+src/scripts/settings.ts(256,5): error TS1109: Expression expected.
+
+8:06:23 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H8:06:24 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(256,5): error TS1109: Expression expected.
+
+8:06:24 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:06:28 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(255,33): error TS1109: Expression expected.
+src/scripts/settings.ts(256,5): error TS1109: Expression expected.
+
+8:06:28 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H8:06:31 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(256,5): error TS1109: Expression expected.
+
+8:06:31 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:06:33 AM - File change detected. Starting incremental compilation...
+
+
+8:06:33 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:06:35 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(257,13): error TS2304: Cannot find name 'con'.
+
+8:06:35 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:06:41 AM - File change detected. Starting incremental compilation...
+
+
+8:06:41 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:06:42 AM - File change detected. Starting incremental compilation...
+
+
+8:06:42 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:07:10 AM - File change detected. Starting incremental compilation...
+
+
+8:07:10 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:07:18 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(257,34): error TS2339: Property 'v' does not exist on type 'HTMLInputElement'.
+
+8:07:18 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:07:20 AM - File change detected. Starting incremental compilation...
+
+
+8:07:20 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:08:07 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(255,34): error TS1109: Expression expected.
+
+8:08:08 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:08:09 AM - File change detected. Starting incremental compilation...
+
+
+8:08:09 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:08:38 AM - File change detected. Starting incremental compilation...
+
+
+8:08:39 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:08:45 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(255,18): error TS2554: Expected 2-3 arguments, but got 0.
+
+8:08:45 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:08:51 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(255,18): error TS2554: Expected 2-3 arguments, but got 1.
+
+8:08:51 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:08:53 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(255,45): error TS1109: Expression expected.
+
+8:08:53 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:08:56 AM - File change detected. Starting incremental compilation...
+
+
+8:08:56 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:08:58 AM - File change detected. Starting incremental compilation...
+
+
+8:08:58 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:08:59 AM - File change detected. Starting incremental compilation...
+
+
+8:08:59 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:09:02 AM - File change detected. Starting incremental compilation...
+
+
+8:09:02 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:09:03 AM - File change detected. Starting incremental compilation...
+
+
+8:09:03 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:10:05 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(256,17): error TS1005: ',' expected.
+src/scripts/settings.ts(256,34): error TS1005: ',' expected.
+
+8:10:05 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H8:10:06 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(254,15): error TS1155: 'const' declarations must be initialized.
+src/scripts/settings.ts(254,15): error TS7005: Variable 'btn' implicitly has an 'any' type.
+
+8:10:07 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H8:10:11 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(254,25): error TS1109: Expression expected.
+src/scripts/settings.ts(259,5): error TS1005: 'while' expected.
+
+8:10:11 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H8:10:14 AM - File change detected. Starting incremental compilation...
+
+
+8:10:14 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:10:15 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(254,34): error TS2554: Expected 1 arguments, but got 0.
+
+8:10:15 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:10:25 AM - File change detected. Starting incremental compilation...
+
+
+8:10:25 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:10:36 AM - File change detected. Starting incremental compilation...
+
+
+8:10:37 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:10:39 AM - File change detected. Starting incremental compilation...
+
+
+8:10:39 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:10:43 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(256,34): error TS1005: ',' expected.
+
+8:10:43 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:10:46 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(254,68): error TS2304: Cannot find name 'HTMLB'.
+
+8:10:46 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:10:49 AM - File change detected. Starting incremental compilation...
+
+
+8:10:49 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:10:58 AM - File change detected. Starting incremental compilation...
+
+
+8:10:58 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:11:10 AM - File change detected. Starting incremental compilation...
+
+
+8:11:10 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:11:11 AM - File change detected. Starting incremental compilation...
+
+
+8:11:11 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:11:12 AM - File change detected. Starting incremental compilation...
+
+
+8:11:13 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:11:14 AM - File change detected. Starting incremental compilation...
+
+
+8:11:14 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:11:46 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(257,16): error TS1109: Expression expected.
+
+8:11:46 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:11:51 AM - File change detected. Starting incremental compilation...
+
+
+8:11:51 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:11:58 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(257,24): error TS2339: Property 'cl' does not exist on type 'HTMLButtonElement'.
+
+8:11:58 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:11:59 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(257,16): error TS2774: This condition will always return true since this function is always defined. Did you mean to call it instead?
+
+8:11:59 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:12:01 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(257,16): error TS2774: This condition will always return true since this function is always defined. Did you mean to call it instead?
+
+8:12:01 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:12:05 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(257,16): error TS1345: An expression of type 'void' cannot be tested for truthiness.
+
+8:12:05 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:13:16 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(257,16): error TS1345: An expression of type 'void' cannot be tested for truthiness.
+
+8:13:16 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:13:29 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(257,16): error TS2774: This condition will always return true since this function is always defined. Did you mean to call it instead?
+
+8:13:29 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:13:37 AM - File change detected. Starting incremental compilation...
+
+
+8:13:37 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:13:39 AM - File change detected. Starting incremental compilation...
+
+
+8:13:39 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:13:41 AM - File change detected. Starting incremental compilation...
+
+
+8:13:41 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:14:07 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(256,20): error TS1005: ',' expected.
+
+8:14:07 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:14:11 AM - File change detected. Starting incremental compilation...
+
+
+8:14:11 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:14:25 AM - File change detected. Starting incremental compilation...
+
+
+8:14:25 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:14:27 AM - File change detected. Starting incremental compilation...
+
+
+8:14:27 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:14:31 AM - File change detected. Starting incremental compilation...
+
+
+8:14:31 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:14:35 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(261,9): error TS1005: ',' expected.
+
+8:14:35 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:14:39 AM - File change detected. Starting incremental compilation...
+
+
+8:14:39 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:14:41 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(260,14): error TS1128: Declaration or statement expected.
+src/scripts/settings.ts(260,16): error TS1005: ',' expected.
+src/scripts/settings.ts(261,9): error TS1005: ',' expected.
+src/scripts/settings.ts(261,10): error TS1128: Declaration or statement expected.
+src/scripts/settings.ts(430,1): error TS1128: Declaration or statement expected.
+
+8:14:41 AM - Found 5 errors. Watching for file changes.
+[2J[3J[H8:14:44 AM - File change detected. Starting incremental compilation...
+
+
+8:14:45 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:14:47 AM - File change detected. Starting incremental compilation...
+
+
+8:14:47 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:14:50 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(262,9): error TS2304: Cannot find name 'co'.
+
+8:14:50 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:14:54 AM - File change detected. Starting incremental compilation...
+
+
+8:14:54 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:14:56 AM - File change detected. Starting incremental compilation...
+
+
+8:14:56 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:14:58 AM - File change detected. Starting incremental compilation...
+
+
+8:14:58 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:15:18 AM - File change detected. Starting incremental compilation...
+
+
+8:15:18 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:15:19 AM - File change detected. Starting incremental compilation...
+
+
+8:15:19 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:15:20 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(263,9): error TS2339: Property 'console' does not exist on type 'HTMLButtonElement'.
+
+8:15:20 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:15:24 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(262,17): error TS2339: Property 'a' does not exist on type 'HTMLButtonElement'.
+
+8:15:24 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:15:28 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(262,17): error TS2554: Expected 2-3 arguments, but got 1.
+
+8:15:28 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:15:29 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(262,17): error TS2554: Expected 2-3 arguments, but got 1.
+
+8:15:29 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:15:54 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(262,44): error TS1109: Expression expected.
+
+8:15:54 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:15:57 AM - File change detected. Starting incremental compilation...
+
+
+8:15:57 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:15:59 AM - File change detected. Starting incremental compilation...
+
+
+8:15:59 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:16:00 AM - File change detected. Starting incremental compilation...
+
+
+8:16:00 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:16:04 AM - File change detected. Starting incremental compilation...
+
+
+8:16:04 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:16:06 AM - File change detected. Starting incremental compilation...
+
+
+8:16:06 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:16:10 AM - File change detected. Starting incremental compilation...
+
+
+8:16:10 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:16:12 AM - File change detected. Starting incremental compilation...
+
+
+8:16:12 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:16:15 AM - File change detected. Starting incremental compilation...
+
+
+8:16:15 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:16:17 AM - File change detected. Starting incremental compilation...
+
+
+8:16:17 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:17:07 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(262,12): error TS1109: Expression expected.
+
+8:17:07 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:17:09 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(262,12): error TS1109: Expression expected.
+
+8:17:09 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:17:14 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(262,12): error TS1109: Expression expected.
+
+8:17:14 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:17:17 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(262,12): error TS1109: Expression expected.
+
+8:17:17 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:17:24 AM - File change detected. Starting incremental compilation...
+
+
+8:17:24 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:17:28 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(262,24): error TS1109: Expression expected.
+
+8:17:28 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:17:30 AM - File change detected. Starting incremental compilation...
+
+
+8:17:30 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:17:31 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(262,21): error TS1003: Identifier expected.
+
+8:17:32 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:17:33 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(262,21): error TS2339: Property 'di' does not exist on type 'HTMLInputElement'.
+
+8:17:33 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:17:35 AM - File change detected. Starting incremental compilation...
+
+
+8:17:35 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:17:39 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(262,34): error TS2304: Cannot find name 'f'.
+
+8:17:39 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:17:41 AM - File change detected. Starting incremental compilation...
+
+
+8:17:41 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H8:18:07 AM - File change detected. Starting incremental compilation...
+
+src/scripts/settings.ts(262,34): error TS2304: Cannot find name 't'.
+
+8:18:07 AM - Found 1 error. Watching for file changes.
+[2J[3J[H8:18:09 AM - File change detected. Starting incremental compilation...
+
+
+8:18:09 AM - Found 0 errors. Watching for file changes.
