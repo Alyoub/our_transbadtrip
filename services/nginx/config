@@ -44,5 +44,9 @@ http {
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection "upgrade";
         }
+        location /uploads/ {
+            alias /var/www/uploads/;
+            autoindex on;
+        }
     }
 }

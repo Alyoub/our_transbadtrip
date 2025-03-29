@@ -130,7 +130,11 @@ async function upload_(request,reply) {
         let uploadPath;
         if (type === "profilepic") {
             uploadPath = path.join(__dirname, '../../uploads/', `${login}.png`);
-        } else {
+        } else if (type === "wallpaper") {
+            uploadPath = path.join(__dirname,'../../uploads/',`${login}_wallpaper.png`)
+        }
+        else
+        {
             uploadPath = path.join(__dirname, '../../uploads', `${login}_${file.filename}`);
         }
 
