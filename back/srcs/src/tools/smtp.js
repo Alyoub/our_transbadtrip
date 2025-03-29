@@ -16,16 +16,15 @@ class smtp {
         const transporter = nodemailer.createTransport({
             host: this.host,
             port: this.port,
-            secure: this.secure, // Set secure to true for port 465, false for port 587
+            secure: this.secure, 
             auth: {
                 user: this.user,
                 pass: this.pass,
             },
             tls: {
-                // Explicitly set the TLS version
                 minVersion: 'TLSv1.2'
             },
-            debug: true, // Enable debug output
+            debug: true, 
             logger: true 
         });
 
