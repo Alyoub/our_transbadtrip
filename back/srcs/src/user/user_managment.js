@@ -108,8 +108,7 @@ async function upload_(request,reply) {
     }
 
     const { userId } = request.user;
-    const { login } = request.params;
-
+    const { login } = request.params
     if (!file || !type) {
         return reply.code(400).send({ error: "File and type are required" });
     }
@@ -123,9 +122,9 @@ async function upload_(request,reply) {
             return reply.code(403).send({ error: "Unauthorized access" });
         }
 
-        // if (!file.filename.endsWith('.png')) {
-        //     return reply.status(400).send({ error: 'Invalid file type, only .png allowed' });
-        // }
+        if (!file.filename.endsWith('.png')) {
+            return reply.status(400).send({ error: 'Invalid file type, only .png allowed' });
+        }
 
         let uploadPath;
         if (type === "profilepic") {
