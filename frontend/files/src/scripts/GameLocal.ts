@@ -2,6 +2,8 @@ import { loadnhistory } from "./app.js";
 
 export function GameLocal()
 {
+
+
 const canvas = document.getElementById("pingPongLocal") as HTMLCanvasElement;
 const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
@@ -10,7 +12,6 @@ const close = document.getElementById('closeLocal') as HTMLElement;
     close.addEventListener('click', () => {
         loadnhistory('profil');
     });
-
 
 canvas.width = 1000;
 canvas.height = 500;
@@ -24,10 +25,10 @@ let rightPaddleY: number = (canvas.height - paddleHeight) / 2;
 
 let ballX: number = canvas.width / 2;
 let ballY: number = canvas.height / 2;
-let ballSpeedX: number = 7;
-let ballSpeedY: number = 7;
+let ballSpeedX: number = 5;
+let ballSpeedY: number = 5;
 
-const paddleSpeed: number = 6;
+const paddleSpeed: number = 14;
 
 let lastTime: number = 0;
 
@@ -43,22 +44,20 @@ const keys: { [key: string]: boolean } = {
     ArrowDown: false,
 };
 
+const startButton = document.getElementById("start") as HTMLButtonElement;
+startButton.addEventListener("click", startButton1);
+function startButton1() 
+{
+    startButton.style.display = "none";
+    requestAnimationFrame(updateCanvas);
+
+}
 const resetButton = document.getElementById("ResetButton") as HTMLButtonElement;
 resetButton.addEventListener("click", resetgame);
 
 function resetgame(): void {
-    restartGame(); 
-    gameOver = false;
+    location.reload();
 }
-
-const exitButton = document.getElementById("exitButton") as HTMLButtonElement;
-
-function exitGame(): void {
-    gameOver = true; 
-    alert("Game exited!");
-}
-
-exitButton.addEventListener("click", exitGame);
 
 function drawPaddles(): void {
     ctx.fillStyle = "#fff";
@@ -133,11 +132,14 @@ function updateCanvas(timestamp: number): void {
     ballX += ballSpeedX;
     ballY += ballSpeedY;
 
-    if (ballY - ballSize / 2 <= 0 || ballY + ballSize / 2 >= canvas.height) {
+    if (ballY - ballSize / 2 <= 0 || ballY + ballSize / 2 >= canvas.height) 
+    {
         ballSpeedY = -ballSpeedY;
     }
 
-    if (ballX - ballSize / 2 <= paddleWidth && ballY >= leftPaddleY && ballY <= leftPaddleY + paddleHeight) {
+    if (ballX - ballSize / 2 <= paddleWidth && ballY >= leftPaddleY && ballY <= leftPaddleY + paddleHeight) 
+    {
+        ballSpeedX = -ballSpeedX * 1.1;
         ballX = paddleWidth + ballSize / 2;
         const paddleCenterY = leftPaddleY + paddleHeight / 2;
         const relativeIntersectY = paddleCenterY - ballY;
@@ -148,7 +150,9 @@ function updateCanvas(timestamp: number): void {
         ballSpeedY = -speed * Math.sin(bounceAngle);
     }
 
-    if (ballX + ballSize / 2 >= canvas.width - paddleWidth && ballY >= rightPaddleY && ballY <= rightPaddleY + paddleHeight) {
+    if (ballX + ballSize / 2 >= canvas.width - paddleWidth && ballY >= rightPaddleY && ballY <= rightPaddleY + paddleHeight) 
+    {
+        ballSpeedX = -ballSpeedX * 1.1;
         ballX = canvas.width - paddleWidth - ballSize / 2;
         const paddleCenterY = rightPaddleY + paddleHeight / 2;
         const relativeIntersectY = paddleCenterY - ballY;
@@ -210,8 +214,8 @@ function resetBall(): void {
     const randomDirectionX = Math.random() < 0.5 ? -1 : 1; 
     const randomDirectionY = Math.random() < 0.5 ? -1 : 1; 
 
-    ballSpeedX = 7 * randomDirectionX;
-    ballSpeedY = 7 * randomDirectionY;
+    ballSpeedX = 5 * randomDirectionX;
+    ballSpeedY = 5 * randomDirectionY;
 }
 
 function restartGame(): void {
@@ -238,7 +242,4 @@ document.addEventListener("keydown", (event: KeyboardEvent) => {
         restartGame();
     }
 });
-
-requestAnimationFrame(updateCanvas);
-// requestAnimationFrame(updateCanvas);
 }

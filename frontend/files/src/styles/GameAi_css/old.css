@@ -1,17 +1,4 @@
 
-#exitButton {
-  position: absolute;
-  top: 85%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-  padding: 10px 20px;
-  font-size: 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
 #ResetButton  
 {
   position: absolute;
@@ -26,8 +13,20 @@
   border-radius: 5px;
   cursor: pointer;
 }
-
-
+#start
+{
+  position: absolute;
+  top: 85%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 /* canvas
 {
   background-color: #0b152b;  
