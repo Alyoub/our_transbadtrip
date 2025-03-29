@@ -17,19 +17,19 @@
 }
 
 ### Test POST request to upload a file### Test POST request to upload a file
-POST http://localhost:3000/api/atoukmat/upload
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczOTUzNjg2MiwiZXhwIjoxNzM5NTQwNDYyfQ.twEzN4C-XF0Ns8int8Yugd8exK8YedznlunLVI0--7Y
+POST http://localhost:3000/api/tedst/upload
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMjI4NDg2NTU4LCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0MzIyODQ4NiwiZXhwIjoxNzQzMzE0ODg2fQ.B4_Oy3onW1MrNTTIvHG9ADiLiDUAJixqjnqra3iuXC4; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict,Max-Age=3600000; Path=/; HttpOnly
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="file"; filename="avatar.png"
 Content-Type: image/png
 
-< /Users/atoukmat/goinfre/transbadtrip/avatar.png
+< /goinfre/atoukmat/transbadtrip/avatar.png
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="type"
 
-profilepic
+wallpaper
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 ###
 GET http://localhost:3000/
@@ -41,8 +41,8 @@ POST https://localhost/api/register
 Content-Type: application/json
 
 {
-    "login": "test",
-    "email": "trdwdei@gmail.com",
+    "login": "tedst",
+    "email": "trdwdedi@gmail.com",
     "name": "tookman lotfi",
     "password": "Aotfi!1"
 }
@@ -52,7 +52,7 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "trdwdei@gmail.com",
+    "email": "trdwdedi@gmail.com",
     "password": "Aotfi!1"
 }
 

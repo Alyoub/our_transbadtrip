@@ -30,7 +30,7 @@ services:
     restart: always
     volumes:
       - database:/srcs/prisma
-      - uploads:/uploads
+      - uploads:/srcs/uploads
     networks:
       - trans
   nginx:

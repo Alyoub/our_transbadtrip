@@ -87,14 +87,16 @@ export function tournament(tournamentPlayers: string[])
         startMatch(matches[currentMatch]);
     }
 
-    function startMatch(match: Match) {
+    function startMatch(match: Match) 
+    {
         if (match.player1 === null || match.player2 === null) return;
 
         leftPlayerName = tournamentPlayers[match.player1];
         rightPlayerName = tournamentPlayers[match.player2];
 
         const user1Texts = document.querySelectorAll('.user1TEXT');
-        if (user1Texts.length >= 2) {
+        if (user1Texts.length >= 2) 
+        {
             (user1Texts[0] as HTMLElement).textContent = leftPlayerName;
             (user1Texts[1] as HTMLElement).textContent = rightPlayerName;
         }

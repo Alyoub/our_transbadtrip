@@ -1,6 +1,7 @@
 const { prisma } = require("./db");
 const bcrypt = require('bcrypt');
 const {jwt} = require('../tools/jwt');
+const speakeasy =  require('speakeasy')
 async function register(request, reply){
     const { email, name, password , login  } = request.body;
     if (!email || !name || !password) {
@@ -28,26 +29,6 @@ async function register(request, reply){
         //console.error('Error during user registration:', err);
         reply.code(400).send({ error: "database LLL ",err });
     }
-}
-
-async function logout (request, reply ){
-    try{
-        
-        return reply.header[
-            ""
-        ].code(200).send({
-            message:"OK"
-        })
-
-    }catch (err){
-        //console.log("zeb");
-        return reply.code(500).send({
-            badtrip : "hadchi makhdamch",
-            error : err,
-
-        })
-    }
-
 }
 
 async function login (request, reply){
@@ -112,7 +93,7 @@ async function logout(request,reply){
 
 async function verify2FA(request, reply) {
     const { totpCode } = request.body;
-
+    const {partialToken} = request.cookies.jwt;
     try {
         const { userId } = await jwt.verify(partialToken);
 
@@ -120,8 +101,12 @@ async function verify2FA(request, reply) {
         if (!user || !user.tfa) {
             return reply.code(400).send({ error: "2FA not enabled for this user" });
         }
-
-        const isValidTOTP = verifyTOTP(user.tfa_key, totpCode);
+        const isValidTOTP =  speakeasy.totp.verify({
+            secret: user.tfa_key,
+            token: totpCode,
+            encoding: 'base32',
+            window: 6, 
+        });
         if (!isValidTOTP) {
             return reply.code(401).send({ error: "Invalid 2FA code" });
         }
