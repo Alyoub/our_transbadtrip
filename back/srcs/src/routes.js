@@ -189,7 +189,9 @@ module.exports = async function routes(fastify, options) {
     fastify.post('/login', async (request, reply) => { return login(request, reply, fastify); });
     fastify.post('/logout',{preHandler: [fastify.authenticate]},logout);
     fastify.get('/users', { preHandler: [fastify.authenticate]}, users);
-
+    fastify.post('/access',{preHandler:[fastify.authenticate]}, async (request,reply)=>{
+        return reply.code(200).send({message:"OK!"});
+    })
     fastify.post('/api/:login/upload', { preHandler: [fastify.authenticate] }, upload_);
 
     fastify.put('/api/:login/change_password', { preHandler: [fastify.authenticate] }, change_password);

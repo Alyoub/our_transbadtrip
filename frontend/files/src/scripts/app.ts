@@ -152,7 +152,6 @@ async function loadPage(page: string) {
 		const content = await response.text();
 		app.innerHTML = content;
 		// console.log(`nav to: ${page}`);
-		hideNav(page);
 		if (page === 'home')
 		{
 			setupHomePage();

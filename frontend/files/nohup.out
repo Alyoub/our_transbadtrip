@@ -5251,3 +5251,241 @@ src/scripts/settings.ts(262,34): error TS2304: Cannot find name 't'.
 
 
 8:18:09 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:13:03 AM - Starting compilation in watch mode...
+
+src/scripts/app.ts(154,3): error TS2304: Cannot find name 'hideNav'.
+
+10:13:07 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:22:48 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(155,3): error TS2304: Cannot find name 'hideNav'.
+
+10:22:49 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:22:50 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(95,4): error TS2304: Cannot find name 'co'.
+src/scripts/app.ts(155,3): error TS2304: Cannot find name 'hideNav'.
+
+10:22:50 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H10:22:51 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(95,4): error TS2304: Cannot find name 'con'.
+src/scripts/app.ts(155,3): error TS2304: Cannot find name 'hideNav'.
+
+10:22:51 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H10:22:57 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(155,3): error TS2304: Cannot find name 'hideNav'.
+
+10:22:57 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:24:22 AM - Starting compilation in watch mode...
+
+src/scripts/app.ts(155,3): error TS2304: Cannot find name 'hideNav'.
+
+10:24:24 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:25:15 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(155,3): error TS2304: Cannot find name 'hideNav'.
+
+10:25:16 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:25:20 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(155,3): error TS2304: Cannot find name 'hideNav'.
+
+10:25:20 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:25:24 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(95,27): error TS1135: Argument expression expected.
+
+10:25:24 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:25:26 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(155,3): error TS2304: Cannot find name 'hideNav'.
+
+10:25:26 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:25:29 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(155,3): error TS2304: Cannot find name 'hideNav'.
+
+10:25:29 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:26:27 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(155,3): error TS2304: Cannot find name 'hideNav'.
+
+10:26:27 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:27:18 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(144,3): error TS2304: Cannot find name 'hideNav'.
+
+10:27:18 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:27:20 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(154,3): error TS2304: Cannot find name 'hideNav'.
+
+10:27:20 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:27:27 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(154,3): error TS2304: Cannot find name 'hideNav'.
+
+10:27:27 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:28:10 AM - Starting compilation in watch mode...
+
+src/scripts/app.ts(154,3): error TS2304: Cannot find name 'hideNav'.
+
+10:28:12 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:29:54 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(155,3): error TS2304: Cannot find name 'hideNav'.
+
+10:29:54 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:30:00 AM - File change detected. Starting incremental compilation...
+
+src/scripts/app.ts(155,3): error TS2304: Cannot find name 'hideNav'.
+
+10:30:00 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:30:34 AM - File change detected. Starting incremental compilation...
+
+
+10:30:34 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:33:32 AM - File change detected. Starting incremental compilation...
+
+
+10:33:32 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:35:04 AM - File change detected. Starting incremental compilation...
+
+
+10:35:05 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:37:12 AM - File change detected. Starting incremental compilation...
+
+
+10:37:12 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:37:13 AM - File change detected. Starting incremental compilation...
+
+
+10:37:13 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:37:22 AM - Starting compilation in watch mode...
+
+
+10:37:24 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:42:46 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(596,29): error TS2304: Cannot find name 'extractedPart'.
+
+10:42:46 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:42:51 AM - File change detected. Starting incremental compilation...
+
+
+10:42:51 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:44:03 AM - File change detected. Starting incremental compilation...
+
+
+10:44:03 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:44:12 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(570,38): error TS2304: Cannot find name 'getFirstPathSegment'.
+
+10:44:12 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:44:14 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(571,29): error TS2304: Cannot find name 'firstSegment'.
+src/scripts/home2.ts(572,29): error TS2304: Cannot find name 'firstSegment'.
+
+10:44:14 AM - Found 2 errors. Watching for file changes.
+[2J[3J[H10:44:21 AM - File change detected. Starting incremental compilation...
+
+
+10:44:21 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:44:25 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(569,38): error TS1003: Identifier expected.
+
+10:44:25 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:44:27 AM - File change detected. Starting incremental compilation...
+
+
+10:44:27 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:44:30 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(569,29): error TS2304: Cannot find name 'wi'.
+
+10:44:31 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:44:32 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(569,36): error TS2339: Property 'href' does not exist on type 'Window & typeof globalThis'.
+
+10:44:32 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:44:37 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(569,45): error TS1003: Identifier expected.
+
+10:44:37 AM - Found 1 error. Watching for file changes.
+[2J[3J[H10:44:39 AM - File change detected. Starting incremental compilation...
+
+
+10:44:40 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:45:25 AM - File change detected. Starting incremental compilation...
+
+
+10:45:25 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:45:26 AM - File change detected. Starting incremental compilation...
+
+
+10:45:26 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:45:28 AM - File change detected. Starting incremental compilation...
+
+
+10:45:28 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:45:32 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(570,33): error TS1002: Unterminated string literal.
+src/scripts/home2.ts(571,21): error TS1005: ',' expected.
+src/scripts/home2.ts(571,27): error TS1005: ',' expected.
+src/scripts/home2.ts(572,28): error TS1005: ',' expected.
+src/scripts/home2.ts(575,25): error TS1005: ',' expected.
+src/scripts/home2.ts(576,33): error TS1005: ',' expected.
+src/scripts/home2.ts(577,17): error TS1005: ',' expected.
+src/scripts/home2.ts(577,18): error TS1128: Declaration or statement expected.
+src/scripts/home2.ts(599,10): error TS1005: ',' expected.
+src/scripts/home2.ts(617,5): error TS1128: Declaration or statement expected.
+src/scripts/home2.ts(745,1): error TS1128: Declaration or statement expected.
+
+10:45:32 AM - Found 11 errors. Watching for file changes.
+[2J[3J[H10:45:35 AM - File change detected. Starting incremental compilation...
+
+src/scripts/home2.ts(570,34): error TS1002: Unterminated string literal.
+src/scripts/home2.ts(571,21): error TS1005: ',' expected.
+src/scripts/home2.ts(571,27): error TS1005: ',' expected.
+src/scripts/home2.ts(572,28): error TS1005: ',' expected.
+src/scripts/home2.ts(575,25): error TS1005: ',' expected.
+src/scripts/home2.ts(576,33): error TS1005: ',' expected.
+src/scripts/home2.ts(577,17): error TS1005: ',' expected.
+src/scripts/home2.ts(577,18): error TS1128: Declaration or statement expected.
+src/scripts/home2.ts(599,10): error TS1005: ',' expected.
+src/scripts/home2.ts(617,5): error TS1128: Declaration or statement expected.
+src/scripts/home2.ts(745,1): error TS1128: Declaration or statement expected.
+
+10:45:35 AM - Found 11 errors. Watching for file changes.
+[2J[3J[H10:45:37 AM - File change detected. Starting incremental compilation...
+
+
+10:45:37 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:45:40 AM - File change detected. Starting incremental compilation...
+
+
+10:45:40 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:45:42 AM - File change detected. Starting incremental compilation...
+
+
+10:45:42 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:45:46 AM - File change detected. Starting incremental compilation...
+
+
+10:45:46 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:45:47 AM - File change detected. Starting incremental compilation...
+
+
+10:45:47 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H10:45:53 AM - File change detected. Starting incremental compilation...
+
+
+10:45:53 AM - Found 0 errors. Watching for file changes.

@@ -566,7 +566,8 @@ export const setupLoginPage = () => {
                     password: password.value.trim(),
                 };
                 // console.log(formSignINData);
-                fetch('http://localhost:3000/login', {
+                console.log(window.location.origin)
+                fetch(`${window.location.origin}/api/login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
