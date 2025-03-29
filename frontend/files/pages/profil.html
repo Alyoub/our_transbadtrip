@@ -15,33 +15,9 @@
 </head>
 
 <body class="relative">
-    <!-- <header class="header_notif max-635:px-14 px-24 lg:px-32">
-        <button data-page="home" title="Home" class="home-btn logo_notif transition-transform duration-300 hover:scale-110">
-            <img class="logo-pic_notif" src="../public/logos/pingpong_racket.png">
-            <div class="logo-name_notif">
-                <p class="logo-name1_notif">
-                    PingPong.io
-                </p>
-                <p class="hero_notif">
-                    Table Heroes
-                </p>
-            </div>
-        </button data-page="home" title="Home">
-        <div class="center_notif">
-        </div>
-        <div class="sign-bt_notif">
-            <button id="notifsBtn" class="log-in-bt1_notif">
-                <img class="user_header_pic" src="../public/profile_pictures/ProfilePic.jpeg">
-                <p class="user_name_header">
-                    htouil
-                </p>
-                <img class="user_notification_header" src="../public/logos/bell.svg">
-            </button>
-        </div>
-    </header> -->
     <notification-header></notification-header>
 
-    <div id="logOutPanel" class="z-30 absolute hidden flex-col top-11 sm:top-12 right-3 sm:right-16">
+    <div id="logOutPanel" class="z-30 absolute hidden flex-col top-11 sm:top-12 lg:top-14 xl:top-16 2xl:top-[72px] min-1700:top-20 min-1900:top-[88px] min-2300:top-24 min-2500:top-[104px] right-3 sm:right-16 lg:right-24 xl:right-24 min-1900:right-[104px] min-2300:right-28 min-2500:right-[120px]">
         <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" class="self-end size-3 mr-[53px]">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -168,122 +144,15 @@
                 </div>
             </div>
         </div> -->
-        <div class="border-4 rounded-xl border-slate-800 bg-sky-800 w-60 h-72 md:w-64 md:h-80 -mt-1 divide-y-2 divide-slate-800">   
+        <div class="flex flex-col flex-grow border-4 rounded-xl border-slate-800 bg-sky-800 w-40 h-20 md:w-48 md:h-20 lg:w-56 lg:h-24  -mt-1 divide-y-2 divide-slate-800">   
             <h1 class="font-medium text-center text-white text-sm md:text-base">Log out?</h1>
-            <div class="flex">
-                <button id="accLogOutBtn" class="rounded-xl bg-rose-700">
+            <div class="flex flex-grow gap-2 justify-center py-2 lg:py-3.5 text-white">
+                <button id="accLogOutBtn" class="rounded-xl bg-rose-700 hover:bg-rose-800 w-1/3">
                     No
                 </button>
-                <button id="rejLogOutBtn" class="rounded-xl bg-emerald-700">
+                <button id="rejLogOutBtn" class="rounded-xl bg-emerald-700 hover:bg-emerald-800 w-1/3">
                     Yes
                 </button>
-                <!-- <div class="flex gap-3 place-items-center text-white h-14 md:h-16 flex-shrink-0 px-2">
-                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="size-9 md:size-10 rounded-full">
-                    <div class="relative overflow-hidden rounded-r-lg">
-                        <p id="notifsText" class="text-2xs md:text-xs transition-opacity duration-500">Hatim Touil has sent you a friend request.</p>
-                        <div id="notifsaccRejBox" class="inset-0 w-full h-full grid grid-cols-2 grid-rows-1 gap-x-3 bg-sky-800 absolute top-0 left-0 transition duration-500 translate-x-full opacity-0 ease-in-out scale-90 md:scale-100">
-                            <button class="rounded-xl bg-rose-700">
-                                Reject
-                            </button>
-                            <button class="rounded-xl bg-emerald-700">
-                                Accept
-                            </button>
-                        </div>
-                    </div>
-                    <button id="notifsAccRejBtn" class="flex-shrink-0 transition-transform duration-500">
-                        <img src="../public/logos/notifs_arrow.png" class="size-6 md:size-7">
-                    </button>
-                </div>
-
-                <div class="flex gap-3 place-items-center text-white h-14 md:h-16 flex-shrink-0 px-2">
-                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="size-9 md:size-10 rounded-full">
-                    <div class="relative overflow-hidden rounded-r-lg">
-                        <p id="notifsText" class="text-2xs md:text-xs transition-opacity duration-500">Hatim Touil has sent you a friend request.</p>
-                        <div id="notifsaccRejBox" class="inset-0 w-full h-full grid grid-cols-2 grid-rows-1 gap-x-3 bg-sky-800 absolute top-0 left-0 transition duration-500 translate-x-full opacity-0 ease-in-out scale-90 md:scale-100">
-                            <button class="rounded-xl bg-rose-700">
-                                Reject
-                            </button>
-                            <button class="rounded-xl bg-emerald-700">
-                                Accept
-                            </button>
-                        </div>
-                    </div>
-                    <button id="notifsAccRejBtn" class="flex-shrink-0 invisible transition-transform duration-500">
-                        <img src="../public/logos/notifs_arrow.png" class="size-6 md:size-7">
-                    </button>
-                </div>
-
-                <div class="flex gap-3 place-items-center text-white h-14 md:h-16 flex-shrink-0 px-2">
-                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="size-9 md:size-10 rounded-full">
-                    <div class="relative overflow-hidden rounded-r-lg">
-                        <p id="notifsText" class="text-2xs md:text-xs transition-opacity duration-500">Hatim Touil has sent you a friend request.</p>
-                        <div id="notifsaccRejBox" class="inset-0 w-full h-full grid grid-cols-2 grid-rows-1 gap-x-3 bg-sky-800 absolute top-0 left-0 transition duration-500 translate-x-full opacity-0 ease-in-out scale-90 md:scale-100">
-                            <button class="rounded-xl bg-rose-700">
-                                Reject
-                            </button>
-                            <button class="rounded-xl bg-emerald-700">
-                                Accept
-                            </button>
-                        </div>
-                    </div>
-                    <button id="notifsAccRejBtn" class="flex-shrink-0 transition-transform duration-500">
-                        <img src="../public/logos/notifs_arrow.png" class="size-6 md:size-7">
-                    </button>
-                </div>
-
-                <div class="flex gap-3 place-items-center text-white h-14 md:h-16 flex-shrink-0 px-2">
-                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="size-9 md:size-10 rounded-full">
-                    <div class="relative overflow-hidden rounded-r-lg">
-                        <p id="notifsText" class="text-2xs md:text-xs transition-opacity duration-500">Hatim Touil has sent you a friend request.</p>
-                        <div id="notifsaccRejBox" class="inset-0 w-full h-full grid grid-cols-2 grid-rows-1 gap-x-3 bg-sky-800 absolute top-0 left-0 transition duration-500 translate-x-full opacity-0 ease-in-out scale-90 md:scale-100">
-                            <button class="rounded-xl bg-rose-700">
-                                Reject
-                            </button>
-                            <button class="rounded-xl bg-emerald-700">
-                                Accept
-                            </button>
-                        </div>
-                    </div>
-                    <button id="notifsAccRejBtn" class="flex-shrink-0 invisible transition-transform duration-500">
-                        <img src="../public/logos/notifs_arrow.png" class="size-6 md:size-7">
-                    </button>
-                </div>
-
-                <div class="flex gap-3 place-items-center text-white h-14 md:h-16 flex-shrink-0 px-2">
-                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="size-9 md:size-10 rounded-full">
-                    <div class="relative overflow-hidden rounded-r-lg">
-                        <p id="notifsText" class="text-2xs md:text-xs transition-opacity duration-500">Hatim Touil has sent you a friend request.</p>
-                        <div id="notifsaccRejBox" class="inset-0 w-full h-full grid grid-cols-2 grid-rows-1 gap-x-3 bg-sky-800 absolute top-0 left-0 transition duration-500 translate-x-full opacity-0 ease-in-out scale-90 md:scale-100">
-                            <button class="rounded-xl bg-rose-700">
-                                Reject
-                            </button>
-                            <button class="rounded-xl bg-emerald-700">
-                                Accept
-                            </button>
-                        </div>
-                    </div>
-                    <button id="notifsAccRejBtn" class="flex-shrink-0 transition-transform duration-500">
-                        <img src="../public/logos/notifs_arrow.png" class="size-6 md:size-7">
-                    </button>
-                </div>
-
-                <div class="flex gap-3 place-items-center text-white h-14 md:h-16 flex-shrink-0 px-2">
-                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="size-9 md:size-10 rounded-full">
-                    <div class="relative overflow-hidden rounded-r-lg">
-                        <p id="notifsText" class="text-2xs md:text-xs transition-opacity duration-500">Hatim Touil has sent you a friend request.</p>
-                        <div id="notifsaccRejBox" class="inset-0 w-full h-full grid grid-cols-2 grid-rows-1 gap-x-3 bg-sky-800 absolute top-0 left-0 transition duration-500 translate-x-full opacity-0 ease-in-out scale-90 md:scale-100">
-                            <button class="rounded-xl bg-rose-700">
-                                Reject
-                            </button>
-                            <button class="rounded-xl bg-emerald-700">
-                                Accept
-                            </button>
-                        </div>
-                    </div>
-                    <button id="notifsAccRejBtn" class="flex-shrink-0 invisible transition-transform duration-500">
-                        <img src="../public/logos/notifs_arrow.png" class="size-6 md:size-7">
-                    </button>
-                </div> -->
             </div>
         </div>
     </div>
@@ -354,7 +223,7 @@
 				<div class="grid grid-rows-2 gap-2 md:h-fit">
 					<h2 class="self-end xs:text-sm sm:text-sm md:text-base text-white">Normal game options</h2>
 					<button id="playSolo" type="button" class="self-start border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn1">
-						<p id="palySolo" class="xs:text-sm sm:text-sm md:text-base text-white">Play solo</p>
+						<p class="xs:text-sm sm:text-sm md:text-base text-white">Play solo</p>
 					</button>
 				</div>	
 				<div class="grid grid-rows-2 gap-2 md:h-fit">
@@ -363,7 +232,7 @@
                             <p class="xs:text-sm sm:text-sm md:text-base text-white">Play 1 VS 1</p>
                         </button>
                         <button id="play2v2Btn" type="button" data-page="localgame" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn2">
-                            <p id="Localgame" class="xs:text-sm sm:text-sm md:text-base text-white">Play 2 VS 2</p>
+                            <p class="xs:text-sm sm:text-sm md:text-base text-white">Play 2 VS 2</p>
                         </button>
                     </div>
 				</div>

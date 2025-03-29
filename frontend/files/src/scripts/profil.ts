@@ -1,6 +1,6 @@
-import { constrainedMemory } from 'process';
+// import { constrainedMemory } from 'process';
 import { loadnhistory } from './app.js';
-import { RedrectPage } from './home2.js';
+// import { RedrectPage } from './home2.js';
 
 let friendsBtn: NodeListOf<HTMLButtonElement> | null;
 let historyBtn: NodeListOf<HTMLButtonElement> | null;
@@ -102,18 +102,23 @@ export function	setupProfilButtons() {
 	historyBtn?.forEach((element) => {
 		element.addEventListener('click', showHistoryList);
 	});
-	localBtn?.addEventListener('click', () => selectLocal(localBtn, onlineBtn, tournTitle, createTournPageBtn, playSolo, play2v2Btn, /*hostTournPageBtn*/));
-	onlineBtn?.addEventListener('click', () => selectOnline(localBtn, onlineBtn, tournTitle, createTournPageBtn, playSolo, play2v2Btn, /*hostTournPageBtn*/));
+	localBtn?.addEventListener('click', () => selectLocal(localBtn, onlineBtn, tournTitle, createTournPageBtn, playSolo, play1v1Btn, play2v2Btn));
+	onlineBtn?.addEventListener('click', () => selectOnline(localBtn, onlineBtn, tournTitle, createTournPageBtn, playSolo, play1v1Btn, play2v2Btn));
+	playSolo?.addEventListener('click', () => loadnhistory('game_ai')); //fill thiss
+	play1v1Btn?.addEventListener('click', () => loadnhistory('game_local')); //fill thiss
+	play2v2Btn?.addEventListener('click', () => loadnhistory('game_multi')); //fill thiss
 	createTournPageBtn?.addEventListener('click', () => loadnhistory('createtourn'));
 	// hostTournPageBtn?.addEventListener('click', () => loadnhistory('hosttourn'));
 	// playWFriendsBtn?.addEventListener('click', () => loadnhistory('localgame'));
 };
 
 function	showLogOutPopup(logOutPanel: HTMLElement) {
+	event?.stopPropagation();
 	if (logOutPanel.classList.contains('hidden'))
 	{
-	logOutPanel?.classList.remove('hidden');
-	logOutPanel?.classList.add('flex');
+		logOutPanel?.classList.remove('hidden');
+		logOutPanel?.classList.add('flex');
+		document.addEventListener('click', (event) => logOutPanelOutsideClick(event, logOutPanel));
 	}
 	else
 	{
@@ -122,63 +127,63 @@ function	showLogOutPopup(logOutPanel: HTMLElement) {
 	}
 };
 
-function	showNotifications(event: Event, notifsPanel: HTMLElement) {
-	event?.stopPropagation();
+// function	showNotifications(event: Event, notifsPanel: HTMLElement) {
+// 	event?.stopPropagation();
 
-	if (notifsPanel.classList.contains('hidden'))
+// 	if (notifsPanel.classList.contains('hidden'))
+// 	{
+// 		notifsPanel.classList.remove('hidden');
+// 		notifsPanel.classList.add('flex');
+// 		document.addEventListener('click', (event) => notifsOutsideClick(event, notifsPanel));
+// 		document.addEventListener('scroll', (event) => {
+// 			if (!notifsPanel.contains(event.target as Node))
+// 			{
+// 				notifsPanel.classList.remove('flex');
+// 				notifsPanel.classList.add('hidden');
+// 			}
+// 		});
+// 	}
+// 	else
+// 	{
+// 		notifsPanel.classList.remove('flex');
+// 		notifsPanel.classList.add('hidden');
+// 	}
+// };
+
+function	logOutPanelOutsideClick(event: Event, logOutPanel: HTMLElement) {
+	event?.stopPropagation();
+	if (!logOutPanel.contains(event.target as Node))
 	{
-		notifsPanel.classList.remove('hidden');
-		notifsPanel.classList.add('flex');
-		document.addEventListener('click', (event) => notifsOutsideClick(event, notifsPanel));
-		document.addEventListener('scroll', (event) => {
-			if (!notifsPanel.contains(event.target as Node))
-			{
-				notifsPanel.classList.remove('flex');
-				notifsPanel.classList.add('hidden');
-			}
-		});
-	}
-	else
-	{
-		notifsPanel.classList.remove('flex');
-		notifsPanel.classList.add('hidden');
+		logOutPanel.classList.remove('flex');
+		logOutPanel.classList.add('hidden');
 	}
 };
 
-function	notifsOutsideClick(event: Event, notifsPanel: HTMLElement) {
-	event?.stopPropagation();
-	if (!notifsPanel.contains(event.target as Node))
-	{
-		notifsPanel.classList.remove('flex');
-		notifsPanel.classList.add('hidden');
-	}
-};
+// function	showNotifsAccRej(event: Event, notifs: HTMLElement, notifsAccRejBtn: HTMLButtonElement) {
+// 	event?.stopPropagation();
+// 	const notifsaccRejBox = document.getElementById('notifsaccRejBox') as HTMLElement;
+// 	const notifsText = document.getElementById('notifsText') as HTMLParagraphElement
 
-function	showNotifsAccRej(event: Event, notifs: HTMLElement, notifsAccRejBtn: HTMLButtonElement) {
-	event?.stopPropagation();
-	const notifsaccRejBox = document.getElementById('notifsaccRejBox') as HTMLElement;
-	const notifsText = document.getElementById('notifsText') as HTMLParagraphElement
-
-	if (notifsaccRejBox.classList.contains('translate-x-full'))
-	{
-		notifsaccRejBox.classList.remove('translate-x-full', 'opacity-0');
-		notifsText.classList.add('opacity-0');
-		notifsAccRejBtn.classList.add('rotate-180');
-		notifs.addEventListener('scroll', () => {
-			// event.stopPropagation();
-			// event.preventDefault();
-			notifsaccRejBox.classList.add('translate-x-full', 'opacity-0');
-			notifsText.classList.remove('opacity-0');
-			notifsAccRejBtn.classList.remove('rotate-180');
-		});
-	}
-	else
-	{
-		notifsaccRejBox.classList.add('translate-x-full', 'opacity-0');
-		notifsText.classList.remove('opacity-0');
-		notifsAccRejBtn.classList.remove('rotate-180');
-	}
-};
+// 	if (notifsaccRejBox.classList.contains('translate-x-full'))
+// 	{
+// 		notifsaccRejBox.classList.remove('translate-x-full', 'opacity-0');
+// 		notifsText.classList.add('opacity-0');
+// 		notifsAccRejBtn.classList.add('rotate-180');
+// 		notifs.addEventListener('scroll', () => {
+// 			// event.stopPropagation();
+// 			// event.preventDefault();
+// 			notifsaccRejBox.classList.add('translate-x-full', 'opacity-0');
+// 			notifsText.classList.remove('opacity-0');
+// 			notifsAccRejBtn.classList.remove('rotate-180');
+// 		});
+// 	}
+// 	else
+// 	{
+// 		notifsaccRejBox.classList.add('translate-x-full', 'opacity-0');
+// 		notifsText.classList.remove('opacity-0');
+// 		notifsAccRejBtn.classList.remove('rotate-180');
+// 	}
+// };
 
 function	showAddNewFriendPopup(sidePanel: HTMLElement) {
 	const toBlur = document.getElementById('toBlur') as HTMLElement;
@@ -206,7 +211,7 @@ function	closeAddNewFriendPopup(sidePanel: HTMLElement) {
 	sidePanel?.classList.remove('hidden');
 }
 
-function	selectLocal(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, tournTitle:HTMLElement, createTournPageBtn: HTMLButtonElement, playSolo: HTMLButtonElement, play2v2Btn:HTMLButtonElement, /*hostTournPageBtn: HTMLButtonElement*/) {
+function	selectLocal(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, tournTitle:HTMLElement, createTournPageBtn: HTMLButtonElement, playSolo: HTMLButtonElement, play1v1Btn:HTMLButtonElement, play2v2Btn:HTMLButtonElement) {
 	localBtn?.classList.add('bg-gray-600');
 	localBtn?.classList.remove('hover:bg-gray-500');
 	onlineBtn?.classList.add('hover:bg-gray-500');
@@ -223,7 +228,7 @@ function	selectLocal(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, 
 	// hostTournPageBtn?.classList.add('opacity-30');
 };
 
-function	selectOnline(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, tournTitle:HTMLElement, createTournPageBtn: HTMLButtonElement, playSolo: HTMLButtonElement, play2v2Btn:HTMLButtonElement, /*hostTournPageBtn: HTMLButtonElement*/) {
+function	selectOnline(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, tournTitle:HTMLElement, createTournPageBtn: HTMLButtonElement, playSolo: HTMLButtonElement, play1v1Btn:HTMLButtonElement, play2v2Btn:HTMLButtonElement) {
 	onlineBtn?.classList.add('bg-gray-600');
 	onlineBtn?.classList.remove('hover:bg-gray-500');
 	localBtn?.classList.add('hover:bg-gray-500');

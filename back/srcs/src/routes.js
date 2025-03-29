@@ -181,7 +181,7 @@ module.exports = async function routes(fastify, options) {
                 return reply.code(400).send({ error: "Invalid action" });
         }
     });
-    fastify.post('verify_tfa',verify2FA)
+    fastify.post('/verify_tfa',verify2FA)
     fastify.post('/register', register);
 
     fastify.get('/profile', { preHandler: [fastify.authenticate] }, profile);

@@ -37,8 +37,17 @@ module.exports = {
         'max-870': {
           max: '870px',
         },
+        'min-1700': {
+          min: '1700px',
+        },
         'min-1900': {
           min: '1900px',
+        },
+        'min-2300': {
+          min: '2300px',
+        },
+        'min-2500': {
+          min: '2500px',
         },
       },
       fontSize: {
