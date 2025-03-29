@@ -6,10 +6,22 @@ export function GameAi()
 {
     const canvas = document.getElementById("pingPongCanvasAI") as HTMLCanvasElement;
     const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+    const close = document.getElementById('closeAI') as HTMLButtonElement;
+    const startButton = document.getElementById('start') as HTMLButtonElement;
+    const resetButton = document.getElementById('ResetButton') as HTMLButtonElement;
 
-    const close = document.getElementById('closeLocal') as HTMLElement;
+    startButton?.addEventListener('click', (event) => {
+        event?.stopPropagation();
+        startButton.style.display = "none";
+        requestAnimationFrame(updateCanvas);
+        console.log('salam');
+    });
+    resetButton?.addEventListener('click', resetgame);
+    function resetgame(): void {
+        location.reload();
+    }
 
-    close.addEventListener('click', () => loadnhistory('profil'));
+    close?.addEventListener('click', () => loadnhistory('profil'));
 
     canvas.width = 1000;
     canvas.height = 500;
@@ -42,29 +54,6 @@ export function GameAi()
         ArrowUp: false,
         ArrowDown: false,
     };
-    const startButton = document.getElementById("start") as HTMLButtonElement;
-    startButton.addEventListener("click", startButton1);
-    function startButton1() 
-    {
-        startButton.style.display = "none";
-        requestAnimationFrame(updateCanvas);
-
-    }
-    const resetButton = document.getElementById("ResetButton") as HTMLButtonElement;
-    resetButton.addEventListener("click", resetgame);
-
-    function resetgame(): void {
-        location.reload();
-    }
-
-    // const exitButton = document.getElementById("exitButton") as HTMLButtonElement;
-
-
-    //     exitButton.addEventListener('click', () => {
-    //         loadnhistory('profil');
-    //     });
-    
-    // exitButton.addEventListener("click", exitGame);
 
     function drawPaddles(): void {
         ctx.fillStyle = "#fff";
@@ -209,13 +198,10 @@ export function GameAi()
         if (randomChance > 0.7) {
             await new Promise(resolve => setTimeout(resolve, 0.001));
             if (ballY < aiCenterY - 35) {
-                const ArrowUp = true;
-                console.log(ArrowUp);
                 rightPaddleY -= aiSpeed;
             }
             else if (ballY > aiCenterY + 35) {
-                const ArrowUp = true;
-                console.log(ArrowUp);
+
                 rightPaddleY += aiSpeed;
             }
         }
@@ -264,6 +250,5 @@ export function GameAi()
             restartGame();
         }
     });
-
     //requestAnimationFrame(updateCanvas);
 }

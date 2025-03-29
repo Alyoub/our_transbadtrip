@@ -59,6 +59,8 @@ export function	setupProfilButtons() {
 	// const notifsAccRejBtn = document.getElementById('notifsAccRejBtn') as HTMLButtonElement;
 	const logOutBtn = document.getElementById('logOutBtn') as HTMLButtonElement;
 	const logOutPanel = document.getElementById('logOutPanel') as HTMLElement;
+	const rejLogOutBtn = document.getElementById('rejLogOutBtn') as HTMLButtonElement;
+	const accLogOutBtn = document.getElementById('accLogOutBtn') as HTMLButtonElement;
 	const settingsBtn = document.querySelector('.settings-btn') as HTMLButtonElement;
 	const addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn') as HTMLButtonElement;
 	const addNewFriendCloseBtn = document.getElementById('addNewFriendCloseBtn') as HTMLButtonElement;
@@ -88,7 +90,31 @@ export function	setupProfilButtons() {
 	homeBtn.addEventListener('click', () => loadnhistory('home'));
 	// notifsBtn.addEventListener('click', (event) => showNotifications(event, notifsPanel));
 	// notifsAccRejBtn.addEventListener('click', (event) => showNotifsAccRej(event, notifs, notifsAccRejBtn));
-	logOutBtn.addEventListener('click', () => showLogOutPopup(logOutPanel));
+	logOutBtn.addEventListener('click', (event) => showLogOutPopup(event, logOutPanel));
+	rejLogOutBtn?.addEventListener('click', () => {
+		logOutPanel?.classList.remove('flex');
+		logOutPanel?.classList.add('hidden');
+	});
+	accLogOutBtn?.addEventListener('click', async () => {
+		try
+		{
+			const response = await fetch('http://localhost:3000/logout', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({}),
+				credentials : 'include'
+			});
+			if (!response.ok)
+				throw new Error("Failed to request log out");
+			loadnhistory('home');
+		}
+		catch (error)
+		{
+			console.error("Failed to log out: ", error);
+		}
+	});
 	settingsBtn.addEventListener('click', () => loadnhistory('settings'));
 	addNewFriendShowBtn?.addEventListener('click', () => showAddNewFriendPopup(sidePanel));
 	addNewFriendCloseBtn?.addEventListener('click', () => closeAddNewFriendPopup(sidePanel));
@@ -112,7 +138,7 @@ export function	setupProfilButtons() {
 	// playWFriendsBtn?.addEventListener('click', () => loadnhistory('localgame'));
 };
 
-function	showLogOutPopup(logOutPanel: HTMLElement) {
+function	showLogOutPopup(event: Event, logOutPanel: HTMLElement) {
 	event?.stopPropagation();
 	if (logOutPanel.classList.contains('hidden'))
 	{
@@ -124,6 +150,15 @@ function	showLogOutPopup(logOutPanel: HTMLElement) {
 	{
 		logOutPanel?.classList.add('hidden');
 		logOutPanel?.classList.remove('flex');
+	}
+};
+
+function	logOutPanelOutsideClick(event: Event, logOutPanel: HTMLElement) {
+	event?.stopPropagation();
+	if (!logOutPanel.contains(event.target as Node))
+	{
+		logOutPanel?.classList.remove('flex');
+		logOutPanel?.classList.add('hidden');
 	}
 };
 
@@ -149,15 +184,6 @@ function	showLogOutPopup(logOutPanel: HTMLElement) {
 // 		notifsPanel.classList.add('hidden');
 // 	}
 // };
-
-function	logOutPanelOutsideClick(event: Event, logOutPanel: HTMLElement) {
-	event?.stopPropagation();
-	if (!logOutPanel.contains(event.target as Node))
-	{
-		logOutPanel.classList.remove('flex');
-		logOutPanel.classList.add('hidden');
-	}
-};
 
 // function	showNotifsAccRej(event: Event, notifs: HTMLElement, notifsAccRejBtn: HTMLButtonElement) {
 // 	event?.stopPropagation();

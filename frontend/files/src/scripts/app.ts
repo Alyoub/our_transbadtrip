@@ -95,7 +95,7 @@ async function loadPage(page: string) {
 		const response = await fetch(`pages/${page}.html`);
 		const content = await response.text();
 		app.innerHTML = content;
-		// console.log(`nav to: ${page}`);
+		console.log(`nav to: ${page}`);
 		hideNav(page);
 		if (page === 'home')
 		{
@@ -119,7 +119,7 @@ async function loadPage(page: string) {
 		{
 			setupTournamentPage();
 			tournamentPlayers = extractPlayersNames();
-			console.log(`here: ${tournamentPlayers}`);
+			// console.log(`here: ${tournamentPlayers}`);
 			header.innerHTML = "<notification-header></notification-header";
 		}
 		if (page === 'tournament')
@@ -132,17 +132,17 @@ async function loadPage(page: string) {
 			updateSettingsPage();
 			header.innerHTML = "<notification-header></notification-header>";
 		}
-		if( page === 'game_ai')
+		if (page === 'game_ai')
 		{
 			GameAi();
 			header.innerHTML = "<notification-header></notification-header>";
 		}
-		if(page === 'game_local')
+		if (page === 'game_local')
 		{
 			GameLocal();
 			header.innerHTML = "<notification-header></notification-header>";
 		}
-		if(page === 'game_multi')
+		if (page === 'game_multi')
 		{
 			GameMulti();
 			header.innerHTML = "<notification-header></notification-header>";
