@@ -32,7 +32,12 @@ async function register(request, reply){
 
 async function logout (request, reply ){
     try{
-        // unset the jwt token 
+        
+        return reply.header[
+            ""
+        ].code(200).send({
+            message:"OK"
+        })
 
     }catch (err){
         //console.log("zeb");
@@ -173,5 +178,5 @@ async function users (request, reply) {
 }
 
 
-module.exports = {register,login,logout, profile, users}
+module.exports = {register,login,logout, profile, users,verify2FA}
 

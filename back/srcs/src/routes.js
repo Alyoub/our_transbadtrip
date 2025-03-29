@@ -1,6 +1,6 @@
 const {} = require('./tools/google-auth');
 const {Two_Factor_Auth} = require('./tools/tow_factor_auth');
-const { register, login,logout, profile, users } = require('./user/user');
+const { register, login,logout, profile, users ,verify2FA} = require('./user/user');
 const { HandleFriends } = require('./user/friends');
 const { upload_, change_password, update_, delete_ } = require('./user/user_managment');
 const {jwt} = require('./tools/jwt');
@@ -181,7 +181,7 @@ module.exports = async function routes(fastify, options) {
                 return reply.code(400).send({ error: "Invalid action" });
         }
     });
-    fastify.post()
+    fastify.post('verify_tfa',verify2FA)
     fastify.post('/register', register);
 
     fastify.get('/profile', { preHandler: [fastify.authenticate] }, profile);
