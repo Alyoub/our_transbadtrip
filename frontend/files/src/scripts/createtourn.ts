@@ -17,6 +17,12 @@ export function extractPlayersNames():string[] {
         (document.getElementById('player3') as HTMLInputElement)?.value || 'Player 3',
         (document.getElementById('player4') as HTMLInputElement)?.value || 'Player 4',
     ];
+
+    const ps = document.getElementById('player1') as HTMLInputElement;
+
+
+    // console.log(ps.value);
+
     return (tournamentPlayers);
 };
 // let tournamentPlayers: string[] = [];

@@ -4,12 +4,22 @@ export function GameMulti()
 {
     const canvas = document.getElementById("PingpongMulti") as HTMLCanvasElement;
     const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+    const close = document.getElementById('closemulti') as HTMLButtonElement;
+    const startButton = document.getElementById('start') as HTMLButtonElement;
+    const resetButton = document.getElementById('ResetButton') as HTMLButtonElement;
 
-    const close = document.getElementById('closemulti') as HTMLElement;
-
-    close.addEventListener('click', () => {
-        loadnhistory('profil');
+    startButton?.addEventListener('click', (event) => {
+        event?.stopPropagation();
+        startButton.style.display = "none";
+        requestAnimationFrame(updateCanvas);
+        console.log('salam');
     });
+    resetButton?.addEventListener('click', resetgame);
+    function resetgame(): void {
+        location.reload();
+    }
+
+    close?.addEventListener('click', () => loadnhistory('profil'));
 
     canvas.width = 1000;
     canvas.height = 500;
@@ -35,10 +45,10 @@ export function GameMulti()
 
     let ballX: number = canvas.width / 2;
     let ballY: number = canvas.height / 2;
-    let ballSpeedX: number = 7;
-    let ballSpeedY: number = 7;
+    let ballSpeedX: number = 5;
+    let ballSpeedY: number = 5;
 
-    const paddleSpeed: number = 8;
+    const paddleSpeed: number = 14;
 
     let lastTime: number = 0;
 
@@ -47,7 +57,8 @@ export function GameMulti()
 
     let gameOver: boolean = false;
 
-    const keys: { [key: string]: boolean } = {
+    const keys: { [key: string]: boolean } = 
+    {
         w: false,
         s: false,
         y: false,
@@ -117,7 +128,6 @@ export function GameMulti()
         ctx.textAlign = "center";
         ctx.fillText(message, canvas.width / 2, canvas.height / 2);
     }
-
     function updateCanvas(timestamp: number): void {
         if (gameOver) return;
 
@@ -139,7 +149,9 @@ export function GameMulti()
             ballSpeedY = -ballSpeedY;
         }
 
-        if (ballX - ballSize / 2 <= leftPaddleX + paddleWidth && ballY >= leftPaddleY && ballY <= leftPaddleY + paddleHeight) {
+        if (ballX - ballSize / 2 <= leftPaddleX + paddleWidth && ballY >= leftPaddleY && ballY <= leftPaddleY + paddleHeight) 
+        {
+            ballSpeedX = -ballSpeedX * 1.1;
             ballX = leftPaddleX + paddleWidth + ballSize / 2;
             const paddleCenterY = leftPaddleY + paddleHeight / 2;
             const relativeIntersectY = paddleCenterY - ballY;
@@ -150,10 +162,9 @@ export function GameMulti()
             ballSpeedY = -speed * Math.sin(bounceAngle);
         }
         
-        if (ballX - ballSize / 2 <= leftPaddleX2 + paddleWidth2 && 
-            ballX - ballSize / 2 >= leftPaddleX2 && 
-            ballY >= leftPaddleY2 && 
-            ballY <= leftPaddleY2 + paddleHeight2) {
+        if (ballX - ballSize / 2 <= leftPaddleX2 + paddleWidth2 && ballX - ballSize / 2 >= leftPaddleX2 && ballY >= leftPaddleY2 && ballY <= leftPaddleY2 + paddleHeight2)
+        {
+            ballSpeedX = -ballSpeedX * 1.1;
             ballX = leftPaddleX2 + paddleWidth2 + ballSize / 2;
             const paddleCenterY = leftPaddleY2 + paddleHeight2 / 2;
             const relativeIntersectY = paddleCenterY - ballY;
@@ -164,7 +175,9 @@ export function GameMulti()
             ballSpeedY = -speed * Math.sin(bounceAngle);
         }
         
-        if (ballX + ballSize / 2 >= rightPaddleX && ballY >= rightPaddleY && ballY <= rightPaddleY + paddleHeight) {
+        if (ballX + ballSize / 2 >= rightPaddleX && ballY >= rightPaddleY && ballY <= rightPaddleY + paddleHeight) 
+        {
+            ballSpeedX = -ballSpeedX * 1.1;
             ballX = rightPaddleX - ballSize / 2;
             const paddleCenterY = rightPaddleY + paddleHeight / 2;
             const relativeIntersectY = paddleCenterY - ballY;
@@ -175,10 +188,9 @@ export function GameMulti()
             ballSpeedY = -speed * Math.sin(bounceAngle);
         }
         
-        if (ballX + ballSize / 2 >= rightPaddleX2 && 
-            ballX + ballSize / 2 <= rightPaddleX2 + paddleWidth2 &&
-            ballY >= rightPaddleY2 && 
-            ballY <= rightPaddleY2 + paddleHeight2) {
+        if (ballX + ballSize / 2 >= rightPaddleX2 &&  ballX + ballSize / 2 <= rightPaddleX2 + paddleWidth2 && ballY >= rightPaddleY2 &&  ballY <= rightPaddleY2 + paddleHeight2) 
+        {
+            ballSpeedX = -ballSpeedX * 1.1;
             ballX = rightPaddleX2 - ballSize / 2;
             const paddleCenterY = rightPaddleY2 + paddleHeight2 / 2;
             const relativeIntersectY = paddleCenterY - ballY;
@@ -245,13 +257,14 @@ export function GameMulti()
         requestAnimationFrame(updateCanvas);
     }
 
-    function resetBall(): void {
+    function resetBall(): void 
+    {
         ballX = canvas.width / 2;
         ballY = canvas.height / 2;
         const randomDirectionX = Math.random() < 0.5 ? -1 : 1;
         const randomDirectionY = Math.random() < 0.5 ? -1 : 1;
-        ballSpeedX = 7 * randomDirectionX;
-        ballSpeedY = 7 * randomDirectionY;
+        ballSpeedX = 5 * randomDirectionX;
+        ballSpeedY = 5 * randomDirectionY;
         ballY += (Math.random() * 100 - 50);
     }
 
@@ -280,5 +293,5 @@ export function GameMulti()
         }
     });
 
-    requestAnimationFrame(updateCanvas);
+    //requestAnimationFrame(updateCanvas);
 }

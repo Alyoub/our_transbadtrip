@@ -129,12 +129,12 @@ p {
     font-weight: bolder;
 }
 
-canvas
+/* canvas
 {
     background-color: #0b152b;  
     border: 5px solid white; 
     display: block;
-}
+} */
 
 #startBtn {
     padding: 10px 20px;
@@ -161,7 +161,6 @@ canvas
 #exitBtn:hover {
     background: #a04545;
 }
-
 /* to remove */
 .hide
 {

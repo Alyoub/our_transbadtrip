@@ -90,7 +90,8 @@ async function change_password(request , reply ){
     }
 };
 
-async function upload_(request,reply) {
+
+async function upload_(request, reply) {
     if (!request.isMultipart()) {
         return reply.code(400).send({ error: "Request is not multipart" });
     }
@@ -109,11 +110,10 @@ async function upload_(request,reply) {
 
     const { userId } = request.user;
     const { login } = request.params;
-
     if (!file || !type) {
         return reply.code(400).send({ error: "File and type are required" });
     }
-    
+
     try {
         const user = await prisma.user.findUnique({
             where: { login }
@@ -123,18 +123,16 @@ async function upload_(request,reply) {
             return reply.code(403).send({ error: "Unauthorized access" });
         }
 
-        // if (!file.filename.endsWith('.png')) {
-        //     return reply.status(400).send({ error: 'Invalid file type, only .png allowed' });
-        // }
+        if (!file.filename.endsWith('.png')) {
+            return reply.status(400).send({ error: 'Invalid file type, only .png allowed' });
+        }
 
         let uploadPath;
         if (type === "profilepic") {
             uploadPath = path.join(__dirname, '../../uploads/', `${login}.png`);
         } else if (type === "wallpaper") {
-            uploadPath = path.join(__dirname,'../../uploads/',`${login}_wallpaper.png`)
-        }
-        else
-        {
+            uploadPath = path.join(__dirname, '../../uploads/', `${login}_wallpaper.png`);
+        } else {
             uploadPath = path.join(__dirname, '../../uploads', `${login}_${file.filename}`);
         }
 
@@ -146,9 +144,9 @@ async function upload_(request,reply) {
             path: uploadPath
         });
     } catch (err) {
-        console.log(err);
-        return reply.code(500).send({ error: "File upload failed" },err);
+        console.error(err);
+        return reply.code(500).send({ error: "File upload failed" });
     }
-};
+}
 
 module.exports = {upload_,change_password,update_,delete_};
