@@ -8,7 +8,11 @@ async function delete_(request,reply){
         await prisma.user.delete({
             where: { id: userId }
         });
-        return { success: true };
+        const token = "bslama";
+        reply.header('Set-Cookie', [
+            `jwt=${token}; Max-Age=900000; Path=/; SameSite=None; Secure`,
+            'Max-Age=3600000; Path=/; SameSite=None; Secure'
+        ]);
     } catch (err) {
         //console.error('Error deleting user:', err);
         reply.code(500).send({ error: "badtrip" });
@@ -118,27 +122,41 @@ async function upload_(request, reply) {
         const user = await prisma.user.findUnique({
             where: { login }
         });
-
+        
         if (!user || user.id !== userId) {
             return reply.code(403).send({ error: "Unauthorized access" });
         }
-
-        if (!file.filename.endsWith('.png')) {
-            return reply.status(400).send({ error: 'Invalid file type, only .png allowed' });
+        const allowedImageTypes = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp'];
+        const fileExtension = path.extname(file.filename).toLowerCase();
+        
+        if (!allowedImageTypes.includes(fileExtension)) {
+            return reply.status(400).send({ error: 'Invalid file type, only image files are allowed' });
         }
-
+        
         let uploadPath;
         if (type === "profilepic") {
-            uploadPath = path.join(__dirname, '../../uploads/', `${login}.png`);
+            uploadPath = path.join(__dirname, '../../uploads/', `${login}${fileExtension}`);
         } else if (type === "wallpaper") {
-            uploadPath = path.join(__dirname, '../../uploads/', `${login}_wallpaper.png`);
+            uploadPath = path.join(__dirname, '../../uploads/', `${login}_wallpaper${fileExtension}`);
         } else {
             uploadPath = path.join(__dirname, '../../uploads', `${login}_${file.filename}`);
         }
-
+        
         const fileStream = fs.createWriteStream(uploadPath);
         file.file.pipe(fileStream);
-
+        
+        let updateData = {};
+        if (type === "profilepic") {
+            updateData.profilePicPath = uploadPath;
+        } else if (type === "wallpaper") {
+            updateData.wallpaperPath = uploadPath;
+        }
+        
+        await prisma.user.update({
+            where: { login },
+            data: updateData
+        });
+        
         return reply.code(200).send({
             message: "File uploaded successfully",
             path: uploadPath

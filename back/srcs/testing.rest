@@ -19,7 +19,7 @@
 ### Test POST request to upload a file### Test POST request to upload a file
 POST http://localhost:3000/api/tedst/upload
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMjI4NDg2NTU4LCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0MzIyODQ4NiwiZXhwIjoxNzQzMzE0ODg2fQ.B4_Oy3onW1MrNTTIvHG9ADiLiDUAJixqjnqra3iuXC4; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict,Max-Age=3600000; Path=/; HttpOnly
+Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMjI4NDg2NTU4LCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0MzIyODQ4NiwiZXhwIjoxNzQzMzE0ODg2fQ.B4_Oy3onW1MrNTTIvHG9ADiLiDUAJixqjnqra3iuXC4; Max-Age=900000; Path=/; HttpOnly; Secure;  ,Max-Age=3600000; Path=/; HttpOnly
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="file"; filename="avatar.png"
@@ -37,7 +37,7 @@ Content-Type: application/json
 
 
 ### Test POST request to register a new user
-POST https://localhost/api/register
+POST http://localhost:3000/register
 Content-Type: application/json
 
 {
@@ -52,8 +52,8 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "trdwdedi@gmail.com",
-    "password": "Aotfi!1"
+    "email": "toukmati2000@gmail.com",
+    "password": "4f3e5647e60039b0"
 }
 
 ###
@@ -88,13 +88,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEyN
 GET http://localhost:3000/profile
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEyMDUyOTYwLCJ1c2VySWQiOjEsImlhdCI6MTc0MTgxMjA1MiwiZXhwIjoxNzQxODE1NjUyfQ.s0mLVaNrGI1IKndX-fQcpymXss6n8WxGdszjOWCG65M
 Content-Type: application/json
-Cookie:    jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMTEwNDc0MTc3LCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOmZhbHNlLCJpYXQiOjE3NDMxMTA0NzQsImV4cCI6MTc0MzE5Njg3NH0.oB-ObM8EEDcJugautxTCycJi4Oy2hh8ML-xVC-5hyYA; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict,Max-Age=3600000; Path=/; HttpOnly
+Cookie:    jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMTEwNDc0MTc3LCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOmZhbHNlLCJpYXQiOjE3NDMxMTA0NzQsImV4cCI6MTc0MzE5Njg3NH0.oB-ObM8EEDcJugautxTCycJi4Oy2hh8ML-xVC-5hyYA; Max-Age=900000; Path=/; HttpOnly; Secure;  ,Max-Age=3600000; Path=/; HttpOnly
 
 ### Test 
 POST http://localhost:3000/2fa/activate
 Content-Type: application/json
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNDE2MDQ4NDUxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjQxNjA0OCwiZXhwIjoxNzQyNDE5NjQ4fQ.mORtF8aiV8EDa0MNTxHb1zgzgQYjJBqW83FHO80oplw
-Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMTEwNDQ4NzEwLCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0MzExMDQ0OCwiZXhwIjoxNzQzMTk2ODQ4fQ.zMNWvu24589mUEkUaB0i5Ok4m0d8PqjYAe5NqVccDeE; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict,Max-Age=3600000; Path=/; HttpOnly
+Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMTEwNDQ4NzEwLCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0MzExMDQ0OCwiZXhwIjoxNzQzMTk2ODQ4fQ.zMNWvu24589mUEkUaB0i5Ok4m0d8PqjYAe5NqVccDeE; Max-Age=900000; Path=/; HttpOnly; Secure;  ,Max-Age=3600000; Path=/; HttpOnly
 
 
 {
