@@ -211,9 +211,22 @@ module.exports = async function routes(fastify, options) {
     
         try {
             await prisma.user.update({
-                where: { id: user.id },
+                where: { id: user.userId },
                 data: { wonGames: { increment: 1 } }
             });
+
+            const userrr = await prisma.user.findUnique({
+                where: { id: user.userId }
+            });
+
+            const levelsToIncrement = Math.floor(userrr.wonGames / 3);
+            console.log('levelsToIncrement', levelsToIncrement);
+            if (levelsToIncrement > 0) {
+                await prisma.user.update({
+                    where: { id: user.userId },
+                    data: { level: { increment: levelsToIncrement } }
+                });
+            }
             reply.status(200).send({ message: 'Win recorded' });
         } catch (error) {
             reply.status(500).send({ error: 'Failed to record win' });
@@ -225,7 +238,7 @@ module.exports = async function routes(fastify, options) {
     
         try {
             await prisma.user.update({
-                where: { id: user.id },
+                where: { id: user.userId },
                 data: { lostGames: { increment: 1 } }
             });
             reply.status(200).send({ message: 'Loss recorded' });
@@ -237,7 +250,7 @@ module.exports = async function routes(fastify, options) {
     fastify.get('/wingame', {preHandler: [fastify.authenticate]} , async (request, reply) => {
         const user = request.user;
         const user_ = await prisma.user.findUnique({
-            where: { id: user.id }
+            where: { id: user.userId }
         });
         return reply.status(200).send({ wonGames: user_.wonGames });
     });
@@ -245,8 +258,24 @@ module.exports = async function routes(fastify, options) {
     fastify.get('/losegame', {preHandler: [fastify.authenticate]} , async (request, reply) => {
         const user = request.user;
         const user_ = await prisma.user.findUnique({
-            where: { id: user.id }
+            where: { id: user.userId }
         });
         return reply.status(200).send({ lostGames: user_.lostGames });
+    });
+
+    fastify.post('/uploadpicb64', { preHandler: [fastify.authenticate] }, async (request, reply) => {
+        const user = request.user;
+        const { pic } = request.body;
+        console.log('pic', pic);
+        try {
+            await prisma.user.update({
+                where: { id: request.user.userId },
+                data: { profilePicPath: pic }
+            });
+            reply.status(200).send({ message: 'Picture uploaded' });
+        } catch (error) {
+            console.error('Prisma error:', error);
+            reply.status(500).send({ error: 'Failed to upload picture', details: error.message });
+        }      
     });
 };

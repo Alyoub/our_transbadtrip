@@ -85,10 +85,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEyN
 }
 
 ### Test GET request to profile (protected route)
-GET http://localhost:3000/profile
+GET https://localhost/api/profile
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxODEyMDUyOTYwLCJ1c2VySWQiOjEsImlhdCI6MTc0MTgxMjA1MiwiZXhwIjoxNzQxODE1NjUyfQ.s0mLVaNrGI1IKndX-fQcpymXss6n8WxGdszjOWCG65M
 Content-Type: application/json
-Cookie:    jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMTEwNDc0MTc3LCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOmZhbHNlLCJpYXQiOjE3NDMxMTA0NzQsImV4cCI6MTc0MzE5Njg3NH0.oB-ObM8EEDcJugautxTCycJi4Oy2hh8ML-xVC-5hyYA; Max-Age=900000; Path=/; HttpOnly; Secure;  ,Max-Age=3600000; Path=/; HttpOnly
+Cookie:    jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMzI4MjQ4NjA5LCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0MzMyODI0OCwiZXhwIjoxNzQzNDE0NjQ4fQ.AFj11nZihMFaCM-G9g9k-7hKvTnnZp2aW8wILyQEaNI; Max-Age=900000; Path=/; HttpOnly; Secure;  ,Max-Age=3600000; Path=/; HttpOnly
 
 ### Test 
 POST http://localhost:3000/2fa/activate
@@ -181,4 +181,15 @@ Content-Type: application/json
 {
     "email": "trip69721@gmail.com"
     
+}
+
+
+###
+
+POST https://localhost/api/uploadpicb64
+Content-Type: application/json
+Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMzI4MjQ4NjA5LCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0MzMyODI0OCwiZXhwIjoxNzQzNDE0NjQ4fQ.AFj11nZihMFaCM-G9g9k-7hKvTnnZp2aW8wILyQEaNI; Max-Age=900000; Path=/; HttpOnly; Secure;  ,Max-Age=3600000; Path=/; HttpOnly
+
+{
+    "pic": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABjElEQVR4AWP4//8/AyVA"
 }

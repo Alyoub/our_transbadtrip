@@ -39,6 +39,7 @@ model User {
 	blocked				BlockedUser[] @relation("blocker")
 	wonGames			Int        @default(0)
     lostGames			Int        @default(0)
+	level				Int        @default(0)
 }
 
 
