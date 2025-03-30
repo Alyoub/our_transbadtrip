@@ -5493,3 +5493,39 @@ src/scripts/home2.ts(745,1): error TS1128: Declaration or statement expected.
 
 
 11:40:06 PM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:28:51 AM - Starting compilation in watch mode...
+
+
+6:28:56 AM - Found 0 errors. Watching for file changes.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/http/server.py", line 1289, in <module>
+    test(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/http/server.py", line 1244, in test
+    with ServerClass(addr, HandlerClass) as httpd:
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/socketserver.py", line 452, in __init__
+    self.server_bind()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/http/server.py", line 1287, in server_bind
+    return super().server_bind()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/http/server.py", line 138, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/socketserver.py", line 466, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 48] Address already in use
+[2J[3J[H6:30:22 AM - Starting compilation in watch mode...
+
+
+6:30:26 AM - Found 0 errors. Watching for file changes.
+usage: server.py [-h] [--cgi] [--bind ADDRESS] [--directory DIRECTORY] [port]
+server.py: error: argument port: invalid int value: 'httplogs.out'
+[2J[3J[H6:32:55 AM - Starting compilation in watch mode...
+
+
+6:33:03 AM - Found 0 errors. Watching for file changes.
+[2J[3J[H6:33:37 AM - Starting compilation in watch mode...
+
+
+6:33:40 AM - Found 0 errors. Watching for file changes.

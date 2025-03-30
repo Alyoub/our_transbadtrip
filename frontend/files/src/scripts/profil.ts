@@ -37,9 +37,9 @@ export function	setupProfilButtons() {
 	const rejLogOutBtn = document.getElementById('rejLogOutBtn') as HTMLButtonElement;
 	const accLogOutBtn = document.getElementById('accLogOutBtn') as HTMLButtonElement;
 	const settingsBtn = document.querySelector('.settings-btn') as HTMLButtonElement;
-	const addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn') as HTMLButtonElement;
-	const addNewFriendCloseBtn = document.getElementById('addNewFriendCloseBtn') as HTMLButtonElement;
-	const messagesBtn = document.getElementById('messagesBtn') as HTMLButtonElement;
+	// const addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn') as HTMLButtonElement;
+	// const addNewFriendCloseBtn = document.getElementById('addNewFriendCloseBtn') as HTMLButtonElement;
+	// const messagesBtn = document.getElementById('messagesBtn') as HTMLButtonElement;
 	const sidePanel = document.getElementById('sidePanel') as HTMLElement;
 	const openSidePanelBtn = document.getElementById('openSidePanelBtn') as HTMLButtonElement;
 	const closeSidePanelBtn = document.getElementById('closeSidePanelBtn') as HTMLButtonElement;
@@ -105,7 +105,6 @@ export function	setupProfilButtons() {
 	play2v2Btn?.addEventListener('click', () => loadnhistory('game_multi'));
 	createTournPageBtn?.addEventListener('click', () => loadnhistory('createtourn'));
 	// hostTournPageBtn?.addEventListener('click', () => loadnhistory('hosttourn'));
-	// playWFriendsBtn?.addEventListener('click', () => loadnhistory('localgame'));
 };
 
 function	showLogOutPopup(event: Event, logOutPanel: HTMLElement) {
