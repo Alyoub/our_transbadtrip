@@ -12,12 +12,15 @@ async function register(request, reply){
         const hashedPassword = await bcrypt.hash(password, 10);
         const user = await prisma.user.create({
             data: {
+
                 login,
                 email,
                 name,
                 password: hashedPassword,
                 tfa : false,
-                tfa_key : "null"
+                tfa_key : "null",
+                profilePicPath: '/uplouds/default/avatar.png',
+                wallpaperPath: '/uplouads/default/wallpaper.png' 
             }
         });
         if(user)
@@ -51,8 +54,8 @@ async function login (request, reply){
         if(user.tfa){
             const p_token = jwt.generate(user.id,false);// need to modify 
             reply.header('Set-Cookie', [
-                `jwt=${p_token}; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict`,
-                'Max-Age=3600000; Path=/; HttpOnly'
+                `jwt=${p_token}; Max-Age=900000; Path=/; SameSite=None; Secure`,
+                'Max-Age=3600000; Path=/; SameSite=None; Secure'
             ]);
             return reply.code(200).send({
                 message:"tfa needed"
@@ -60,8 +63,8 @@ async function login (request, reply){
         }
         const token = jwt.generate(user.id,true);
         reply.header('Set-Cookie', [
-            `jwt=${token}; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict`,
-            'Max-Age=3600000; Path=/; HttpOnly'
+            `jwt=${token}; Max-Age=900000; Path=/; SameSite=None; Secure`,
+            'Max-Age=3600000; Path=/; SameSite=None; Secure'
         ]);
 
         return reply.code(200).send({ message : "OK" });
@@ -76,10 +79,10 @@ async function login (request, reply){
 async function logout(request,reply){
     try{
         const token = "bslama";
-        return reply.header('Set-Cookie', [
-            `jwt=${token}; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict`,
-            'Max-Age=3600000; Path=/; HttpOnly'
-        ]).code(200).send({message:"OK"});
+        reply.header('Set-Cookie', [
+            `jwt=${token}; Max-Age=900000; Path=/; SameSite=None; Secure`,
+            'Max-Age=3600000; Path=/; SameSite=None; Secure'
+        ]);
 
     }catch(err){
         //console.log('logout :( error',err);
@@ -114,8 +117,8 @@ async function verify2FA(request, reply) {
         const finalToken = jwt.generate(user.id, true);
 
         reply.header('Set-Cookie', [
-            `jwt=${finalToken}; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict`,
-            'Max-Age=3600000; Path=/; HttpOnly'
+            `jwt=${finalToken}; Max-Age=900000; Path=/; SameSite=None; Secure`,
+            'Max-Age=3600000; Path=/; SameSite=None; Secure'
         ]);
 
         return reply.code(200).send({ 
@@ -142,6 +145,9 @@ async function  profile (request,reply) {
         login: user.login,
         email: user.email,
         name: user.name,
+        profilePicPath:user.profilePicPath,
+        wallpaperPath:user.wallpaperPath,
+        tfa:user.tfa,
     });
 
 }

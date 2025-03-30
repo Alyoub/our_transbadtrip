@@ -68,7 +68,7 @@ export function	setupProfilButtons() {
 	accLogOutBtn?.addEventListener('click', async () => {
 		try
 		{
-			const response = await fetch('http://localhost:3000/logout', {
+			const response = await fetch(`${window.location.origin}/api/logout`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

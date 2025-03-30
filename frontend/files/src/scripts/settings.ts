@@ -1,5 +1,29 @@
 import { url } from "inspector";
 import { loadnhistory } from "./app.js";
+fetch(`${window.location.origin}/api/profile`, {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    credentials: 'include'
+})
+.then(response => response.json())
+.then(data => {
+    const userInfo = {
+        name: data.name,
+        login: data.login,
+        email: data.email,
+        id:data.id,
+        profilePicPath:`${window.location.origin}${data.profilePicPath}`,
+        wallpaperPath:`${window.location.origin}${data.wallpaperPath}`,
+        tfa:data.tfa,
+    };
+    console.log(userInfo);
+})
+.catch(error => {
+    console.error('Error:', error);
+});
+
 
 export const updateSettingsPage = () => {
 
@@ -111,42 +135,77 @@ export const updateSettingsPage = () => {
     //     });
     // }
     
-    function uploadPics(uploadBtn: string, inputSwitch: string, type : string) {
+    function uploadPicsProfile(uploadBtn: string, inputSwitch: string, type: string) {
         const coverBtEdit = document.querySelector(uploadBtn) as HTMLElement | null;
         const inputUpload = document.querySelector(inputSwitch) as HTMLInputElement | null;
         const profilePic = document.querySelector(type) as HTMLImageElement | null;
-
-
-        // <img class="settings_pic" src="/public/profile_pictures/ProfilePic.jpeg">
     
-
-        if(coverBtEdit && inputUpload && profilePic)
-        {
-            coverBtEdit.addEventListener('click', () => {
-                inputUpload.click();
-            });
-
-                inputUpload.addEventListener('change', () => {
-                if (inputUpload.files && inputUpload.files.length > 0) {
-                    const file = inputUpload.files[0];
-                    const imageUrl = URL.createObjectURL(file);
-                    profilePic.src = imageUrl;
-                    console.log(imageUrl);
+        if (coverBtEdit && inputUpload && profilePic) {
+            coverBtEdit.addEventListener('click', () => inputUpload.click());
+    
+            inputUpload.addEventListener('change', () => {
+                if (!inputUpload.files?.[0]) return;
+    
+                const file = inputUpload.files[0];
+                const img = new Image();
+                
+                img.onload = () => {
+                    // Create canvas to force 736x736
+                    const canvas = document.createElement('canvas');
+                    canvas.width = 736;
+                    canvas.height = 736;
+                    const ctx = canvas.getContext('2d')!;
                     
-                } else {
-                    console.log("No file selected.");
-                }
+                    // STRETCH MODE (simplest)
+                    ctx.drawImage(img, 0, 0, 736, 736);
+                    
+                    profilePic.src = canvas.toDataURL();
+                    URL.revokeObjectURL(img.src);
+                };
+                
+                img.src = URL.createObjectURL(file);
             });
         }
-       
+    }
+    function uploadPicsCover(uploadBtn: string, inputSwitch: string, type: string) {
+        const coverBtEdit = document.querySelector(uploadBtn) as HTMLElement | null;
+        const inputUpload = document.querySelector(inputSwitch) as HTMLInputElement | null;
+        const profilePic = document.querySelector(type) as HTMLImageElement | null;
     
-        
+        if (coverBtEdit && inputUpload && profilePic) {
+            coverBtEdit.addEventListener('click', () => inputUpload.click());
+    
+            inputUpload.addEventListener('change', () => {
+                if (!inputUpload.files?.[0]) return;
+    
+                const file = inputUpload.files[0];
+                const img = new Image();
+                
+                img.onload = () => {
+                    // Create canvas to force 736x736
+                    const canvas = document.createElement('canvas');
+                    canvas.width = 2740;
+                    canvas.height = 942;
+                    const ctx = canvas.getContext('2d')!;
+                    
+                    // STRETCH MODE (simplest)
+                    ctx.drawImage(img, 0, 0, 2740, 2740);
+                    
+                    profilePic.src = canvas.toDataURL();
+                    URL.revokeObjectURL(img.src);
+                };
+                
+                img.src = URL.createObjectURL(file);
+
+                console.log(img.src);
+            });
+        }
     }
     
     
 
-    uploadPics('.add_sitting_cover', '.Sitting_Uplouad_cover', '.settings_cover');
-    uploadPics('.add_sitting_pic', '.Sitting_Uplouad_pic', '.settings_pic');
+    uploadPicsCover('.add_sitting_cover', '.Sitting_Uplouad_cover', '.settings_cover');
+    uploadPicsProfile('.add_sitting_pic', '.Sitting_Uplouad_pic', '.settings_pic');
 
     const toggleVisibility = (inputSelector: string, buttonSelector: string) => {
 
@@ -213,6 +272,26 @@ export const updateSettingsPage = () => {
     switchbtns('.bt_edit_email', '.input_settings_email');
     switchbtns('.bt_edit_password', '.input_settings_password');
 
+    function changeData()
+    {
+        const editName = document.querySelector('.input_settings_name') as HTMLInputElement;
+        const btnName = document.querySelector('.bt_edit_name') as HTMLButtonElement;
+
+        let nameVal = '';
+
+        editName.addEventListener('input', () => {
+            
+            nameVal = editName.value
+        });
+        if(editName.disabled === true)
+        {
+            btnName.addEventListener('click', () => {
+                console.log(nameVal);
+            });
+        }
+    }
+    changeData();
+
     
     toggleVisibility('.input_settings_password', '.Sitting_show_btn');
 
@@ -233,7 +312,7 @@ export const updateSettingsPage = () => {
         const OFF = '<img class="SwitchOFF" src="/public/logos/SwitchOFF.svg">';
         const ON = '<img class="SwitchON" src="/public/logos/SwitchON.svg">';
 
-        fetch('http://localhost:3000/2fa/generate', {
+        fetch(`${window.location.origin}/api/2fa/generate`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -247,7 +326,6 @@ export const updateSettingsPage = () => {
         const QR =  data.qr_url;
         Qrgen.innerHTML = `<img class="QR_test" src="${QR}">`;
         })
-        // console.log("ok");
 
         allSittingsFaData.classList.add('hide');
 
@@ -260,7 +338,7 @@ export const updateSettingsPage = () => {
                 const FA = {
                     otp : FAinput.value.trim(),
                 }
-                fetch('http://localhost:3000/2fa/verify', {
+                fetch(`${window.location.origin}/api/2fa/verify`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -324,7 +402,7 @@ export const updateSettingsPage = () => {
 
         const fullname = document.querySelector('.settings_user_name') as HTMLLabelElement;
 
-        fetch('http://localhost:3000/profile', {
+        fetch(`${window.location.origin}/api/profile`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -356,8 +434,8 @@ export const updateSettingsPage = () => {
 
         deeletBtn.addEventListener('click', () => {
             console.log('BAD TRIP');
-
-                fetch('http://localhost:3000/user/:id', {
+                const id = '';
+                fetch(`${window.location.origin}/api/user/${id}`, {
                 method: 'delete',
                 headers: {
                     'Content-Type': 'application/json'

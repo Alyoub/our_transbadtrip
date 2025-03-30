@@ -24,11 +24,11 @@ module.exports = async function routes(fastify, options) {
 
     
     fastify.get('/', async (request, reply) => {
-        const token =  "sedbaraka ealiya mn trip ;";
-        reply.header('Set-Cookie', [
-            `jwt=${token}; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict`,
-            'Max-Age=3600000; Path=/; HttpOnly'
-        ]);
+        // const token =  "sedbaraka ealiya mn trip ;";
+        // reply.header('Set-Cookie', [
+        //     `jwt=${token}; Max-Age=900000; Path=/; HttpOnly; Secure;  `,
+        //     'Max-Age=3600000; Path=/; HttpOnly'
+        // ]);
         return reply.code(200).send({
             goodtrip :"transbadtrip khdama ",
         })
@@ -68,13 +68,12 @@ module.exports = async function routes(fastify, options) {
         },
     });
     
-    fastify.after( ()=>{
-        // //console.log("hna ");
-        fastify.io.on("connection",(socket)=>{
-            //console.log('rakman');
-            game_logic(socket,fastify)
+    fastify.after(() => {
+        fastify.io.on("connection", (socket) => {
+            console.log("client connected", socket.id);
+            game_logic(socket, fastify);
         });
-    })
+    });
 
     // fastify.get("/api/tournaments/:id", async (request, reply) => {
     //     const tournament = await prisma.tournament.findUnique({
@@ -151,7 +150,7 @@ module.exports = async function routes(fastify, options) {
         });
         const jwt_token = jwt.generate(user.id);
         reply.header('Set-Cookie', [
-            `jwt=${jwt_token}; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict`,
+            `jwt=${jwt_token}; Max-Age=900000; Path=/; HttpOnly; Secure;`,
             'Max-Age=3600000; Path=/; HttpOnly'
         ]);
         return reply.code(200).send({ message: 'logged in' });
@@ -189,7 +188,9 @@ module.exports = async function routes(fastify, options) {
     fastify.post('/login', async (request, reply) => { return login(request, reply, fastify); });
     fastify.post('/logout',{preHandler: [fastify.authenticate]},logout);
     fastify.get('/users', { preHandler: [fastify.authenticate]}, users);
-
+    fastify.post('/access',{preHandler:[fastify.authenticate]}, async (request,reply)=>{
+        return reply.code(200).send({message:"OK!"});
+    })
     fastify.post('/api/:login/upload', { preHandler: [fastify.authenticate] }, upload_);
 
     fastify.put('/api/:login/change_password', { preHandler: [fastify.authenticate] }, change_password);

@@ -24,6 +24,8 @@ model User {
 	id             		Int       @id @default(autoincrement())
 	login          		String    @unique
 	email          		String    @unique
+	profilePicPath 	String?  
+  	wallpaperPath  String? 
 	name           		String
 	password       		String
 	tfa            		Boolean

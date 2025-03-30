@@ -1,7 +1,12 @@
 // https://codeculturepro.medium.com/implementing-google-login-in-a-node-js-application-b6fbd98ce5e
 // https://github.com/atultyagi612/Google-Authentication-nodejs?tab=readme-ov-file
 const axios = require('axios');
+const bcrypt = require('bcrypt');
+const crypto = require('crypto');
+const {SMTP} = require('./smtp')
+const {prisma} = require('../user/db');
 const CLIENT_ID = process.env.CLIENT_ID;
+
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
 // mohim kasni n9rah hadchi :
@@ -11,6 +16,10 @@ const REDIRECT_URI = process.env.REDIRECT_URI;
 // https://github.com/atultyagi612/Google-Authentication-nodejs?tab=readme-ov-file#configure-passports-google-startegy
 
 // https://fastify.dev/docs/latest/Reference/Hooks/
+
+function generatePassword() {
+    return crypto.randomBytes(8).toString('hex');
+}
 
 function google_login_flow(request , reply){
     const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=profile email` ;
@@ -34,37 +43,39 @@ async function google_login_response(request, reply) {
             headers: { Authorization: `Bearer ${access_token}` },
         });
 
-        const { email, name, sub: googleId } = profile;
+        console.log("profile : ", profile);
+        const { email, name, sub: googleId, picture } = profile;
         let user = await prisma.user.findUnique({
             where: { email },
         });
-
+        const password = generatePassword();
+        const hashedPassword = await bcrypt.hash(password, 10);
         if (!user) {
             user = await prisma.user.create({
                 data: {
                     email,
                     name,
-                    googleId,
+                    tfa:false,
+                    tfa_key : "null",
+                    profilePicPath: picture, 
+                    wallpaperPath: '/path/to/default/wallpaper.png' ,
+                    login: `given_name_{${googleId}}`,
+                    password:hashedPassword,
                 },
             });
         }
-
-        const token = jwt.generate(user.id);
-
-        reply.setCookie('jwt', token, {
-            httpOnly: true,
-            secure: true,
-            sameSite: 'Strict',
+        await SMTP.send({
+            sender: process.env.SMTP_SENDER,
+            to: email,
+            subject: 'Your New Account Password',
+            body: `<p>Your password is: ${password}</p>`
         });
-        reply.redirect('/profile');
-        return reply;
 
+
+        return reply.redirect('/profile');
     } catch (err) {
-        reply.redirect('/');
-        return reply.code(500).send({
-            error: err,
-            badtrip: "hadchi makhdamch"
-        });
+        console.error('Authentication error:', err);
+        return reply.redirect('/?error=auth_failed');
     }
 }
 
