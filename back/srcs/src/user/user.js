@@ -19,8 +19,8 @@ async function register(request, reply){
                 password: hashedPassword,
                 tfa : false,
                 tfa_key : "null",
-                profilePicPath: '/path/to/default/profilepic.png', // Default profile picture path
-                wallpaperPath: '/path/to/default/wallpaper.png' 
+                profilePicPath: '/uplouds/default/avatar.png',
+                wallpaperPath: '/uplouads/default/wallpaper.png' 
             }
         });
         if(user)
@@ -145,6 +145,9 @@ async function  profile (request,reply) {
         login: user.login,
         email: user.email,
         name: user.name,
+        profilePicPath:user.profilePicPath,
+        wallpaperPath:user.wallpaperPath,
+        tfa:user.tfa,
     });
 
 }

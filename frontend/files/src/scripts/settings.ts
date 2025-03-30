@@ -1,5 +1,29 @@
 import { url } from "inspector";
 import { loadnhistory } from "./app.js";
+fetch(`${window.location.origin}/api/profile`, {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    credentials: 'include'
+})
+.then(response => response.json())
+.then(data => {
+    const userInfo = {
+        name: data.name,
+        login: data.login,
+        email: data.email,
+        id:data.id,
+        profilePicPath:`${window.location.origin}${data.profilePicPath}`,
+        wallpaperPath:`${window.location.origin}${data.wallpaperPath}`,
+        tfa:data.tfa,
+    };
+    console.log(userInfo);
+})
+.catch(error => {
+    console.error('Error:', error);
+});
+
 
 export const updateSettingsPage = () => {
 
