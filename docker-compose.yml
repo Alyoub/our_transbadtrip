@@ -6,19 +6,19 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /Users/rrakman/uploads
+      device: /Users/alotfi/uploads
       o: bind
   database:
     driver: local
     driver_opts:
       type: none
-      device: /Users/rrakman/database
+      device: /Users/alotfi/database
       o: bind
   files:
     driver: local
     driver_opts:
       type: none
-      device: /Users/rrakman/frontfiles
+      device: /Users/alotfi/frontfiles
       o: bind
 services:
   frontend:

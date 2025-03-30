@@ -91,14 +91,14 @@ Content-Type: application/json
 Cookie:    jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMzI4MjQ4NjA5LCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0MzMyODI0OCwiZXhwIjoxNzQzNDE0NjQ4fQ.AFj11nZihMFaCM-G9g9k-7hKvTnnZp2aW8wILyQEaNI; Max-Age=900000; Path=/; HttpOnly; Secure;  ,Max-Age=3600000; Path=/; HttpOnly
 
 ### Test 
-POST http://localhost:3000/2fa/activate
+POST https://localhost/api/2fa/activate
 Content-Type: application/json
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNDE2MDQ4NDUxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjQxNjA0OCwiZXhwIjoxNzQyNDE5NjQ4fQ.mORtF8aiV8EDa0MNTxHb1zgzgQYjJBqW83FHO80oplw
-Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMTEwNDQ4NzEwLCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0MzExMDQ0OCwiZXhwIjoxNzQzMTk2ODQ4fQ.zMNWvu24589mUEkUaB0i5Ok4m0d8PqjYAe5NqVccDeE; Max-Age=900000; Path=/; HttpOnly; Secure;  ,Max-Age=3600000; Path=/; HttpOnly
+Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMzI2MTU1MDE5LCJ1c2VySWQiOjUsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0MzMyNjE1NSwiZXhwIjoxNzQzNDEyNTU1fQ.KfA6oTJG8VoVND_H3bq5Bv7l15bBMcCgn_ozqe3EV2A; Max-Age=900000; Path=/; HttpOnly; Secure;  ,Max-Age=3600000; Path=/; HttpOnly
 
 
 {
-    "activate": true
+    "activate": false
 }
 
 ### Test 
