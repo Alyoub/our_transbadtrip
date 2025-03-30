@@ -1,4 +1,26 @@
-import { loadnhistory } from "./app.js";
+import { loadnhistory , fetchPlayerData } from "./app.js";
+
+export async function	setupLocalPage() {
+    const homeBtn = document.querySelector('.home-btn') as HTMLButtonElement;
+
+    homeBtn.addEventListener('click', () => loadnhistory('profil'));
+	try
+	{
+		const playerData = await fetchPlayerData();
+		// const iPlayerName = document.getElementById('iPlayerName') as HTMLSpanElement;
+		const iPlayerUsername = document.getElementById('iPlayerUsername') as HTMLSpanElement;
+
+		// if (iPlayerName)
+		// 	iPlayerName.textContent = playerData.name;
+		if (iPlayerUsername)
+			iPlayerUsername.textContent = playerData.login;
+	}
+	catch(error)
+	{
+		console.error("Failed to update the Player's name: ", error);
+	}
+	
+};
 
 export function GameLocal()
 {

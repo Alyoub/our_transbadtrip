@@ -1,12 +1,9 @@
-// import { constrainedMemory } from 'process';
-import { loadnhistory } from './app.js';
-// import { RedrectPage } from './home2.js';
+import { loadnhistory , fetchPlayerData} from './app.js';
 
 let friendsBtn: NodeListOf<HTMLButtonElement> | null;
 let historyBtn: NodeListOf<HTMLButtonElement> | null;
 let friendsList: NodeListOf<HTMLElement> | null;
 let historyList: NodeListOf<HTMLElement> | null;
-
 
 export async function	setupProfilPage() {
 	try
@@ -19,35 +16,11 @@ export async function	setupProfilPage() {
 			iPlayerName.textContent = playerData.name;
 		if (iPlayerUsername)
 			iPlayerUsername.textContent = playerData.login;
+		playerData.profilePicPath
 	}
 	catch(error)
 	{
 		console.error("Failed to update the Player's name: ", error);
-	}
-	
-};
-
-async function	fetchPlayerData() {
-	try
-	{
-		const response = await fetch(`${window.location.origin}/api/profile`, {
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			credentials : 'include'
-		});
-
-		if (!response.ok)
-			throw new Error("Failed to fetch for the player's Data");
-        const data = await response.json();
-        console.log("data: ", data);
-
-		return (data);
-	}
-	catch (error)
-	{
-		console.error("Failed to fetch for the player's name: ", error);
 	}
 };
 
@@ -62,9 +35,9 @@ export function	setupProfilButtons() {
 	const rejLogOutBtn = document.getElementById('rejLogOutBtn') as HTMLButtonElement;
 	const accLogOutBtn = document.getElementById('accLogOutBtn') as HTMLButtonElement;
 	const settingsBtn = document.querySelector('.settings-btn') as HTMLButtonElement;
-	const addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn') as HTMLButtonElement;
-	const addNewFriendCloseBtn = document.getElementById('addNewFriendCloseBtn') as HTMLButtonElement;
-	const messagesBtn = document.getElementById('messagesBtn') as HTMLButtonElement;
+	// const addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn') as HTMLButtonElement;
+	// const addNewFriendCloseBtn = document.getElementById('addNewFriendCloseBtn') as HTMLButtonElement;
+	// const messagesBtn = document.getElementById('messagesBtn') as HTMLButtonElement;
 	const sidePanel = document.getElementById('sidePanel') as HTMLElement;
 	const openSidePanelBtn = document.getElementById('openSidePanelBtn') as HTMLButtonElement;
 	const closeSidePanelBtn = document.getElementById('closeSidePanelBtn') as HTMLButtonElement;
@@ -82,12 +55,7 @@ export function	setupProfilButtons() {
 	const createTournPageBtn = document.getElementById('createTournPageBtn') as HTMLButtonElement;
 	// const hostTournPageBtn = document.getElementById('hostTournPageBtn') as HTMLButtonElement;
 
-
-	// RedrectPage('palySolo', 'game_ai'); // added by alotfi
-	// RedrectPage('closeAI', 'profil');
-	// RedrectPage('Localgame', 'game_local');
-	
-	homeBtn.addEventListener('click', () => loadnhistory('home'));
+	homeBtn.addEventListener('click', () => loadnhistory('profil'));
 	// notifsBtn.addEventListener('click', (event) => showNotifications(event, notifsPanel));
 	// notifsAccRejBtn.addEventListener('click', (event) => showNotifsAccRej(event, notifs, notifsAccRejBtn));
 	logOutBtn.addEventListener('click', (event) => showLogOutPopup(event, logOutPanel));
@@ -116,9 +84,9 @@ export function	setupProfilButtons() {
 		}
 	});
 	settingsBtn.addEventListener('click', () => loadnhistory('settings'));
-	addNewFriendShowBtn?.addEventListener('click', () => showAddNewFriendPopup(sidePanel));
-	addNewFriendCloseBtn?.addEventListener('click', () => closeAddNewFriendPopup(sidePanel));
-	messagesBtn?.addEventListener('click', () => loadnhistory('messages'));
+	// addNewFriendShowBtn?.addEventListener('click', () => showAddNewFriendPopup(sidePanel));
+	// addNewFriendCloseBtn?.addEventListener('click', () => closeAddNewFriendPopup(sidePanel));
+	// messagesBtn?.addEventListener('click', () => loadnhistory('messages'));
 	openSidePanelBtn?.addEventListener('click', (event) => openSidePanel(event, sidePanel));
 	closeSidePanelBtn?.addEventListener('click', (event) => closeSidePanel(event, sidePanel));
 	document.addEventListener('click', (event) => panelOutsideClick(event, sidePanel));
@@ -128,14 +96,13 @@ export function	setupProfilButtons() {
 	historyBtn?.forEach((element) => {
 		element.addEventListener('click', showHistoryList);
 	});
-	localBtn?.addEventListener('click', () => selectLocal(localBtn, onlineBtn, tournTitle, createTournPageBtn, playSolo, play1v1Btn, play2v2Btn));
-	onlineBtn?.addEventListener('click', () => selectOnline(localBtn, onlineBtn, tournTitle, createTournPageBtn, playSolo, play1v1Btn, play2v2Btn));
-	playSolo?.addEventListener('click', () => loadnhistory('game_ai')); //fill thiss
-	play1v1Btn?.addEventListener('click', () => loadnhistory('game_local')); //fill thiss
-	play2v2Btn?.addEventListener('click', () => loadnhistory('game_multi')); //fill thiss
+	localBtn?.addEventListener('click', () => selectLocal(localBtn, onlineBtn, tournTitle, createTournPageBtn, playSolo, play2v2Btn));
+	onlineBtn?.addEventListener('click', () => selectOnline(localBtn, onlineBtn, tournTitle, createTournPageBtn, playSolo, play2v2Btn));
+	playSolo?.addEventListener('click', () => loadnhistory('game_ai'));
+	play1v1Btn?.addEventListener('click', () => loadnhistory('game_local'));
+	play2v2Btn?.addEventListener('click', () => loadnhistory('game_multi'));
 	createTournPageBtn?.addEventListener('click', () => loadnhistory('createtourn'));
 	// hostTournPageBtn?.addEventListener('click', () => loadnhistory('hosttourn'));
-	// playWFriendsBtn?.addEventListener('click', () => loadnhistory('localgame'));
 };
 
 function	showLogOutPopup(event: Event, logOutPanel: HTMLElement) {
@@ -211,33 +178,33 @@ function	logOutPanelOutsideClick(event: Event, logOutPanel: HTMLElement) {
 // 	}
 // };
 
-function	showAddNewFriendPopup(sidePanel: HTMLElement) {
-	const toBlur = document.getElementById('toBlur') as HTMLElement;
-	const toPop = document.getElementById('toPop') as HTMLElement;
+// function	showAddNewFriendPopup(sidePanel: HTMLElement) {
+// 	const toBlur = document.getElementById('toBlur') as HTMLElement;
+// 	const toPop = document.getElementById('toPop') as HTMLElement;
 
-	if (toBlur)
-		toBlur.inert = true;
-	toBlur.classList.add('blur-sm');
-	toPop.classList.remove('hidden');
-	toPop.classList.add('flex');
-	sidePanel?.classList.remove('block');
-	sidePanel?.classList.add('hidden');
-};
+// 	if (toBlur)
+// 		toBlur.inert = true;
+// 	toBlur.classList.add('blur-sm');
+// 	toPop.classList.remove('hidden');
+// 	toPop.classList.add('flex');
+// 	sidePanel?.classList.remove('block');
+// 	sidePanel?.classList.add('hidden');
+// };
 
-function	closeAddNewFriendPopup(sidePanel: HTMLElement) {
-	const toBlur = document.getElementById('toBlur') as HTMLElement;
-	const toPop = document.getElementById('toPop') as HTMLElement;
+// function	closeAddNewFriendPopup(sidePanel: HTMLElement) {
+// 	const toBlur = document.getElementById('toBlur') as HTMLElement;
+// 	const toPop = document.getElementById('toPop') as HTMLElement;
 
-	if (toBlur)
-		toBlur.inert = false;
-	toBlur.classList.remove('blur-sm');
-	toPop.classList.add('hidden');
-	toPop.classList.remove('flex');
-	sidePanel?.classList.add('block');
-	sidePanel?.classList.remove('hidden');
-}
+// 	if (toBlur)
+// 		toBlur.inert = false;
+// 	toBlur.classList.remove('blur-sm');
+// 	toPop.classList.add('hidden');
+// 	toPop.classList.remove('flex');
+// 	sidePanel?.classList.add('block');
+// 	sidePanel?.classList.remove('hidden');
+// };
 
-function	selectLocal(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, tournTitle:HTMLElement, createTournPageBtn: HTMLButtonElement, playSolo: HTMLButtonElement, play1v1Btn:HTMLButtonElement, play2v2Btn:HTMLButtonElement) {
+function	selectLocal(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, tournTitle:HTMLElement, createTournPageBtn: HTMLButtonElement, playSolo: HTMLButtonElement, play2v2Btn:HTMLButtonElement) {
 	localBtn?.classList.add('bg-gray-600');
 	localBtn?.classList.remove('hover:bg-gray-500');
 	onlineBtn?.classList.add('hover:bg-gray-500');
@@ -254,7 +221,7 @@ function	selectLocal(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, 
 	// hostTournPageBtn?.classList.add('opacity-30');
 };
 
-function	selectOnline(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, tournTitle:HTMLElement, createTournPageBtn: HTMLButtonElement, playSolo: HTMLButtonElement, play1v1Btn:HTMLButtonElement, play2v2Btn:HTMLButtonElement) {
+function	selectOnline(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, tournTitle:HTMLElement, createTournPageBtn: HTMLButtonElement, playSolo: HTMLButtonElement, play2v2Btn:HTMLButtonElement) {
 	onlineBtn?.classList.add('bg-gray-600');
 	onlineBtn?.classList.remove('hover:bg-gray-500');
 	localBtn?.classList.add('hover:bg-gray-500');
@@ -321,25 +288,4 @@ function	showHistoryList() {
 		element?.classList.add('panel-btn');
 		element?.classList.remove('selected-panel-btn');
 	});
-};
-
-export function	handleScroll() {
-	const scrollables = document.querySelectorAll('.scrollable') as NodeListOf<HTMLElement>;
-	
-	scrollables?.forEach((element) => {
-		let timeout: NodeJS.Timeout = setTimeout(() => {}, 0);
-		
-		element.addEventListener('scroll', () => showScrollbar(element as HTMLElement, timeout));
-		hideScrollbar(element as HTMLElement);
-	});
-};
-
-function	showScrollbar(element: HTMLElement, timeout: NodeJS.Timeout) {
-	element.classList.remove('scrollbar-none');
-	clearTimeout(timeout);
-	timeout = setTimeout(() => hideScrollbar(element), 1500);
-};
-
-function	hideScrollbar(element: HTMLElement) {
-	element.classList.add('scrollbar-none');
 };

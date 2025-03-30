@@ -12,13 +12,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /Users/alotfi/database
+      device: /Users/rrakman/database
       o: bind
   files:
     driver: local
     driver_opts:
       type: none
-      device: /Users/alotfi/frontfiles
+      device: /Users/rrakman/frontfiles
       o: bind
 services:
   frontend:
