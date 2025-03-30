@@ -444,7 +444,7 @@ export const setupLoginPage = () => {
                     name: fullname,
                     password: password.value.trim(),
                 };
-                fetch('http://localhost:3000/register', {
+                fetch(`${window.location.origin}/api/register`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -689,8 +689,8 @@ export const setupLoginPage = () => {
                 const verfyEamil = {
                     email : valinput.value.trim(),
                 }
-
-                fetch('http://localhost:3000/api/:login/change_password', {
+                const login = '';
+                fetch(`${window.location.origin}/api/api/${login}/change_password`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'

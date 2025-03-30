@@ -288,7 +288,7 @@ export const updateSettingsPage = () => {
         const OFF = '<img class="SwitchOFF" src="/public/logos/SwitchOFF.svg">';
         const ON = '<img class="SwitchON" src="/public/logos/SwitchON.svg">';
 
-        fetch('http://localhost:3000/2fa/generate', {
+        fetch(`${window.location.origin}/api/2fa/generate`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -314,7 +314,7 @@ export const updateSettingsPage = () => {
                 const FA = {
                     otp : FAinput.value.trim(),
                 }
-                fetch('http://localhost:3000/2fa/verify', {
+                fetch(`${window.location.origin}/api/2fa/verify`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -378,7 +378,7 @@ export const updateSettingsPage = () => {
 
         const fullname = document.querySelector('.settings_user_name') as HTMLLabelElement;
 
-        fetch('http://localhost:3000/profile', {
+        fetch(`${window.location.origin}/api/profile`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -410,8 +410,8 @@ export const updateSettingsPage = () => {
 
         deeletBtn.addEventListener('click', () => {
             console.log('BAD TRIP');
-
-                fetch('http://localhost:3000/user/:id', {
+                const id = '';
+                fetch(`${window.location.origin}/api/user/${id}`, {
                 method: 'delete',
                 headers: {
                     'Content-Type': 'application/json'

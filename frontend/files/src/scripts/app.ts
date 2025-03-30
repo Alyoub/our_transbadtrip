@@ -20,6 +20,7 @@ import {
 import { updateSettingsPage } from "./settings.js";
 import { rakmanchat } from "./chat.js";
 import { GameAi } from "./GameAI.js";
+import { GameOnline2 } from './GameOnline.js';
 import { GameLocal } from "./GameLocal.js";
 import { GameMulti } from "./GameMulti.js";
 import { setupTournamentPage , extractPlayersNames } from './createtourn.js';
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const Error = '404';
 	const Home = 'home';
 
-	fetch('http://localhost:3000/2fa/generate', {
+	fetch(`${window.location.origin}/api/2fa/generate`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
@@ -201,6 +202,10 @@ async function loadPage(page: string) {
 		if (page === 'game_multi')
 		{
 			GameMulti();
+			header.innerHTML = "<notification-header></notification-header>";
+		}
+		if(page === 'GameOnline'){
+			GameOnline2();
 			header.innerHTML = "<notification-header></notification-header>";
 		}
 		// if(page === 'home1')

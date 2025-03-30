@@ -68,13 +68,12 @@ module.exports = async function routes(fastify, options) {
         },
     });
     
-    fastify.after( ()=>{
-        // //console.log("hna ");
-        fastify.io.on("connection",(socket)=>{
-            //console.log('rakman');
-            game_logic(socket,fastify)
+    fastify.after(() => {
+        fastify.io.on("connection", (socket) => {
+            console.log("client connected", socket.id);
+            game_logic(socket, fastify);
         });
-    })
+    });
 
     // fastify.get("/api/tournaments/:id", async (request, reply) => {
     //     const tournament = await prisma.tournament.findUnique({

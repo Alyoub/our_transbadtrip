@@ -99,7 +99,7 @@ function get_token_from_cookies(): string | null {
 const letoken = get_token_from_cookies();
 console.log(letoken);
 
-fetch('http://localhost:3000/users', {
+fetch(`${window.location.origin}/api/users`, {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json',

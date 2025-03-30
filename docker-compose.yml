@@ -14,6 +14,12 @@ volumes:
       type: none
       device: /Users/atoukmat/database
       o: bind
+  files:
+    driver: local
+    driver_opts:
+      type: none
+      device: /Users/atoukmat/frontfiles
+      o: bind
 services:
   frontend:
     container_name: frontend
@@ -21,6 +27,8 @@ services:
     depends_on:
       - back
     restart: always
+    volumes:
+    - files:/files
     networks:
       - trans
   back:
