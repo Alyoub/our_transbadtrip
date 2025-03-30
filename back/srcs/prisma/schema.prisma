@@ -37,6 +37,8 @@ model User {
 	receivedMessages    Message[] @relation("receivedMessages")
 	blockedBy			BlockedUser[] @relation("blocked")
 	blocked				BlockedUser[] @relation("blocker")
+	wonGames			Int        @default(0)
+    lostGames			Int        @default(0)
 }
 
 

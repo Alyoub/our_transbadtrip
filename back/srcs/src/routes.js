@@ -205,4 +205,48 @@ module.exports = async function routes(fastify, options) {
     fastify.post('/block', { preHandler: [fastify.authenticate] }, blockUser);
     fastify.post('/unblock', { preHandler: [fastify.authenticate] }, unblockUser);
     fastify.post('/chat/:login', { preHandler: [fastify.authenticate] }, load_conversation);
+
+    fastify.post('/wingame', { preHandler: [fastify.authenticate] }, async (request, reply) => {
+        const user = request.user;
+    
+        try {
+            await prisma.user.update({
+                where: { id: user.id },
+                data: { wonGames: { increment: 1 } }
+            });
+            reply.status(200).send({ message: 'Win recorded' });
+        } catch (error) {
+            reply.status(500).send({ error: 'Failed to record win' });
+        }
+    });
+    
+    fastify.post('/losegame', { preHandler: [fastify.authenticate] }, async (request, reply) => {
+        const user = request.user;
+    
+        try {
+            await prisma.user.update({
+                where: { id: user.id },
+                data: { lostGames: { increment: 1 } }
+            });
+            reply.status(200).send({ message: 'Loss recorded' });
+        } catch (error) {
+            reply.status(500).send({ error: 'Failed to record loss' });
+        }
+    });
+
+    fastify.get('/wingame', {preHandler: [fastify.authenticate]} , async (request, reply) => {
+        const user = request.user;
+        const user_ = await prisma.user.findUnique({
+            where: { id: user.id }
+        });
+        return reply.status(200).send({ wonGames: user_.wonGames });
+    });
+
+    fastify.get('/losegame', {preHandler: [fastify.authenticate]} , async (request, reply) => {
+        const user = request.user;
+        const user_ = await prisma.user.findUnique({
+            where: { id: user.id }
+        });
+        return reply.status(200).send({ lostGames: user_.lostGames });
+    });
 };
