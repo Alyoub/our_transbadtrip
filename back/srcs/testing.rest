@@ -193,3 +193,12 @@ Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMzI4MjQ4NjA5LC
 {
     "pic": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABjElEQVR4AWP4//8/AyVA"
 }
+###
+
+POST https://localhost/api/uploadcover
+Content-Type: application/json
+Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzMzI4MjQ4NjA5LCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0MzMyODI0OCwiZXhwIjoxNzQzNDE0NjQ4fQ.AFj11nZihMFaCM-G9g9k-7hKvTnnZp2aW8wILyQEaNI; Max-Age=900000; Path=/; HttpOnly; Secure;  ,Max-Age=3600000; Path=/; HttpOnly
+
+{
+    "cover": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABjElEQVR4AWP4//8/AyVA"
+}

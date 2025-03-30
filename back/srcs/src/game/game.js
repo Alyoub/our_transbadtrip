@@ -128,32 +128,6 @@ class Game {
         // Determine winner
         const winner = this.gameState.leftPlayerScore > this.gameState.rightPlayerScore ? 
                       this.players.left : this.players.right;
-        if(winner === this.players.left)
-        {
-            try {
-                prisma.user.update({
-                    where: { id: user.id },
-                    data: { wonGames: { increment: 1 } }
-                });
-    
-                const userrr = prisma.user.findUnique({
-                    where: { id: user.id }
-                });
-    
-                const levelsToIncrement = Math.floor(userrr.wonGames / 3);
-                console.log('levelsToIncrement', levelsToIncrement);
-                if (levelsToIncrement > 0) {
-                    prisma.user.update({
-                        where: { id: user.id },
-                        data: { level: { increment: levelsToIncrement } }
-                    });    
-                }
-            }
-            catch (error)
-            {
-                console.log("Failed to record win");
-            }
-        }
         
         // Notify both players
         fastify.io.to(this.players.left).emit("gameEnded", 

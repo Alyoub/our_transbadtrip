@@ -266,7 +266,7 @@ module.exports = async function routes(fastify, options) {
     fastify.post('/uploadpicb64', { preHandler: [fastify.authenticate] }, async (request, reply) => {
         const user = request.user;
         const { pic } = request.body;
-        console.log('pic', pic);
+        // console.log('pic', pic);
         try {
             await prisma.user.update({
                 where: { id: request.user.userId },
@@ -276,6 +276,22 @@ module.exports = async function routes(fastify, options) {
         } catch (error) {
             console.error('Prisma error:', error);
             reply.status(500).send({ error: 'Failed to upload picture', details: error.message });
+        }      
+    });
+
+    fastify.post('/uploadcover', { preHandler: [fastify.authenticate] }, async (request, reply) => {
+        const user = request.user;
+        const { cover } = request.body;
+
+        try {
+            await prisma.user.update({
+                where: { id: request.user.userId },
+                data: { wallpaperPath: cover }
+            });
+            reply.status(200).send({ message: 'cover uploaded' });
+        } catch (error) {
+            console.error('Prisma error:', error);
+            reply.status(500).send({ error: 'Failed to upload cover', details: error.message });
         }      
     });
 };
