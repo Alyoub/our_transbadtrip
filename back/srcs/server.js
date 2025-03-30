@@ -16,7 +16,7 @@ const cors = require('@fastify/cors');
 
 
 // mohim fel cors =>
-// https://stackoverflow.com/questions/10730362/get-cookie-by-name
+// https://stackoverflow.com/questions/10730362/get-cookie-by-named
 // https://stackoverflow.com/questions/34558264/fetch-api-with-cookie
 // https://stackoverflow.com/questions/55897099/cross-origin-request-blocked-the-same-origin-policy-disallows-reading-the-remot
 fastify.register(cors, {
