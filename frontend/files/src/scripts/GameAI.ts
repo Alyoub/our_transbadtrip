@@ -1,34 +1,6 @@
 // import { REPL_MODE_STRICT } from "repl";
 
-import { loadnhistory , fetchPlayerData } from "./app.js";
-
-export async function	setupSoloPage() {
-    const homeBtn = document.querySelector('.home-btn') as HTMLButtonElement;
-
-    homeBtn.addEventListener('click', () => loadnhistory('profil'));
-	try
-	{
-		const playerData = await fetchPlayerData();
-		const iPlayerName = document.getElementById('iPlayerName') as HTMLSpanElement;
-		const iPlayerUsername = document.getElementById('iPlayerUsername') as HTMLSpanElement;
-
-		if (iPlayerName)
-        {
-            let tmp = playerData.name as string;
-            const i = tmp.indexOf(" ");
-            if (i !== -1)
-                tmp = tmp.substring(0, i);
-			iPlayerName.textContent = tmp;
-        }
-		if (iPlayerUsername)
-			iPlayerUsername.textContent = playerData.login;
-	}
-	catch(error)
-	{
-		console.error("Failed to update the Player's name: ", error);
-	}
-	
-};
+import { loadnhistory } from "./app.js";
 
 export function GameAi()
 {

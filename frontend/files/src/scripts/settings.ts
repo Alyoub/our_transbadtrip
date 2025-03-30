@@ -1,29 +1,5 @@
 import { url } from "inspector";
 import { loadnhistory } from "./app.js";
-fetch(`${window.location.origin}/api/profile`, {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    credentials: 'include'
-})
-.then(response => response.json())
-.then(data => {
-    const userInfo = {
-        name: data.name,
-        login: data.login,
-        email: data.email,
-        id:data.id,
-        profilePicPath:`${window.location.origin}${data.profilePicPath}`,
-        wallpaperPath:`${window.location.origin}${data.wallpaperPath}`,
-        tfa:data.tfa,
-    };
-    console.log(userInfo);
-})
-.catch(error => {
-    console.error('Error:', error);
-});
-
 
 export const updateSettingsPage = () => {
 
@@ -135,6 +111,7 @@ export const updateSettingsPage = () => {
     //     });
     // }
     
+
     function uploadPicsProfile(uploadBtn: string, inputSwitch: string, type: string) {
         const coverBtEdit = document.querySelector(uploadBtn) as HTMLElement | null;
         const inputUpload = document.querySelector(inputSwitch) as HTMLInputElement | null;
@@ -147,27 +124,54 @@ export const updateSettingsPage = () => {
                 if (!inputUpload.files?.[0]) return;
     
                 const file = inputUpload.files[0];
-                const img = new Image();
-                
-                img.onload = () => {
-                    // Create canvas to force 736x736
-                    const canvas = document.createElement('canvas');
-                    canvas.width = 736;
-                    canvas.height = 736;
-                    const ctx = canvas.getContext('2d')!;
-                    
-                    // STRETCH MODE (simplest)
-                    ctx.drawImage(img, 0, 0, 736, 736);
-                    
-                    profilePic.src = canvas.toDataURL();
-                    URL.revokeObjectURL(img.src);
+                const reader = new FileReader();
+    
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = 736;
+                        canvas.height = 736;
+                        const ctx = canvas.getContext('2d')!;
+                        ctx.drawImage(img, 0, 0, 736, 736);
+    
+                        // Convert canvas to Base64
+                        const base64 = canvas.toDataURL('image/jpeg');
+                        profilePic.src = base64;
+                    };
+                    img.src = e.target!.result as string;
+
+                    console.log(img.src);
+                    const picformat =
+                    {
+                        pic : img.src
+                    }
+                    fetch(`${window.location.origin}/api/uploadpicb64`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(picformat),
+                        credentials : "include"
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                    })
                 };
+    
+                reader.onerror = () => {
+                    console.error("Error reading file!");
+                };
+    
+                reader.readAsDataURL(file);
                 
-                img.src = URL.createObjectURL(file);
             });
         }
     }
-    function uploadPicsCover(uploadBtn: string, inputSwitch: string, type: string) {
+
+    function uploadPicsCover(uploadBtn: string, inputSwitch: string, type: string)
+    {
         const coverBtEdit = document.querySelector(uploadBtn) as HTMLElement | null;
         const inputUpload = document.querySelector(inputSwitch) as HTMLInputElement | null;
         const profilePic = document.querySelector(type) as HTMLImageElement | null;
@@ -179,29 +183,52 @@ export const updateSettingsPage = () => {
                 if (!inputUpload.files?.[0]) return;
     
                 const file = inputUpload.files[0];
-                const img = new Image();
-                
-                img.onload = () => {
-                    // Create canvas to force 736x736
-                    const canvas = document.createElement('canvas');
-                    canvas.width = 2740;
-                    canvas.height = 942;
-                    const ctx = canvas.getContext('2d')!;
-                    
-                    // STRETCH MODE (simplest)
-                    ctx.drawImage(img, 0, 0, 2740, 2740);
-                    
-                    profilePic.src = canvas.toDataURL();
-                    URL.revokeObjectURL(img.src);
-                };
-                
-                img.src = URL.createObjectURL(file);
+                const reader = new FileReader();
+    
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = 2740;
+                        canvas.height = 942;
+                        const ctx = canvas.getContext('2d')!;
+                        ctx.drawImage(img, 0, 0, 2740, 942);
+    
+                        // Convert canvas to Base64
+                        const base64 = canvas.toDataURL('image/jpeg');
+                        profilePic.src = base64;
+                    };
+                    img.src = e.target!.result as string;
 
-                console.log(img.src);
+                    console.log(img.src);
+                    const coverformat =
+                    {
+                        cover : img.src
+                    }
+                    fetch(`${window.location.origin}/api/uploadcover`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(coverformat),
+                        credentials : "include"
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+                };
+    
+                reader.onerror = () => {
+                    console.error("Error reading file!");
+                };
+    
+                reader.readAsDataURL(file);
+                
             });
         }
     }
-    
+
     
 
     uploadPicsCover('.add_sitting_cover', '.Sitting_Uplouad_cover', '.settings_cover');
@@ -402,6 +429,9 @@ export const updateSettingsPage = () => {
 
         const fullname = document.querySelector('.settings_user_name') as HTMLLabelElement;
 
+        const picpic = document.querySelector('.settings_pic') as HTMLImageElement;
+        const coverPic = document.querySelector('.settings_cover') as HTMLImageElement;
+
         fetch(`${window.location.origin}/api/profile`, {
             method: 'GET',
             headers: {
@@ -415,10 +445,15 @@ export const updateSettingsPage = () => {
         const nameVal = data.name;
         const userVal = data.login;
         const emailVal = data.email;
+        const pic = data.profilePicPath;
+        const cover = data.wallpaperPath;
 
         name.value = nameVal;
         username.value = userVal;
         email.value = emailVal;
+        picpic.src = pic;
+        
+        coverPic.src = cover;
         
         fullname.innerHTML = nameVal;
             

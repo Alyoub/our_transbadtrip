@@ -31,10 +31,9 @@ function	setupTournamentForm () {
 	const invitedFriendsList = document.getElementById('invitedFriendsList') as HTMLElement;
 	const checkBoxes = form.querySelectorAll('input[type="checkbox"]') as NodeListOf<HTMLInputElement>;
 
-	if (!submitBtn || !inviteFriendsMode || !form)
-		return ;
-	form.addEventListener('input', () => updateStartButton(input, submitBtn, inviteFriendsMode, invitedFriendsList, checkBoxes));
-	form.addEventListener('submit', (event: Event) => {
+	if (!submitBtn || !inviteFriendsMode || !form) return;
+	form.addEventListener("input", () => updateStartButton(input, submitBtn, inviteFriendsMode, invitedFriendsList, checkBoxes));
+	form.addEventListener("submit", (event: Event) => {
 		event.preventDefault();
 		if (updateStartButton(input, submitBtn, inviteFriendsMode, invitedFriendsList, checkBoxes))
 		{
