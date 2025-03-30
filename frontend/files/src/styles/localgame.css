@@ -14,7 +14,7 @@ body {
     background-image: linear-gradient(to bottom, #060c18, #082541);
 }
 
-/* span {
+span {
     position: absolute; 
     top: 0; 
     left: 0; 
@@ -22,7 +22,7 @@ body {
     align-items: center; 
     gap: 25px; 
     padding: 20px; 
-} */
+}
 
 .logo {
     width: 150px;

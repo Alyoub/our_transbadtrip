@@ -1,5 +1,3 @@
-// import { REPL_MODE_STRICT } from "repl";
-
 import { loadnhistory , fetchPlayerData } from "./app.js";
 
 export async function	setupSoloPage() {

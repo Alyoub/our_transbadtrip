@@ -80,7 +80,9 @@
     fill: white;
     width: 50%;
 }
-.user1TEXT
+
+.user1TEXT,
+.user2TEXT
 {
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;

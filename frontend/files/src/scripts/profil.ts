@@ -1,12 +1,9 @@
-// import { constrainedMemory } from 'process';
 import { loadnhistory , fetchPlayerData} from './app.js';
-// import { RedrectPage } from './home2.js';
 
 let friendsBtn: NodeListOf<HTMLButtonElement> | null;
 let historyBtn: NodeListOf<HTMLButtonElement> | null;
 let friendsList: NodeListOf<HTMLElement> | null;
 let historyList: NodeListOf<HTMLElement> | null;
-
 
 export async function	setupProfilPage() {
 	try
@@ -19,6 +16,7 @@ export async function	setupProfilPage() {
 			iPlayerName.textContent = playerData.name;
 		if (iPlayerUsername)
 			iPlayerUsername.textContent = playerData.login;
+		playerData.profilePicPath
 	}
 	catch(error)
 	{
@@ -180,31 +178,31 @@ function	logOutPanelOutsideClick(event: Event, logOutPanel: HTMLElement) {
 // 	}
 // };
 
-function	showAddNewFriendPopup(sidePanel: HTMLElement) {
-	const toBlur = document.getElementById('toBlur') as HTMLElement;
-	const toPop = document.getElementById('toPop') as HTMLElement;
+// function	showAddNewFriendPopup(sidePanel: HTMLElement) {
+// 	const toBlur = document.getElementById('toBlur') as HTMLElement;
+// 	const toPop = document.getElementById('toPop') as HTMLElement;
 
-	if (toBlur)
-		toBlur.inert = true;
-	toBlur.classList.add('blur-sm');
-	toPop.classList.remove('hidden');
-	toPop.classList.add('flex');
-	sidePanel?.classList.remove('block');
-	sidePanel?.classList.add('hidden');
-};
+// 	if (toBlur)
+// 		toBlur.inert = true;
+// 	toBlur.classList.add('blur-sm');
+// 	toPop.classList.remove('hidden');
+// 	toPop.classList.add('flex');
+// 	sidePanel?.classList.remove('block');
+// 	sidePanel?.classList.add('hidden');
+// };
 
-function	closeAddNewFriendPopup(sidePanel: HTMLElement) {
-	const toBlur = document.getElementById('toBlur') as HTMLElement;
-	const toPop = document.getElementById('toPop') as HTMLElement;
+// function	closeAddNewFriendPopup(sidePanel: HTMLElement) {
+// 	const toBlur = document.getElementById('toBlur') as HTMLElement;
+// 	const toPop = document.getElementById('toPop') as HTMLElement;
 
-	if (toBlur)
-		toBlur.inert = false;
-	toBlur.classList.remove('blur-sm');
-	toPop.classList.add('hidden');
-	toPop.classList.remove('flex');
-	sidePanel?.classList.add('block');
-	sidePanel?.classList.remove('hidden');
-}
+// 	if (toBlur)
+// 		toBlur.inert = false;
+// 	toBlur.classList.remove('blur-sm');
+// 	toPop.classList.add('hidden');
+// 	toPop.classList.remove('flex');
+// 	sidePanel?.classList.add('block');
+// 	sidePanel?.classList.remove('hidden');
+// };
 
 function	selectLocal(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, tournTitle:HTMLElement, createTournPageBtn: HTMLButtonElement, playSolo: HTMLButtonElement, play2v2Btn:HTMLButtonElement) {
 	localBtn?.classList.add('bg-gray-600');

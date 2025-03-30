@@ -20,7 +20,6 @@ import { setupLocalPage , GameLocal } from "./GameLocal.js";
 import { setupMultiPage , GameMulti } from "./GameMulti.js";
 import { setupCreateTournamentPage , tournamentPlayers , setupCreateTournamentButtons } from './createtourn.js';
 import { setupTournamentPage , tournament } from './tournament.js';
-// import { chekuserR } from './home2.js';
 
 let app: HTMLElement;
 
@@ -77,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
 					loadPage(event.state.page);
 			};
 		}
-
 	})
 });
 
@@ -94,31 +92,6 @@ function initiateCustomTags() {
 	customElements.define('friendtotournament-tag', friendToTournamentTag);
 };
 
-
-// function chekuserR()
-// {
-// 	const walo = document.getElementById('soukman') as HTMLHRElement;
-
-//     fetch('http://localhost:3000/2fa/generate', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify({}),
-//             credentials : "include"
-//         })
-//         .then(response => response.json())
-//         .then(data => {
-//         console.log("Success:", data.success);
-
-// 			// if(data.success === "2FA secret generated successfully")
-// 			// {
-
-// 			// }
-//         })
-// }
-
-
 async function loadPage(page: string) {
 	try {
 		const header = document.getElementById('header') as HTMLHeadElement;
@@ -131,7 +104,6 @@ async function loadPage(page: string) {
 		{
 			setupHomePage();
 			setupLoginPage();
-			// chekuserR();
 		}
 		if (page === 'profil')
 		{
@@ -177,10 +149,6 @@ async function loadPage(page: string) {
 			// GameOnline2();
 			header.innerHTML = "<notification-header></notification-header>";
 		}
-		// if(page === 'home1')
-		// {
-		// 	header.innerHTML = "";
-		// }
 	}
 	catch (error)
 	{
@@ -190,7 +158,7 @@ async function loadPage(page: string) {
 
 function changePageBackground(page: string) {
 	if (page === 'home')
-	document.body.classList.remove('bg-fixed', 'bg-cover', 'bg-gradient-to-b', 'from-bgclrstart', 'to-bgclrend');
+		document.body.classList.remove('bg-fixed', 'bg-cover', 'bg-gradient-to-b', 'from-bgclrstart', 'to-bgclrend');
 	else
 		document.body.classList.add('bg-fixed', 'bg-cover', 'bg-gradient-to-b', 'from-bgclrstart', 'to-bgclrend');
 };

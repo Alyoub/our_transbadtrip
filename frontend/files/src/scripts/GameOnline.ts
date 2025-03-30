@@ -38,8 +38,9 @@ export function GameOnline2()
     const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
     const startBtn = document.getElementById("startBtn") as HTMLButtonElement;
 
-    canvas.width = 1500;
-    canvas.height = 700;
+
+    canvas.width = 1000;
+    canvas.height = 500;
 
     const paddleWidth = 11;
     const paddleHeight = 100;
@@ -54,6 +55,7 @@ export function GameOnline2()
     let ballSpeedY: number = 12;
     let leftPlayerScore: number = 0;
     let rightPlayerScore: number = 0;
+
 
     const paddleSpeed: number = 15;
 
@@ -86,7 +88,32 @@ export function GameOnline2()
         console.log(`You are controlling the ${paddle} paddle`);
     });
 
+    const player11 = document.querySelector('.user1TEXT') as HTMLElement;
+    const player22 = document.querySelector('.user2TEXT') as HTMLElement;
+
+
+        // fetch(`${window.location.origin}/api/profile`, {
+        //     method: 'GET',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     credentials : "include"
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        
+        // const nameVal = data.name;
+        // // const userVal = data.login;
+        // // const emailVal = data.email;
+
+        // player11.textContent = nameVal;
+            
+        // })
+
+
     socket.on("gameState", (state: GameState) => {
+
+
         leftPaddleY = state.leftPaddleY;
         rightPaddleY = state.rightPaddleY;
         ballX = state.ballX;
@@ -95,7 +122,14 @@ export function GameOnline2()
         ballSpeedY = state.ballSpeedY;
         leftPlayerScore = state.leftPlayerScore;
         rightPlayerScore = state.rightPlayerScore;
+        
+        player11.textContent = state.leftPlayerScore.toString();
+        player22.textContent = state.rightPlayerScore.toString();
     });
+
+
+
+
 
     socket.on("gameEnded", (data: GameEndData) => {
         gameOver = true;
@@ -200,9 +234,9 @@ export function GameOnline2()
         ctx.fillStyle = "#fff";
         ctx.font = "60px Arial";
         ctx.textAlign = "right";
-        ctx.fillText(leftPlayerScore.toString(), canvas.width / 2 - 40, 60);
+        // ctx.fillText(leftPlayerScore.toString(), canvas.width / 2 - 40, 60);
         ctx.textAlign = "left";
-        ctx.fillText(rightPlayerScore.toString(), canvas.width / 2 + 40, 60);
+        // ctx.fillText(rightPlayerScore.toString(), canvas.width / 2 + 40, 60);
     }
 
     function drawCenterLines(): void {

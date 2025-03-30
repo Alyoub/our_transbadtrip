@@ -1,20 +1,21 @@
 class Game {
     constructor(player1, player2) 
     {
+
         this.players = 
         {
             left: player1,
             right: player2,
         };
         this.gameState = {
-            leftPaddleY: 300,
-            rightPaddleY: 300,
-            ballX: 750,
-            ballY: 350,
-            ballSpeedX: 8,
-            ballSpeedY: 8,
+            leftPaddleY: 200,
+            rightPaddleY: 200,
+            ballX: 500,
+            ballY: 250,
+            ballSpeedX: 4,
+            ballSpeedY: 4,
             leftPlayerScore: 0, 
-            rightPlayerScore: 0 
+            rightPlayerScore: 0,
         };
         this.gameLoopRunning = false;
         this.intervalId = null;
@@ -51,7 +52,7 @@ class Game {
             this.gameState.ballY += this.gameState.ballSpeedY;
 
     
-            if (this.gameState.ballY <= 0 || this.gameState.ballY >= 700) 
+            if (this.gameState.ballY <= 0 || this.gameState.ballY >= 500) 
             {
                 this.gameState.ballSpeedY *= -1;
             }
@@ -71,9 +72,9 @@ class Game {
                 this.gameState.ballSpeedY *= 1.08;
             }
 
-            if (this.gameState.ballX >= 1500 - paddleWidth &&  this.gameState.ballY >= this.gameState.rightPaddleY &&  this.gameState.ballY <= this.gameState.rightPaddleY + 100) 
+            if (this.gameState.ballX >= 1000 - paddleWidth &&  this.gameState.ballY >= this.gameState.rightPaddleY &&  this.gameState.ballY <= this.gameState.rightPaddleY + 100) 
             {
-                this.gameState.ballX = 1500 - paddleWidth - radius;
+                this.gameState.ballX = 1000 - paddleWidth - radius;
                 const paddleCenterY = this.gameState.rightPaddleY + 50;
                 const relativeIntersectY = paddleCenterY - this.gameState.ballY;
                 const normalizedIntersectY = relativeIntersectY / 50;
@@ -92,7 +93,7 @@ class Game {
                 fastify.io.to(this.players.left).emit("scoreUpdate", {leftPlayerScore: this.gameState.leftPlayerScore,rightPlayerScore: this.gameState.rightPlayerScore});
                 fastify.io.to(this.players.right).emit("scoreUpdate", {leftPlayerScore: this.gameState.leftPlayerScore,rightPlayerScore: this.gameState.rightPlayerScore});
             } 
-            else if (this.gameState.ballX > 1500) 
+            else if (this.gameState.ballX > 1000) 
             {
                 this.gameState.leftPlayerScore++;
                 this.resetBall();
@@ -116,10 +117,10 @@ class Game {
 
     resetBall() 
     {
-        this.gameState.ballX = 750;
-        this.gameState.ballY = 350;
-        this.gameState.ballSpeedX = 8 * (Math.random() > 0.5 ? 1 : -1);
-        this.gameState.ballSpeedY = 8 * (Math.random() > 0.5 ? 1 : -1);
+        this.gameState.ballX = 500;
+        this.gameState.ballY = 250;
+        this.gameState.ballSpeedX = 4 * (Math.random() > 0.5 ? 1 : -1);
+        this.gameState.ballSpeedY = 4 * (Math.random() > 0.5 ? 1 : -1);
     }
 
     handleGameEnd(fastify) 
