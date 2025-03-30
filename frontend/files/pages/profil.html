@@ -15,7 +15,7 @@
 </head>
 
 <body class="relative">
-    <notification-header></notification-header>
+    <notification-header1></notification-header1>
 
     <div id="logOutPanel" class="z-30 absolute hidden flex-col top-11 sm:top-12 lg:top-14 xl:top-16 2xl:top-[72px] min-1700:top-20 min-1900:top-[88px] min-2300:top-24 min-2500:top-[104px] right-3 sm:right-16 lg:right-24 xl:right-24 min-1900:right-[104px] min-2300:right-28 min-2500:right-[120px]">
         <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" class="self-end size-3 mr-[53px]">
@@ -31,119 +31,6 @@
                 </g>
             </g>
         </svg>
-        <!-- fix the remaining buttons -->
-        <!-- <div class="border-4 rounded-xl border-slate-800 bg-sky-800 w-60 h-72 md:w-64 md:h-80 -mt-1 divide-y-2 divide-slate-800">   
-            <h1 class="font-medium text-center text-white text-sm md:text-base">Notifications</h1>
-            <div id="notifs" class="flex flex-col h-64 md:h-[285px] overflow-y-auto overscroll-contain scrollable divide-y-2 divide-slate-800">
-                <div class="flex gap-3 place-items-center text-white h-14 md:h-16 flex-shrink-0 px-2">
-                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="size-9 md:size-10 rounded-full">
-                    <div class="relative overflow-hidden rounded-r-lg">
-                        <p id="notifsText" class="text-2xs md:text-xs transition-opacity duration-500">Hatim Touil has sent you a friend request.</p>
-                        <div id="notifsaccRejBox" class="inset-0 w-full h-full grid grid-cols-2 grid-rows-1 gap-x-3 bg-sky-800 absolute top-0 left-0 transition duration-500 translate-x-full opacity-0 ease-in-out scale-90 md:scale-100">
-                            <button class="rounded-xl bg-rose-700">
-                                Reject
-                            </button>
-                            <button class="rounded-xl bg-emerald-700">
-                                Accept
-                            </button>
-                        </div>
-                    </div>
-                    <button id="notifsAccRejBtn" class="flex-shrink-0 transition-transform duration-500">
-                        <img src="../public/logos/notifs_arrow.png" class="size-6 md:size-7">
-                    </button>
-                </div>
-
-                <div class="flex gap-3 place-items-center text-white h-14 md:h-16 flex-shrink-0 px-2">
-                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="size-9 md:size-10 rounded-full">
-                    <div class="relative overflow-hidden rounded-r-lg">
-                        <p id="notifsText" class="text-2xs md:text-xs transition-opacity duration-500">Hatim Touil has sent you a friend request.</p>
-                        <div id="notifsaccRejBox" class="inset-0 w-full h-full grid grid-cols-2 grid-rows-1 gap-x-3 bg-sky-800 absolute top-0 left-0 transition duration-500 translate-x-full opacity-0 ease-in-out scale-90 md:scale-100">
-                            <button class="rounded-xl bg-rose-700">
-                                Reject
-                            </button>
-                            <button class="rounded-xl bg-emerald-700">
-                                Accept
-                            </button>
-                        </div>
-                    </div>
-                    <button id="notifsAccRejBtn" class="flex-shrink-0 invisible transition-transform duration-500">
-                        <img src="../public/logos/notifs_arrow.png" class="size-6 md:size-7">
-                    </button>
-                </div>
-
-                <div class="flex gap-3 place-items-center text-white h-14 md:h-16 flex-shrink-0 px-2">
-                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="size-9 md:size-10 rounded-full">
-                    <div class="relative overflow-hidden rounded-r-lg">
-                        <p id="notifsText" class="text-2xs md:text-xs transition-opacity duration-500">Hatim Touil has sent you a friend request.</p>
-                        <div id="notifsaccRejBox" class="inset-0 w-full h-full grid grid-cols-2 grid-rows-1 gap-x-3 bg-sky-800 absolute top-0 left-0 transition duration-500 translate-x-full opacity-0 ease-in-out scale-90 md:scale-100">
-                            <button class="rounded-xl bg-rose-700">
-                                Reject
-                            </button>
-                            <button class="rounded-xl bg-emerald-700">
-                                Accept
-                            </button>
-                        </div>
-                    </div>
-                    <button id="notifsAccRejBtn" class="flex-shrink-0 transition-transform duration-500">
-                        <img src="../public/logos/notifs_arrow.png" class="size-6 md:size-7">
-                    </button>
-                </div>
-
-                <div class="flex gap-3 place-items-center text-white h-14 md:h-16 flex-shrink-0 px-2">
-                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="size-9 md:size-10 rounded-full">
-                    <div class="relative overflow-hidden rounded-r-lg">
-                        <p id="notifsText" class="text-2xs md:text-xs transition-opacity duration-500">Hatim Touil has sent you a friend request.</p>
-                        <div id="notifsaccRejBox" class="inset-0 w-full h-full grid grid-cols-2 grid-rows-1 gap-x-3 bg-sky-800 absolute top-0 left-0 transition duration-500 translate-x-full opacity-0 ease-in-out scale-90 md:scale-100">
-                            <button class="rounded-xl bg-rose-700">
-                                Reject
-                            </button>
-                            <button class="rounded-xl bg-emerald-700">
-                                Accept
-                            </button>
-                        </div>
-                    </div>
-                    <button id="notifsAccRejBtn" class="flex-shrink-0 invisible transition-transform duration-500">
-                        <img src="../public/logos/notifs_arrow.png" class="size-6 md:size-7">
-                    </button>
-                </div>
-
-                <div class="flex gap-3 place-items-center text-white h-14 md:h-16 flex-shrink-0 px-2">
-                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="size-9 md:size-10 rounded-full">
-                    <div class="relative overflow-hidden rounded-r-lg">
-                        <p id="notifsText" class="text-2xs md:text-xs transition-opacity duration-500">Hatim Touil has sent you a friend request.</p>
-                        <div id="notifsaccRejBox" class="inset-0 w-full h-full grid grid-cols-2 grid-rows-1 gap-x-3 bg-sky-800 absolute top-0 left-0 transition duration-500 translate-x-full opacity-0 ease-in-out scale-90 md:scale-100">
-                            <button class="rounded-xl bg-rose-700">
-                                Reject
-                            </button>
-                            <button class="rounded-xl bg-emerald-700">
-                                Accept
-                            </button>
-                        </div>
-                    </div>
-                    <button id="notifsAccRejBtn" class="flex-shrink-0 transition-transform duration-500">
-                        <img src="../public/logos/notifs_arrow.png" class="size-6 md:size-7">
-                    </button>
-                </div>
-
-                <div class="flex gap-3 place-items-center text-white h-14 md:h-16 flex-shrink-0 px-2">
-                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="size-9 md:size-10 rounded-full">
-                    <div class="relative overflow-hidden rounded-r-lg">
-                        <p id="notifsText" class="text-2xs md:text-xs transition-opacity duration-500">Hatim Touil has sent you a friend request.</p>
-                        <div id="notifsaccRejBox" class="inset-0 w-full h-full grid grid-cols-2 grid-rows-1 gap-x-3 bg-sky-800 absolute top-0 left-0 transition duration-500 translate-x-full opacity-0 ease-in-out scale-90 md:scale-100">
-                            <button class="rounded-xl bg-rose-700">
-                                Reject
-                            </button>
-                            <button class="rounded-xl bg-emerald-700">
-                                Accept
-                            </button>
-                        </div>
-                    </div>
-                    <button id="notifsAccRejBtn" class="flex-shrink-0 invisible transition-transform duration-500">
-                        <img src="../public/logos/notifs_arrow.png" class="size-6 md:size-7">
-                    </button>
-                </div>
-            </div>
-        </div> -->
         <div class="flex flex-col flex-grow border-4 rounded-xl border-slate-800 bg-sky-800 w-40 h-20 md:w-48 md:h-20 lg:w-56 lg:h-24  -mt-1 divide-y-2 divide-slate-800">   
             <h1 class="font-medium text-center text-white text-sm md:text-base">Log out?</h1>
             <div class="flex flex-grow gap-2 justify-center py-2 lg:py-3.5 text-white">
@@ -326,96 +213,20 @@
 				<div class="row-span-4 friends-list">
 					<!-- Friend's requests -->
 					<h2 class="text-xs font-bold my-3 2xl:mt-0">Friend's requests</h2>
-					<div class="flex flex-col md:gap-2 lg:gap-3 2xl:gap-2 border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain md:h-60 lg:h-[270px] xl:h-[295px] 2xl:h-[300px] scrollable">
-						<!-- <div class="grid grid-cols-3 grid-rows-1 border rounded-xl md:h-12 xl:h-14 2xl:h-16 max-814:pl-1.5 pl-2 max-814:pr-1.5 pr-4" style="background: #3f4251;">
-							<div class="col-span-2 flex items-center max-814:gap-1 gap-2">
-								<img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="rounded-full size-8 xl:size-9 2xl:size-10">
-								<div class="flex flex-col justify-items-center py-1">
-									<strong class="md:text-xs lg:text-sm xl:text-base">htouil</strong>
-									<span class="md:text-3xs lg:text-2xs">Requested 3 days ago</span>
-								</div>
-							</div>
-							<div class="self-center justify-self-end grid grid-cols-2 md:gap-1 2xl:gap-3 size-fit">
-                                <button type="button" class="grid place-items-center border border-black rounded-lg md:w-7 2xl:w-9 2xl:h-4" style="background-color: #343644;">
-                                    <svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
-                                        <path clip-rule="evenodd" fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z">
-                                        </path>
-                                    </svg>
-                                </button>
-                                <button type="button" class="grid place-items-center border border-black rounded-lg md:w-7 2xl:w-9 2xl:h-4" style="background-color: #343644;">
-                                    <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div> -->
-                        <newfriendrequest-tag></newfriendrequest-tag>
+					<div class="flex flex-col items-center md:gap-2 lg:gap-3 2xl:gap-2 border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain md:h-60 lg:h-[270px] xl:h-[295px] 2xl:h-[300px] scrollable">
+						<p class="text-white">Coming Soon...</p>
                     </div>
                     <!-- Friends -->
                     <h2 class="text-xs font-bold mt-14 xl:mt-8 2xl:mt-5 mb-3">Friends</h2>
-                    <div class="flex flex-col border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain md:gap-2 lg:gap-3 2xl:gap-2 md:h-60 lg:h-[270px] xl:h-[295px] 2xl:h-[300px] scrollable">
-                        <!-- <div class="grid grid-cols-3 grid-rows-1 border rounded-xl md:h-12 xl:h-14 2xl:h-16 px-2"
-                            style="background: #3f4251;">
-                            <div class="col-span-2 flex items-center max-814:gap-1 gap-2">
-                                <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil"
-                                    class="rounded-full size-8 xl:size-9 2xl:size-10">
-                                <div class="flex flex-col justify-items-center py-1">
-                                    <strong class="md:text-xs lg:text-sm xl:text-base">htouil</strong>
-                                    <span class="md:text-3xs lg:text-2xs">Level 7</span>
-                                </div>
-                            </div>
-                        </div> -->
-                        <oldfriend-tag></oldfriend-tag>
+                    <div class="flex flex-col items-center border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain md:gap-2 lg:gap-3 2xl:gap-2 md:h-60 lg:h-[270px] xl:h-[295px] 2xl:h-[300px] scrollable">
+                        <p class="text-white">Coming Soon...</p>
                     </div>
                 </div>
                 <!-- History -->
                 <div class="row-span-4 hidden history-list">
                     <h2 class="text-xs font-bold my-2.5">Match history</h2>
-                    <div class="flex flex-col md:gap-2 lg:gap-3.5 border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain md:h-[570px] lg:h-[640px] scrollable">
-                        <!-- <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1" style="background-color: #8a3f47;">
-                            <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
-                                <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="justify-self-start rounded-full size-8 lg:size-9 xl:size-10">
-                                <p class="justify-self-start self-center text-lg">1</p>
-                            </div>
-                            <p class="place-self-center">VS</p>
-                            <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
-                                <p class="justify-self-end self-center text-lg">3</p>
-                                <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="justify-self-end rounded-full size-8 lg:size-9 xl:size-10">
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
-                            style="background-color: #3f6f92;">
-                            <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
-                                <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil"
-                                    class="justify-self-start rounded-full size-8 lg:size-9 xl:size-10">
-                                <p class="justify-self-start self-center text-lg">3</p>
-                            </div>
-                            <p class="place-self-center">VS</p>
-                            <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
-                                <p class="justify-self-end self-center text-lg">1</p>
-                                <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil"
-                                    class="justify-self-end rounded-full size-8 lg:size-9 xl:size-10">
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
-                            style="background-color: #60609b;">
-                            <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
-                                <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil"
-                                    class="justify-self-start rounded-full size-8 lg:size-9 xl:size-10">
-                                <p class="justify-self-start self-center text-lg">2</p>
-                            </div>
-                            <p class="place-self-center">VS</p>
-                            <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
-                                <p class="justify-self-end self-center text-lg">2</p>
-                                <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil"
-                                    class="justify-self-end rounded-full size-8 lg:size-9 xl:size-10">
-                            </div>
-                        </div> -->
-                        <matchscore-tag state-color="#8a3f47"></matchscore-tag>
-                        <matchscore-tag state-color="#3f6f92"></matchscore-tag>
-                        <matchscore-tag state-color="#60609b"></matchscore-tag>
+                    <div class="flex flex-col items-center md:gap-2 lg:gap-3.5 border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain md:h-[570px] lg:h-[640px] scrollable">
+                        <p class="text-white">Coming Soon...</p>
                     </div>
                 </div>
             </div>
@@ -445,93 +256,20 @@
                     <div class="row-span-4 friends-list">
                         <!-- Friend's requests -->
                         <h2 class="text-xs font-bold mb-3">Friend's requests</h2>
-                        <div class="flex flex-col border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain pr-1 gap-2 h-56 scrollable">
-                            <!-- <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-11 pl-2 max-527:pr-2 pr-4" style="background: #3f4251;">
-                                <div class="col-span-2 flex items-center gap-2">
-                                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="rounded-full size-8">
-                                    <div class="flex flex-col justify-items-center py-1">
-                                        <strong class="max-503:text-2xs text-xs">htouil</strong>
-                                        <span class="max-503:text-4xs text-3xs">Requested 3 days ago</span>
-                                    </div>
-                                </div>
-                                <div class="self-center justify-self-end grid grid-cols-2 gap-1 size-fit">
-                                    <button type="button" class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
-                                        <svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
-                                            <path clip-rule="evenodd" fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"></path>
-                                        </svg>
-                                    </button>
-                                    <button type="button" class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
-                                        <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div> -->
-                            <sidenewfriendrequest-tag></sidenewfriendrequest-tag>
+                        <div class="flex flex-col items-center border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain pr-1 gap-2 h-56 scrollable">
+                            <p class="text-white">Coming Soon...</p>
                         </div>
                         <!-- Friends -->
                         <h2 class="text-xs font-bold mt-8 mb-3">Friends</h2>
-                        <div class="flex flex-col border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain pr-1 gap-2 h-56 scrollable">
-                            <!-- <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-11 px-2" style="background: #3f4251;">
-                                <div class="col-span-2 flex items-center gap-2">
-                                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="rounded-full size-8">
-                                    <div class="flex flex-col justify-items-center py-1">
-                                        <strong class="max-503:text-2xs text-xs">htouil</strong>
-                                        <span class="max-503:text-4xs text-3xs">Requested 3 days ago</span>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <sideoldfriend-tag></sideoldfriend-tag>
+                        <div class="flex flex-col items-center border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain pr-1 gap-2 h-56 scrollable">
+                            <p class="text-white">Coming Soon...</p>
                         </div>
                     </div>
                     <!-- History -->
                     <div class="row-span-4 hidden history-list">
                         <h2 class="text-xs font-bold my-2.5">Match history</h2>
-                        <div class="flex flex-col gap-2 border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain pr-1 h-[500px] scrollable">
-                            <!-- <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-12 px-2 py-1" style="background-color: #8a3f47;">
-                                <div class="grid grid-cols-2 grid-rows-1">
-                                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="justify-self-start rounded-full size-8">
-                                    <p class="justify-self-center sm:justify-self-start self-center text-lg">1</p>
-                                </div>
-                                <p class="place-self-center">VS</p>
-                                <div class="grid grid-cols-2 grid-rows-1">
-                                    <p class="justify-self-center sm:justify-self-end self-center text-lg">3</p>
-                                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="justify-self-end rounded-full size-8">
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-12 px-2 py-1"
-                                style="background-color: #3f6f92;">
-                                <div class="grid grid-cols-2 grid-rows-1">
-                                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil"
-                                        class="justify-self-start rounded-full size-8">
-                                    <p class="justify-self-center sm:justify-self-start self-center text-lg">3</p>
-                                </div>
-                                <p class="place-self-center">VS</p>
-                                <div class="grid grid-cols-2 grid-rows-1">
-                                    <p class="justify-self-center sm:justify-self-end self-center text-lg">1</p>
-                                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil"
-                                        class="justify-self-end rounded-full size-8">
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-12 px-2 py-1"
-                                style="background-color: #60609b;">
-                                <div class="grid grid-cols-2 grid-rows-1">
-                                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil"
-                                        class="justify-self-start rounded-full size-8">
-                                    <p class="justify-self-center sm:justify-self-start self-center text-lg">2</p>
-                                </div>
-                                <p class="place-self-center">VS</p>
-                                <div class="grid grid-cols-2 grid-rows-1">
-                                    <p class="justify-self-center sm:justify-self-end self-center text-lg">2</p>
-                                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil"
-                                        class="justify-self-end rounded-full size-8">
-                                </div>
-                            </div> -->
-                            <sidematchscore-tag state-color="#8a3f47"></sidematchscore-tag>
-                            <sidematchscore-tag state-color="#3f6f92"></sidematchscore-tag>
-                            <sidematchscore-tag state-color="#60609b"></sidematchscore-tag>
+                        <div class="flex flex-col items-center gap-2 border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain pr-1 h-[500px] scrollable">
+                            <p class="text-white">Coming Soon...</p>
                         </div>
                     </div>
                 </div>
@@ -551,18 +289,23 @@
         <button type="button" class="text-white text-xs sm:text-sm lg:text-base xl:text-lg 2xl:text-xl border-2 rounded-xl border-neutral-600 w-1/2 h-6 sm:h-7 md:h-8 lg:h-8 2xl:h-9 self-center transition ease-in-out bg-sky-900 hover:bg-sky-950 active:scale-95">
             Search
         </button>
-        <div class="rounded-xl flex flex-1 flex-col md:flex-row items-center md:justify-between px-4 sm:px-5 md:px-6 xl:px-8 2xl:px-10 bg-sky-900">
-            <div class="flex basis-1/2 md:basis-auto gap-3 self-start md:self-center items-center">
-                <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="rounded-full size-9 sm:size-10 md:size-9 lg:size-10 xl:size-12 2xl:size-14">
-                <div class="flex flex-col py-1 items-start text-white">
-                    <strong class="text-sm lg:text-base xl:text-xl 2xl:text-2xl">htouil</strong>
-                    <p class="text-3xs lg:text-2xs xl:text-xs 2xl:text-sm">Level 7</p>
+        <div class="flex flex-1 rounded-xl bg-sky-900">
+            <div class="hidden flex-grow flex-col md:flex-row items-center md:justify-between px-4 sm:px-5 md:px-6 xl:px-8 2xl:px-10">
+                <div class="flex basis-1/2 md:basis-auto gap-3 self-start md:self-center items-center">
+                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="rounded-full size-9 sm:size-10 md:size-9 lg:size-10 xl:size-12 2xl:size-14">
+                    <div class="flex flex-col py-1 items-start text-white">
+                        <strong class="text-sm lg:text-base xl:text-xl 2xl:text-2xl">htouil</strong>
+                        <p class="text-3xs lg:text-2xs xl:text-xs 2xl:text-sm">Level 7</p>
+                    </div>
+                </div>
+                <div class="basis-1/2 md:basis-auto flex md:items-end">
+                    <button id="addNewFriendBtn" type="button" class="rounded-lg bg-sky-900 w-20 h-1/2 sm:w-28 sm:h-1/2 md:w-20 md:h-3/4 lg:w-24 lg:h-3/5 xl:w-28 xl:h-1/2 text-white text-xs lg:text-sm xl:text-base 2xl:text-xl transition self-center shadow-[0_1px_3px_rgba(0,0,0,0.5)] hover:bg-sky-950 hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.5)] active:scale-[0.995]">
+                        Add
+                    </button>
                 </div>
             </div>
-            <div class="basis-1/2 md:basis-auto flex md:items-end">
-                <button id="addNewFriendBtn" type="button" class="rounded-lg bg-sky-900 w-20 h-1/2 sm:w-28 sm:h-1/2 md:w-20 md:h-3/4 lg:w-24 lg:h-3/5 xl:w-28 xl:h-1/2 text-white text-xs lg:text-sm xl:text-base 2xl:text-xl transition self-center shadow-[0_1px_3px_rgba(0,0,0,0.5)] hover:bg-sky-950 hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.5)] active:scale-[0.995]">
-                    Add
-                </button>
+            <div class="flex flex-grow flex-col md:flex-row text-white items-center justify-center px-4 sm:px-5 md:px-6 xl:px-8 2xl:px-10">
+                <span class="">No User Found.</span>
             </div>
         </div>
     </form>

@@ -1,5 +1,6 @@
 import {
-	notificationHeader,
+	notificationHeader1,
+	notificationHeader2,
 	simpleHeader,
 	newFriendRequestTag,
 	oldFriendTag,
@@ -11,42 +12,18 @@ import {
 } from './components.js';
 import { updateHomeHeadermain3 } from "./home1.js";
 import { updateHomeHeadermain5 , setupLoginPage } from "./home2.js";
-// import { setupLoginPage } from "./login.js";
-import {
-	setupProfilPage,
-	setupProfilButtons,
-	// handleScroll,
-} from "./profil.js";
+import { setupProfilPage , setupProfilButtons } from "./profil.js";
 import { updateSettingsPage } from "./settings.js";
 import { rakmanchat } from "./chat.js";
-import { GameAi } from "./GameAI.js";
-import { GameLocal } from "./GameLocal.js";
-import { GameMulti } from "./GameMulti.js";
-import { setupTournamentPage , extractPlayersNames } from './createtourn.js';
-import { tournament } from './tournament.js';
+import { setupSoloPage , GameAi } from "./GameAI.js";
+import { setupLocalPage , GameLocal } from "./GameLocal.js";
+import { setupMultiPage , GameMulti } from "./GameMulti.js";
+import { setupCreateTournamentPage , tournamentPlayers , setupCreateTournamentButtons } from './createtourn.js';
+import { setupTournamentPage , tournament } from './tournament.js';
 
-// home page:
 let app: HTMLElement;
-let tournamentPlayers:string[] = [];
 let navBar: HTMLElement | null;
 let navBtns: NodeListOf<HTMLButtonElement> | null;
-//profil page:
-// let homeBtn: HTMLButtonElement | null;
-// let settingsBtn: HTMLButtonElement | null;
-// let addNewFriendShowBtn: HTMLButtonElement | null;
-// let addNewFriendCloseBtn: HTMLButtonElement | null;
-// let messagesBtn: HTMLButtonElement | null;
-// let sidePanel: HTMLElement | null;
-// let openSidePanelBtn: HTMLButtonElement | null;
-// let closeSidePanelBtn: HTMLButtonElement | null;
-
-// let localBtn: HTMLButtonElement | null;
-// let onlineBtn: HTMLButtonElement | null;
-// let playWFriendsBtn: HTMLButtonElement | null;
-// let hostTournPageBtn: HTMLButtonElement | null;
-//messages page:
-// let rtnProfilBtn: HTMLButtonElement | null;
-//host tournament page:
 
 document.addEventListener('DOMContentLoaded', () => {
 	const urlParams = new URLSearchParams(window.location.search);
@@ -77,7 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initiateCustomTags() {
-	customElements.define('notification-header', notificationHeader);
+	customElements.define('notification-header1', notificationHeader1);
+	customElements.define('notification-header2', notificationHeader2);
 	customElements.define('simple-header', simpleHeader);
 	customElements.define('newfriendrequest-tag', newFriendRequestTag);
 	customElements.define('oldfriend-tag', oldFriendTag);
@@ -97,6 +75,7 @@ async function loadPage(page: string) {
 		app.innerHTML = content;
 		console.log(`nav to: ${page}`);
 		hideNav(page);
+		changePageBackground(page);
 		if (page === 'home')
 		{
 			setupHomePage();
@@ -106,46 +85,41 @@ async function loadPage(page: string) {
 		{
 			setupProfilPage();
 			setupProfilButtons();
-			// handleScroll();
-			// header.innerHTML = "<notification-header></notification-header>";
 		}
 		if (page === 'messages')
 		{
 			// setupMessagesButtons();
 			rakmanchat();
-			header.innerHTML = "<notification-header></notification-header>";
 		}
 		if (page === 'createtourn')
 		{
-			setupTournamentPage();
-			tournamentPlayers = extractPlayersNames();
-			// console.log(`here: ${tournamentPlayers}`);
-			header.innerHTML = "<notification-header></notification-header";
+			setupCreateTournamentPage();
+			setupCreateTournamentButtons();
 		}
 		if (page === 'tournament')
 		{
+			// console.log(`tournamentPlayers: ${tournamentPlayers}`);
+			setupTournamentPage();
 			tournament(tournamentPlayers);
-			header.innerHTML = "<notification-header></notification-header>";
 		}
 		if (page === 'settings')
 		{
 			updateSettingsPage();
-			header.innerHTML = "<notification-header></notification-header>";
 		}
 		if (page === 'game_ai')
 		{
+			setupSoloPage();
 			GameAi();
-			header.innerHTML = "<notification-header></notification-header>";
 		}
 		if (page === 'game_local')
 		{
+			setupLocalPage();
 			GameLocal();
-			header.innerHTML = "<notification-header></notification-header>";
 		}
 		if (page === 'game_multi')
 		{
+			setupMultiPage();
 			GameMulti();
-			header.innerHTML = "<notification-header></notification-header>";
 		}
 		if(page === 'home1')
 		{
@@ -168,10 +142,42 @@ function hideNav(page: string) {
 	}
 };
 
+function changePageBackground(page: string) {
+	if (page === 'home')
+	document.body.classList.remove('bg-fixed', 'bg-cover', 'bg-gradient-to-b', 'from-bgclrstart', 'to-bgclrend');
+	else
+		document.body.classList.add('bg-fixed', 'bg-cover', 'bg-gradient-to-b', 'from-bgclrstart', 'to-bgclrend');
+};
+
 export function loadnhistory(toLoad: string) {
 	loadPage(toLoad);
 	history.pushState({ page: toLoad }, '', `?page=${toLoad}`);
 };
+
+export async function	fetchPlayerData() {
+	try
+	{
+		const response = await fetch('http://localhost:3000/profile', {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			credentials : 'include'
+		});
+
+		if (!response.ok)
+			throw new Error("Failed to fetch for the player's Data");
+        const data = await response.json();
+        console.log("data: ", data);
+
+		return (data);
+	}
+	catch (error)
+	{
+		console.error("Failed to fetch for the player's name: ", error);
+	}
+};
+
 
 //Home page:
 function setupHomePage() {
