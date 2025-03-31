@@ -211,7 +211,7 @@ export const setupLoginPage = () => {
                 checkLastInput('.login_input_email','.checkLoginEmail', /^[a-zA-Z0-9._%+-@]*$/); //for sign in email input
                 
                 // checkLastInput('.login_input_password', '.checkLoginPassword', /^[a-zA-Z0-9._%+-@]*$/); //for sign in password input
-                 
+                googleCNCT();
                 Emailverify();
                 getSignInData();
            }
@@ -251,6 +251,7 @@ export const setupLoginPage = () => {
             // checkLastInput('.login_input_password', '.checkLoginPassword', /^[a-zA-Z0-9._%+-@]*$/); //for sign in password 
             Emailverify();
             getSignInData();
+            googleCNCT();
                     
         });
 
@@ -489,15 +490,20 @@ export const setupLoginPage = () => {
         });
     };
     
-    // function googleCNCT()
-    // {
-    //     const googlBt = document.getElementById('googleBT') as HTMLButtonElement;
+    function googleCNCT()
+    {
+        const googlBt = document.getElementById('googleBT') as HTMLButtonElement;
 
-    //     googlBt.addEventListener('click', () => {
+        googlBt.addEventListener('click', () => {
 
-    //     });
-    // }
-    // googleCNCT();
+            window.open(
+                `${window.location.origin}/api/google_auth/flow`,
+                '_blank' // Opens in a new tab
+            );
+            console.log('fr');
+
+        });
+    }
 
     function getSignInData()
     {

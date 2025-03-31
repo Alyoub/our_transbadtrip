@@ -20,6 +20,7 @@ import { setupLocalPage , GameLocal } from "./GameLocal.js";
 import { setupMultiPage , GameMulti } from "./GameMulti.js";
 import { setupCreateTournamentPage , tournamentPlayers , setupCreateTournamentButtons } from './createtourn.js';
 import { setupTournamentPage , tournament } from './tournament.js';
+import {  GameOnline2 } from './GameOnline.js'
 
 let app: HTMLElement;
 
@@ -99,7 +100,7 @@ async function loadPage(page: string) {
 		const content = await response.text();
 		app.innerHTML = content;
 		console.log(`nav to: ${page}`);
-		changePageBackground(page);
+		// changePageBackground(page);
 		if (page === 'home')
 		{
 			setupHomePage();
@@ -146,7 +147,7 @@ async function loadPage(page: string) {
 			GameMulti();
 		}
 		if(page === 'GameOnline'){
-			// GameOnline2();
+			GameOnline2();
 			header.innerHTML = "<notification-header></notification-header>";
 		}
 	}

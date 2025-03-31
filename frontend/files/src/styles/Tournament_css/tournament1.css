@@ -60,20 +60,18 @@ p {
 
 #startTournamentBtn {
     padding: 10px 20px;
-    background: #4CAF50;
+    background: rgba(84, 134, 168, 255);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 16px;
 }
-#startTournamentBtn:hover {
-    background: #45a049;
-}
+
 #exitButton
 {
     padding: 10px 20px;
-    background: #4CAF50;
+    background: rgba(84, 134, 168, 255);
     color: white;
     border: none;
     border-radius: 5px;
