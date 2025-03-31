@@ -1,9 +1,0 @@
-@import "./hatim.css";
-/* @import "./Home_css/home_main.css"; */
-/* @import "./Profile_css/profile.css"; */
-/* @import "./Sign_up_css/sing_up_main.css"; */
-@import "./notifHeader.css";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

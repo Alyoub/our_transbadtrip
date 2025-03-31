@@ -5127,7 +5127,7 @@ src/scripts/settings.ts(262,9): error TS2304: Cannot find name 'co'.
 8:15:19 AM - Found 0 errors. Watching for file changes.
 [2J[3J[H8:15:20 AM - File change detected. Starting incremental compilation...
 
-src/scripts/settings.ts(263,9): error TS2339: Property 'console' does not exist on type 'HTMLButtonElement'.
+src/scripts/settings.ts(263,9): error TS2339: Property '// console' does not exist on type 'HTMLButtonElement'.
 
 8:15:20 AM - Found 1 error. Watching for file changes.
 [2J[3J[H8:15:24 AM - File change detected. Starting incremental compilation...

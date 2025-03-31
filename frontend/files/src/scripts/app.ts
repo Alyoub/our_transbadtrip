@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 	.then(response => response.json())
 	.then(data => {
-		console.log("Success:", data.message);
+		// console.log("Success:", data.message);
 
 		if(data.message === "OK!")
 		{
@@ -98,7 +98,7 @@ async function loadPage(page: string) {
 		const response = await fetch(`pages/${page}.html`);
 		const content = await response.text();
 		app.innerHTML = content;
-		console.log(`nav to: ${page}`);
+		// console.log(`nav to: ${page}`);
 		// changePageBackground(page);
 		if (page === 'home')
 		{
@@ -122,7 +122,7 @@ async function loadPage(page: string) {
 		}
 		if (page === 'tournament')
 		{
-			// console.log(`tournamentPlayers: ${tournamentPlayers}`);
+			// // console.log(`tournamentPlayers: ${tournamentPlayers}`);
 			setupTournamentPage();
 			tournament(tournamentPlayers);
 		}
@@ -182,13 +182,13 @@ export async function	fetchPlayerData() {
 		if (!response.ok)
 			throw new Error("Failed to fetch for the player's Data");
         const data = await response.json();
-        console.log("data: ", data);
+        // console.log("data: ", data);
 
 		return (data);
 	}
 	catch (error)
 	{
-		console.error("Failed to fetch for the player's name: ", error);
+		// console.error("Failed to fetch for the player's name: ", error);
 	}
 };
 

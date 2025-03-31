@@ -35,15 +35,15 @@ class smtp {
                 subject: params.subject,
                 html: params.body,
             });
-            console.log('Email sent successfully');
+            // console.log('Email sent successfully');
         } catch (error) {
-            console.error('Error sending email:', error);
+            // console.error('Error sending email:', error);
         }
     }
 
     async forget_pass(email) {
         const token = crypto.randomBytes(32).toString('hex');
-        const resetUrl = `http://localhost:3000/reset_password/${email}/${token}`;
+        const resetUrl = `https://localhost/api/reset_password/${email}/${token}`;
         await prisma.user.update({
             where: { email },
             data: { resetToken: token, resetTokenExpiry:new Date( Date.now() + 3600000 )} 

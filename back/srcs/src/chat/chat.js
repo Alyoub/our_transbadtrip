@@ -38,14 +38,14 @@ function chat(connection, req) {
         receiverConnection.send(JSON.stringify({ senderId, text }));
       }
     } catch (error) {
-      console.error('Error handling message:', error);
+      // console.error('Error handling message:', error);
       connection.send(JSON.stringify({ error: "An error occurred while processing your message" }));
     }
   });
 
   connection.on("close", () => {
     connections.delete(userId);
-    console.log("Connection closed");
+    // console.log("Connection closed");
   });
 }
 
@@ -74,7 +74,7 @@ async function load_conversation(req, reply) {
     });
     reply.send(messages);
   } catch (err) {
-    console.error('Error loading conversation:', err);
+    // console.error('Error loading conversation:', err);
     reply.status(500).send({ error: "An error occurred while loading conversation" });
   }
 }

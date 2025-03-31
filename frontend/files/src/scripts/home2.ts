@@ -42,7 +42,7 @@ export const updateHomeHeadermain5 = () => {
         element.innerHTML = htmlGen1;
     }
     
-    // console.log(htmlGen1);
+    // // console.log(htmlGen1);
 };
 
 export const setupLoginPage = () => {
@@ -457,8 +457,8 @@ export const setupLoginPage = () => {
                 })
                 .then(response => response.json())
                 .then(data => {
-                console.log("Success:", data.message);
-                console.log(formSignUPData);
+                // console.log("Success:", data.message);
+                // console.log(formSignUPData);
                 const str = data.message;
 
                     if(str === "User created successfully")
@@ -503,7 +503,7 @@ export const setupLoginPage = () => {
                 `${window.location.origin}/api/google_auth/flow`,
                 '_blank' // Opens in a new tab
             );
-            console.log('fr');
+            // console.log('fr');
 
         });
     }
@@ -576,8 +576,8 @@ export const setupLoginPage = () => {
                     email: email.value.trim(),
                     password: password.value.trim(),
                 };
-                // console.log(formSignINData);
-                console.log(window.location.origin)
+                // // console.log(formSignINData);
+                // console.log(window.location.origin)
                 fetch(`${window.location.origin}/api/login`, {
                     method: 'POST',
                     headers: {
@@ -588,7 +588,7 @@ export const setupLoginPage = () => {
                 })
                 .then(response => response.json())
                 .then(data => {
-                console.log("Success:", data);
+                // console.log("Success:", data);
                 const OK = data.message;
                 const KO = data.error;
                 const FA = data.message;
@@ -696,7 +696,7 @@ export const setupLoginPage = () => {
         if(forgetbnt)
         {
             forgetbnt.addEventListener('click', () => {
-                // console.log('nice');
+                // // console.log('nice');
                 loginPgae.classList.add('hide');
                 emailver.style.display = "";
             });
@@ -719,17 +719,17 @@ export const setupLoginPage = () => {
                 })
                 .then(response => response.json())
                 .then(data => {
-                console.log("Success:", data);
+                // console.log("Success:", data);
                 })
 
-                console.log(verfyEamil);
+                // console.log(verfyEamil);
 
                 loginPgae.classList.add('hide');
                 emailver.style.display = "none";
                 AllHomePage.classList.remove('blur');
             });
 
-            // console.log(valinput.value);
+            // // console.log(valinput.value);
         }
         
     }
@@ -771,7 +771,7 @@ export const setupLoginPage = () => {
                 })
                 .then(response => response.json())
                 .then(data => {
-                console.log("Success:", data);
+                // console.log("Success:", data);
                 
                 const FaOK = data.success;
                 const FaKo = data.error;

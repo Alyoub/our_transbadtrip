@@ -22,7 +22,7 @@ class Two_Factor_Auth {
 
             return params.reply.code(200).send({ success: '2FA status updated successfully' });
         } catch (err) {
-            //console.error("Error updating 2FA status: ", err);
+            //// console.error("Error updating 2FA status: ", err);
             return params.reply.code(500).send({ error: 'Failed to update 2FA status', err });
         }
     }
@@ -53,7 +53,7 @@ class Two_Factor_Auth {
                 qr_url: qr_url, 
             });
         } catch (err) {
-            //console.error("Error generating 2FA secret: ", err);
+            //// console.error("Error generating 2FA secret: ", err);
             return params.reply.code(500).send({
                 error: "Failed to generate 2FA secret",
             });
@@ -97,7 +97,7 @@ class Two_Factor_Auth {
                 });
             }
         } catch (err) {
-            //console.error("Error verifying 2FA token: ", err);
+            //// console.error("Error verifying 2FA token: ", err);
             return params.reply.code(500).send({
                 error: "Failed to verify 2FA token",
                 err,

@@ -31,7 +31,7 @@ export async function	setupProfilPage() {
 	}
 	catch(error)
 	{
-		console.error("Failed to update the Player's name: ", error);
+		// console.error("Failed to update the Player's name: ", error);
 	}
 };
 
@@ -91,7 +91,7 @@ export function	setupProfilButtons() {
 		}
 		catch (error)
 		{
-			console.error("Failed to log out: ", error);
+			// console.error("Failed to log out: ", error);
 		}
 	});
 	settingsBtn.addEventListener('click', () => loadnhistory('settings'));

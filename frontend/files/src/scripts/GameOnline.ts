@@ -85,7 +85,7 @@ export function GameOnline2()
         playerPaddle = paddle;
         waitingForOpponent = false;
         startGame = true;
-        console.log(`You are controlling the ${paddle} paddle`);
+        // console.log(`You are controlling the ${paddle} paddle`);
     });
 
     const player11 = document.querySelector('.user1TEXT') as HTMLElement;

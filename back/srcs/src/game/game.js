@@ -29,7 +29,7 @@ class Game {
             this.startGameLoop(fastify);
         }
 
-        console.log(`Match started: ${this.players.left} (left) vs ${this.players.right} (right)`);
+        // console.log(`Match started: ${this.players.left} (left) vs ${this.players.right} (right)`);
     }
 
     startGameLoop(fastify) {
@@ -165,7 +165,7 @@ class Game {
             clearInterval(this.intervalId);
             this.gameLoopRunning = false;
             this.intervalId = null;
-            console.log("Game loop stopped for:", this.players.left, this.players.right);
+            // console.log("Game loop stopped for:", this.players.left, this.players.right);
         }
     }
 }
@@ -175,11 +175,11 @@ let activeGames = [];
 
 function game_logic(socket, fastify) 
 {
-    console.log("client connected", socket.id);
+    // console.log("client connected", socket.id);
 
     socket.on("requestMatch", () => {
         waitingQueue.push(socket.id);
-        console.log("Player added to queue:", socket.id);
+        // console.log("Player added to queue:", socket.id);
 
         if (waitingQueue.length >= 2) {
             const player1 = waitingQueue.shift();
@@ -208,13 +208,13 @@ function game_logic(socket, fastify)
     });
 
     socket.on("disconnect", () => {
-        console.log("client disconnected:", socket.id);
+        // console.log("client disconnected:", socket.id);
 
         const indexInQueue = waitingQueue.indexOf(socket.id);
         if (indexInQueue !== -1) 
         {
             waitingQueue.splice(indexInQueue, 1);
-            console.log("Player removed from queue:", socket.id);
+            // console.log("Player removed from queue:", socket.id);
         }
 
         const gameIndex = activeGames.findIndex((g) => g.players.left === socket.id || g.players.right === socket.id);
@@ -235,7 +235,7 @@ function game_logic(socket, fastify)
                         right: removedGame.gameState.rightPlayerScore
                     }
                 });
-                console.log("Game ended due to player disconnect");
+                // console.log("Game ended due to player disconnect");
             }
         }
     });

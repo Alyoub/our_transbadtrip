@@ -14,7 +14,7 @@ async function delete_(request,reply){
             'Max-Age=3600000; Path=/; SameSite=None; Secure'
         ]);
     } catch (err) {
-        //console.error('Error deleting user:', err);
+        //// console.error('Error deleting user:', err);
         reply.code(500).send({ error: "badtrip" });
     }
 }
@@ -29,8 +29,8 @@ async function update_(request, reply){
     });
 
     if (!user || parseInt(user.id) !== userId || urllogin !== user.login) {
-        //console.log('Unauthorized access attempt');
-        //console.log("userId:", userId, "id:", user.id);
+        //// console.log('Unauthorized access attempt');
+        //// console.log("userId:", userId, "id:", user.id);
         return reply.code(403).send({
             error: "Unauthorized access"
         });
@@ -60,7 +60,7 @@ async function update_(request, reply){
 
         return reply.code(200).send({ success: true });
     } catch (err) {
-        //console.error('Error updating user:', err);
+        //// console.error('Error updating user:', err);
         reply.code(500).send({ error: "Error updating user" });
     }
 }
@@ -89,7 +89,7 @@ async function change_password(request , reply ){
         return reply.code(200).send({ success: true });
 
     } catch (err) {
-        //console.error("bad trip:", err);
+        //// console.error("bad trip:", err);
         reply.code(500).send({ error: "Internal Server Error" });
     }
 };
@@ -162,7 +162,7 @@ async function upload_(request, reply) {
             path: uploadPath
         });
     } catch (err) {
-        console.error(err);
+        // console.error(err);
         return reply.code(500).send({ error: "File upload failed" });
     }
 }

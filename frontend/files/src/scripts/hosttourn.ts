@@ -61,7 +61,7 @@ function updateStartButton(input: HTMLInputElement, submitBtn: HTMLButtonElement
 		input.classList.add('ring', 'ring-red-500');
 		if (!input.nextElementSibling?.classList.contains('text-red-500'))
 			input.after(txtErrMsg);
-		// console.log(`here: '${input.value}'`);
+		// // console.log(`here: '${input.value}'`);
 	}
 	else
 	{
@@ -70,7 +70,7 @@ function updateStartButton(input: HTMLInputElement, submitBtn: HTMLButtonElement
 			input.nextElementSibling.remove();
 	}
 	const checkedCount = Array.from(checkBoxes).filter(checkbox => checkbox.checked).length;
-	// console.log(`total: `);
+	// // console.log(`total: `);
     if (checkedCount < 3)
 	{
         allValid = false;

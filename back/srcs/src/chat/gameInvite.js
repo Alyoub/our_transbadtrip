@@ -15,7 +15,7 @@ async function inviteToGame(req , reply){
         
         // return reply.code(201).send({message : "user invited successfully"});
     }catch(err){
-        //console.error("error inviting user : ", err);
+        //// console.error("error inviting user : ", err);
         return reply.code(500).send({error : "error inviting user", err});
     }
 }

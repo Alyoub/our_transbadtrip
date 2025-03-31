@@ -28,8 +28,8 @@ async function register(request, reply){
                 "message": "User created successfully",
             });
     } catch (err) {
-        console.log(err);
-        //console.error('Error during user registration:', err);
+        // console.log(err);
+        //// console.error('Error during user registration:', err);
         reply.code(400).send({ error: "database LLL ",err });
     }
 }
@@ -51,7 +51,7 @@ async function login (request, reply){
             return reply.code(401).send({ error: "password ghalet " });
         }
 
-        if(user.tfa){
+        if(user.tfa === true){
             const p_token = jwt.generate(user.id,false);// need to modify 
             reply.header('Set-Cookie', [
                 `jwt=${p_token}; Max-Age=900000; Path=/; SameSite=None; Secure`,
@@ -61,17 +61,18 @@ async function login (request, reply){
                 message:"tfa needed"
             })
         }
+        else {
         const token = jwt.generate(user.id,true);
         reply.header('Set-Cookie', [
             `jwt=${token}; Max-Age=900000; Path=/; SameSite=None; Secure`,
             'Max-Age=3600000; Path=/; SameSite=None; Secure'
         ]);
 
-        return reply.code(200).send({ message : "OK" });
+        return reply.code(200).send({ message : "OK" });}
     } catch (err) {
 
-        console.log(err);
-        //console.error('Error during login:', err);
+        // console.log(err);
+        //// console.error('Error during login:', err);
         reply.code(500).send({ badtrip: "login error" ,err:err});
     }
 }
@@ -85,7 +86,7 @@ async function logout(request,reply){
         ]);
 
     }catch(err){
-        //console.log('logout :( error',err);
+        //// console.log('logout :( error',err);
         return reply.code(444).send({
             badtrip : 'hadchi makdamch ',
             error: err,
@@ -96,8 +97,9 @@ async function logout(request,reply){
 
 async function verify2FA(request, reply) {
     const { totpCode } = request.body;
-    const {partialToken} = request.cookies.jwt;
+    const partialToken = request.cookies.jwt;
     try {
+        // console.log("partialToken : ",partialToken);
         const { userId } = await jwt.verify(partialToken);
 
         const user = await prisma.user.findUnique({ where: { id: userId } });
@@ -114,20 +116,20 @@ async function verify2FA(request, reply) {
             return reply.code(401).send({ error: "Invalid 2FA code" });
         }
 
-        const finalToken = jwt.generate(user.id, true);
+        // const finalToken = jwt.generate(user.id, true);
 
+        const token = jwt.generate(user.id,true);
         reply.header('Set-Cookie', [
-            `jwt=${finalToken}; Max-Age=900000; Path=/; SameSite=None; Secure`,
+            `jwt=${token}; Max-Age=900000; Path=/; SameSite=None; Secure`,
             'Max-Age=3600000; Path=/; SameSite=None; Secure'
         ]);
-
         return reply.code(200).send({ 
             message: "2FA verified successfully",
             is2FAVerified: true 
         });
 
     } catch (err) {
-        console.error(err);
+        // console.error(err);
         reply.code(500).send({ error: "2FA verification failed", details: err.message });
     }
 }
@@ -135,7 +137,7 @@ async function verify2FA(request, reply) {
 async function  profile (request,reply) {
         
     const {userId} = request.user
-    //console.log('userId',userId);
+    //// console.log('userId',userId);
     const user = await prisma.user.findUnique({
         where: { id : userId }
     });
@@ -163,7 +165,7 @@ async function users (request, reply) {
         });
         return users;
     } catch (err) {
-        //console.error('Error fetching users:', err);
+        //// console.error('Error fetching users:', err);
         reply.code(500).send({ error: "makayn la users la zbi" });
     }
 }

@@ -1,6 +1,6 @@
 export function rakmanchat()
 {
-    // console.log('we');
+    // // console.log('we');
 
 interface Message {
     senderId: number | string;
@@ -16,29 +16,29 @@ interface Friend {
 const socket = new WebSocket(`ws://localhost:3000/chat?token=${get_token_from_cookies()}`);
 
 socket.addEventListener('open', () => {
-    console.log('Connected to WebSocket server');
+    // console.log('Connected to WebSocket server');
 });
 
 socket.addEventListener('message', (event: MessageEvent) => {
-    console.log("Received message:", event.data);
+    // console.log("Received message:", event.data);
     try {
         const message: Message & { error?: string } = JSON.parse(event.data);
         if (message.error) {
-            console.error(message.error);
+            // console.error(message.error);
             return;
         }
         appendMessage(message.senderId.toString(), message.text);
     } catch (error) {
-        console.error("Error parsing message:", error);
+        // console.error("Error parsing message:", error);
     }
 });
 
 socket.addEventListener('close', (event: CloseEvent) => {
-    console.log('WebSocket connection closed:', event);
+    // console.log('WebSocket connection closed:', event);
 });
 
 socket.addEventListener('error', (error: Event) => {
-    console.error('WebSocket error:', error);
+    // console.error('WebSocket error:', error);
 });
 
 document.getElementById('sendButton')?.addEventListener('click', (event: MouseEvent) => {
@@ -73,7 +73,7 @@ function appendMessage(sender: string, text: string): void {
 
      const messageElement = document.createElement('div');
     
-    console.log("hamada");
+    // console.log("hamada");
 
      if(sender === "Me")
     {
@@ -97,7 +97,7 @@ function get_token_from_cookies(): string | null {
 }
 
 const letoken = get_token_from_cookies();
-console.log(letoken);
+// console.log(letoken);
 
 fetch(`${window.location.origin}/api/users`, {
     method: 'GET',
@@ -177,7 +177,7 @@ fetch(`${window.location.origin}/api/users`, {
         });
     })
     .catch((error: Error) => {
-        console.error('Error fetching users:', error);
+        // console.error('Error fetching users:', error);
     });
 
 function loadConversation(friend: Friend): void {
@@ -204,6 +204,6 @@ function loadConversation(friend: Friend): void {
                 });
             }
         })
-        .catch((error: Error) => console.error('Error loading conversation:', error));
+        .catch((error: Error) => // console.error('Error loading conversation:', error));
 }
 }

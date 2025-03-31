@@ -5,19 +5,19 @@
 
 async function get_tokens(rawcookie) {
 
-    //console.log("start parsing  yaslam ");
+    //// console.log("start parsing  yaslam ");
     let i = 0;
     const cookies = rawcookie.split(';').reduce((acc, cookie) => {
-        // //console.log('call n ' ,i);
+        // //// console.log('call n ' ,i);
         i++;
 
-        // //console.log('acc = ',acc ,' cookie = ', cookie);
+        // //// console.log('acc = ',acc ,' cookie = ', cookie);
         const [key, value] = cookie.split('=').map(c => c.trim());
         if (key && value) {
             acc[key] = value;
         }
-        // //console.log('after split ');
-        // //console.log(acc);
+        // //// console.log('after split ');
+        // //// console.log(acc);
         return acc;
     },{});
 
@@ -29,14 +29,14 @@ async function handel_cookies(request, reply) {
         if(!request.headers.cookie)
             return '';
         const rawcookie = request.headers.cookie;
-        // //console.log(rawcookie);
+        // //// console.log(rawcookie);
         const tokens = await get_tokens(rawcookie);
         request.cookies = {};
         request.cookies.jwt = tokens['jwt'] || '';
         
 
     } catch (err) {
-        //console.log(err);
+        //// console.log(err);
         return reply.code(500).send({
             error: err,
             badtrip: 'hadchi makhdamch'

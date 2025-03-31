@@ -37,13 +37,13 @@ module.exports = async function routes(fastify, options) {
 
     fastify.decorate('authenticate', async function (request, reply) {
         try {
-            console.log('request cookes jwt ? ',request.cookies.jwt)
+            // console.log('request cookes jwt ? ',request.cookies.jwt)
              token = request.cookies.jwt ;
             if (!token) {
                 throw new Error('No token provided');
             }
             const  data = await jwt.verify(token);
-            console.log("data in teh jwt is ",data);
+            // console.log("data in teh jwt is ",data);
             request.user = {};
             request.user = data;
 
@@ -70,7 +70,7 @@ module.exports = async function routes(fastify, options) {
     
     fastify.after(() => {
         fastify.io.on("connection", (socket) => {
-            console.log("client connected", socket.id);
+            // console.log("client connected", socket.id);
             game_logic(socket, fastify);
         });
     });
@@ -95,7 +95,7 @@ module.exports = async function routes(fastify, options) {
     // fastify.post('/login/google/', google_auth);
     fastify.post('/2fa/:action',{preHandler:[fastify.authenticate]},async (request,reply)=>{
         const { action } = request.params;
-        // //console.log(request.body);
+        // //// console.log(request.body);
         switch(action){
             case 'activate':
                 return await Two_Factor_Auth.activate({
@@ -180,7 +180,8 @@ module.exports = async function routes(fastify, options) {
                 return reply.code(400).send({ error: "Invalid action" });
         }
     });
-    fastify.post('/verify_tfa',verify2FA)
+
+    fastify.post('/verify_tfa', verify2FA)
     fastify.post('/register', register);
 
     fastify.get('/profile', { preHandler: [fastify.authenticate] }, profile);
@@ -220,7 +221,7 @@ module.exports = async function routes(fastify, options) {
             });
 
             const levelsToIncrement = Math.floor(userrr.wonGames / 3);
-            console.log('levelsToIncrement', levelsToIncrement);
+            // console.log('levelsToIncrement', levelsToIncrement);
             if (levelsToIncrement > 0) {
                 await prisma.user.update({
                     where: { id: user.userId },
@@ -266,7 +267,7 @@ module.exports = async function routes(fastify, options) {
     fastify.post('/uploadpicb64', { preHandler: [fastify.authenticate] }, async (request, reply) => {
         const user = request.user;
         const { pic } = request.body;
-        // console.log('pic', pic);
+        // // console.log('pic', pic);
         try {
             await prisma.user.update({
                 where: { id: request.user.userId },
@@ -274,7 +275,7 @@ module.exports = async function routes(fastify, options) {
             });
             reply.status(200).send({ message: 'Picture uploaded' });
         } catch (error) {
-            console.error('Prisma error:', error);
+            // console.error('Prisma error:', error);
             reply.status(500).send({ error: 'Failed to upload picture', details: error.message });
         }      
     });
@@ -290,7 +291,7 @@ module.exports = async function routes(fastify, options) {
             });
             reply.status(200).send({ message: 'cover uploaded' });
         } catch (error) {
-            console.error('Prisma error:', error);
+            // console.error('Prisma error:', error);
             reply.status(500).send({ error: 'Failed to upload cover', details: error.message });
         }      
     });

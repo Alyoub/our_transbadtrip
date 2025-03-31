@@ -51,14 +51,14 @@ export const updateSettingsPage = () => {
     //         inputUpload!.addEventListener('change', () => {
     //             if (inputUpload!.files && inputUpload!.files.length > 0) {
     //                 const file = inputUpload!.files[0]; 
-    //                 console.log("Selected file:", file);
+    //                 // console.log("Selected file:", file);
         
     //                 const imageUrl = URL.createObjectURL(file);
-    //                 console.log("Generated Image URL:", imageUrl);
+    //                 // console.log("Generated Image URL:", imageUrl);
         
     //                 profilePic!.src = imageUrl;
     //             } else {
-    //                 console.log("No file selected.");
+    //                 // console.log("No file selected.");
     //             }
     //         });
         
@@ -78,35 +78,35 @@ export const updateSettingsPage = () => {
 
 
     // function upload() {
-    //     console.log("upload() function called");
+    //     // console.log("upload() function called");
     
     //     const inputUpload = document.getElementById('file-upload') as HTMLInputElement | null;
     //     const profilePic = document.getElementById('profile-pic') as HTMLImageElement | null;
     
     //     if (!inputUpload) {
-    //         console.log("inputUpload element not found");
+    //         // console.log("inputUpload element not found");
     //         return;
     //     }
     //     if (!profilePic) {
-    //         console.log("profilePic element not found");
+    //         // console.log("profilePic element not found");
     //         return;
     //     }
     
-    //     console.log("Elements found successfully!");
+    //     // console.log("Elements found successfully!");
     
     //     inputUpload.addEventListener('change', () => {
-    //         console.log("File input changed");
+    //         // console.log("File input changed");
     
     //         if (inputUpload.files && inputUpload.files.length > 0) {
     //             const file = inputUpload.files[0];
-    //             console.log("Selected file:", file);
+    //             // console.log("Selected file:", file);
     
     //             const imageUrl = URL.createObjectURL(file);
-    //             console.log("Generated Image URL:", imageUrl);
+    //             // console.log("Generated Image URL:", imageUrl);
     
     //             profilePic.src = imageUrl;
     //         } else {
-    //             console.log("No file selected.");
+    //             // console.log("No file selected.");
     //         }
     //     });
     // }
@@ -141,7 +141,7 @@ export const updateSettingsPage = () => {
                     };
                     img.src = e.target!.result as string;
 
-                    console.log(img.src);
+                    // console.log(img.src);
                     const picformat =
                     {
                         pic : img.src
@@ -156,12 +156,12 @@ export const updateSettingsPage = () => {
                     })
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                     })
                 };
     
                 reader.onerror = () => {
-                    console.error("Error reading file!");
+                    // console.error("Error reading file!");
                 };
     
                 reader.readAsDataURL(file);
@@ -200,7 +200,7 @@ export const updateSettingsPage = () => {
                     };
                     img.src = e.target!.result as string;
 
-                    console.log(img.src);
+                    // console.log(img.src);
                     const coverformat =
                     {
                         cover : img.src
@@ -215,12 +215,12 @@ export const updateSettingsPage = () => {
                     })
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                     })
                 };
     
                 reader.onerror = () => {
-                    console.error("Error reading file!");
+                    // console.error("Error reading file!");
                 };
     
                 reader.readAsDataURL(file);
@@ -313,7 +313,7 @@ export const updateSettingsPage = () => {
         if(editName.disabled === true)
         {
             btnName.addEventListener('click', () => {
-                console.log(nameVal);
+                // console.log(nameVal);
             });
         }
     }
@@ -354,7 +354,7 @@ export const updateSettingsPage = () => {
             })
             .then(response => response.json())
             .then(data => {
-            console.log("Success:", data.qr_url);
+            // console.log("Success:", data.qr_url);
             const QR =  data.qr_url;
             Qrgen.innerHTML = `<img class="QR_test" src="${QR}">`;
             })
@@ -375,7 +375,7 @@ export const updateSettingsPage = () => {
                 })
                 .then(response => response.json())
                 .then(data => {
-                // console.log("Success:", data.success);
+                // // console.log("Success:", data.success);
                 
                 const FaOK = data.success;
                 const FaKo = data.error;
@@ -480,7 +480,7 @@ export const updateSettingsPage = () => {
         const allSetting = document.getElementById('All_setings_FA_data') as HTMLElement;
 
         deeletBtn.addEventListener('click', () => {
-            console.log('BAD TRIP');
+            // console.log('BAD TRIP');
                 const id = '';
                 fetch(`${window.location.origin}/api/user/${id}`, {
                 method: 'delete',

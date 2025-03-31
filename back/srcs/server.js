@@ -57,8 +57,8 @@ const PORT =  process.env.BASE_PORT;
 fastify.register(routes);
 fastify.listen({port : PORT,host: HOST}, err => {
     if (err) {
-        console.error(err);
+        // console.error(err);
         // process.exit(1);
     }
-    // //console.log('Server listening on http://' + host +':' + port);
+    // //// console.log('Server listening on http://' + host +':' + port);
 });

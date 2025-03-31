@@ -7,7 +7,7 @@ export async function	setupLocalPage() {
 	try
 	{
 		const playerData = await fetchPlayerData();
-        console.log(playerData)
+        // console.log(playerData)
 		const iPlayerName = document.getElementById('iPlayerName') as HTMLSpanElement;
 		const iPlayerUsername = document.getElementById('iPlayerUsername') as HTMLSpanElement;
 
@@ -24,7 +24,7 @@ export async function	setupLocalPage() {
 	}
 	catch(error)
 	{
-		console.error("Failed to update the Player's name: ", error);
+		// console.error("Failed to update the Player's name: ", error);
 	}
 	
 };
@@ -42,7 +42,7 @@ export function GameLocal()
         startButton.style.display = "none";
         requestAnimationFrame(updateCanvas);
     });
-    console.log('salam');
+    // console.log('salam');
     resetButton?.addEventListener('click', resetgame);
     function resetgame(): void {
         location.reload();

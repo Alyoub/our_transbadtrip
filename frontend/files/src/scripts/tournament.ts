@@ -17,7 +17,7 @@ export async function	setupTournamentPage() {
 	}
 	catch(error)
 	{
-		console.error("Failed to update the Player's name: ", error);
+		// console.error("Failed to update the Player's name: ", error);
 	}
 	
 };

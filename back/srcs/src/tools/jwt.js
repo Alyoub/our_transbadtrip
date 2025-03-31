@@ -29,12 +29,14 @@ class JWT {
 
     async verify(token) {
         try {
+            // console.log(token);
             const decoded = jsonwebtoken.verify(token, this.key, { algorithms: [this.algorithm] });
             return({
                 userId:decoded.userId,
                 is2FAVerified:decoded.is2FAVerified,
             });
         } catch (error) {
+            // console.log('error',error);
             throw new Error('Invalid or expired token');
         }
     }

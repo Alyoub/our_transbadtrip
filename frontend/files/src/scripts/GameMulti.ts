@@ -17,7 +17,7 @@ export async function	setupMultiPage() {
 	}
 	catch(error)
 	{
-		console.error("Failed to update the Player's name: ", error);
+		// console.error("Failed to update the Player's name: ", error);
 	}
 	
 };
@@ -34,7 +34,7 @@ export function GameMulti()
         event?.stopPropagation();
         startButton.style.display = "none";
         requestAnimationFrame(updateCanvas);
-        console.log('salam');
+        // console.log('salam');
     });
     resetButton?.addEventListener('click', resetgame);
     function resetgame(): void {
