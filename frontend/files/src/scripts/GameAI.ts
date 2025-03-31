@@ -7,6 +7,7 @@ export async function	setupSoloPage() {
 	try
 	{
 		const playerData = await fetchPlayerData();
+        console.log(playerData)
 		const iPlayerName = document.getElementById('iPlayerName') as HTMLSpanElement;
 		const iPlayerUsername = document.getElementById('iPlayerUsername') as HTMLSpanElement;
 
@@ -36,7 +37,8 @@ export function GameAi()
     const startButton = document.getElementById('start') as HTMLButtonElement;
     const resetButton = document.getElementById('ResetButton') as HTMLButtonElement;
 
-    startButton?.addEventListener('click', (event) => {
+    startButton?.addEventListener('click', (event) => 
+    {
         event?.stopPropagation();
         startButton.style.display = "none";
         requestAnimationFrame(updateCanvas);
@@ -222,7 +224,7 @@ export function GameAi()
         const randomChance = Math.random();
 
         if (randomChance > 0.7) {
-            await new Promise(resolve => setTimeout(resolve, 0.001));
+            await new Promise(resolve => setTimeout(resolve, 0.09));
             if (ballY < aiCenterY - 35) {
                 rightPaddleY -= aiSpeed;
             }
@@ -276,5 +278,5 @@ export function GameAi()
             restartGame();
         }
     });
-    //requestAnimationFrame(updateCanvas);
+    // requestAnimationFrame(updateCanvas);
 }

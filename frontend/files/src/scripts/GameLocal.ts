@@ -7,11 +7,18 @@ export async function	setupLocalPage() {
 	try
 	{
 		const playerData = await fetchPlayerData();
-		// const iPlayerName = document.getElementById('iPlayerName') as HTMLSpanElement;
+        console.log(playerData)
+		const iPlayerName = document.getElementById('iPlayerName') as HTMLSpanElement;
 		const iPlayerUsername = document.getElementById('iPlayerUsername') as HTMLSpanElement;
 
-		// if (iPlayerName)
-		// 	iPlayerName.textContent = playerData.name;
+		if (iPlayerName)
+        {
+            let tmp = playerData.name as string;
+            const i = tmp.indexOf(" ");
+            if (i !== -1)
+                tmp = tmp.substring(0, i);
+			iPlayerName.textContent = tmp;
+        }
 		if (iPlayerUsername)
 			iPlayerUsername.textContent = playerData.login;
 	}
