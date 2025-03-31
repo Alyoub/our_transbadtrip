@@ -2,6 +2,11 @@ back/srcs/package-lock.json
 back/srcs/node_modules/
 back/srcs/tsconfig.json
 back/.env
+back/.vscode
+back/.DS_Store
+.DS_Store
+.vscode
+frontend/.DS_Store
 back/srcs/uploads/
 back/srcs/prisma/migrations/
 back/srcs/prisma/dev.db

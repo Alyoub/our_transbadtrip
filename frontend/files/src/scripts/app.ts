@@ -14,7 +14,7 @@ import { updateHomeHeadermain3 } from "./home1.js";
 import { updateHomeHeadermain5 , setupLoginPage } from "./home2.js";
 import { setupProfilPage , setupProfilButtons } from "./profil.js";
 import { updateSettingsPage } from "./settings.js";
-import { rakmanchat } from "./chat.js";
+// import { rakmanchat } from "./chat.js";
 import { setupSoloPage , GameAi } from "./GameAI.js";
 import { setupLocalPage , GameLocal } from "./GameLocal.js";
 import { setupMultiPage , GameMulti } from "./GameMulti.js";
@@ -113,7 +113,7 @@ async function loadPage(page: string) {
 		if (page === 'messages')
 		{
 			// setupMessagesButtons();
-			rakmanchat();
+			// rakmanchat();
 		}
 		if (page === 'createtourn')
 		{
