@@ -214,6 +214,7 @@ export const setupLoginPage = () => {
                 googleCNCT();
                 Emailverify();
                 getSignInData();
+                // FaHome();
            }
            else if(SignUpBt === "Sing_upHomeBt") //Sing UP home btn
            {
@@ -252,6 +253,7 @@ export const setupLoginPage = () => {
             Emailverify();
             getSignInData();
             googleCNCT();
+            // FaHome();
                     
         });
 
@@ -458,6 +460,7 @@ export const setupLoginPage = () => {
                 console.log("Success:", data.message);
                 console.log(formSignUPData);
                 const str = data.message;
+
                     if(str === "User created successfully")
                     {
                         done("GOOD", str);
@@ -525,6 +528,8 @@ export const setupLoginPage = () => {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
+        const faHome = document.querySelector('.Verify_home') as HTMLElement;
+
         signInBt?.addEventListener('click', (event) => {
             event.preventDefault();
     
@@ -583,11 +588,12 @@ export const setupLoginPage = () => {
                 })
                 .then(response => response.json())
                 .then(data => {
-                console.log("Success:", data.message);
+                console.log("Success:", data);
                 const OK = data.message;
                 const KO = data.error;
-
-                    if(OK)
+                const FA = data.message;
+                FaHome();
+                    if(OK === "OK")
                     {
                         done("GOOD", OK);
                         card.style.display = "";
@@ -595,6 +601,13 @@ export const setupLoginPage = () => {
                         setTimeout(() => {
                             loadnhistory('profil');
                         }, 3000);
+                    }
+                    if(FA === "tfa needed")
+                    {
+                        card.style.display = "none";
+                        faHome.style.display = "";
+                        loginPgae.classList.add('hide');
+                        // FaHome()
                     }
                     if(KO)
                     {
@@ -675,7 +688,7 @@ export const setupLoginPage = () => {
         const verfyBtn = document.querySelector('.sign-up') as HTMLButtonElement;
         const AllHomePage = document.getElementById('all_Home_page') as HTMLElement;
 
-        const valinput = document.getElementById('.verifyEmail') as HTMLInputElement;
+        const valinput = document.getElementById('verifyEmail') as HTMLInputElement;
 
         // const card = document.querySelector('.card-container') as HTMLElement;
 
@@ -691,13 +704,13 @@ export const setupLoginPage = () => {
         if(verfyBtn) 
         {
             verfyBtn.addEventListener('click', () => {
-
+                let login = "";
                 const verfyEamil = {
                     email : valinput.value.trim(),
                 }
-                const login = '';
-                fetch(`${window.location.origin}/api/api/${login}/change_password`, {
-                    method: 'PUT',
+                // const login = '';
+                fetch(`${window.location.origin}/api/forget_password`, {
+                    method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -711,9 +724,9 @@ export const setupLoginPage = () => {
 
                 console.log(verfyEamil);
 
-                // loginPgae.classList.add('hide');
-                // emailver.style.display = "none";
-                // AllHomePage.classList.remove('blur');
+                loginPgae.classList.add('hide');
+                emailver.style.display = "none";
+                AllHomePage.classList.remove('blur');
             });
 
             // console.log(valinput.value);
@@ -723,30 +736,59 @@ export const setupLoginPage = () => {
 
 
 
-    // function FaHome()
-    // {
-    //     const FaBtn = document.querySelector('.SwitchON') as HTMLButtonElement;
+    function FaHome()
+    {
+        const FaBtn = document.querySelector('.HomeFaVerify') as HTMLButtonElement;
 
+        const val1 = document.querySelector('.HomeFaInput1') as HTMLInputElement;
+        const val2 = document.querySelector('.HomeFaInput2') as HTMLInputElement;
+        const val3 = document.querySelector('.HomeFaInput3') as HTMLInputElement;
+        const val4 = document.querySelector('.HomeFaInput4') as HTMLInputElement;
+        const val5 = document.querySelector('.HomeFaInput5') as HTMLInputElement;
+        const val6 = document.querySelector('.HomeFaInput6') as HTMLInputElement;
 
-    //     fetch('http://localhost:3000/2fa/activate', {
-    //                 method: 'POST',
-    //                 headers: {
-    //                     'Content-Type': 'application/json'
-    //                 },
-    //                 body: JSON.stringify({}),
-    //                 credentials : "include"
-    //             })
-    //             .then(response => response.json())
-    //             .then(data => {
-    //             console.log("Success:", data);
-    //             console.log('ook');
-    //             })
+        const card = document.querySelector('.loader') as HTMLElement;
+        const loginPgae = document.getElementById('loginPage') as HTMLElement;
+        const faHome = document.querySelector('.Verify_home') as HTMLElement;
 
-    //     // FaBtn.addEventListener('click', () => {
-    //     //     console.log('ok');
-    //     // });
-    // }
-    // FaHome();
+        
+        if(FaBtn)
+        {
+            FaBtn.addEventListener('click', () => {
+                const FAHome = val1.value + val2.value + val3.value + val4.value + val5.value + val6.value;
+                
+                const FA = {
+                    totpCode : FAHome.trim()
+                }
+
+                fetch(`${window.location.origin}/api/verify_tfa`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(FA),
+                    credentials : "include"
+                })
+                .then(response => response.json())
+                .then(data => {
+                console.log("Success:", data);
+                
+                const FaOK = data.success;
+                const FaKo = data.error;
+                if(FaOK === "2FA verified successfully")
+
+                // faHome.style.display = "none";
+                    card.style.display = "";
+                    loginPgae.classList.add('hide');
+                    setTimeout(() => {
+                        loadnhistory('profil');
+                    }, 1000);
+                    
+                })
+
+            });
+        }
+    }
 
 }
 

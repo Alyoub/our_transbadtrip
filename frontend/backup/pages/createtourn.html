@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping Pong Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../src/styles/Tournament_css/tournament1.css">
+    <!-- <link rel="stylesheet" href="../src/styles/Tournament_css/new.css"> -->
+
+</head>
+<body>
+    <notification-header2></notification-header2>
+
+    <div id="tournamentSetup">
+        <div class="titleESC pl-24 pr-44">
+			<div class="flex flex-col items-center ml-10">
+				<button id="rtnProfilBtn" type="button" data-page="profil" class="exitBt">
+					<img class="size-6 md:size-7 lg:size-8 xl:size-9" src="../public/logos/close.png">
+				</button>
+				<h1 class="ESC2 text-2xs md:text-xs lg:text-sm xl:text-base pt-2">
+					ESC
+				</h1>
+			</div>
+			<div class="text">
+				<h1 class="texxt text-sm sm:text-base lg:text-lg xl:text-xl 2xl:text-2xl">
+					Pong Tournament
+				</h1>
+			</div>
+		</div>
+
+        <form id="tournamentForm" class="flex flex-col flex-1 gap-10 mt-20">
+            <label for="playerName" class="inputlabel ">Enter player names to begin:</label>
+            <div class="player-inputs flex-grow scale-125">
+                <input type="text" id="player1" name="player1" placeholder="Player 1" aria-labelledby="playerName">
+                <input type="text" id="player2" name="player2" placeholder="Player 2" aria-labelledby="playerName">
+                <input type="text" id="player3" name="player3" placeholder="Player 3" aria-labelledby="playerName">
+                <input type="text" id="player4" name="player4" placeholder="Player 4" aria-labelledby="playerName">
+            </div>
+			<button id="startTournamentBtn" type="submit" data-page="tournament" class="self-center">Start Tournament</button>
+        </form>
+    </div>
+</body>
+</html>

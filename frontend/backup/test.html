@@ -1,0 +1,38 @@
+<body>
+    <p id="demo"></p>
+  
+    <script>
+      async function test() {
+        const data = {
+          email: "glmo7@glmo7.com",
+          password: "glmo7"
+        };
+  
+        try {
+          const response = await fetch('http://10.11.2.4:3000/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify(data)
+          });
+  
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+  
+          const result = await response.json();
+          console.log(result);
+        } catch (error) {
+          console.error('Fetch Error:', error);
+        }
+      }
+  
+      test();
+    </script>
+  
+    <noscript>Sorry, your browser does not support JavaScript!</noscript>
+  
+    <p>A browser without support for JavaScript will show the text written inside the noscript element.</p>
+  </body>

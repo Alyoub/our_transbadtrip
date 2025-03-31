@@ -3,10 +3,11 @@
     width: 100%;
     /* background-color: black; */
     position: fixed;
-    margin-top: 25%;
+    margin-top: -90%;
     z-index: 20;
     display: flex;
-    display: none;
+    position: sticky;
+    /* display: none; */
 }
 .mainHomeFA
 {

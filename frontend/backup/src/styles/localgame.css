@@ -1,0 +1,75 @@
+.rubik-glitch-regular {
+    font-family: "Rubik Glitch", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #060c18, #082541);
+}
+
+span {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    display: flex;
+    align-items: center; 
+    gap: 25px; 
+    padding: 20px; 
+}
+
+.logo {
+    width: 150px;
+    height: 150px; 
+
+}
+
+#exitButton {
+    position: absolute;
+    top: 85%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#ResetButton  
+{
+    position: absolute;
+    top: 85%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+p {
+    font-size: 50px;
+    color: #D3E8FC;
+    font-family: "Rubik Glitch",'Courier New', Courier, monospace;
+    margin: 0; 
+}
+
+
+canvas
+{
+    /*background-image: :url();*/
+    background-color: #0b152b;  
+    border: 5px solid white; 
+    display: block;
+}

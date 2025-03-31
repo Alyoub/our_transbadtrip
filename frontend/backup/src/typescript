@@ -1,0 +1,14 @@
+Script started on Wed Mar 26 01:54:50 2025
+ 42 wizzard is up to date 
+[1m[7m%[27m[1m[0m                                                                           [0m[27m[24m[Jhtouil@c1r4p2 src % [K[?2004hggit add [8D       lls[?2004l
+scripts		styles		typescript
+[1m[7m%[27m[1m[0m                                                                           [0m[27m[24m[Jhtouil@c1r4p2 src % [K[?2004hccd scripts[1m/[0m[0m [?2004l
+[1m[7m%[27m[1m[0m                                                                           [0m[27m[24m[Jhtouil@c1r4p2 scripts % [K[?2004hlls[?2004l
+GameAI.js	app.js		home1.js	localgame.js
+GameAI.ts	app.ts		home1.ts	localgame.ts
+GameLocal.js	chat.js		home2.js	profil.js
+GameLocal.ts	chat.ts		home2.ts	profil.ts
+GameMulti.js	components.js	hosttourn.js	settings.js
+GameMulti.ts	components.ts	hosttourn.ts	settings.ts
+[1m[7m%[27m[1m[0m                                                                           [0m[27m[24m[Jhtouil@c1r4p2 scripts % [K[?2004hrrm *js.js[?2004l
+[1m[7m%[27m[1m[0m                                                                           [0m[27m[24m[Jhtouil@c1r4p2 scripts % [K[?2004h

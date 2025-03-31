@@ -1,0 +1,411 @@
+
+.all_settingsTOWFF_info
+{
+    width: 100%;
+    display: flex;
+    z-index: 10;
+    margin-top: -90%;
+    /* position: fixed; */
+    position:sticky;
+    z-index: 1;
+}
+.all_FFTOW_Data
+{
+    flex: 1;
+    background-color: rgba(30,31,34,0.8);
+    margin-top: 15%;
+    height: auto;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+
+}
+.all_TOWFF_Data
+{
+    width: 90%;
+    /* background-color: red; */
+    /* height: 80px; */
+}
+.TowFf_title
+{
+    /* background-color: lightpink; */
+    display: flex;
+    margin-top: 5%;
+}
+.phone_logo
+{
+    width: 5%;
+}
+.text_towFF
+{
+    color: white;
+    margin-left: 2%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: clamp(10px, 2vw, 30px);
+    /* background-color: red; */
+}
+.AuthyText
+{
+    color: rgba(245, 245, 245, 0.593);
+    display: block;
+    font-size: clamp(10px, 1.2vw, 40px);
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: red; */
+    margin-left: 2%;
+    margin-top: 2%;
+}
+.QR_2FA_text
+{
+    color: rgba(245, 245, 245, 0.593);
+    display: block;
+    font-size: clamp(10px, 1.2vw, 40px);
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: red; */
+    margin-left: 2%;
+}
+.AuthyShet
+{
+    margin-left: 7%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.QR_text
+{
+    /* background-color: red; */
+    color: white;
+    /* margin-left: 2%; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: clamp(10px, 2vw, 30px);
+    /* padding-top: 1%; */
+}
+.QrGen
+{
+    margin-top: 3%;
+    width: 30%;
+    height: 20%;
+    margin-left: 2%;
+}
+.FA_text1
+{
+    color: rgba(245, 245, 245, 0.593);
+    font-size: clamp(10px, 1.2vw, 40px);
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: red; */
+    margin-left: 2%;
+    margin-top: 2%;
+}
+.Verify_title
+{
+    /* background-color: red; */
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: clamp(10px, 2vw, 30px);
+    margin-top: 2%;
+}
+.Verify_Input_FA
+{
+    margin-top: 2%;
+    width: 25%;
+    height: clamp(10px, 3vw, 43px);
+    min-width: 100px; 
+    max-width: 300px;
+    min-height: 20px; 
+    max-height: 50px;
+    border-radius: 10px;
+    text-indent: 10%;
+    font-weight: bold;
+    font-size: clamp(10px, 1.2vw, 30px);
+    letter-spacing: 10px;
+    outline: none;
+}
+.last_prt
+{
+    position: relative;
+    /* background-color: red; */
+}
+.FAerror
+{
+    color: white;
+    position: absolute;
+    left: 30%;
+    bottom: 46%;
+    font-size: clamp(10px, 1.2vw, 30px);
+}
+.FAerrorRed
+{
+    color: red;
+}
+.FAerrorGren
+{
+    color:  green;
+}
+.Getkey
+{
+    color: lightblue;
+    font-weight: bold;
+}
+.choseBT
+{
+    /* background-color: red; */
+    width: 23%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+    padding-bottom: 10%;
+}
+.saveTwoFAcode
+{
+    background-color: rgba(15,89,35,255);
+    padding: 2% 9%;
+    border-radius: 10px;
+    font-size: clamp(10px, 1.2vw, 40px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+}
+.cancelTwoFAcode
+{
+    background-color: rgba(79,80,89,255);
+    padding: 2% 5%;
+    border-radius: 10px;
+    font-size: clamp(10px, 1.2vw, 40px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+}
+.blur
+{
+    filter: blur(10px);
+    pointer-events: none;
+}
+.hide
+{
+    display: none;
+}
+.invalid
+{
+    outline: 2px solid red;
+}
+.Sitting_Uplouad_cover,
+.Sitting_Uplouad_pic
+{
+    display: none;
+    /* background-color: red; */
+}
+
+
+
+
+
+
+/* From Uiverse.io by mobinkakei */ 
+#wifi-loader {
+    --background: #62abff;
+    --front-color: red;
+    --back-color: #c3c8de;
+    --text-color: #414856;
+    width: 64px;
+    height: 64px;
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #wifi-loader svg {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #wifi-loader svg circle {
+    position: absolute;
+    fill: none;
+    stroke-width: 6px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: rotate(-100deg);
+    transform-origin: center;
+  }
+  
+  #wifi-loader svg circle.back {
+    stroke: var(--back-color);
+  }
+  
+  #wifi-loader svg circle.front {
+    stroke: var(--front-color);
+  }
+  
+  #wifi-loader svg.circle-outer {
+    height: 86px;
+    width: 86px;
+  }
+  
+  #wifi-loader svg.circle-outer circle {
+    stroke-dasharray: 62.75 188.25;
+  }
+  
+  #wifi-loader svg.circle-outer circle.back {
+    animation: circle-outer135 1.8s ease infinite 0.3s;
+  }
+  
+  #wifi-loader svg.circle-outer circle.front {
+    animation: circle-outer135 1.8s ease infinite 0.15s;
+  }
+  
+  #wifi-loader svg.circle-middle {
+    height: 60px;
+    width: 60px;
+  }
+  
+  #wifi-loader svg.circle-middle circle {
+    stroke-dasharray: 42.5 127.5;
+  }
+  
+  #wifi-loader svg.circle-middle circle.back {
+    animation: circle-middle6123 1.8s ease infinite 0.25s;
+  }
+  
+  #wifi-loader svg.circle-middle circle.front {
+    animation: circle-middle6123 1.8s ease infinite 0.1s;
+  }
+  
+  #wifi-loader svg.circle-inner {
+    height: 34px;
+    width: 34px;
+  }
+  
+  #wifi-loader svg.circle-inner circle {
+    stroke-dasharray: 22 66;
+  }
+  
+  #wifi-loader svg.circle-inner circle.back {
+    animation: circle-inner162 1.8s ease infinite 0.2s;
+  }
+  
+  #wifi-loader svg.circle-inner circle.front {
+    animation: circle-inner162 1.8s ease infinite 0.05s;
+  }
+  
+  #wifi-loader .text {
+    position: absolute;
+    bottom: -70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: clamp(10px, 1.2vw, 50px);
+    letter-spacing: 1%;
+    font-weight: bolder;
+  }
+  
+  #wifi-loader .text::before, #wifi-loader .text::after {
+    content: attr(data-text);
+  }
+  
+  #wifi-loader .text::before {
+    color: var(--text-color);
+  }
+  
+  #wifi-loader .text::after {
+    color: var(--front-color);
+    animation: text-animation76 3.6s ease infinite;
+    position: absolute;
+    left: 0;
+  }
+  
+  @keyframes circle-outer135 {
+    0% {
+      stroke-dashoffset: 25;
+    }
+  
+    25% {
+      stroke-dashoffset: 0;
+    }
+  
+    65% {
+      stroke-dashoffset: 301;
+    }
+  
+    80% {
+      stroke-dashoffset: 276;
+    }
+  
+    100% {
+      stroke-dashoffset: 276;
+    }
+  }
+  
+  @keyframes circle-middle6123 {
+    0% {
+      stroke-dashoffset: 17;
+    }
+  
+    25% {
+      stroke-dashoffset: 0;
+    }
+  
+    65% {
+      stroke-dashoffset: 204;
+    }
+  
+    80% {
+      stroke-dashoffset: 187;
+    }
+  
+    100% {
+      stroke-dashoffset: 187;
+    }
+  }
+  
+  @keyframes circle-inner162 {
+    0% {
+      stroke-dashoffset: 9;
+    }
+  
+    25% {
+      stroke-dashoffset: 0;
+    }
+  
+    65% {
+      stroke-dashoffset: 106;
+    }
+  
+    80% {
+      stroke-dashoffset: 97;
+    }
+  
+    100% {
+      stroke-dashoffset: 97;
+    }
+  }
+  
+  @keyframes text-animation76 {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+  
+    50% {
+      clip-path: inset(0);
+    }
+  
+    100% {
+      clip-path: inset(0 0 0 100%);
+    }
+  }
+
+.deletting
+{
+    /* position: absolute;
+    position: fixed; */
+    margin-top: -50%;
+    margin-left: 47%;
+}

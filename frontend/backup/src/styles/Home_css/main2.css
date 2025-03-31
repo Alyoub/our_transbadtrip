@@ -1,0 +1,23 @@
+.text1
+{
+    color: white;
+    font-family: arial;
+    padding-bottom: 1%;
+    /* background-color: tomato; */
+    z-index: 12;
+    font-size: clamp(10px, 2vw, 30px);
+}
+.text
+{
+    /* background-color: lightblue; */
+    margin-top: -1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.page-name
+{
+    color: rgb(175, 218, 232);
+}

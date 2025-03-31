@@ -339,26 +339,26 @@ export const updateSettingsPage = () => {
         const OFF = '<img class="SwitchOFF" src="/public/logos/SwitchOFF.svg">';
         const ON = '<img class="SwitchON" src="/public/logos/SwitchON.svg">';
 
-        fetch(`${window.location.origin}/api/2fa/generate`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({}),
-            credentials : "include"
-        })
-        .then(response => response.json())
-        .then(data => {
-        console.log("Success:", data.qr_url);
-        const QR =  data.qr_url;
-        Qrgen.innerHTML = `<img class="QR_test" src="${QR}">`;
-        })
-
         allSittingsFaData.classList.add('hide');
 
         switchONBtn.addEventListener('click', () => {
             allSittingsFaData.classList.remove('hide');
             allSittingsData.classList.add('blur');
+            fetch(`${window.location.origin}/api/2fa/generate`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({}),
+                credentials : "include"
+            })
+            .then(response => response.json())
+            .then(data => {
+            console.log("Success:", data.qr_url);
+            const QR =  data.qr_url;
+            Qrgen.innerHTML = `<img class="QR_test" src="${QR}">`;
+            })
+    
         });
 
         SaveBt.addEventListener('click', () => {
@@ -392,6 +392,18 @@ export const updateSettingsPage = () => {
 
                         allSittingsFaData.classList.add('hide');
                         allSittingsData.classList.remove('blur');
+
+                        fetch(`${window.location.origin}/api/2fa/activate`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({activate:true}),
+                            credentials : "include"
+                        })
+                        .then(response => response.json())
+                        .then((data) => {})
+
                     }
                     else if(FaKo == "Invalid 2FA token")
                     {

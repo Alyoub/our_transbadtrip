@@ -20,8 +20,7 @@ import { setupLocalPage , GameLocal } from "./GameLocal.js";
 import { setupMultiPage , GameMulti } from "./GameMulti.js";
 import { setupCreateTournamentPage , tournamentPlayers , setupCreateTournamentButtons } from './createtourn.js';
 import { setupTournamentPage , tournament } from './tournament.js';
-import {  GameOnline2 } from './GameOnline.js'
-
+import {GameOnline2 } from './GameOnline.js'
 let app: HTMLElement;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -32,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const Error = '404';
 	const Home = 'home';
 
-	fetch(`${window.location.origin}/api/2fa/generate`, {
+	fetch(`${window.location.origin}/api/access`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
@@ -42,9 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 	.then(response => response.json())
 	.then(data => {
-		console.log("Success:", data.success);
+		console.log("Success:", data.message);
 
-		if(data.success === "2FA secret generated successfully")
+		if(data.message === "OK!")
 		{
 			app = document.getElementById('app')!;
 			initiateCustomTags();

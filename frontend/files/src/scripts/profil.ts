@@ -16,7 +16,18 @@ export async function	setupProfilPage() {
 			iPlayerName.textContent = playerData.name;
 		if (iPlayerUsername)
 			iPlayerUsername.textContent = playerData.login;
-		playerData.profilePicPath
+		const imgElement = document.querySelector('img[alt="htouil"]') as HTMLImageElement;
+		if (imgElement) {
+			imgElement.src = playerData.profilePicPath;
+		}
+		const imgElement2 = document.querySelector('.user_header_pic') as HTMLImageElement;
+		if (imgElement2) {
+			imgElement2.src = playerData.profilePicPath;
+		}
+		const coverElement = document.querySelector('.grid.grid-cols-1.grid-rows-7.row-span-2.col-span-5.gap-2.p-4.lg\\:p-6.items-center.bg-cover.bg-center.bg-no-repeat.border.border-hidden.rounded-2xl.xs\\:row-span-2.xs\\:col-span-1.faded-border') as HTMLElement;
+		if (coverElement) {
+			coverElement.style.backgroundImage = `url(${playerData.wallpaperPath})`;
+		}
 	}
 	catch(error)
 	{
@@ -99,7 +110,12 @@ export function	setupProfilButtons() {
 	localBtn?.addEventListener('click', () => selectLocal(localBtn, onlineBtn, tournTitle, createTournPageBtn, playSolo, play2v2Btn));
 	onlineBtn?.addEventListener('click', () => selectOnline(localBtn, onlineBtn, tournTitle, createTournPageBtn, playSolo, play2v2Btn));
 	playSolo?.addEventListener('click', () => loadnhistory('game_ai'));
-	play1v1Btn?.addEventListener('click', () => loadnhistory('game_local'));
+	play1v1Btn?.addEventListener('click', () => {
+		if (localBtn?.classList.contains('bg-gray-600'))
+			loadnhistory('game_local');
+		else
+			loadnhistory('GameOnline');
+	});
 	play2v2Btn?.addEventListener('click', () => loadnhistory('game_multi'));
 	createTournPageBtn?.addEventListener('click', () => loadnhistory('createtourn'));
 	// hostTournPageBtn?.addEventListener('click', () => loadnhistory('hosttourn'));
