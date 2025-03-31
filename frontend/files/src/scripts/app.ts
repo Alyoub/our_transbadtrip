@@ -171,7 +171,7 @@ export function loadnhistory(toLoad: string) {
 export async function	fetchPlayerData() {
 	try
 	{
-		const response = await fetch('http://localhost:3000/profile', {
+		const response = await fetch(`${window.location.origin}/api/profile`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
