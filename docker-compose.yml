@@ -6,19 +6,19 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: ~/uploads
+      device: /Users/atoukmat/uploads
       o: bind
   database:
     driver: local
     driver_opts:
       type: none
-      device: ~/database
+      device: /Users/atoukmat/database
       o: bind
   files:
     driver: local
     driver_opts:
       type: none
-      device: ~/frontfiles
+      device: /Users/atoukmat/frontfiles
       o: bind
 services:
   frontend:
