@@ -7,7 +7,7 @@ COPY srcs/src/ srcs/src/
 COPY srcs/server.js srcs/server.js 
 COPY srcs/prisma/schema.prisma  srcs/prisma/schema.prisma
 COPY srcs/setup.sh srcs/setup.sh 
-COPY srcs/uploads/ srcs/uploads/
+# COPY srcs/uploads/ srcs/uploads/
 
 WORKDIR /srcs
 

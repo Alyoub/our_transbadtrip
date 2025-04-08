@@ -132,44 +132,44 @@ Authorization: Bearer YOUR_JWT_TOKEN
 
 ###
 
-POST http://localhost:3000/friends/add
+POST https://localhost/api/friends/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyMzI5NjE5NTQxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjMyOTYxOSwiZXhwIjoxNzQyMzMzMjE5fQ.ZsJ5ltn03SX9pySs2U74FTVIUeTuOrQW1Gup8LCJ42g
+Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQ0MTE0MTcxNTAwLCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0NDExNDE3MSwiZXhwIjoxNzQ0MjAwNTcxfQ.YUDMkixpVs4yHf4i5PysNrfkMYn9094OoKNNmmcuAbU; Max-Age=900000; Path=/; SameSite=None; Secure,Max-Age=3600000; Path=/; SameSite=None; Secure
 
 {
-    "friendId": 1
+    "friendId": 2
 }
 
 ### Test POST request to remove friend
-POST http://localhost:3000/friends/remove
+POST https://localhost/api/friends/remove
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyMzI5NjE5NTQxLCJ1c2VySWQiOjIsImlhdCI6MTc0MjMyOTYxOSwiZXhwIjoxNzQyMzMzMjE5fQ.ZsJ5ltn03SX9pySs2U74FTVIUeTuOrQW1Gup8LCJ42g
+Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQ0MTE0MTcxNTAwLCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0NDExNDE3MSwiZXhwIjoxNzQ0MjAwNTcxfQ.YUDMkixpVs4yHf4i5PysNrfkMYn9094OoKNNmmcuAbU; Max-Age=900000; Path=/; SameSite=None; Secure,Max-Age=3600000; Path=/; SameSite=None; Secure
 
 {
-    "friendId": 1
+    "friendId": 2
 }
 
 ### Test POST request to list friends
-POST http://localhost:3000/friends/list
+POST https://localhost/api/friends/list
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQxNDg3OTMzNjI3LCJ1c2VySWQiOjIsImlhdCI6MTc0MTQ4NzkzMywiZXhwIjoxNzQxNDkxNTMzfQ.ItoD249Smb9Eh6Om_zm4Yhg-0UcsOU8JeelvZQXZPz8
+Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQ0MTE1NDkxNzE0LCJ1c2VySWQiOjIsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0NDExNTQ5MSwiZXhwIjoxNzQ0MjAxODkxfQ.Fv6nz3k4lJcI_q9WJUlB7lPsyBJgboROXWHYx0rQr_Y; Max-Age=900000; Path=/; SameSite=None; Secure,Max-Age=3600000; Path=/; SameSite=None; Secure
 
 {}
 
 ### Test POST request to get friend requests
-POST http://localhost:3000/friends/requests
+POST https://localhost/api/friends/requests
 Content-Type: application/json
-Authorization: Bearer YOUR_JWT_TOKEN
+Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQ0MTE1NDkxNzE0LCJ1c2VySWQiOjIsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0NDExNTQ5MSwiZXhwIjoxNzQ0MjAxODkxfQ.Fv6nz3k4lJcI_q9WJUlB7lPsyBJgboROXWHYx0rQr_Y; Max-Age=900000; Path=/; SameSite=None; Secure,Max-Age=3600000; Path=/; SameSite=None; Secure
 
 {}
 
 ### Test POST request to accept friend request
-POST http://localhost:3000/friends/accept
+POST https://localhost/api/friends/accept
 Content-Type: application/json
-Authorization: Bearer YOUR_JWT_TOKEN
+Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQ0MTE1NDkxNzE0LCJ1c2VySWQiOjIsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0NDExNTQ5MSwiZXhwIjoxNzQ0MjAxODkxfQ.Fv6nz3k4lJcI_q9WJUlB7lPsyBJgboROXWHYx0rQr_Y; Max-Age=900000; Path=/; SameSite=None; Secure,Max-Age=3600000; Path=/; SameSite=None; Secure
 
 {
-    "friendId": "12345"
+    "friendId": 1
 }
 
 
@@ -223,3 +223,18 @@ Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQzNDAzNjYxNTI4LC
 {
     "totpCode": "187011"
 }
+
+###
+
+POST https://localhost/api/wingame
+Content-Type: application/json
+Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQ0MTE0MTcxNTAwLCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0NDExNDE3MSwiZXhwIjoxNzQ0MjAwNTcxfQ.YUDMkixpVs4yHf4i5PysNrfkMYn9094OoKNNmmcuAbU; Max-Age=900000; Path=/; SameSite=None; Secure,Max-Age=3600000; Path=/; SameSite=None; Secure
+
+{}
+###
+
+GET https://localhost/api/profile
+Content-Type: application/json
+Cookie:  jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQ0MTE0MTcxNTAwLCJ1c2VySWQiOjEsImlzMkZBVmVyaWZpZWQiOnRydWUsImlhdCI6MTc0NDExNDE3MSwiZXhwIjoxNzQ0MjAwNTcxfQ.YUDMkixpVs4yHf4i5PysNrfkMYn9094OoKNNmmcuAbU; Max-Age=900000; Path=/; SameSite=None; Secure,Max-Age=3600000; Path=/; SameSite=None; Secure
+
+{}

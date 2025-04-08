@@ -1,0 +1,1643 @@
+
+added 310 packages, and audited 311 packages in 25s
+
+40 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+Prisma schema loaded from prisma/schema.prisma
+Datasource "db": SQLite database "dev.db" at "file:./dev.db"
+
+Already in sync, no schema change or pending migration was found.
+
+Running generate... (Use --skip-generate to skip the generators)
+[2K[1A[2K[GRunning generate... - Prisma Client
+[2K[1A[2K[G✔ Generated Prisma Client (v6.5.0) to ./node_modules/@prisma/client in 78ms
+
+
+[12:08:22.496] [32mINFO[39m (238): [36mServer listening at http://127.0.0.1:3000[39m
+[12:08:22.497] [32mINFO[39m (238): [36mServer listening at http://172.18.0.3:3000[39m
+[12:08:38.809] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1"
+    req: {
+      "method": "POST",
+      "url": "/access",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59038
+    }
+[12:08:38.816] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1"
+    res: {
+      "statusCode": 401
+    }
+    responseTime: 6.773597999999765
+[12:08:45.149] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-2"
+    req: {
+      "method": "POST",
+      "url": "/access",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59072
+    }
+[12:08:45.150] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-2"
+    res: {
+      "statusCode": 401
+    }
+    responseTime: 0.8756200000061654
+[12:09:23.567] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-3"
+    req: {
+      "method": "POST",
+      "url": "/login",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59130
+    }
+[12:09:25.071] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-4"
+    req: {
+      "method": "POST",
+      "url": "/login",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59132
+    }
+[12:09:25.203] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-3"
+    res: {
+      "statusCode": 401
+    }
+    responseTime: 1635.317046000011
+[12:09:25.204] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-4"
+    res: {
+      "statusCode": 401
+    }
+    responseTime: 132.96184000000358
+[12:09:25.271] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-5"
+    req: {
+      "method": "POST",
+      "url": "/login",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59136
+    }
+[12:09:25.328] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-5"
+    res: {
+      "statusCode": 401
+    }
+    responseTime: 56.68864099998609
+[12:09:25.479] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-6"
+    req: {
+      "method": "POST",
+      "url": "/login",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59138
+    }
+[12:09:25.536] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-6"
+    res: {
+      "statusCode": 401
+    }
+    responseTime: 56.39790599999833
+[12:09:31.445] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-7"
+    req: {
+      "method": "POST",
+      "url": "/login",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59140
+    }
+[12:09:31.504] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-7"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 59.440692000003764
+[12:09:34.562] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-8"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59148
+    }
+[12:09:34.565] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-9"
+    req: {
+      "method": "GET",
+      "url": "/users",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59150
+    }
+[12:09:34.567] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-a"
+    req: {
+      "method": "POST",
+      "url": "/register",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59154
+    }
+[12:09:34.570] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-a"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 3.011862999992445
+[12:09:34.600] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-8"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 37.70161100002588
+[12:09:34.601] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-b"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59160
+    }
+[12:09:34.647] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-b"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 44.53661400001147
+[12:09:40.370] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-c"
+    req: {
+      "method": "POST",
+      "url": "/access",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59196
+    }
+[12:09:40.374] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-c"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 2.9488539999874774
+[12:09:40.441] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-d"
+    req: {
+      "method": "POST",
+      "url": "/register",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59202
+    }
+[12:09:40.442] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-d"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 1.1141519999946468
+[12:09:40.443] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-e"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59204
+    }
+[12:09:40.446] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-f"
+    req: {
+      "method": "GET",
+      "url": "/users",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59206
+    }
+[12:09:40.466] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-e"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 23.151955000008456
+[12:09:40.470] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-g"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59208
+    }
+[12:09:40.496] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-g"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 25.79780599998776
+[12:09:42.495] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-f"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 2048.2689309999987
+[12:09:43.230] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-h"
+    req: {
+      "method": "POST",
+      "url": "/access",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59212
+    }
+[12:09:43.232] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-h"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 2.299736999993911
+[12:09:43.245] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-i"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59218
+    }
+[12:09:43.247] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-j"
+    req: {
+      "method": "POST",
+      "url": "/register",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59220
+    }
+[12:09:43.248] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-j"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 0.4909029999980703
+[12:09:43.249] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-k"
+    req: {
+      "method": "GET",
+      "url": "/users",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59222
+    }
+[12:09:43.263] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-i"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 17.881947999994736
+[12:09:43.265] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-l"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59224
+    }
+[12:09:43.354] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-l"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 88.62291500001447
+[12:09:43.370] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-k"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 121.13687699998263
+[12:09:44.975] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-m"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59236
+    }
+[12:09:44.990] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-m"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 14.370389999996405
+[12:09:45.077] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-n"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59244
+    }
+[12:09:45.091] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-n"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 12.988565000006929
+[12:09:47.116] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-o"
+    req: {
+      "method": "POST",
+      "url": "/register",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59248
+    }
+[12:09:47.117] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-o"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 0.9019639999896754
+[12:09:47.118] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-p"
+    req: {
+      "method": "GET",
+      "url": "/users",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59250
+    }
+[12:09:47.121] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-q"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59252
+    }
+[12:09:47.135] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-q"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 13.572008999995887
+[12:09:47.142] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-r"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59254
+    }
+[12:09:47.215] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-r"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 72.5164770000265
+[12:09:47.241] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-p"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 122.6843799999915
+[12:16:31.758] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-s"
+    req: {
+      "method": "POST",
+      "url": "/access",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59318
+    }
+[12:16:31.762] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-s"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 3.704634999972768
+[12:16:31.777] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-t"
+    req: {
+      "method": "POST",
+      "url": "/register",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59324
+    }
+[12:16:31.777] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-t"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 0.464047999936156
+[12:16:31.778] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-u"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59326
+    }
+[12:16:31.780] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-v"
+    req: {
+      "method": "GET",
+      "url": "/users",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59328
+    }
+[12:16:31.807] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-u"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 28.559385999920778
+[12:16:31.810] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-w"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59330
+    }
+[12:16:31.927] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-w"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 116.20068200002424
+[12:16:31.949] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-v"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 168.83462800004054
+[12:16:32.794] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-x"
+    req: {
+      "method": "POST",
+      "url": "/access",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59354
+    }
+[12:16:32.796] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-x"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 2.3794369999086484
+[12:16:32.816] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-y"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59360
+    }
+[12:16:32.817] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-z"
+    req: {
+      "method": "POST",
+      "url": "/register",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59362
+    }
+[12:16:32.818] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-z"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 0.49853199999779463
+[12:16:32.818] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-10"
+    req: {
+      "method": "GET",
+      "url": "/users",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59364
+    }
+[12:16:32.840] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-y"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 23.949155000038445
+[12:16:32.843] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-11"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59366
+    }
+[12:16:32.943] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-11"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 99.68319000001065
+[12:16:32.957] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-10"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 138.45512499997858
+[12:16:33.533] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-12"
+    req: {
+      "method": "POST",
+      "url": "/access",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59390
+    }
+[12:16:33.537] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-12"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 3.2724410000955686
+[12:16:33.561] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-13"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59396
+    }
+[12:16:33.563] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-14"
+    req: {
+      "method": "POST",
+      "url": "/register",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59398
+    }
+[12:16:33.564] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-14"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 0.5704870000481606
+[12:16:33.564] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-15"
+    req: {
+      "method": "GET",
+      "url": "/users",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59400
+    }
+[12:16:33.579] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-13"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 17.29737499996554
+[12:16:33.585] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-16"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59402
+    }
+[12:16:33.656] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-16"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 70.72887700004503
+[12:16:33.670] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-15"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 105.23032199998852
+[12:21:50.634] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-17"
+    req: {
+      "method": "POST",
+      "url": "/friends/add",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59406
+    }
+[12:21:50.639] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-17"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 4.688056000042707
+[12:22:08.086] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-18"
+    req: {
+      "method": "POST",
+      "url": "/friends/add",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59410
+    }
+[12:22:08.145] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-18"
+    res: {
+      "statusCode": 201
+    }
+    responseTime: 58.78692199999932
+[12:22:31.999] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-19"
+    req: {
+      "method": "POST",
+      "url": "/friends/list",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59414
+    }
+[12:22:32.022] [31mERROR[39m (238): [36m
+Invalid `this.prisma.friends.findMany()` invocation in
+/srcs/src/user/friends.js:123:55
+
+  120 async listFriends() {
+  121     const { userId } = this.request.user;
+  122 
+→ 123     const friendships = await this.prisma.friends.findMany({
+            where: {
+              OR: [
+                {
+                  userId: 1,
+                  accepted: true
+                },
+                {
+                  friendId: 1,
+                  accepted: true
+                }
+              ]
+            },
+            include: {
+              user: true,
+              friend: true
+              ~~~~~~
+            }
+          })
+
+Unknown field `friend` for include statement on model `Friends`. Available options are marked with ?.[39m
+    reqId: "req-19"
+    req: {
+      "method": "POST",
+      "url": "/friends/list",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59414
+    }
+    res: {
+      "statusCode": 500
+    }
+    err: {
+      "type": "PrismaClientValidationError",
+      "message": "\nInvalid `this.prisma.friends.findMany()` invocation in\n/srcs/src/user/friends.js:123:55\n\n  120 async listFriends() {\n  121     const { userId } = this.request.user;\n  122 \n→ 123     const friendships = await this.prisma.friends.findMany({\n            where: {\n              OR: [\n                {\n                  userId: 1,\n                  accepted: true\n                },\n                {\n                  friendId: 1,\n                  accepted: true\n                }\n              ]\n            },\n            include: {\n              user: true,\n              friend: true\n              ~~~~~~\n            }\n          })\n\nUnknown field `friend` for include statement on model `Friends`. Available options are marked with ?.",
+      "stack":
+          PrismaClientValidationError: 
+          Invalid `this.prisma.friends.findMany()` invocation in
+          /srcs/src/user/friends.js:123:55
+          
+            120 async listFriends() {
+            121     const { userId } = this.request.user;
+            122 
+          → 123     const friendships = await this.prisma.friends.findMany({
+                      where: {
+                        OR: [
+                          {
+                            userId: 1,
+                            accepted: true
+                          },
+                          {
+                            friendId: 1,
+                            accepted: true
+                          }
+                        ]
+                      },
+                      include: {
+                        user: true,
+                        friend: true
+                        ~~~~~~
+                      }
+                    })
+          
+          Unknown field `friend` for include statement on model `Friends`. Available options are marked with ?.
+              at Cn (/srcs/node_modules/@prisma/client/runtime/library.js:29:1363)
+              at Wn.handleRequestError (/srcs/node_modules/@prisma/client/runtime/library.js:121:7177)
+              at Wn.handleAndLogRequestError (/srcs/node_modules/@prisma/client/runtime/library.js:121:6858)
+              at Wn.request (/srcs/node_modules/@prisma/client/runtime/library.js:121:6565)
+              at async l (/srcs/node_modules/@prisma/client/runtime/library.js:130:10067)
+              at async HandleFriends.listFriends (/srcs/src/user/friends.js:123:29)
+      "name": "PrismaClientValidationError",
+      "clientVersion": "6.5.0"
+    }
+[12:22:32.023] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-19"
+    res: {
+      "statusCode": 500
+    }
+    responseTime: 23.321156000019982
+[12:23:12.868] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1a"
+    req: {
+      "method": "POST",
+      "url": "/access",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59482
+    }
+[12:23:12.869] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1a"
+    res: {
+      "statusCode": 401
+    }
+    responseTime: 1.1268540000310168
+[12:23:40.076] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1b"
+    req: {
+      "method": "POST",
+      "url": "/login",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59542
+    }
+[12:23:40.103] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1b"
+    res: {
+      "statusCode": 404
+    }
+    responseTime: 27.072423000005074
+[12:23:48.194] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1c"
+    req: {
+      "method": "POST",
+      "url": "/login",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59546
+    }
+[12:23:48.760] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1d"
+    req: {
+      "method": "POST",
+      "url": "/login",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59548
+    }
+[12:23:48.797] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1c"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 602.8304769999813
+[12:23:48.825] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1d"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 64.01169399986975
+[12:23:51.814] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1e"
+    req: {
+      "method": "POST",
+      "url": "/register",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59558
+    }
+[12:23:51.815] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1e"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 0.9094610000029206
+[12:23:51.816] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1f"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59560
+    }
+[12:23:51.819] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1g"
+    req: {
+      "method": "GET",
+      "url": "/users",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59562
+    }
+[12:23:51.874] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1h"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59572
+    }
+[12:23:51.877] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1f"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 60.72117900010198
+[12:23:51.879] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1i"
+    req: {
+      "method": "POST",
+      "url": "/register",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59574
+    }
+[12:23:51.880] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1i"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 0.5802779998630285
+[12:23:51.949] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1h"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 74.9111560001038
+[12:23:51.953] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1j"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59576
+    }
+[12:23:51.973] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1j"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 19.965593999950215
+[12:23:51.980] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1k"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59578
+    }
+[12:23:52.010] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1k"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 28.990680000046268
+[12:23:55.301] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1l"
+    req: {
+      "method": "GET",
+      "url": "/users",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59580
+    }
+[12:23:55.319] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1g"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 3499.3566979998723
+[12:23:55.458] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1l"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 157.17567200004123
+[12:24:30.543] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1m"
+    req: {
+      "method": "POST",
+      "url": "/friends/add",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59584
+    }
+[12:24:30.555] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1m"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 12.30560200009495
+[12:25:11.496] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1n"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59616
+    }
+[12:25:11.523] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1n"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 26.866126999957487
+[12:25:11.527] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1o"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59630
+    }
+[12:25:11.559] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1o"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 31.791887999977916
+[12:25:43.703] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1p"
+    req: {
+      "method": "POST",
+      "url": "/friends/remove",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59634
+    }
+[12:25:43.707] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1p"
+    res: {
+      "statusCode": 404
+    }
+    responseTime: 4.024992999853566
+[12:25:48.597] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1q"
+    req: {
+      "method": "POST",
+      "url": "/friends/add",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59638
+    }
+[12:25:48.602] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1q"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 4.110840999986976
+[12:26:53.053] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1r"
+    req: {
+      "method": "POST",
+      "url": "/friends/requests",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59642
+    }
+[12:26:53.056] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1r"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 3.3594909999519587
+[12:27:23.083] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1s"
+    req: {
+      "method": "POST",
+      "url": "/friends/add",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59646
+    }
+[12:27:23.087] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1s"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 4.0810410000849515
+[12:27:32.098] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1t"
+    req: {
+      "method": "POST",
+      "url": "/friends/add",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59650
+    }
+[12:27:32.101] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1t"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 3.2683850000612438
+[12:27:33.025] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1u"
+    req: {
+      "method": "POST",
+      "url": "/friends/add",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59654
+    }
+[12:27:33.029] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1u"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 3.8937550000846386
+[12:27:49.694] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1v"
+    req: {
+      "method": "POST",
+      "url": "/friends/remove",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59658
+    }
+[12:27:49.697] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1v"
+    res: {
+      "statusCode": 404
+    }
+    responseTime: 3.008620000211522
+[12:27:53.181] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1w"
+    req: {
+      "method": "POST",
+      "url": "/friends/add",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59662
+    }
+[12:27:53.186] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1w"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 4.429088999982923
+[12:27:57.501] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1x"
+    req: {
+      "method": "POST",
+      "url": "/friends/add",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59666
+    }
+[12:27:57.502] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1x"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 1.0125889999326319
+[12:28:01.591] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1y"
+    req: {
+      "method": "POST",
+      "url": "/friends/add",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59670
+    }
+[12:28:01.594] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1y"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 2.879157999996096
+[12:29:04.977] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-1z"
+    req: {
+      "method": "POST",
+      "url": "/friends/add",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59674
+    }
+[12:29:04.982] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-1z"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 4.083645999897271
+[12:29:16.896] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-20"
+    req: {
+      "method": "POST",
+      "url": "/friends/requests",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59678
+    }
+[12:29:16.900] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-20"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 3.84255599998869
+[12:30:58.097] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-21"
+    req: {
+      "method": "POST",
+      "url": "/access",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59724
+    }
+[12:30:58.098] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-21"
+    res: {
+      "statusCode": 401
+    }
+    responseTime: 0.7070269999094307
+[12:31:21.109] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-22"
+    req: {
+      "method": "POST",
+      "url": "/login",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59782
+    }
+[12:31:21.111] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-22"
+    res: {
+      "statusCode": 404
+    }
+    responseTime: 2.066581000108272
+[12:31:31.661] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-23"
+    req: {
+      "method": "POST",
+      "url": "/login",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59786
+    }
+[12:31:31.717] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-23"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 55.874166999943554
+[12:31:34.747] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-24"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59800
+    }
+[12:31:34.749] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-25"
+    req: {
+      "method": "GET",
+      "url": "/users",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59802
+    }
+[12:31:34.751] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-26"
+    req: {
+      "method": "POST",
+      "url": "/register",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59804
+    }
+[12:31:34.752] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-26"
+    res: {
+      "statusCode": 400
+    }
+    responseTime: 0.5313290001358837
+[12:31:34.761] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-24"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 14.08573399996385
+[12:31:34.843] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-27"
+    req: {
+      "method": "GET",
+      "url": "/profile",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59806
+    }
+[12:31:34.866] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-25"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 116.00837900000624
+[12:31:34.886] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-27"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 41.72004500008188
+[12:32:00.156] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-28"
+    req: {
+      "method": "POST",
+      "url": "/friends/list",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59810
+    }
+[12:32:00.162] [31mERROR[39m (238): [36m
+Invalid `this.prisma.friends.findMany()` invocation in
+/srcs/src/user/friends.js:123:55
+
+  120 async listFriends() {
+  121     const { userId } = this.request.user;
+  122 
+→ 123     const friendships = await this.prisma.friends.findMany({
+            where: {
+              OR: [
+                {
+                  userId: 2,
+                  accepted: true
+                },
+                {
+                  friendId: 2,
+                  accepted: true
+                }
+              ]
+            },
+            include: {
+              user: true,
+              friend: true
+              ~~~~~~
+            }
+          })
+
+Unknown field `friend` for include statement on model `Friends`. Available options are marked with ?.[39m
+    reqId: "req-28"
+    req: {
+      "method": "POST",
+      "url": "/friends/list",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59810
+    }
+    res: {
+      "statusCode": 500
+    }
+    err: {
+      "type": "PrismaClientValidationError",
+      "message": "\nInvalid `this.prisma.friends.findMany()` invocation in\n/srcs/src/user/friends.js:123:55\n\n  120 async listFriends() {\n  121     const { userId } = this.request.user;\n  122 \n→ 123     const friendships = await this.prisma.friends.findMany({\n            where: {\n              OR: [\n                {\n                  userId: 2,\n                  accepted: true\n                },\n                {\n                  friendId: 2,\n                  accepted: true\n                }\n              ]\n            },\n            include: {\n              user: true,\n              friend: true\n              ~~~~~~\n            }\n          })\n\nUnknown field `friend` for include statement on model `Friends`. Available options are marked with ?.",
+      "stack":
+          PrismaClientValidationError: 
+          Invalid `this.prisma.friends.findMany()` invocation in
+          /srcs/src/user/friends.js:123:55
+          
+            120 async listFriends() {
+            121     const { userId } = this.request.user;
+            122 
+          → 123     const friendships = await this.prisma.friends.findMany({
+                      where: {
+                        OR: [
+                          {
+                            userId: 2,
+                            accepted: true
+                          },
+                          {
+                            friendId: 2,
+                            accepted: true
+                          }
+                        ]
+                      },
+                      include: {
+                        user: true,
+                        friend: true
+                        ~~~~~~
+                      }
+                    })
+          
+          Unknown field `friend` for include statement on model `Friends`. Available options are marked with ?.
+              at Cn (/srcs/node_modules/@prisma/client/runtime/library.js:29:1363)
+              at Wn.handleRequestError (/srcs/node_modules/@prisma/client/runtime/library.js:121:7177)
+              at Wn.handleAndLogRequestError (/srcs/node_modules/@prisma/client/runtime/library.js:121:6858)
+              at Wn.request (/srcs/node_modules/@prisma/client/runtime/library.js:121:6565)
+              at async l (/srcs/node_modules/@prisma/client/runtime/library.js:130:10067)
+              at async HandleFriends.listFriends (/srcs/src/user/friends.js:123:29)
+      "name": "PrismaClientValidationError",
+      "clientVersion": "6.5.0"
+    }
+[12:32:00.163] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-28"
+    res: {
+      "statusCode": 500
+    }
+    responseTime: 7.203951000003144
+[12:32:41.621] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-29"
+    req: {
+      "method": "POST",
+      "url": "/friends/requests",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59814
+    }
+[12:32:41.639] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-29"
+    res: {
+      "statusCode": 200
+    }
+    responseTime: 18.405931000132114
+[12:34:23.836] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-2a"
+    req: {
+      "method": "POST",
+      "url": "/friends/accept",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59818
+    }
+[12:34:23.841] [31mERROR[39m (238): [36m
+Invalid `this.prisma.friends.update()` invocation in
+/srcs/src/user/friends.js:59:35
+
+  56     return this.reply.code(404).send({ error: "Friend request not found." });
+  57 }
+  58 
+→ 59 await this.prisma.friends.update({
+       where: {
+         id: undefined,
+     ?   userId?: Int,
+     ?   AND?: FriendsWhereInput | FriendsWhereInput[],
+     ?   OR?: FriendsWhereInput[],
+     ?   NOT?: FriendsWhereInput | FriendsWhereInput[],
+     ?   accepted?: BoolFilter | Boolean,
+     ?   date?: IntFilter | Int,
+     ?   friendId?: IntFilter | Int,
+     ?   user?: UserNullableScalarRelationFilter | UserWhereInput | Null
+       },
+       data: {
+         accepted: true,
+         date: 1744115663
+       }
+     })
+
+Argument `where` of type FriendsWhereUniqueInput needs at least one of `userId` arguments. Available options are marked with ?.[39m
+    reqId: "req-2a"
+    req: {
+      "method": "POST",
+      "url": "/friends/accept",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59818
+    }
+    res: {
+      "statusCode": 500
+    }
+    err: {
+      "type": "PrismaClientValidationError",
+      "message": "\nInvalid `this.prisma.friends.update()` invocation in\n/srcs/src/user/friends.js:59:35\n\n  56     return this.reply.code(404).send({ error: \"Friend request not found.\" });\n  57 }\n  58 \n→ 59 await this.prisma.friends.update({\n       where: {\n         id: undefined,\n     ?   userId?: Int,\n     ?   AND?: FriendsWhereInput | FriendsWhereInput[],\n     ?   OR?: FriendsWhereInput[],\n     ?   NOT?: FriendsWhereInput | FriendsWhereInput[],\n     ?   accepted?: BoolFilter | Boolean,\n     ?   date?: IntFilter | Int,\n     ?   friendId?: IntFilter | Int,\n     ?   user?: UserNullableScalarRelationFilter | UserWhereInput | Null\n       },\n       data: {\n         accepted: true,\n         date: 1744115663\n       }\n     })\n\nArgument `where` of type FriendsWhereUniqueInput needs at least one of `userId` arguments. Available options are marked with ?.",
+      "stack":
+          PrismaClientValidationError: 
+          Invalid `this.prisma.friends.update()` invocation in
+          /srcs/src/user/friends.js:59:35
+          
+            56     return this.reply.code(404).send({ error: "Friend request not found." });
+            57 }
+            58 
+          → 59 await this.prisma.friends.update({
+                 where: {
+                   id: undefined,
+               ?   userId?: Int,
+               ?   AND?: FriendsWhereInput | FriendsWhereInput[],
+               ?   OR?: FriendsWhereInput[],
+               ?   NOT?: FriendsWhereInput | FriendsWhereInput[],
+               ?   accepted?: BoolFilter | Boolean,
+               ?   date?: IntFilter | Int,
+               ?   friendId?: IntFilter | Int,
+               ?   user?: UserNullableScalarRelationFilter | UserWhereInput | Null
+                 },
+                 data: {
+                   accepted: true,
+                   date: 1744115663
+                 }
+               })
+          
+          Argument `where` of type FriendsWhereUniqueInput needs at least one of `userId` arguments. Available options are marked with ?.
+              at Cn (/srcs/node_modules/@prisma/client/runtime/library.js:29:1363)
+              at Wn.handleRequestError (/srcs/node_modules/@prisma/client/runtime/library.js:121:7177)
+              at Wn.handleAndLogRequestError (/srcs/node_modules/@prisma/client/runtime/library.js:121:6858)
+              at Wn.request (/srcs/node_modules/@prisma/client/runtime/library.js:121:6565)
+              at async l (/srcs/node_modules/@prisma/client/runtime/library.js:130:10067)
+              at async HandleFriends.acceptFriend (/srcs/src/user/friends.js:59:9)
+      "name": "PrismaClientValidationError",
+      "clientVersion": "6.5.0"
+    }
+[12:34:23.842] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-2a"
+    res: {
+      "statusCode": 500
+    }
+    responseTime: 5.0804190000053495
+[12:34:32.259] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-2b"
+    req: {
+      "method": "POST",
+      "url": "/friends/accept",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59822
+    }
+[12:34:32.262] [31mERROR[39m (238): [36m
+Invalid `this.prisma.friends.findFirst()` invocation in
+/srcs/src/user/friends.js:51:57
+
+  48 const { userId } = this.request.user;
+  49 const { friendId } = this.request.body;
+  50 
+→ 51 const friendRequest = await this.prisma.friends.findFirst({
+       where: {
+         userId: "1",
+                 ~~~
+         friendId: 2,
+         accepted: false
+       }
+     })
+
+Argument `userId`: Invalid value provided. Expected IntFilter or Int, provided String.[39m
+    reqId: "req-2b"
+    req: {
+      "method": "POST",
+      "url": "/friends/accept",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59822
+    }
+    res: {
+      "statusCode": 500
+    }
+    err: {
+      "type": "PrismaClientValidationError",
+      "message": "\nInvalid `this.prisma.friends.findFirst()` invocation in\n/srcs/src/user/friends.js:51:57\n\n  48 const { userId } = this.request.user;\n  49 const { friendId } = this.request.body;\n  50 \n→ 51 const friendRequest = await this.prisma.friends.findFirst({\n       where: {\n         userId: \"1\",\n                 ~~~\n         friendId: 2,\n         accepted: false\n       }\n     })\n\nArgument `userId`: Invalid value provided. Expected IntFilter or Int, provided String.",
+      "stack":
+          PrismaClientValidationError: 
+          Invalid `this.prisma.friends.findFirst()` invocation in
+          /srcs/src/user/friends.js:51:57
+          
+            48 const { userId } = this.request.user;
+            49 const { friendId } = this.request.body;
+            50 
+          → 51 const friendRequest = await this.prisma.friends.findFirst({
+                 where: {
+                   userId: "1",
+                           ~~~
+                   friendId: 2,
+                   accepted: false
+                 }
+               })
+          
+          Argument `userId`: Invalid value provided. Expected IntFilter or Int, provided String.
+              at Cn (/srcs/node_modules/@prisma/client/runtime/library.js:29:1363)
+              at Wn.handleRequestError (/srcs/node_modules/@prisma/client/runtime/library.js:121:7177)
+              at Wn.handleAndLogRequestError (/srcs/node_modules/@prisma/client/runtime/library.js:121:6858)
+              at Wn.request (/srcs/node_modules/@prisma/client/runtime/library.js:121:6565)
+              at async l (/srcs/node_modules/@prisma/client/runtime/library.js:130:10067)
+              at async HandleFriends.acceptFriend (/srcs/src/user/friends.js:51:31)
+      "name": "PrismaClientValidationError",
+      "clientVersion": "6.5.0"
+    }
+[12:34:32.262] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-2b"
+    res: {
+      "statusCode": 500
+    }
+    responseTime: 3.408517000032589
+[12:34:36.406] [32mINFO[39m (238): [36mincoming request[39m
+    reqId: "req-2c"
+    req: {
+      "method": "POST",
+      "url": "/friends/accept",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59826
+    }
+[12:34:36.411] [31mERROR[39m (238): [36m
+Invalid `this.prisma.friends.update()` invocation in
+/srcs/src/user/friends.js:59:35
+
+  56     return this.reply.code(404).send({ error: "Friend request not found." });
+  57 }
+  58 
+→ 59 await this.prisma.friends.update({
+       where: {
+         id: undefined,
+     ?   userId?: Int,
+     ?   AND?: FriendsWhereInput | FriendsWhereInput[],
+     ?   OR?: FriendsWhereInput[],
+     ?   NOT?: FriendsWhereInput | FriendsWhereInput[],
+     ?   accepted?: BoolFilter | Boolean,
+     ?   date?: IntFilter | Int,
+     ?   friendId?: IntFilter | Int,
+     ?   user?: UserNullableScalarRelationFilter | UserWhereInput | Null
+       },
+       data: {
+         accepted: true,
+         date: 1744115676
+       }
+     })
+
+Argument `where` of type FriendsWhereUniqueInput needs at least one of `userId` arguments. Available options are marked with ?.[39m
+    reqId: "req-2c"
+    req: {
+      "method": "POST",
+      "url": "/friends/accept",
+      "host": "localhost",
+      "remoteAddress": "172.18.0.2",
+      "remotePort": 59826
+    }
+    res: {
+      "statusCode": 500
+    }
+    err: {
+      "type": "PrismaClientValidationError",
+      "message": "\nInvalid `this.prisma.friends.update()` invocation in\n/srcs/src/user/friends.js:59:35\n\n  56     return this.reply.code(404).send({ error: \"Friend request not found.\" });\n  57 }\n  58 \n→ 59 await this.prisma.friends.update({\n       where: {\n         id: undefined,\n     ?   userId?: Int,\n     ?   AND?: FriendsWhereInput | FriendsWhereInput[],\n     ?   OR?: FriendsWhereInput[],\n     ?   NOT?: FriendsWhereInput | FriendsWhereInput[],\n     ?   accepted?: BoolFilter | Boolean,\n     ?   date?: IntFilter | Int,\n     ?   friendId?: IntFilter | Int,\n     ?   user?: UserNullableScalarRelationFilter | UserWhereInput | Null\n       },\n       data: {\n         accepted: true,\n         date: 1744115676\n       }\n     })\n\nArgument `where` of type FriendsWhereUniqueInput needs at least one of `userId` arguments. Available options are marked with ?.",
+      "stack":
+          PrismaClientValidationError: 
+          Invalid `this.prisma.friends.update()` invocation in
+          /srcs/src/user/friends.js:59:35
+          
+            56     return this.reply.code(404).send({ error: "Friend request not found." });
+            57 }
+            58 
+          → 59 await this.prisma.friends.update({
+                 where: {
+                   id: undefined,
+               ?   userId?: Int,
+               ?   AND?: FriendsWhereInput | FriendsWhereInput[],
+               ?   OR?: FriendsWhereInput[],
+               ?   NOT?: FriendsWhereInput | FriendsWhereInput[],
+               ?   accepted?: BoolFilter | Boolean,
+               ?   date?: IntFilter | Int,
+               ?   friendId?: IntFilter | Int,
+               ?   user?: UserNullableScalarRelationFilter | UserWhereInput | Null
+                 },
+                 data: {
+                   accepted: true,
+                   date: 1744115676
+                 }
+               })
+          
+          Argument `where` of type FriendsWhereUniqueInput needs at least one of `userId` arguments. Available options are marked with ?.
+              at Cn (/srcs/node_modules/@prisma/client/runtime/library.js:29:1363)
+              at Wn.handleRequestError (/srcs/node_modules/@prisma/client/runtime/library.js:121:7177)
+              at Wn.handleAndLogRequestError (/srcs/node_modules/@prisma/client/runtime/library.js:121:6858)
+              at Wn.request (/srcs/node_modules/@prisma/client/runtime/library.js:121:6565)
+              at async l (/srcs/node_modules/@prisma/client/runtime/library.js:130:10067)
+              at async HandleFriends.acceptFriend (/srcs/src/user/friends.js:59:9)
+      "name": "PrismaClientValidationError",
+      "clientVersion": "6.5.0"
+    }
+[12:34:36.411] [32mINFO[39m (238): [36mrequest completed[39m
+    reqId: "req-2c"
+    res: {
+      "statusCode": 500
+    }
+    responseTime: 4.465324999997392

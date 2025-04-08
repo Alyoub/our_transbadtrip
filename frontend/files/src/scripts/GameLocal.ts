@@ -3,6 +3,8 @@ import { loadnhistory , fetchPlayerData } from "./app.js";
 export async function	setupLocalPage() {
     const homeBtn = document.querySelector('.home-btn') as HTMLButtonElement;
 
+    const picplayer = document.querySelector('.pfp') as HTMLImageElement;
+
     homeBtn.addEventListener('click', () => loadnhistory('profil'));
 	try
 	{
@@ -20,7 +22,10 @@ export async function	setupLocalPage() {
 			iPlayerName.textContent = tmp;
         }
 		if (iPlayerUsername)
+        {
 			iPlayerUsername.textContent = playerData.login;
+            picplayer.src = playerData.profilePicPath;
+        }
 	}
 	catch(error)
 	{
@@ -31,6 +36,13 @@ export async function	setupLocalPage() {
 
 export function GameLocal()
 {
+    const exit = document.getElementById("closelocal") as HTMLElement;
+
+    exit.addEventListener('clikc', () => {
+        loadnhistory('profil');
+    });
+
+
     const canvas = document.getElementById("pingPongLocal") as HTMLCanvasElement;
     const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
     const close = document.getElementById('closeLocal') as HTMLButtonElement;

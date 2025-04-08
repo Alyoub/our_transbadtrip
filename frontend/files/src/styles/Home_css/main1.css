@@ -81,6 +81,7 @@
 
     color: white;
     background-color: rgba(58, 79, 124, 0.9);
+    /* background-color: rgba(240,85,85,255); */ /*new one*/
     border: 1px solid white;
     border-radius: 30px;
     padding: clamp(1px, 1vw, 10px) clamp(0px, 1vw, 26px);

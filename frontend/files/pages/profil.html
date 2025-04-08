@@ -1,315 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
 
-<head>
-    <title> Ft_transport | Profil</title>
-    <!-- <link rel="stylesheet" href="src/styles.css"> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../src/styles/Profile_css/Profile.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Lexend+Mega:wght@100..900&display=swap"
-        rel="stylesheet">
-</head>
+    </head>
+    <body>
 
-<body class="relative">
+        <notification-header2></notification-header2>
 
-    <notification-header1></notification-header1>
-
-    <div id="logOutPanel" class="z-30 absolute hidden flex-col top-11 sm:top-12 lg:top-14 xl:top-16 2xl:top-[72px] min-1700:top-20 min-1900:top-[88px] min-2300:top-24 min-2500:top-[104px] right-3 sm:right-16 lg:right-24 xl:right-24 min-1900:right-[104px] min-2300:right-28 min-2500:right-[120px]">
-        <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" class="self-end size-3 mr-[53px]">
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-            <g id="SVGRepo_iconCarrier">
-                <title>triangle-filled</title>
-                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g id="drop" fill="#1e293b" transform="translate(32.000000, 42.666667)">
-                        <path d="M246.312928,5.62892705 C252.927596,9.40873724 258.409564,14.8907053 262.189374,21.5053731 L444.667042,340.84129 C456.358134,361.300701 449.250007,387.363834 428.790595,399.054926 C422.34376,402.738832 415.04715,404.676552 407.622001,404.676552 L42.6666667,404.676552 C19.1025173,404.676552 7.10542736e-15,385.574034 7.10542736e-15,362.009885 C7.10542736e-15,354.584736 1.93772021,347.288125 5.62162594,340.84129 L188.099293,21.5053731 C199.790385,1.04596203 225.853517,-6.06216498 246.312928,5.62892705 Z" id="Combined-Shape">
-                        </path>
-                    </g>
-                </g>
-            </g>
-        </svg>
-        <div class="flex flex-col flex-grow border-4 rounded-xl border-slate-800 bg-sky-800 w-40 h-20 md:w-48 md:h-20 lg:w-56 lg:h-24  -mt-1 divide-y-2 divide-slate-800">   
-            <h1 class="font-medium text-center text-white text-sm md:text-base">Log out?</h1>
-            <div class="flex flex-grow gap-2 justify-center py-2 lg:py-3.5 text-white">
-                <button id="rejLogOutBtn" class="rounded-xl bg-rose-700 hover:bg-rose-800 w-1/3">
-                    No
-                </button>
-                <button id="accLogOutBtn" class="rounded-xl bg-emerald-700 hover:bg-emerald-800 w-1/3">
-                    Yes
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div id="toBlur" class="grid grid-cols-1 md:grid-cols-8 md:grid-rows-5 md:gap-x-4 lg:gap-x-10 xl:gap-x-12 2xl:gap-x-20 mt-28 md:mt-36 lg:mt-40 2xl:mt-52 mx-16 min-1900:mx-20">
-        <!-- Profil's setting -->
-        <div class="grid grid-cols-1 grid-rows-7 row-span-2 col-span-5 gap-2 p-4 lg:p-6 items-center bg-cover bg-center bg-no-repeat border border-hidden rounded-2xl xs:row-span-2 xs:col-span-1 faded-border" style="background-image: url('../public/images/rackets_cover_picture.jpeg'); width: 100%;">
-            <div class="relative grid grid-cols-2 grid-rows-1 row-span-3 justify-between items-center">
-				<p style="font-family: 'Diphylleia', serif; font-style: normal; text-shadow: 1px 1px 3px;" class="justify-self-start text-white pl-5 xl:pl-14 text-2xl md:text-2xl lg:text-3xl">Good morning,<br>
-                    <span id="iPlayerName" class="capitalize"></span>
-                </p>
-				<img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="border-2 border-black rounded-full justify-self-end size-24 sm:size-28 md:size-24 lg:size-28 xl:size-32">
-				<button type="button" data-page="settings" title="settings" class="settings-btn flex justify-center items-center absolute border-2 border-black bg-gray-500 rounded-full top-0 right-0 xl:right-1 size-7 sm:size-8 md:size-7 lg:size-8 hover:scale-125">
-					<svg data-slot="icon" fill="none" stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-5 sm:size-6 md:size-5 lg:size-6">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"></path>
-						<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
-					</svg>
-				</button>
-				<button type="button" id="openSidePanelBtn" class="absolute border-2 border-black bg-gray-500 rounded-full bottom-0 right-0 size-7 sm:size-8 hover:scale-125 block md:hidden">
-                    <svg data-slot="icon" fill="none" stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-4 sm:size-5 translate-x-1">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"></path>
-                    </svg>
-                </button>
-			</div>
-			<div class="grid grid-cols-5 grid-rows-2 row-span-1 gap-y-2 w-fit justify-self-end xs:grid-cols-4 xs:mr-4 sm:mr-4 md:mr-3">
-				<button type="button" id="addNewFriendShowBtn" class="grid grid-cols-4 grid-rows-1 col-start-5 xs:col-start-4 border border-hidden rounded-xl place-items-center relative z-0 bg-purple-500 pink-btn overflow-hidden xs:w-20 xs:h-5 sm:w-20 sm:h-5 md:w-20 md:h-4 lg:w-20 lg:h-5 xl:w-24 xl:h-5">
-					<svg xmlns="http://www.w3.org/2000/svg" height="12" width="15" viewBox="0 0 640 512" class="w-3 h-2.5 lg:w-3.5 lg:h-2.5 xl:w-4 xl:h-3">
-						<path fill="#ffffff" d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM504 312l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/>
-					</svg>
-					<span class="col-span-3 xs:text-2xs sm:text-2xs md:text-2xs lg:text-2xs xl:text-xs text-white place-self-center" style="font-family: arial;">Add friend</span>
-				</button>
-				<button type="button" id="messagesBtn" data-page="messages" class="grid grid-cols-4 grid-rows-1 col-start-5 xs:col-start-4 border border-hidden rounded-xl place-items-center relative z-0 bg-purple-500 pink-btn overflow-hidden xs:w-20 xs:h-5 sm:w-20 sm:h-5 md:w-20 md:h-4 lg:w-20 lg:h-5 xl:w-24 xl:h-5">
-					<svg xmlns="http://www.w3.org/2000/svg" height="12" width="15" viewBox="0 0 512 512" class="w-3 h-2.5 lg:w-3.5 lg:h-2.5 xl:w-4 xl:h-3">
-						<path fill="#ffffff" d="M160 368c26.5 0 48 21.5 48 48l0 16 72.5-54.4c8.3-6.2 18.4-9.6 28.8-9.6L448 368c8.8 0 16-7.2 16-16l0-288c0-8.8-7.2-16-16-16L64 48c-8.8 0-16 7.2-16 16l0 288c0 8.8 7.2 16 16 16l96 0zm48 124l-.2 .2-5.1 3.8-17.1 12.8c-4.8 3.6-11.3 4.2-16.8 1.5s-8.8-8.2-8.8-14.3l0-21.3 0-6.4 0-.3 0-4 0-48-48 0-48 0c-35.3 0-64-28.7-64-64L0 64C0 28.7 28.7 0 64 0L448 0c35.3 0 64 28.7 64 64l0 288c0 35.3-28.7 64-64 64l-138.7 0L208 492z"/>
-					</svg>
-					<span class="col-span-3 xs:text-2xs sm:text-2xs md:text-2xs lg:text-2xs xl:text-xs text-white place-self-center" style="font-family: arial;">Messages</span>
-				</button>
-			</div>
-			<div class="grid grid-cols-1 grid-rows-2 row-start-6 row-span-1 gap-2">
-				<p class="font-sans text-xs text-white whitespace-pre-wrap">  Level 7 - 75%</p>
-				<div class="relative">
-					<div class="absolute inset-0 border border-hidden bg-zinc-800 rounded-full h-3.5 md:h-3 lg:h-4"></div>
-					<div class="absolute inset-0 border border-hidden bg-purple-700 rounded-full w-3/4 z-10 h-3.5 md:h-3 lg:h-4"></div>
-				</div>
-			</div>
-		</div>
-
-		<div class="grid grid-cols-2 row-start-3 row-span-3 col-span-5 xs:gap-3 sm:gap-5 xl:gap-16 2xl:gap-32 xs:row-span-2 xs:col-span-1 md:h-fit"> <!-- Game's setting -->
-			<div class="grid grid-rows-5 gap-2.5 md:h-fit">
-				<div>
-					<h1 class="font-bold xs:text-sm sm:text-sm md:text-base text-white">Modes & Options</h1>
-				</div>
-				<div class="grid grid-rows-3 lg:grid-rows-2 gap-1 md:h-fit">
-					<h2 class="xs:text-sm sm:text-sm md:text-base text-white">Game mode</h2>
-					<div class="row-span-2 grid grid-cols-2  xs:gap-4 sm:gap-4 md:gap-4 max-870:gap-2 lg:gap-8 w-full h-3/4 md:h-10 border-2 text-sm border-white border-solid rounded-xl bg-gray-400 place-self-start place-items-center">
-						<button type="button" id="local-btn" class="flex items-center place-content-center max-565:gap-1.5 gap-2.5 border-hidden rounded-xl w-10/12 bg-gray-600 active:bg-gray-700 active:outline-none active:ring active:ring-gray-950">
-							<img src="../public/logos/signal-sign.svg" class="max-870:size-4 size-5">
-							<p class="text-white">Local</p>
-						</button>
-						<button type="button" id="online-btn" class="flex items-center place-content-center max-565:gap-1.5 gap-2.5 border-hidden rounded-xl w-10/12 hover:bg-gray-500 active:bg-gray-700 active:outline-none active:ring active:ring-gray-950">
-							<svg data-slot="icon" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="max-870:size-4 size-5">
-								<path clip-rule="evenodd" fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM8.547 4.505a8.25 8.25 0 1 0 11.672 8.214l-.46-.46a2.252 2.252 0 0 1-.422-.586l-1.08-2.16a.414.414 0 0 0-.663-.107.827.827 0 0 1-.812.21l-1.273-.363a.89.89 0 0 0-.738 1.595l.587.39c.59.395.674 1.23.172 1.732l-.2.2c-.211.212-.33.498-.33.796v.41c0 .409-.11.809-.32 1.158l-1.315 2.191a2.11 2.11 0 0 1-1.81 1.025 1.055 1.055 0 0 1-1.055-1.055v-1.172c0-.92-.56-1.747-1.414-2.089l-.654-.261a2.25 2.25 0 0 1-1.384-2.46l.007-.042a2.25 2.25 0 0 1 .29-.787l.09-.15a2.25 2.25 0 0 1 2.37-1.048l1.178.236a1.125 1.125 0 0 0 1.302-.795l.208-.73a1.125 1.125 0 0 0-.578-1.315l-.665-.332-.091.091a2.25 2.25 0 0 1-1.591.659h-.18c-.249 0-.487.1-.662.274a.931.931 0 0 1-1.458-1.137l1.279-2.132Z"></path>
-							</svg>
-							<p class="text-white">Online</p>
-						</button>
-					</div>
-				</div>
-				<div class="grid grid-rows-2 gap-2 md:h-fit">
-					<h2 class="self-end xs:text-sm sm:text-sm md:text-base text-white">Normal game options</h2>
-					<button id="playSolo" type="button" class="self-start border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn1">
-						<p class="xs:text-sm sm:text-sm md:text-base text-white">Play solo</p>
-					</button>
-				</div>	
-				<div class="grid grid-rows-2 gap-2 md:h-fit">
-                    <div class="grid grid-cols-2 gap-2">
-                        <button id="play1v1Btn" type="button" data-page="localgame" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn2">
-                            <p class="xs:text-sm sm:text-sm md:text-base text-white">Play 1 VS 1</p>
-                        </button>
-                        <button id="play2v2Btn" type="button" data-page="localgame" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn2">
-                            <p class="xs:text-sm sm:text-sm md:text-base text-white">Play 2 VS 2</p>
+        <div class="allprofileData">
+            <div class="empty1"></div>
+                <div class="allDachInfo">
+                    <div class="DashHeader">
+                        <img class="DashCover" src="">
+                        <label class="hyText">
+                            HI , <span class="userText"></span> ! 👋
+                        </label>
+                        <img class="DashPic" src="">
+                        <div class="Level">
+                            Level <span id="levelScore"></span>
+                            <span class="line"></span>
+                        </div>
+                        <img class="setttings" src="../public/logos/settings_25dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg">
+                    </div>
+                    <div class="DashContent">
+                        <h1 class="GameTiltel">
+                            Game Center  
+                        </h1>
+                    <div class="modes">
+                        <div class="gmaeModes">
+                            <label class="modeText">
+                                Modes
+                            </label>
+                        <div class="modeCection">
+                            <div class="friend"> 
+                                <button id="localBtn" class="frindSReqBtn">
+                                    Local
+                                </button>
+                                <button id="OnlineBtn" class="frindSListBtn">
+                                    Online
+                                </button>
+                            </div>
+                            <div id="modeSide" class="modeBtns">
+                            </div>
+                            </div>
+                        </div>
+                        <div class="gmaeStatus">
+                            <label class="statusText">
+                                Status
+                            </label>
+                            <div class="Static">
+                                <div class="leftStatus">
+                                    <label class="winsText">
+                                        Winses
+                                    </label>
+                                    <span class="winsScor"></span>
+                                </div>
+                                <div class="leftStatus">
+                                    <label class="LoseText">
+                                        Loses
+                                    </label>
+                                    <span class="LoseScor"></span>
+                                </div>
+                            </div>
+                            <div class="achiv">
+                                <div class="achivText">
+                                    Next
+                                </div>
+                                <div class="progress-container">
+                                    <div class="progress-circle">
+                                        <div class="progress-text">
+                                            <span class="subtext">60%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="leftData">
+                    <div class="FindFrineds">
+                        <input class="find" type="text" placeholder="Search For Friends">
+                        <button class="findBtn">
+                            <img class="searchLogo" src="../public/logos/search_25dp_F3F3F3_FILL0_wght400_GRAD0_opsz24.svg">
                         </button>
                     </div>
-				</div>
-				<div class="grid grid-rows-2 gap-2 lg:gap-3 md:h-fit">
-                    <h2 id="tournTitle" class="self-end xs:text-sm sm:text-sm md:text-base text-white">Tournament options</h2>
-					<button id="createTournPageBtn" type="button" data-page="createtourn" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn1">
-						<p class="xs:text-sm sm:text-sm md:text-base text-white">Create a tournament</p>
-					</button>
-					<!-- <button id="hostTournPageBtn" type="button" data-page="hosttourn" class="border-2 border-white border-solid rounded-xl w-full h-9 opacity-30 hover:scale-105 play-btn2" inert>
-						<p class="xs:text-sm sm:text-sm md:text-base text-white">Host a tournament</p>
-					</button> -->
-				</div>
-			</div>
-			<div class="grid grid-rows-2 gap-6">
-				<div class="row-span-1 grid grid-rows-3">
-					<h1 class="row-span-1 font-bold xs:text-sm sm:text-sm md:text-base text-white">Performances</h1>
-					<div class="row-span-2 grid grid-cols-2 gap-2">
-						<div class="flex flex-col border-2 border-white border-solid rounded-xl pt-1" style="background: #404251;">
-							<p class="justify-self-center self-center lg:self-center text-center text-white xs:text-4xs text-2xs md:text-[8px] lg:text-xs font-semibold">
-								Matches played
-							</p>
-							<div class="flex flex-1 self-center items-center">
-								<p class="text-2xl font-bold" style="color: #716ea7;">15</p>
-							</div>
-						</div>
-						<div class="flex flex-col border-2 border-white border-solid rounded-xl pt-1" style="background: #404251;">
-							<h2 class="justify-self-center self-center lg:self-center text-center text-white xs:text-4xs text-2xs md:text-[8px] lg:text-xs font-semibold">
-								Tournaments played
-							</h2>
-							<div class="flex flex-1 self-center items-center">
-								<p class="text-2xl font-bold" style="color: #716ea7;">15</p>
-							</div>
-						</div>
-						<div class="flex flex-col border-2 border-white border-solid rounded-xl pt-1" style="background: #404251;">
-							<h2 class="justify-self-center self-center lg:self-center text-center text-white xs:text-4xs text-2xs md:text-[8px] lg:text-xs font-semibold">
-								Global rank
-							</h2>
-							<div class="flex flex-1 self-center items-center">
-								<p class="text-2xl font-bold" style="color: #716ea7;">15</p>
-							</div>
-						</div>
-						<div class="flex flex-col border-2 border-white border-solid rounded-xl pt-1" style="background: #404251;">
-							<h2 class="justify-self-center self-center lg:self-center text-center text-white xs:text-4xs text-2xs md:text-[8px] lg:text-xs font-semibold">
-								Total friends
-							</h2>
-							<div class="flex flex-1 self-center items-center">
-								<p class="text-2xl font-bold" style="color: #716ea7;">15</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row-span-1 grid grid-cols-5 border-2 border-white border-solid rounded-xl" style="background: #404251;">
-					<div class="col-span-2 grid grid-rows-2">
-						<div class="grid">
-							<h2 class="row-span-1 self-center justify-self-center text-white xs:text-2xs text-xs font-semibold">
-								Your Level
-							</h2>
-							<div class="row-span-1 self-start justify-self-center">
-								<p class="xs:text-xs text-base font-bold" style="color: #666495;">Level 7</p>
-							</div>
-						</div>
-						<div class="grid">
-							<h2 class="row-span-1 self-center justify-self-center text-white xs:text-2xs text-xs font-semibold">
-								Your Xp
-							</h2>
-							<div class="row-span-1 self-start justify-self-center">
-								<p class="xs:text-xs text-base font-bold" style="color: #666495;">31 725<span>xp</span></p>
-							</div>
-						</div>
-					</div>
-					<div class="grid col-span-3">
-						<svg class="xs:size-20 size-24 place-self-center" viewBox="0 0 100 100">
-							<circle class="text-gray-300" stroke-width="10" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
-							<circle style="color: #666495" stroke-width="10" stroke-dasharray="282.6" stroke-dashoffset="calc(282.6 - (282.6 * 75 / 100))" stroke-linecap="round" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" transform="rotate(-90 50 50)" 	/>
-							<text x="50" y="50" text-anchor="middle" dy="0.3em" class="font-bold text-xl" style="fill: #666495">75%</text>
-						</svg>													
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-start-6 col-span-3 row-span-5 border-solid border-black hidden md:block md:h-fit">
-			<div class="grid grid-rows-5 border-4 md:h-[780px] lg:h-[872px] mt-5 p-2 bg-transparent rounded-2xl text-white" style="border-color: #5487a8;">
-				<div class="grid row-span-1">
-					<h1 class="justify-self-center font-bold">Friends & History</h1>
-					<div class="grid grid-cols-2 grid-rows-1 mt-5 border rounded-lg place-items-center h-5" style="background-color: #3f4251;">
-						<button type="button" class="border-r border-white text-sm text-center size-full rounded-l-md friends-btn selected-panel-btn">Friends</button>
-						<button type="button" class="border-l border-white text-sm text-center size-full rounded-r-md history-btn">History</button>
-					</div>
-				</div>
-				<div class="row-span-4 friends-list">
-					<!-- Friend's requests -->
-					<h2 class="text-xs font-bold my-3 2xl:mt-0">Friend's requests</h2>
-					<div class="flex flex-col items-center md:gap-2 lg:gap-3 2xl:gap-2 border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain md:h-60 lg:h-[270px] xl:h-[295px] 2xl:h-[300px] scrollable">
-						<p class="text-white">Coming Soon...</p>
-                    </div>
-                    <!-- Friends -->
-                    <h2 class="text-xs font-bold mt-14 xl:mt-8 2xl:mt-5 mb-3">Friends</h2>
-                    <div class="flex flex-col items-center border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain md:gap-2 lg:gap-3 2xl:gap-2 md:h-60 lg:h-[270px] xl:h-[295px] 2xl:h-[300px] scrollable">
-                        <p class="text-white">Coming Soon...</p>
-                    </div>
-                </div>
-                <!-- History -->
-                <div class="row-span-4 hidden history-list">
-                    <h2 class="text-xs font-bold my-2.5">Match history</h2>
-                    <div class="flex flex-col items-center md:gap-2 lg:gap-3.5 border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain md:h-[570px] lg:h-[640px] scrollable">
-                        <p class="text-white">Coming Soon...</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Side panel -->
-        <div id="sidePanel" class="fixed top-0 right-0 border-l-2 border-black bg-gradient-to-b from-bgclrstart to-bgclrend w-1/2 h-full translate-x-full transition-transform duration-500 ease-in-out z-50 block md:hidden">
-            <div class="relative top-[80px] w-full h-fit grid p-2 gap-4">
-                <div class="grid place-content-end">
-                    <button id="closeSidePanelBtn" class="border-4 border-white rounded-lg text-white size-fit" style="border-color: #5487a8;">
-                        <svg data-slot="icon" fill="none" stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div class="grid grid-rows-5 border-4 h-[700px] p-2 bg-transparent rounded-2xl text-white" style="border-color: #5487a8;">
-                    <div class="grid row-span-1">
-                        <h1 class="justify-self-center font-bold">Friends & History</h1>
-                        <div class="grid grid-cols-2 grid-rows-1 mt-5 border rounded-lg place-items-center h-5" style="background-color: #3f4251;">
-                            <button type="button"class="border-r border-white text-sm text-center size-full rounded-l-md friends-btn">
-                                Friends
+                    <div class="friendsRecs">
+                        <div class="friend"> 
+                            <button class="frindSReqBtn">
+                                Friends List
                             </button>
-                            <button type="button" class="border-l border-white text-sm text-center size-full rounded-r-md history-btn">
+                            <button class="frindSListBtn">
+                                Friends Requests
+                            </button>
+                        </div>
+                        <div class="ListData">
+                           
+                        </div>
+                    </div>
+                    <div class="friends">
+                        <div class="friend"> 
+                            <button class="historyBtn">
                                 History
                             </button>
                         </div>
                     </div>
-                    <div class="row-span-4 friends-list">
-                        <!-- Friend's requests -->
-                        <h2 class="text-xs font-bold mb-3">Friend's requests</h2>
-                        <div class="flex flex-col items-center border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain pr-1 gap-2 h-56 scrollable">
-                            <p class="text-white">Coming Soon...</p>
-                        </div>
-                        <!-- Friends -->
-                        <h2 class="text-xs font-bold mt-8 mb-3">Friends</h2>
-                        <div class="flex flex-col items-center border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain pr-1 gap-2 h-56 scrollable">
-                            <p class="text-white">Coming Soon...</p>
-                        </div>
-                    </div>
-                    <!-- History -->
-                    <div class="row-span-4 hidden history-list">
-                        <h2 class="text-xs font-bold my-2.5">Match history</h2>
-                        <div class="flex flex-col items-center gap-2 border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-contain pr-1 h-[500px] scrollable">
-                            <p class="text-white">Coming Soon...</p>
-                        </div>
-                    </div>
                 </div>
-            </div>
+            <div class="empty2"></div>
         </div>
-    </div>
-
-    <form id="toPop" class="absolute hidden flex-col gap-3 sm:gap-4 2xl:gap-5 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-[270px] sm:w-72 sm:h-80 md:w-[450px] md:h-[270px] lg:w-[500px] lg:h-[280px] xl:w-[550px] 2xl:w-[700px] xl:h-[315px] 2xl:h-[375px] border-4 border-slate-800 rounded-2xl p-3 sm:p-4 md:p-5 lg:p-4 xl:p-5 2xl:p-8 bg-sky-800 text-center">
-        <button type="button" id="addNewFriendCloseBtn" class="flex gap-0.5 justify-self-center self-end text-white transition ease-in-out active:scale-95">
-            <p class="self-center text-xs sm:text-sm lg:text-base 2xl:text-lg">close</p>
-            <svg data-slot="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-6 sm:size-7 lg:size-9 2xl:size-10">
-                <path clip-rule="evenodd" fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM8.28 7.22a.75.75 0 0 0-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 1 0 1.06 1.06L10 11.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L11.06 10l1.72-1.72a.75.75 0 0 0-1.06-1.06L10 8.94 8.28 7.22Z"></path>
-            </svg>
-        </button>
-        <label for="addNewFriend" class="text-white text-sm sm:text-base md:text-lg 2xl:text-xl"> Add Friends...</label>
-        <input type="search" id="addNewFriend" name="addNewFriend" placeholder="Enter the player's ID or real name..." class="text-gray-300 border-none rounded-lg bg-gray-500/50 focus:outline-none h-7 sm:h-9 md:h-10 lg:h-12 xl:h-14 px-2 sm:px-4 text-xs sm:text-sm md:text-base 2xl:text-lg placeholder:text-2xs sm:placeholder:text-xs md:placeholder:text-sm xl:placeholder:text-base 2xl:placeholder:text-lg">
-        <button type="button" class="text-white text-xs sm:text-sm lg:text-base xl:text-lg 2xl:text-xl border-2 rounded-xl border-neutral-600 w-1/2 h-6 sm:h-7 md:h-8 lg:h-8 2xl:h-9 self-center transition ease-in-out bg-sky-900 hover:bg-sky-950 active:scale-95">
-            Search
-        </button>
-        <div class="flex flex-1 rounded-xl bg-sky-900">
-            <div class="hidden flex-grow flex-col md:flex-row items-center md:justify-between px-4 sm:px-5 md:px-6 xl:px-8 2xl:px-10">
-                <div class="flex basis-1/2 md:basis-auto gap-3 self-start md:self-center items-center">
-                    <img src="../public/profile_pictures/ProfilePic.jpeg" alt="htouil" class="rounded-full size-9 sm:size-10 md:size-9 lg:size-10 xl:size-12 2xl:size-14">
-                    <div class="flex flex-col py-1 items-start text-white">
-                        <strong class="text-sm lg:text-base xl:text-xl 2xl:text-2xl">htouil</strong>
-                        <p class="text-3xs lg:text-2xs xl:text-xs 2xl:text-sm">Level 7</p>
-                    </div>
-                </div>
-                <div class="basis-1/2 md:basis-auto flex md:items-end">
-                    <button id="addNewFriendBtn" type="button" class="rounded-lg bg-sky-900 w-20 h-1/2 sm:w-28 sm:h-1/2 md:w-20 md:h-3/4 lg:w-24 lg:h-3/5 xl:w-28 xl:h-1/2 text-white text-xs lg:text-sm xl:text-base 2xl:text-xl transition self-center shadow-[0_1px_3px_rgba(0,0,0,0.5)] hover:bg-sky-950 hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.5)] active:scale-[0.995]">
-                        Add
-                    </button>
-                </div>
-            </div>
-            <div class="flex flex-grow flex-col md:flex-row text-white items-center justify-center px-4 sm:px-5 md:px-6 xl:px-8 2xl:px-10">
-                <span class="">No User Found.</span>
-            </div>
-        </div>
-    </form>
-</body>
-
+    </body>
 </html>

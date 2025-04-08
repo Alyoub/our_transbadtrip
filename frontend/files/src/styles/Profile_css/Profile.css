@@ -1,0 +1,677 @@
+body
+{
+    background-color: rgba(20, 20, 41, 255);
+    padding: 0;
+    margin: 0;
+
+}
+.allprofileData
+{
+    width: 100%;
+    /* height: 900px; */
+    /* background-color: lightblue; */
+    margin-top: 15%;
+    display: flex;
+    gap: 2%;
+
+}
+.empty1,
+.empty2
+{
+    width: 7svw;
+    /* background-color: lightpink; */
+}
+.allDachInfo
+{
+    flex: 2;
+    /* background-color: gray; */
+    border-radius: 20px;
+    /* border: 3px solid rgb(230, 173, 228, 0.5); */
+    background-color: rgba(94, 94, 111, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    gap: 5%;
+    /* padding-bottom: 20%; */
+
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3), 
+            -4px -4px 15px rgba(255, 255, 255, 0.1);
+
+
+}
+.leftData
+{
+    flex: 1;
+    /* background-color: rgb(155, 141, 141); */
+    /* border-radius: 20px; */
+    /* border: 5px solid white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.FindFrineds
+{
+    width: 100%;
+    /* background-color: red; */
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+
+    /* box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3), 
+            -4px -4px 15px rgba(255, 255, 255, 0.1); */
+}
+.find
+{
+    width: 80%;
+    height: 100%;
+    outline: none;
+    text-indent: 5%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: none;
+    background: rgba(94,94,111,255);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.searchLogo
+{
+    width: 100%;
+    margin-right: 2%;
+}
+.findBtn
+{
+    background-color: black;
+    border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 100%;
+    background-color: rgba(94,94,111,255);
+    text-align: center;
+}
+.DashHeader
+{
+    width: 95%;
+    height: 20svh;
+    /* background-color: lightblue; */
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    position: relative;
+    border-radius: 20px;
+    max-height: 250px;
+    overflow: hidden;
+}
+.setttings
+{
+    position: absolute;
+    right: 8%;
+    top: 11%;
+    background-color: black;
+    border-radius: 50px;
+    width: 4%;
+}
+.DashHeader::after
+{
+    position: absolute;
+    content: 'v';
+    height: 10%;
+    /* background-color: red; */
+    width: 110%;
+    filter: blur(3px);
+    top: -3%;
+    /* background-color: rgba(20, 20, 41, 255); */
+}
+.DashHeader::before
+{
+    position: absolute;
+    content: 'h';
+    height: 10%;
+    /* background-color: red; */
+    width: 110%;
+    filter: blur(3px);
+    bottom: -3%;
+    /* background-color: rgba(94, 94, 111, 0.3); */
+}
+.DashCover
+{
+    width: 100%;
+    overflow: hidden;
+    object-fit: cover;
+}
+.hyText
+{
+    color: white;
+    /* color : rgb(230, 173, 228); */
+    position: absolute;
+    /* background-color: red; */
+    font-size: clamp(10px, 2vw, 50px);
+    top: 30%;
+    left: 7%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+.DashPic
+{
+    position: absolute;
+    width: 17%;
+    border-radius: 100px;
+    right: 7%;
+    top: 12%;
+    max-height: 130px;
+    max-width: 130px;
+}
+.Level
+{
+    width: 90%;
+    /* background-color: red; */
+    position: absolute;
+    /* height: 15%; */
+    bottom: 12%;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: clamp(10px, 1.4vw, 50px);
+    display: flex;
+    flex-direction: column;
+    
+}
+.line
+{
+    width: 100%;
+    height: 10px;
+    margin-left: 2%;
+    margin-top: 1%;
+    background-color: white;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+}
+.line::after
+{
+    content: '';
+    width: 10%;
+    position: absolute;
+    background-color:rgba(0, 255, 255, 0.7) ;
+    height: 100%;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+.friend
+{
+    width: 95%;
+    /* background-color: red; */
+    height: 30px;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    gap: 2%;
+}
+.friendsRecs
+{
+    width: 100%;
+    height: 45%;
+    /* background-color: lightblue; */
+    border-radius: 20px;
+    background-color: rgba(94, 94, 111, 0.3);
+    /* border: 3px solid rgb(230, 173, 228, 0.5); */
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3), 
+    -4px -4px 15px rgba(255, 255, 255, 0.1);
+}
+.friends
+{
+    width: 100%;
+    height: 45%;
+    /* background-color: lightpink; */
+    border-radius: 20px;
+    background-color: rgba(94, 94, 111, 0.3);
+    /* border: 3px solid rgb(230, 173, 228, 0.5); */
+    display: flex;
+    /* justify-content: center; */
+    
+
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3), 
+    -4px -4px 15px rgba(255, 255, 255, 0.1);
+}
+
+.frindSReqBtn,
+.frindSListBtn
+{
+    flex: 1;
+    font-size: clamp(10px, 1.2vw, 50px);
+    font-weight: bold;
+    color: white;
+    /* background-color: rgba(20, 20, 41, 255); */
+    /* background-color: rgba(0, 255, 255); */
+    border: none;
+    padding-bottom: 2%;
+    /* border-bottom: 4px solid white; */
+}
+.historyBtn
+{
+    flex: 1;
+    font-size: clamp(10px, 1.2vw, 50px);
+    font-weight: bold;
+    color: white;
+    border: none;
+    padding-bottom: 4%;
+    border-bottom: 4px solid white;
+
+}
+.DashContent
+{
+    width: 95%;
+    padding-top: 15%;
+    padding-bottom: 15%;
+    /* height: 250px; */
+}
+.GameTiltel
+{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(20px, 3vw, 50px);
+    font-weight: bold;
+}
+.modes
+{
+    width: 100%;
+    height: 400px;
+    /* background-color: lightblue; */
+    /* height: 300px; */
+    margin-top: 5%;
+    display: flex;
+    gap: 2%;
+}
+.gmaeModes
+{
+    flex: 1;
+    /* background-color: teal; */
+    height: 120%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+    gap: 5%;
+    
+}
+.modeCection
+{
+    /* border: 2px solid rgb(230, 173, 228, 0.4); */
+    background-color: rgba(94, 94, 111, 255);
+    border-radius: 10px;
+    /* background-color: red; */
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15%;
+}
+.gmaeStatus
+{
+    flex: 2;
+    height: 120%;
+    /* background-color: turquoise; */
+    /* border: 2px solid rgb(230, 173, 228, 0.4); */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+    gap: 5%;
+
+}
+.Static
+{
+    width: 100%;
+    /* background-color: red; */
+    height: 35%;
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+}
+.leftStatus
+{
+    flex: 1;
+    /* background-color: lightblue; */
+    border-radius: 10px;
+    /* border: 2px solid rgb(230, 173, 228, 0.4); */
+    background-color: rgba(94, 94, 111, 255);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.rightStatus
+{
+    flex: 1;
+    /* background-color: lavender; */
+    border-radius: 10px;
+    /* border: 2px solid rgb(230, 173, 228, 0.4); */
+}
+.achiv
+{
+    width: 100%;
+    /* background-color: red; */
+    height: 35%;
+    border-radius: 10px;
+    background-color: rgba(94, 94, 111, 255);
+    display: flex;
+    align-items: center;
+    /* border: 2px solid rgb(230, 173, 228, 0.4); */
+}
+.modeText,
+.statusText
+{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.modeBtns
+{
+    width: 90%;
+    /* background-color: black; */
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    /* display: flex; */
+
+}
+.soloBtn,
+.onevsone,
+.towvstow,
+.tournament
+{
+    width: 100%;
+    border-radius: 14px;
+    background-color: rgba(0, 255, 255, 0.4);
+    border: none;
+    color: white;
+    font-size: clamp(10px, 1.2vw, 50px);
+    font-weight: bold;
+    height: 15%;
+
+}
+.winsText,
+.winsScor,
+.LoseScor,
+.LoseText
+{
+    color: white;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: red; */
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+
+
+
+
+.progress-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-right: 10%;
+}
+.progress-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(rgba(0, 255, 255, 0.7)  260deg, rgba(255, 255, 255, 0.1) 0deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.progress-circle::after {
+    content: "";
+    width: 80px;
+    height: 80px;
+    background-color: rgba(94, 94, 111, 255);
+    border-radius: 50%;
+    position: absolute;
+}
+.progress-text {
+    position: absolute;
+    text-align: center;
+    color: #F05454;
+    font-size: 22px;
+    font-weight: bold;
+    z-index: 1;
+}
+.subtext {
+    display: block;
+    font-size: 16px;
+    font-weight: normal;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+.achivText
+{
+    flex: 1;
+    margin-left: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    color: white;
+}
+
+.ListData
+{
+    width: 95%;
+    height: 80%;
+    /* background-color: lightblue; */
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    overflow-y: auto;
+    padding-right: 10px; /* optional: space for scrollbar */
+}
+.userContiner
+{
+    width: 100%;
+    height: 25%;
+    background-color: rgba(94, 94, 111, 255);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* background-color: red; */
+}
+.userContiner1
+{
+    width: 90%;
+    height: 15%;
+    background-color: rgba(94, 94, 111, 255);
+    border-radius: 14px;
+    display: flex;
+    margin-top: 5%;
+    align-items: center;
+    position: relative;
+}
+
+.userPic
+{
+    width: 12%;
+    border-radius: 50px;
+    margin-left: 5%;
+}
+
+.userName
+{
+    color: white;
+    margin-left: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.userName1
+{
+    color: white;
+    margin-left: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: clamp(10px, 0vw, 30px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+
+
+
+
+
+/* From Uiverse.io by KSAplay */ 
+.btn
+{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 1em 2em;
+    font-size: 7px;
+    font-weight: bold;
+    border-width: 0;
+    border-radius: 1.5em;
+    text-transform: uppercase;
+    transition: .2s ease;
+    position: absolute;
+    right: 7%;
+  }
+  .btn1
+  {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2% 4%;
+    font-size: clamp(10px, 0vw, 25px);
+    font-weight: bold;
+    border-width: 0;
+    border-radius: 14px;
+    text-transform: uppercase;
+    transition: .2s ease;
+    position: absolute;
+    right: 7%;
+  }
+  
+  .text {
+    font-size: 1.2em;
+    color: white;
+    z-index: 1;
+  }
+  
+  .btn::before {
+    position: absolute;
+    content: '';
+    width: 120%;
+    height: 260%;
+    background-image: linear-gradient(135deg, rgba(0,5,255,1) 0%, rgba(0, 255, 255, 0.7) 100%);
+  }
+  
+  .btn::after {
+    position: absolute;
+    content: '';
+    width: 88%;
+    height: 80%;
+    border-width: 0;
+    border-radius: 14px;
+    background-color: black;
+    opacity: .7;
+    transition: 100ms ease;
+  }
+  
+  .btn:hover.btn {
+    transform: scale(1.1);
+  }
+  
+  .btn:hover.btn::after {
+    opacity: .5;
+  }
+  
+  .btn:hover.btn::before {
+    animation: turn_4810 .2s infinite linear;
+  }
+  
+  .btn:active.btn {
+    transform: scale(1.05);
+  }
+  
+  .btn:active.btn::before {
+    transform: scale(1.05);
+    animation: turn_4810 .1s infinite linear;
+  }
+  
+  @keyframes turn_4810 {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+  .linecool
+  {
+    border-bottom: 4px solid white;
+  }
+  
+  .btn1::before {
+    position: absolute;
+    content: '';
+    width: 120%;
+    height: 260%;
+    background-image: linear-gradient(135deg, rgba(0,5,255,1) 0%, rgba(0, 255, 255, 0.7) 100%);
+  }
+  
+  .btn1::after {
+    position: absolute;
+    content: '';
+    width: 88%;
+    height: 80%;
+    border-width: 0;
+    border-radius: 1.2em;
+    background-color: black;
+    opacity: .7;
+    transition: 100ms ease;
+  }
+  
+  .btn1:hover.btn1 {
+    transform: scale(1.1);
+  }
+  
+  .btn1:hover.btn1::after {
+    opacity: .5;
+  }
+  
+  .btn1:hover.btn1::before {
+    animation: turn_4810 .4s infinite linear;
+  }
+  
+  .btn1:active.btn1 {
+    transform: scale(1.05);
+  }
+  
+  .btn1:active.btn1::before {
+    transform: scale(1.05);
+    animation: turn_4810 .2s infinite linear;
+  }
+  
+.wasSent::before 
+{
+/* background-image: linear-gradient(135deg, rgb(0, 255, 110) 0%, rgba(0, 255, 255, 0.7) 100%); */
+    background-color: red;
+
+}

@@ -526,7 +526,7 @@ export const setupLoginPage = () => {
         // card.classList.add('hide');
 
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        // const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
         const faHome = document.querySelector('.Verify_home') as HTMLElement;
 
@@ -562,12 +562,12 @@ export const setupLoginPage = () => {
                     isValid = false;
                 }
     
-                if (!passwordRegex.test(password.value.trim())) {
-                    password.classList.add('invalid');
-                    showbt?.classList.add("invalidBT");
-                    passwordMSG.innerHTML = "Not a valid Password";
-                    isValid = false;
-                }
+                // if (!passwordRegex.test(password.value.trim())) {
+                //     password.classList.add('invalid');
+                //     showbt?.classList.add("invalidBT");
+                //     passwordMSG.innerHTML = "Not a valid Password";
+                //     isValid = false;
+                // }
             }
     
             if (isValid === true)

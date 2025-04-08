@@ -3,6 +3,8 @@ import { loadnhistory , fetchPlayerData } from "./app.js";
 export async function	setupSoloPage() {
     const homeBtn = document.querySelector('.home-btn') as HTMLButtonElement;
 
+    const picplayer = document.querySelector('.pfp') as HTMLImageElement;
+
     homeBtn.addEventListener('click', () => loadnhistory('profil'));
 	try
 	{
@@ -20,7 +22,10 @@ export async function	setupSoloPage() {
 			iPlayerName.textContent = tmp;
         }
 		if (iPlayerUsername)
+        {
 			iPlayerUsername.textContent = playerData.login;
+            picplayer.src = playerData.profilePicPath;
+        }
 	}
 	catch(error)
 	{
@@ -28,6 +33,7 @@ export async function	setupSoloPage() {
 	}
 	
 };
+
 
 export function GameAi()
 {

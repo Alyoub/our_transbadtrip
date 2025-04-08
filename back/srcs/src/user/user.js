@@ -147,9 +147,13 @@ async function  profile (request,reply) {
         login: user.login,
         email: user.email,
         name: user.name,
+        tfa:user.tfa,
+        level:user.level,
+        lostGames:user.lostGames,
+        wonGames:user.wonGames,
         profilePicPath:user.profilePicPath,
         wallpaperPath:user.wallpaperPath,
-        tfa:user.tfa,
+        
     });
 
 }
@@ -161,6 +165,8 @@ async function users (request, reply) {
                 id:true,
                 login:true,
                 name:true,
+                profilePicPath:true,
+                wallpaperPath:true
             }
         });
         return users;

@@ -57,7 +57,7 @@ class HandleFriends {
         }
 
         await this.prisma.friends.update({
-            where: { id: friendRequest.id },
+            where: { userId: friendRequest.userId },
             data: { accepted: true, date: Math.floor(Date.now() / 1000) },
         });
 
@@ -90,7 +90,7 @@ class HandleFriends {
             return this.reply.code(404).send({ error: "Friend request not found." });
         }
 
-        await this.prisma.friends.delete({ where: { id: requestExists.id } });
+        await this.prisma.friends.delete({ where: { userId: requestExists.userId } });
 
         return this.reply.code(200).send({ message: "Friend request canceled." });
     }
@@ -112,7 +112,7 @@ class HandleFriends {
             return this.reply.code(404).send({ error: "Friendship not found." });
         }
 
-        await this.prisma.friends.delete({ where: { id: friendship.id } });
+        await this.prisma.friends.delete({ where: { userId: friendship.userId } });
 
         return this.reply.code(200).send({ message: "Friend removed." });
     }
