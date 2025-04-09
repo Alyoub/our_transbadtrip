@@ -116,7 +116,7 @@ export const setupLoginPage = () => {
     </div>
     <div class="PadSingbt">
         <button id="sing_IN" class="SIGN_BT_IN">
-        SIGN IN
+        SIGN UP
         </button>
     </div>
     <div class="responsUP">

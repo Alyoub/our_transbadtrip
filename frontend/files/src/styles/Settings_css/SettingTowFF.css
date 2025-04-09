@@ -190,7 +190,7 @@
 }
 .invalid
 {
-    outline: 2px solid red;
+  outline: 2px solid rgba(190, 80, 255, 0.6) ;
 }
 .Sitting_Uplouad_cover,
 .Sitting_Uplouad_pic

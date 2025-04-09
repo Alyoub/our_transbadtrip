@@ -31,7 +31,7 @@
     justify-content: center;
     flex-direction: column;
     gap: 12px;
-    background-color: rgb(255, 255, 255, 0.2);
+    background-color: rgba(0,0,0,0.7);
     box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
   }
@@ -74,7 +74,11 @@
     text-indent: 5%;
     border-radius: 14px;
     font-size: clamp(10px, 1vw, 43px);
-    background-color: rgba(94,94,111,255);
+    
+    /* background-color: rgba(94,94,111,255); */
+
+    background-color: rgba(31, 31, 31, 0.9); 
+
     border: 1px solid rgba(207, 200, 200, 0.5);
     outline: none;
     color: white;
@@ -84,7 +88,7 @@
   .card__form button
   {
     border: 0;
-    background: rgba(84, 134, 168, 255);
+    background: rgba(88, 101, 242, 1);
     color: #fff;
     padding: 0.68em;
     font-size: clamp(10px, 1vw, 40px);

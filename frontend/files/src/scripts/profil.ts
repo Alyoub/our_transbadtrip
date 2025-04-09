@@ -129,7 +129,7 @@ export function profile()
         })
         .then(response => response.json())
         .then(data => {
-			// console.log(data);
+			console.log(data);
 
 			profileCover.src = data.wallpaperPath;
 			profilepic.src = data.profilePicPath;
@@ -222,108 +222,99 @@ export function profile()
 			});
 	}
 
+	function friendsrecList()
+	{
+		const reclist = document.querySelector('.ListData') as HTMLDivElement;
+
+		fetch(`${window.location.origin}/api/friends/requests`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({}),
+			credentials: 'include'
+		})
+		.then(response => response.json())
+		.then(data => {
+
+			data.requests.forEach((request: any) => {
+				const user = request.user;
 
 
-	// function frindList()
-	// {
-	// 	const data = {
-	// 		id : 1
-	// 	}
-	// 	fetch(`${window.location.origin}/api/register`, {
-	// 		method: 'POST',
-	// 		headers: {
-	// 			'Content-Type': 'application/json'
-	// 		},
-	// 		body: JSON.stringify(data),
-	// 		credentials : "include"
-	// 	})
-	// 	.then(response => response.json())
-	// 	.then(data => {
+				const userContainer = document.createElement('div');
+				userContainer.classList.add('userContiner');
 
-	// 		console.log('FR', data)
-	// 	})
-	// }
-	// frindList();
-	
+				const img = document.createElement('img');
+				img.classList.add('userPic');
+				img.src = user.profilePicPath || '../public/profile_pictures/ProfilePic.jpeg'; // fallback
 
-// 	function friendsrecList()
-// 	{
-// 		const reclist = document.querySelector('.ListData') as HTMLDivElement;
-
-
-// 		fetch(`${window.location.origin}/api/friends/requests`, {
-// 					method: 'POST',
-// 					headers: {
-// 						'Content-Type': 'application/json'
-// 					},
-// 					body: JSON.stringify({}),
-// 					credentials : "include"
-// 				})
-// 				.then(response => response.json())
-// 				.then(data => {
 		
-// 					console.log('FR', data.requests[0].user.id)
-// 				})
-// 	}
-// 	friendsrecList();
-// }
-
-function friendsrecList() {
-	const reclist = document.querySelector('.ListData') as HTMLDivElement;
-
-	fetch(`${window.location.origin}/api/friends/requests`, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({}),
-		credentials: 'include'
-	})
-	.then(response => response.json())
-	.then(data => {
-
-		data.requests.forEach((request: any) => {
-			const user = request.user;
+				const label = document.createElement('label');
+				label.classList.add('userName');
+				label.textContent = user.login;
 
 
-			const userContainer = document.createElement('div');
-			userContainer.classList.add('userContiner');
+				const button = document.createElement('button');
+				button.classList.add('btn');
 
-			const img = document.createElement('img');
-			img.classList.add('userPic');
-			img.src = user.profilePicPath || '../public/profile_pictures/ProfilePic.jpeg'; // fallback
+				const span = document.createElement('span');
+				span.classList.add('text');
+				span.textContent = 'Play';
 
-	
-			const label = document.createElement('label');
-			label.classList.add('userName');
-			label.textContent = user.login;
+				button.appendChild(span);
 
 
-			const button = document.createElement('button');
-			button.classList.add('btn');
-
-			const span = document.createElement('span');
-			span.classList.add('text');
-			span.textContent = 'Play';
-
-			button.appendChild(span);
+				userContainer.appendChild(img);
+				userContainer.appendChild(label);
+				userContainer.appendChild(button);
 
 
-			userContainer.appendChild(img);
-			userContainer.appendChild(label);
-			userContainer.appendChild(button);
-
-
-			reclist.appendChild(userContainer);
+				reclist.appendChild(userContainer);
+			});
+		})
+		.catch(err => {
+			console.error("Error fetching requests:", err);
 		});
-	})
-	.catch(err => {
-		console.error("Error fetching requests:", err);
-	});
-}
-friendsrecList();
+	}
+	friendsrecList();
+
+
 }
 
+
+export function logOut() : void 
+	{
+		const logBtn = document.querySelector('.logout') as HTMLDivElement;
+
+		const headerbtn = document.querySelector('.sign-bt_notif') as HTMLDivElement;
+		const card = document.querySelector('.loader') as HTMLElement;
+
+		const allprofileData = document.querySelector('.allprofileData') as HTMLDivElement ;
+
+		headerbtn.addEventListener('click', () => {
+			logBtn.style.display = "";
+		});
+
+		logBtn.addEventListener('click', () => {
+
+			fetch(`${window.location.origin}/api/logout`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({}),
+				credentials : "include"
+			})
+			allprofileData.classList.add('blur');
+			card.style.display = "";
+				setTimeout(() =>
+				{
+					loadnhistory('home');
+				}, 3000);
+			
+		});
+
+	}
 
 // <div class="userContiner">
 // 	<img class="userPic" src="../public/profile_pictures/ProfilePic.jpeg">

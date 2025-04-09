@@ -212,6 +212,10 @@ export function GameAi()
             users.innerHTML = "Player 1 Wins!";
             return;
         }
+        if (leftPlayerScore >= 5)
+        {
+            
+        }
 
         if (rightPlayerScore >= 5) {
             gameOver = true;

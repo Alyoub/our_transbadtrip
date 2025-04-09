@@ -13,6 +13,21 @@ body
     margin-top: 15%;
     display: flex;
     gap: 2%;
+    position: relative;
+
+}
+.allprofileData::after
+{   
+    position: absolute;
+    content:  '';
+    width: 90%;
+    height: 70%;
+    /* background-color: rgba(74,114,147,255); */
+    background-color: black;
+    z-index: -1;
+    filter: blur(170px);
+    top: 20%;
+    left: 5%;
 
 }
 .empty1,
@@ -195,7 +210,7 @@ body
     content: '';
     width: 10%;
     position: absolute;
-    background-color:rgba(0, 255, 255, 0.7) ;
+    background-color:rgba(0, 0, 0, 0.7) ;
     height: 100%;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
@@ -390,7 +405,8 @@ body
 {
     width: 100%;
     border-radius: 14px;
-    background-color: rgba(0, 255, 255, 0.4);
+    /* background-color: rgba(0, 255, 255, 0.4); */
+    background-color: rgba(0, 0, 0, 0.7);
     border: none;
     color: white;
     font-size: clamp(10px, 1.2vw, 50px);
@@ -408,7 +424,9 @@ body
     font-family: Arial, Helvetica, sans-serif;
     /* background-color: red; */
     padding-bottom: 5%;
+    font-size: clamp(10px, 1.2vw, 50px);
     padding-top: 5%;
+    font-weight: bolder;
 }
 
 
@@ -424,7 +442,7 @@ body
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: conic-gradient(rgba(0, 255, 255, 0.7)  260deg, rgba(255, 255, 255, 0.1) 0deg);
+    background: conic-gradient(rgba(0, 0, 0, 0.7)  260deg, rgba(255, 255, 255, 0.1) 0deg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -675,3 +693,4 @@ body
     background-color: red;
 
 }
+

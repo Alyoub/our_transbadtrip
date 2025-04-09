@@ -210,12 +210,31 @@ export function GameLocal()
         if (leftPlayerScore >= 5) {
             gameOver = true;
             drawWinMessage("Player 1 Wins!");
+
+            fetch(`${window.location.origin}/api/wingame`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({}),
+                credentials : "include"
+            })
             return;
         }
 
         if (rightPlayerScore >= 5) {
             gameOver = true;
             drawWinMessage("Player 2 Wins!");
+
+            fetch(`${window.location.origin}/api/losegame`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({}),
+                credentials : "include"
+            })
+
             return;
         }
 

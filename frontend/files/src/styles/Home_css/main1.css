@@ -80,8 +80,10 @@
 {
 
     color: white;
-    background-color: rgba(58, 79, 124, 0.9);
+    /* background-color: rgba(58, 79, 124, 0.9); */
     /* background-color: rgba(240,85,85,255); */ /*new one*/
+
+    background-color: rgba(88, 101, 242, 1);
     border: 1px solid white;
     border-radius: 30px;
     padding: clamp(1px, 1vw, 10px) clamp(0px, 1vw, 26px);
@@ -98,14 +100,14 @@
     margin-left: 44%;
     position: relative;
 }
-.sign-bt2:hover
+/* .sign-bt2:hover
 {
     background-color: rgba(102,104,117,0.9);
     color: black;
     transition: 1s;
     border: 1px solid white;
     cursor: pointer;
-}
+} */
 .s-1
 {
     
@@ -136,5 +138,5 @@
 .step-up,
 .Challenge
 {
-    color: rgb(175, 218, 232);
+    color: rgba(88, 101, 242, 1)
 }

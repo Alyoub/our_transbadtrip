@@ -90,7 +90,7 @@ body
 }
 .log-in-bt2
 {
-    background-color:rgba(102,104,117,255);
+    background-color: rgba(88, 101, 242, 1) ;
     color: white;
     padding: clamp(1px, 1vw, 10px) clamp(0px, 2vw, 26px);
     border: none;
@@ -107,8 +107,8 @@ body
 } 
 .log-in-bt1:hover
 {
-    background-color: rgb(26, 26, 46);
-    border: 2px solid whitesmoke;
+    background-color: rgba(88, 101, 242, 1) ;
+    /* border: 2px solid whitesmoke; */
     transition: 1s;
     cursor: pointer;
 }

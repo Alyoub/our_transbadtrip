@@ -86,7 +86,8 @@
 .tag1:hover
 {
     /* background-color: rgba(78, 78, 128, 0.9); */
-    background-color: rgba(58, 79, 124, 0.9);
+    /* background-color: rgba(58, 79, 124, 0.9); */
+    background-color: rgba(88, 101, 242, 1);
     transition: 1s;
     cursor: pointer;
 }

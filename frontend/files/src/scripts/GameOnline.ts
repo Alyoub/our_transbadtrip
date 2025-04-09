@@ -92,24 +92,6 @@ export function GameOnline2()
     const player22 = document.querySelector('.user2TEXT') as HTMLElement;
 
 
-        // fetch(`${window.location.origin}/api/profile`, {
-        //     method: 'GET',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     credentials : "include"
-        // })
-        // .then(response => response.json())
-        // .then(data => {
-        
-        // const nameVal = data.name;
-        // // const userVal = data.login;
-        // // const emailVal = data.email;
-
-        // player11.textContent = nameVal;
-            
-        // })
-
 
     socket.on("gameState", (state: GameState) => {
 

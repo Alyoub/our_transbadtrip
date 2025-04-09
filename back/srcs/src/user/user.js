@@ -86,7 +86,6 @@ async function logout(request,reply){
         ]);
 
     }catch(err){
-        //// console.log('logout :( error',err);
         return reply.code(444).send({
             badtrip : 'hadchi makdamch ',
             error: err,

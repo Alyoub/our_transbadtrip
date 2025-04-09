@@ -13,7 +13,7 @@
 import { updateHomeHeadermain3 } from "./home1.js";
 import { updateHomeHeadermain5 , setupLoginPage } from "./home2.js";
 // import { setupProfilPage , setupProfilButtons } from "./profil.js";
-import { profile, setupProfilePage } from "./profil.js"
+import { profile, setupProfilePage, logOut } from "./profil.js"
 import { updateSettingsPage } from "./settings.js";
 // import { rakmanchat } from "./chat.js";
 import { setupSoloPage , GameAi } from "./GameAI.js";
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // };
 
 const  HeaderHTML =
-			`<header class="header_notif max-635:px-14 px-24 lg:px-32 z-10">
+			`<header id="header" class="header_notif max-635:px-14 px-24 lg:px-32 z-10">
 				<button data-page="profil" title="Home" class="home-btn logo_notif transition-transform duration-300 hover:scale-110">
 					<img class="logo-pic_notif" src="../public/logos/pingpong_racket.png">
 					<div class="logo-name_notif">
@@ -118,6 +118,10 @@ const  HeaderHTML =
 						<span id="iPlayerUsername" class="user_name_header"></span>
 						<!-- <img class="user_notification_header" src="../public/logos/bell.svg"> -->
 					</button>
+				</div>
+				<div class="logout" style="display: none;">
+					<img class="logoutSvg" src="../public/logos/logout.svg">
+					<span id="logoutText"> Sign out</span>
 				</div>
 			</header>`;
 
@@ -140,6 +144,7 @@ async function loadPage(page: string) {
 			profile();
 			header.innerHTML = HeaderHTML;
 			setupProfilePage();
+			logOut();
 		}
 		if (page === 'createtourn')
 		{
@@ -160,6 +165,7 @@ async function loadPage(page: string) {
 			header.innerHTML = HeaderHTML;
 			setupProfilePage();
 			updateSettingsPage();
+			logOut();
 			
 		}
 		if (page === 'game_ai')

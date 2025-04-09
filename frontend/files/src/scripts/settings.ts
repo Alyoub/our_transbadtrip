@@ -371,6 +371,16 @@ export const updateSettingsPage = () => {
         const picpic = document.querySelector('.settings_pic') as HTMLImageElement;
         const coverPic = document.querySelector('.settings_cover') as HTMLImageElement;
 
+        const Switch = document.getElementById('SWitchbtn') as HTMLSpanElement;
+
+
+        const fabtn = document.querySelector('.SwitchOFF') as HTMLImageElement;
+        const switchONBtn = document.getElementById('SWitchbtn') as HTMLElement;
+
+        const OFF = '<img class="SwitchOFF" src="/public/logos/SwitchOFF.svg">';
+        const ON = '<img class="SwitchON" src="/public/logos/SwitchON.svg">';
+
+
         fetch(`${window.location.origin}/api/profile`, {
             method: 'GET',
             headers: {
@@ -380,12 +390,17 @@ export const updateSettingsPage = () => {
         })
         .then(response => response.json())
         .then(data => {
+
+            console.log(data);
         
         const nameVal = data.name;
         const userVal = data.login;
         const emailVal = data.email;
         const pic = data.profilePicPath;
         const cover = data.wallpaperPath;
+
+        const tfa  = data.tfa;
+
 
         name.value = nameVal;
         username.value = userVal;
@@ -395,6 +410,21 @@ export const updateSettingsPage = () => {
         coverPic.src = cover;
         
         fullname.innerHTML = nameVal;
+
+            if(tfa === false)
+            {
+                fabtn.src = "/public/logos/SwitchOFF.svg";
+                switchONBtn.innerHTML = OFF;
+                switchONBtn.classList.remove('SwitchedON');
+                switchONBtn.classList.add('SwitchedOFF');
+            }
+            if(tfa === true)
+            {
+                fabtn.src = "/public/logos/SwitchOFF.svg";
+                switchONBtn.innerHTML = ON;
+                switchONBtn.classList.add('SwitchedON');
+                switchONBtn.classList.remove('SwitchedOFF');
+            }
             
         })
     }
