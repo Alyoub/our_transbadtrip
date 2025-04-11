@@ -64,6 +64,8 @@ class HandleFriends {
         return this.reply.code(200).send({ message: "Friend request accepted." });
     }
 
+    
+
     async listRequests() {
         const { userId } = this.request.user;
 
@@ -125,7 +127,7 @@ class HandleFriends {
                 OR: [
                     { userId, accepted: true },
                     { friendId: userId, accepted: true },
-                ],
+                ],            
             },
             include: { user: true, friend: true },
         });

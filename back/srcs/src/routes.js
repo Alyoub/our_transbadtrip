@@ -207,32 +207,62 @@ module.exports = async function routes(fastify, options) {
     fastify.post('/unblock', { preHandler: [fastify.authenticate] }, unblockUser);
     fastify.post('/chat/:login', { preHandler: [fastify.authenticate] }, load_conversation);
 
+    // fastify.post('/wingame', { preHandler: [fastify.authenticate] }, async (request, reply) => {
+    //     const user = request.user;
+    
+    //     try {
+    //         await prisma.user.update({
+    //             where: { id: user.userId },
+    //             data: { wonGames: { increment: 1 } }
+    //         });
+
+    //         const userrr = await prisma.user.findUnique({
+    //             where: { id: user.userId }
+    //         });
+
+    //         const levelsToIncrement = Math.floor(userrr.wonGames / 3);
+    //         // console.log('levelsToIncrement', levelsToIncrement);
+    //         if (levelsToIncrement > 0) {
+    //             await prisma.user.update({
+    //                 where: { id: user.userId },
+    //                 data: { level: { increment: levelsToIncrement } }
+    //             });
+    //         }
+    //         reply.status(200).send({ message: 'Win recorded' });
+    //     } catch (error) {
+    //         reply.status(500).send({ error: 'Failed to record win' });
+    //     }
+    // });
+
     fastify.post('/wingame', { preHandler: [fastify.authenticate] }, async (request, reply) => {
         const user = request.user;
     
         try {
+            // Increment the number of won games by 1
             await prisma.user.update({
                 where: { id: user.userId },
                 data: { wonGames: { increment: 1 } }
             });
-
+    
             const userrr = await prisma.user.findUnique({
                 where: { id: user.userId }
             });
-
-            const levelsToIncrement = Math.floor(userrr.wonGames / 3);
-            // console.log('levelsToIncrement', levelsToIncrement);
-            if (levelsToIncrement > 0) {
-                await prisma.user.update({
-                    where: { id: user.userId },
-                    data: { level: { increment: levelsToIncrement } }
-                });
-            }
+    
+            // Calculate the new level based on the number of won games
+            const newLevel = Math.floor(userrr.wonGames / 10);
+    
+            // Update the user's level
+            await prisma.user.update({
+                where: { id: user.userId },
+                data: { level: newLevel }
+            });
+    
             reply.status(200).send({ message: 'Win recorded' });
         } catch (error) {
             reply.status(500).send({ error: 'Failed to record win' });
         }
     });
+    
     
     fastify.post('/losegame', { preHandler: [fastify.authenticate] }, async (request, reply) => {
         const user = request.user;

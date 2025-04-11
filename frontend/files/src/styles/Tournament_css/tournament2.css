@@ -138,7 +138,7 @@ p {
 
 #startBtn {
     padding: 10px 20px;
-    background: #4CAF50;
+    background: rgba(88, 101, 242, 0.7);
     color: white;
     border: none;
     border-radius: 5px;
@@ -146,12 +146,12 @@ p {
     font-size: 16px;
 }
 #startBtn:hover {
-    background: #45a049;
+    background: rgba(88, 101, 242, 0.7);
 }
 
 #exitBtn {
     padding: 10px 20px;
-    background: #af4c4c;
+    background: rgba(31, 31, 31, 0.9);
     color: white;
     border: none;
     border-radius: 5px;

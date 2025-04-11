@@ -47,7 +47,7 @@ export function profile()
 	`;
 
 	const onlineHTMLgen = `
-		<button class="soloBtn">
+		<button id="online" class="soloBtn">
 			1 VS 1
 		</button>
 	`;
@@ -57,6 +57,7 @@ export function profile()
 		const localbrtn = document.getElementById('localBtn') as HTMLButtonElement;
 		const modeSide = document.getElementById('modeSide') as HTMLElement;
 
+	
 		const onlinebtn = document.getElementById('OnlineBtn') as HTMLButtonElement;
 
 		localbrtn.classList.add('linecool');
@@ -73,7 +74,13 @@ export function profile()
 			localbrtn.classList.remove('linecool');
 			onlinebtn.classList.add('linecool');
 			modeSide.innerHTML = onlineHTMLgen;
+
+
+			loadOnlineGame();
 		});
+
+
+		
 
 	}
 	switchMode();
@@ -129,7 +136,7 @@ export function profile()
         })
         .then(response => response.json())
         .then(data => {
-			console.log(data);
+			// console.log(data);
 
 			profileCover.src = data.wallpaperPath;
 			profilepic.src = data.profilePicPath;
@@ -174,7 +181,7 @@ export function profile()
 								<div class="userContiner1">
 									<img class="userPic" src="${user.profilePicPath}">
 									<label class="userName1">${user.login}</label>
-									<button id="send" class="btn1">
+									<button id="send" class="btn2">
                                     <span class="text">Send Request</span>
                                 	</button>
 								</div>
@@ -217,7 +224,7 @@ export function profile()
 					.then(response => response.json())
 					.then(data => {
 
-						console.log(data);
+						console.log("REC",data);
 					})
 			});
 	}
@@ -225,6 +232,10 @@ export function profile()
 	function friendsrecList()
 	{
 		const reclist = document.querySelector('.ListData') as HTMLDivElement;
+
+		const recBNT = document.querySelector('.frindSReqBtn') as HTMLButtonElement;
+
+		recBNT.classList.add('linecool');
 
 		fetch(`${window.location.origin}/api/friends/requests`, {
 			method: 'POST',
@@ -246,28 +257,77 @@ export function profile()
 
 				const img = document.createElement('img');
 				img.classList.add('userPic');
-				img.src = user.profilePicPath || '../public/profile_pictures/ProfilePic.jpeg'; // fallback
+				img.src = user.profilePicPath || '../public/profile_pictures/ProfilePic.jpeg';
 
-		
 				const label = document.createElement('label');
 				label.classList.add('userName');
 				label.textContent = user.login;
 
 
 				const button = document.createElement('button');
+				const button1 = document.createElement('button');
 				button.classList.add('btn');
+				button1.classList.add('btn1');
 
 				const span = document.createElement('span');
+				const span1 = document.createElement('span');
 				span.classList.add('text');
-				span.textContent = 'Play';
+				span.textContent = 'Cancel';
+				span1.classList.add('text');
+				span1.textContent = 'Accept';
 
 				button.appendChild(span);
+				button1.appendChild(span1);
 
 
 				userContainer.appendChild(img);
 				userContainer.appendChild(label);
 				userContainer.appendChild(button);
+				userContainer.appendChild(button1);
 
+				button.addEventListener('click', () => {
+					
+
+					const cancel = {
+						friendId : user.id,
+					};
+
+					fetch(`${window.location.origin}/api/friends/cancel`, {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify(cancel),
+						credentials: 'include'
+					})
+					.then(response => response.json())
+					.then(data => {
+						console.log('KO', data);
+
+					})
+
+					
+				});
+
+				button1.addEventListener('click', () => {
+					console.log('OK');
+					const added = {
+						friendId : user.id,
+					};
+					fetch(`${window.location.origin}/api/friends/accept`, {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify(added),
+						credentials: 'include'
+					})
+					.then(response => response.json())
+					.then(data => {
+						console.log('KO', data);
+
+					})
+				});
 
 				reclist.appendChild(userContainer);
 			});
@@ -278,6 +338,34 @@ export function profile()
 	}
 	friendsrecList();
 
+	function friendsList() : void 
+	{
+		fetch(`${window.location.origin}/api/friends/list`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({}),
+			credentials: 'include'
+		})
+		.then(response => response.json())
+		.then(data => {
+			console.log('List', data);
+
+		})
+	}
+	friendsList();
+
+	function loadOnlineGame( ): void
+	{
+		const ONlinebnt = document.getElementById('online') as HTMLButtonElement;
+
+
+		ONlinebnt.addEventListener('click', () => {
+			
+			loadnhistory('GameOnline');
+		});
+	}
 
 }
 
@@ -296,7 +384,7 @@ export function logOut() : void
 		});
 
 		logBtn.addEventListener('click', () => {
-
+			logBtn.style.display = "none";
 			fetch(`${window.location.origin}/api/logout`, {
 				method: 'POST',
 				headers: {
@@ -315,6 +403,34 @@ export function logOut() : void
 		});
 
 	}
+
+	function DashbordData()
+	{
+		// const NextLevel = document.querySelector('.progress-circle') as HTMLDivElement;
+
+		fetch(`${window.location.origin}/api/profile`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials : "include"
+        })
+			.then(response => response.json())
+			.then(data => {
+				const won = data.wonGames;
+				const pers = won * 10;
+				const NextLevel = document.querySelector('.progress-circle') as HTMLDivElement;
+
+				const perCent = document.querySelector('.subtext') as HTMLSpanElement;
+
+				console.log('dash -> ', won);
+			
+				NextLevel.style.background = `conic-gradient(rgba(0, 0, 0, 0.7) 0deg ${won * 43}deg, rgba(255, 255, 255, 0.1) 260deg 360deg)`;
+				perCent.textContent = String(pers) + '%';
+			})
+		}		
+	DashbordData();
+
 
 // <div class="userContiner">
 // 	<img class="userPic" src="../public/profile_pictures/ProfilePic.jpeg">

@@ -1,7 +1,7 @@
 #start
 {
   padding: 10px 20px;
-  background: #4CAF50;
+  background: rgba(88, 101, 242, 1);
   color: white;
   border: none;
   border-radius: 5px;
@@ -9,7 +9,7 @@
   font-size: 16px;
 }
 #start:hover {
-  background: #45a049;
+  background: rgba(88, 101, 242, 1);
 }
 #ResetButton  
 {

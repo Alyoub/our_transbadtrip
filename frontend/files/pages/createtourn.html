@@ -10,27 +10,28 @@
 
     <link rel="stylesheet" href="../src/styles/Tournament_css/tournament1.css">
     <!-- <link rel="stylesheet" href="../src/styles/Tournament_css/new.css"> -->
+    <link rel="stylesheet" href="../src/styles/Tournament_css/Tournament.css">
 
 </head>
 <body>
     <notification-header2></notification-header2>
-
-    <div id="tournamentSetup">
-        <div class="titleESC pl-24 pr-44">
-			<div class="flex flex-col items-center ml-10">
-				<button id="rtnProfilBtn" type="button" data-page="profil" class="exitBt">
-					<img class="size-6 md:size-7 lg:size-8 xl:size-9" src="../public/logos/close.png">
-				</button>
-				<h1 class="ESC2 text-2xs md:text-xs lg:text-sm xl:text-base pt-2">
-					ESC
-				</h1>
-			</div>
-			<div class="text">
-				<h1 class="texxt text-sm sm:text-base lg:text-lg xl:text-xl 2xl:text-2xl">
-					Pong Tournament
-				</h1>
-			</div>
-		</div>
+    <div class="title">
+        <div class="empty3"></div>
+        <div class="exit">
+        <button class="exitBt">
+            <img id="closeAI" src="../public/logos/X_symbol.svg" class="close_logo">
+        </button>
+        <h1 class="ESC">
+            ESC
+        </h1>
+        </div>
+        <div class="text">
+        <h1 class="texxt">
+            Pong Tournament 
+        </h1>
+        </div>
+        <div class="empty4"></div>
+    </div>
 
         <form id="tournamentForm" class="flex flex-col flex-1 gap-10 mt-20">
             <label for="playerName" class="inputlabel ">Enter player names to begin:</label>

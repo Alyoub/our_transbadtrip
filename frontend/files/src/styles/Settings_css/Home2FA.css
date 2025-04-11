@@ -3,7 +3,7 @@
     width: 100%;
     /* background-color: black; */
     position: fixed;
-    margin-top: -90%;
+    margin-top: -100%;
     z-index: 20;
     display: flex;
     position: sticky;
@@ -22,11 +22,12 @@
 }
 .logoFApart
 {
-    width: 100%;
+    width: 90%;
     /* background-color: black; */
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
     align-items:  center;
 }
 .FAlogo
@@ -50,7 +51,7 @@
     width: 100%;
     margin-top: 5%;
     /* background-color: rgba(26, 26, 46, 0.8); */
-    background-color: rgb(255, 255, 255, 0.2);
+    background-color: rgb(0, 0, 0, 0.7);
     border-radius: 10%;
     padding-top: 5%;
     box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.5);
@@ -100,15 +101,19 @@
 {
     height: 5svw;
     width: 15%;
-    text-indent: 40%;
-    background-color: white;
+    /* text-indent: 40%; */
+    background-color:rgba(31, 31, 31, 0.9);
     border-radius: 10px;
     font-size: clamp(10px, 2vw, 30px);
     font-weight: bolder;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid rgba(207, 200, 200, 0.3);
 }
 .HomeFaVerify
 {
-    background-color: rgba(84, 134, 168, 255);
+    background-color: rgba(88, 101, 242, 1);
     width: 80%;
     margin-top: 5%;
     font-size: clamp(10px, 1.5vw, 30px);

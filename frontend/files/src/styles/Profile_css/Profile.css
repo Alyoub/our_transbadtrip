@@ -208,9 +208,9 @@ body
 .line::after
 {
     content: '';
-    width: 10%;
+    width: 2%;
     position: absolute;
-    background-color:rgba(0, 0, 0, 0.7) ;
+    background-color:rgba(88, 101, 242, 0.7);
     height: 100%;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
@@ -257,16 +257,21 @@ body
     -4px -4px 15px rgba(255, 255, 255, 0.1);
 }
 
-.frindSReqBtn,
+.frindSReqBtn
+{
+    flex: 1;
+    font-size: clamp(10px, 1.2vw, 50px);
+    font-weight: bold;
+    color: white;
+    padding-bottom: 2%;
+    border-bottom: 4px solid white;
+}
 .frindSListBtn
 {
     flex: 1;
     font-size: clamp(10px, 1.2vw, 50px);
     font-weight: bold;
     color: white;
-    /* background-color: rgba(20, 20, 41, 255); */
-    /* background-color: rgba(0, 255, 255); */
-    border: none;
     padding-bottom: 2%;
     /* border-bottom: 4px solid white; */
 }
@@ -442,7 +447,7 @@ body
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: conic-gradient(rgba(0, 0, 0, 0.7)  260deg, rgba(255, 255, 255, 0.1) 0deg);
+    /* background: conic-gradient(rgba(0, 0, 0, 0.7)  260deg, rgba(255, 255, 255, 0.1) 0deg); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -497,10 +502,12 @@ body
 .userContiner
 {
     width: 100%;
-    height: 25%;
+    height: auto;
     background-color: rgba(94, 94, 111, 255);
     border-radius: 14px;
     display: flex;
+    padding-top: 2%;
+    padding-bottom: 2%;
     align-items: center;
     position: relative;
     /* background-color: red; */
@@ -527,14 +534,14 @@ body
 .userName
 {
     color: white;
-    margin-left: 5%;
+    margin-left: 3%;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
 .userName1
 {
     color: white;
-    margin-left: 5%;
+    margin-left: 3%;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: clamp(10px, 0vw, 30px);
@@ -565,7 +572,7 @@ body
     position: absolute;
     right: 7%;
   }
-  .btn1
+  .btn2
   {
     position: relative;
     display: flex;
@@ -580,7 +587,7 @@ body
     text-transform: uppercase;
     transition: .2s ease;
     position: absolute;
-    right: 7%;
+    right: 5%;
   }
   
   .text {
@@ -639,6 +646,70 @@ body
       transform: rotate(360deg);
     }
   }
+
+
+
+  .btn1{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 1em 2em;
+    font-size: 7px;
+    font-weight: bold;
+    border-width: 0;
+    border-radius: 1.5em;
+    text-transform: uppercase;
+    transition: .2s ease;
+    position: absolute;
+    right: 27%;
+  }
+  
+  .btn1::before {
+    position: absolute;
+    content: '';
+    width: 120%;
+    height: 260%;
+    background-image: linear-gradient(135deg, rgba(0,5,255,1) 0%, rgba(255,0,159,1) 100%);
+  }
+  
+  .btn1::after {
+    position: absolute;
+    content: '';
+    width: 88%;
+    height: 80%;
+    border-width: 0;
+    border-radius: 1.2em;
+    background-color: black;
+    opacity: .7;
+    transition: 100ms ease;
+  }
+  
+  .btn1:hover.btn1 {
+    transform: scale(1.1);
+  }
+  
+  .btn1:hover.btn1::after {
+    opacity: .5;
+  }
+  
+  .btn1:hover.btn1::before {
+    animation: turn_4810 .4s infinite linear;
+  }
+  
+  .btn1:active.btn1 {
+    transform: scale(1.05);
+  }
+  
+  .btn1:active.btn1::before {
+    transform: scale(1.05);
+    animation: turn_4810 .2s infinite linear;
+  }
+  
+  
+
+
   
 
   .linecool
@@ -694,3 +765,44 @@ body
 
 }
 
+
+.btn2::before {
+  position: absolute;
+  content: '';
+  width: 120%;
+  height: 260%;
+  background-image: linear-gradient(135deg, rgba(0,5,255,1) 0%, rgba(0, 255, 255, 0.7) 100%);
+}
+
+.btn2::after {
+  position: absolute;
+  content: '';
+  width: 88%;
+  height: 80%;
+  border-width: 0;
+  border-radius: 14px;
+  background-color: black;
+  opacity: .7;
+  transition: 100ms ease;
+}
+
+.btn2:hover.btn2 {
+  transform: scale(1.1);
+}
+
+.btn2:hover.btn2::after {
+  opacity: .5;
+}
+
+.btn2:hover.btn2::before {
+  animation: turn_4810 .2s infinite linear;
+}
+
+.btn2:active.btn2 {
+  transform: scale(1.05);
+}
+
+.btn2:active.btn2::before {
+  transform: scale(1.05);
+  animation: turn_4810 .1s infinite linear;
+}
